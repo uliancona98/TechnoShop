@@ -16,6 +16,7 @@ public class TechnoShop {
      */
     public static void main(String[] args) {
         System.out.println("Hola TechnoShop");
+        System.out.println("H");
     }
     
 }
