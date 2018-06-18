@@ -9,18 +9,15 @@ package Domain;
  *
  * @author A13003988
  */
-public class Administrador extends Cuenta{
-    private Producto producto;
+public class PagoMembresia extends Pago{
+    private String tipo;
+    private double puntos;
     
-    public void AnadirProducto(){
+    public void cambiarMembresia(){
         
     }
     
-    public void RetirarProducto(){
-        
-    }
-    
-    public void SolicitarReporte(){
-        
+    public int pagar(int cantidad){
+        return cantidad;
     }
 }

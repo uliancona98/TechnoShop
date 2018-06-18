@@ -7,20 +7,16 @@ package Domain;
 
 /**
  *
- * @author A13003988
+ * @author Juan D.M
  */
-public class Administrador extends Cuenta{
-    private Producto producto;
+public class Carrito {
+    private Producto list;
     
-    public void AnadirProducto(){
+    public void agregarProducto(){
         
     }
     
-    public void RetirarProducto(){
-        
-    }
-    
-    public void SolicitarReporte(){
+    public void getProducto(){
         
     }
 }

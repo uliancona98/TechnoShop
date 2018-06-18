@@ -13,7 +13,8 @@ public class Pedido {
 
     private int NoPedido;
     private String Fecha;
-
+    private Producto list;
+    
     public int getNoPedido() {
         return NoPedido;
     }

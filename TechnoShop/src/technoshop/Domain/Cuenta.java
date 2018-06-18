@@ -30,6 +30,20 @@ public class Cuenta {
     public void setContraseña(String Contraseña) {
         this.Contraseña = Contraseña;
     }
-    
-    
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public String getApellido() {
+        return Apellido;
+    }
+
+    public String getCorreo() {
+        return Correo;
+    }
+
+    public String getContraseña() {
+        return Contraseña;
+    }
 }

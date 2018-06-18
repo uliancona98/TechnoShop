@@ -9,18 +9,18 @@ package Domain;
  *
  * @author A13003988
  */
-public class Administrador extends Cuenta{
-    private Producto producto;
+public class GUITecnoShop {
+    private Pedido list;
     
-    public void AnadirProducto(){
+    public void generarReportePedidos(){
         
     }
     
-    public void RetirarProducto(){
+    public void ValidarCuenta(){
         
     }
     
-    public void SolicitarReporte(){
+    public void AsignarMembresia(){
         
     }
 }
