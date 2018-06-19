@@ -10,7 +10,7 @@ package Domain;
  * @author A13003988
  */
 public class Administrador extends Cuenta{
-    private Producto list;
+
     private Bodega bodega = new Bodega();
     
     public void AnadirProducto(){
@@ -23,5 +23,9 @@ public class Administrador extends Cuenta{
     
     public void SolicitarReporte(){
         
+    }
+    
+    public void PedirLista(){
+        bodega.getListaDeProductos();
     }
 }
