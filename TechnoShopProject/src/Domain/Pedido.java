@@ -34,6 +34,6 @@ public class Pedido {
     public void setFecha() {
         // prints "Sep 6, 2009 9:03:20 PM"
         DateFormat dateTimeInstance = SimpleDateFormat.getDateTimeInstance();
-        System.out.println(dateTimeInstance.format(Calendar.getInstance().getTime()));        
+        fecha = dateTimeInstance.format(Calendar.getInstance().getTime());    
     }
 }
