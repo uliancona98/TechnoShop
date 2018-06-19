@@ -5,6 +5,10 @@
  */
 package Domain;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  *
  * @author A13003988
@@ -12,8 +16,8 @@ package Domain;
 public class Pedido {
 
     private int NoPedido;
-    private String Fecha;
     private Producto list;
+    private String fecha;
     
     public int getNoPedido() {
         return NoPedido;
@@ -24,11 +28,12 @@ public class Pedido {
     }
 
     public String getFecha() {
-        return Fecha;
+        return fecha;
     }
 
-    public void setFecha(String Fecha) {
-        this.Fecha = Fecha;
+    public void setFecha() {
+        // prints "Sep 6, 2009 9:03:20 PM"
+        DateFormat dateTimeInstance = SimpleDateFormat.getDateTimeInstance();
+        System.out.println(dateTimeInstance.format(Calendar.getInstance().getTime()));        
     }
-
 }
