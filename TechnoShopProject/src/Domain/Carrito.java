@@ -12,12 +12,12 @@ import java.util.ArrayList;
  * @author Juan D.M
  */
 public class Carrito {
-    private Producto list;
+    private Producto producto;
     ArrayList<Producto> carro = new ArrayList();
     
     public void agregarProducto(){
-    list = new Producto();
-    carro.add(list);
+    producto = new Producto();
+    carro.add(producto);
     }
     
     public void getProducto(){
