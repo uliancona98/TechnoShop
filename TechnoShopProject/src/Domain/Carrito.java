@@ -5,15 +5,19 @@
  */
 package Domain;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Juan D.M
  */
 public class Carrito {
     private Producto list;
+    ArrayList<Producto> carro = new ArrayList();
     
     public void agregarProducto(){
-        
+    list = new Producto();
+    carro.add(list);
     }
     
     public void getProducto(){

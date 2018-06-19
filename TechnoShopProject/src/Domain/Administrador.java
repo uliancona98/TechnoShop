@@ -10,14 +10,15 @@ package Domain;
  * @author A13003988
  */
 public class Administrador extends Cuenta{
-    private Producto producto;
+    private Producto list;
+    private Bodega bodega = new Bodega();
     
     public void AnadirProducto(){
-        
+        bodega.AnadirProducto();
     }
     
     public void RetirarProducto(){
-        
+        bodega.RemoverProducto();
     }
     
     public void SolicitarReporte(){
