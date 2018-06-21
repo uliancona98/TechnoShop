@@ -14,8 +14,10 @@ public class VRegistrese extends javax.swing.JFrame {
     /**
      * Creates new form VRegistrese
      */
+    
     public VRegistrese() {
         initComponents();
+        System.out.println("Hola");
     }
 
     /**
