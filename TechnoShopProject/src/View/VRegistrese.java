@@ -5,19 +5,16 @@
  */
 package View;
 
-/**
- *
- * @author Juan D.M
- */
+import Domain.Usuario;
+import java.util.ArrayList;
+
+
 public class VRegistrese extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VRegistrese
-     */
+    ArrayList <Usuario> usuarios=new ArrayList();
     
     public VRegistrese() {
         initComponents();
-        System.out.println("Hola");
     }
 
     /**
@@ -65,7 +62,7 @@ public class VRegistrese extends javax.swing.JFrame {
             }
         });
 
-        BotonRegistrarse.setText("Registrarse");
+        BotonRegistrarse.setText("Crea tu cuenta TechnoShop");
         BotonRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonRegistrarseActionPerformed(evt);
@@ -77,24 +74,26 @@ public class VRegistrese extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 204, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(202, 202, 202))
             .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(56, 56, 56)
-                        .addComponent(BotonRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(CampoRNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                    .addComponent(jLabel3)
-                    .addComponent(CampoRApellido)
-                    .addComponent(CampoRCorreo)
-                    .addComponent(CampoRContrasena))
-                .addContainerGap(130, Short.MAX_VALUE))
+                        .addGap(72, 72, 72)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addComponent(CampoRNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                            .addComponent(jLabel3)
+                            .addComponent(CampoRApellido)
+                            .addComponent(CampoRCorreo)
+                            .addComponent(CampoRContrasena)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(BotonRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,16 +116,20 @@ public class VRegistrese extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(CampoRContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(35, 35, 35)
                 .addComponent(BotonRegistrarse)
-                .addContainerGap())
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarseActionPerformed
-        // TODO add your handling code here:
+        Usuario usuario=new Usuario();
+      
+        String apellido="popo";
+        usuario.setApellido(apellido);
+        usuarios.add(usuario);
     }//GEN-LAST:event_BotonRegistrarseActionPerformed
 
     private void CampoRNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoRNombreActionPerformed
@@ -162,6 +165,7 @@ public class VRegistrese extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VRegistrese.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
