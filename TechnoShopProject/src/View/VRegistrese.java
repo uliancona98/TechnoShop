@@ -5,14 +5,21 @@
  */
 package View;
 
+import Domain.Membresia;
 import Domain.Usuario;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+
 
 
 public class VRegistrese extends javax.swing.JFrame {
 
     ArrayList <Usuario> usuarios=new ArrayList();
-    
+  
+   
+    //Pattern pat = Pattern.compile("([a-z]|[A-Z]|\\\\s)+");//para validar nombre
     public VRegistrese() {
         initComponents();
     }
@@ -91,8 +98,8 @@ public class VRegistrese extends javax.swing.JFrame {
                             .addComponent(CampoRCorreo)
                             .addComponent(CampoRContrasena)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(BotonRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(127, 127, 127)
+                        .addComponent(BotonRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -125,11 +132,51 @@ public class VRegistrese extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarseActionPerformed
-        Usuario usuario=new Usuario();
-      
-        String apellido="popo";
-        usuario.setApellido(apellido);
-        usuarios.add(usuario);
+          boolean bandera1=false;
+          boolean bandera2=false;
+          boolean bandera3=false;
+        Pattern pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        /*validarcorreo*/
+        String nombre=CampoRNombre.getText();
+        String apellido=CampoRApellido.getText();
+        String correo=CampoRCorreo.getText();
+        String contrasena=new String(CampoRContrasena.getPassword());
+        
+        Matcher mat = pat.matcher(correo);
+        if ((nombre).matches("([a-z]|[A-Z]|\\s)+")) { 
+            System.out.println("valido");
+            bandera1=true;
+        }
+        if ((apellido).matches("([a-z]|[A-Z]|\\s)+")) {
+            System.out.println("valido");
+            bandera2=true;
+        }
+        if(mat.find()){
+          System.out.println("Correo Válido");
+          bandera3=true;
+        }
+        if(bandera1 && bandera2 && bandera3){
+            Usuario usuario=new Usuario();
+            Membresia menbresia= new Membresia();
+            usuario.setNombre(nombre);
+            usuario.setApellido(apellido);
+            usuario.setCorreo(correo);
+            usuario.setContraseña(contrasena);
+            menbresia.setTipo("Nivel 1");
+            usuario.setMembresia(menbresia);
+            usuarios.add(usuario);
+        }else{
+            if(!bandera1){
+                JOptionPane.showMessageDialog(null, "Nombre Invalido");
+            }
+            if(!bandera2){
+                JOptionPane.showMessageDialog(null, "Apellido Invalido");
+            }
+            if(!bandera3){
+                JOptionPane.showMessageDialog(null, "Correo Invalido");
+            }
+            
+        }
     }//GEN-LAST:event_BotonRegistrarseActionPerformed
 
     private void CampoRNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoRNombreActionPerformed
