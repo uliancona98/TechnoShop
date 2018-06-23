@@ -19,8 +19,8 @@ public class Bodega {
     producto = new Producto();
     producto.setNombre("ThinkPad T440p");
     producto.getNombre();
-    producto.setPrecio(9000);
-    producto.getPrecio();
+    producto.setPrecioCompra(9000);
+    producto.getPrecioCompra();
     listaproductos.add(producto);    
     }
     

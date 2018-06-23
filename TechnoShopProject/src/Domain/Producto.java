@@ -11,9 +11,10 @@ package Domain;
  */
 public class Producto {
     protected String Nombre;
-    protected int precio;
+    protected int precioVenta;
+    protected int precioCompra;
     protected String Descripcion;
-    protected int NoArticulo;
+    protected int NoArticulo=0;
     protected String Marca;
 
     public String getNombre() {
@@ -24,12 +25,20 @@ public class Producto {
         this.Nombre = Nombre;
     }
 
-    public int getPrecio() {
-        return precio;
+    public int getPrecioVenta() {
+        return precioVenta;
     }
 
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public void setPrecioVenta(int precio) {
+        this.precioVenta = precio;
+    }
+    
+    public int getPrecioCompra() {
+        return precioCompra;
+    }
+
+    public void setPrecioCompra(int precio) {
+        this.precioCompra = precio;
     }
 
     public String getDescripcion() {
@@ -40,14 +49,17 @@ public class Producto {
         this.Descripcion = Descripcion;
     }
 
-    public int getNoArticulo() {
+    public int getNoArticulos() {
         return NoArticulo;
     }
 
-    public void setNoArticulo(int NoArticulo) {
-        this.NoArticulo = NoArticulo;
+    public void setNoArticulos(int NoArticulo) {
+        this.NoArticulo = NoArticulo+ this.NoArticulo;
     }
 
+    public void reducirNoArticulos(){
+        this.NoArticulo --;       
+    }
     public String getMarca() {
         return Marca;
     }

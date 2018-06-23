@@ -40,7 +40,6 @@ public class Membresia {
         if(valorCompras>=5000 && tipo.equals("Nivel 2")){
             tipo="Nivel 3";
         }
-        
     }
     public void pagoMenbresia(double puntosUtilizar){
         if(puntosUtilizar>puntos){
@@ -52,8 +51,7 @@ public class Membresia {
     }
     
     public void acumularPuntos(double pago)
-    {
-        
+    {       
         if(tipo.equals("Nivel 1")){
             puntos=puntos+(.05*pago);
             

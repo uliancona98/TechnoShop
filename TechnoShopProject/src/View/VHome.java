@@ -6,6 +6,7 @@
 package View;
 
 import java.awt.Color;
+import javax.swing.JButton;
 
 /**
  *
@@ -201,6 +202,55 @@ public class VHome extends javax.swing.JFrame {
         });
     }
 
+    public JButton getBotonAccesory() {
+        return BotonAccesory;
+    }
+
+    public void setBotonAccesory(JButton BotonAccesory) {
+        this.BotonAccesory = BotonAccesory;
+    }
+
+    public JButton getBotonAdministrador() {
+        return BotonAdministrador;
+    }
+
+    public void setBotonAdministrador(JButton BotonAdministrador) {
+        this.BotonAdministrador = BotonAdministrador;
+    }
+
+    public JButton getBotonDevice() {
+        return BotonDevice;
+    }
+
+    public void setBotonDevice(JButton BotonDevice) {
+        this.BotonDevice = BotonDevice;
+    }
+
+    public JButton getBotonRegistrese() {
+        return BotonRegistrese;
+    }
+
+    public void setBotonRegistrese(JButton BotonRegistrese) {
+        this.BotonRegistrese = BotonRegistrese;
+    }
+
+    public JButton getBotonSesion() {
+        return BotonSesion;
+    }
+
+    public void setBotonSesion(JButton BotonSesion) {
+        this.BotonSesion = BotonSesion;
+    }
+
+    public JButton getBotonSoftware() {
+        return BotonSoftware;
+    }
+
+    public void setBotonSoftware(JButton BotonSoftware) {
+        this.BotonSoftware = BotonSoftware;
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAccesory;
     private javax.swing.JButton BotonAdministrador;
