@@ -12,6 +12,7 @@ public class TechnoShopProject {
       //   c.setNombre("AAAAA");
       //   c.AnadirProducto();
       //  c.PedirLista();
+        System.out.println("je");
       VHome home = new VHome();
       ControlVHome Chome = new ControlVHome(home);
       
