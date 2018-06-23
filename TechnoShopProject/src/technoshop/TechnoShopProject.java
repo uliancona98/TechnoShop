@@ -1,6 +1,4 @@
-package technoshopproject;
-
-import Domain.*;
+package technoshop;
 import View.*;
 import Control.*;
 
