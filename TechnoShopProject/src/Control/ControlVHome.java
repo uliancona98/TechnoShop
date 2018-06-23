@@ -32,6 +32,7 @@ public class ControlVHome implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(home.getBotonAdministrador() == evento.getSource()){
+            System.out.println("ADMIN");
         //Condicional si se presiona el boton "Administrar tienda"  
            VIniciarSesion I = new VIniciarSesion();
            ControlVIniciarSesion CI = new ControlVIniciarSesion();
