@@ -5,8 +5,8 @@
  */
 package View;
 
-import Domain.Membresia;
-import Domain.Usuario;
+import Modelo.Membresia;
+import Modelo.Usuario;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

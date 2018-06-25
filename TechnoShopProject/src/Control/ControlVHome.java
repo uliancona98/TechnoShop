@@ -5,7 +5,7 @@
  */
 package Control;
 
-import Domain.*;
+import Modelo.Usuario;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
