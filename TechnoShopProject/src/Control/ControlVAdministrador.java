@@ -35,7 +35,6 @@ public class ControlVAdministrador implements ActionListener {
              
          }
          if(administradorV.getBotonSalir() == evento.getSource()){
-             
          }
     }
     
