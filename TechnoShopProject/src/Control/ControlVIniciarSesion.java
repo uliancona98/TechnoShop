@@ -14,13 +14,25 @@ import java.awt.event.ActionListener;
  * @author Juan D.M
  */
 public class ControlVIniciarSesion implements ActionListener{
-    private VIniciarSesion iniciarsesion;
-    public ControlVIniciarSesion() {
-    
+    private VIniciarSesion iniciarSesion;
+    private int bandera=0;
+    public ControlVIniciarSesion(VIniciarSesion vIniciarSesion, int bandera) {
+        this.bandera = bandera;
+        iniciarSesion = vIniciarSesion;
+        iniciarSesion.getBotonAcceder().addActionListener(this);
     }
-
+    //bandera=0 se accede a los ususarios
+    //bandera =1 se accede a los administradores
     @Override
     public void actionPerformed(ActionEvent evento) {
+        if(iniciarSesion.getBotonAcceder() == evento.getSource()){
+            if (Login.validarCuenta(iniciarSesion.getUsuarioCampo().getText(), iniciarSesion.getContrasenaCampo().getPassword(), "na")){
+                System.out.println("Iniciado sesion");
+                iniciarSesion.setVisible(false);
+                VHome home = new VHome();
+            }
+            
+        }
         
     }
     
