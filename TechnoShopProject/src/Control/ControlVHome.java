@@ -34,14 +34,21 @@ public class ControlVHome implements ActionListener{
         if(home.getBotonAdministrador() == evento.getSource()){
             System.out.println("ADMIN");
         //Condicional si se presiona el boton "Administrar tienda"  
-           VIniciarSesion I = new VIniciarSesion();
-           ControlVIniciarSesion CI = new ControlVIniciarSesion();
+           VIniciarSesion I = new VIniciarSesion();         
            I.setLocationRelativeTo(null);
            I.setVisible(true);
            home.setVisible(false);
+           ControlVIniciarSesion CI = new ControlVIniciarSesion(I,1);
         }
         if(home.getBotonSesion() == evento.getSource()){
         //Condicional si se presiona el boton "Iniciar Sesion"    
+            System.out.println("INICIAR SESION");
+        //Condicional si se presiona el boton "Administrar tienda"  
+           VIniciarSesion I = new VIniciarSesion();
+           I.setLocationRelativeTo(null);
+           I.setVisible(true);
+           home.setVisible(false);
+           ControlVIniciarSesion CI = new ControlVIniciarSesion(I,0);
         }
         if(home.getBotonRegistrese() == evento.getSource()){
         //Condicional si se presiona el boton "Registrese"    

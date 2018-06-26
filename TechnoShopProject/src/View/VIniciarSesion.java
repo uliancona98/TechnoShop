@@ -34,8 +34,8 @@ public class VIniciarSesion extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        UsuarioCampo = new javax.swing.JTextField();
-        ContrasenaCampo = new javax.swing.JPasswordField();
+        usuarioCampo = new javax.swing.JTextField();
+        contrasenaCampo = new javax.swing.JPasswordField();
         BotonAcceder = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,15 +49,15 @@ public class VIniciarSesion extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Contrasena:");
 
-        UsuarioCampo.addActionListener(new java.awt.event.ActionListener() {
+        usuarioCampo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsuarioCampoActionPerformed(evt);
+                usuarioCampoActionPerformed(evt);
             }
         });
 
-        ContrasenaCampo.addActionListener(new java.awt.event.ActionListener() {
+        contrasenaCampo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContrasenaCampoActionPerformed(evt);
+                contrasenaCampoActionPerformed(evt);
             }
         });
 
@@ -82,12 +82,12 @@ public class VIniciarSesion extends javax.swing.JFrame {
                         .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(UsuarioCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(usuarioCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BotonAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ContrasenaCampo))))
+                            .addComponent(contrasenaCampo))))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -98,11 +98,11 @@ public class VIniciarSesion extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(UsuarioCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(usuarioCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(ContrasenaCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(contrasenaCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(BotonAcceder)
                 .addGap(44, 44, 44))
@@ -115,13 +115,13 @@ public class VIniciarSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonAccederActionPerformed
 
-    private void UsuarioCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioCampoActionPerformed
+    private void usuarioCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioCampoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsuarioCampoActionPerformed
+    }//GEN-LAST:event_usuarioCampoActionPerformed
 
-    private void ContrasenaCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenaCampoActionPerformed
+    private void contrasenaCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasenaCampoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ContrasenaCampoActionPerformed
+    }//GEN-LAST:event_contrasenaCampoActionPerformed
 
     public JButton getBotonAcceder() {
         return BotonAcceder;
@@ -132,28 +132,28 @@ public class VIniciarSesion extends javax.swing.JFrame {
     }
 
     public JPasswordField getContrasenaCampo() {
-        return ContrasenaCampo;
+        return contrasenaCampo;
     }
 
     public void setContrasenaCampo(JPasswordField ContrasenaCampo) {
-        this.ContrasenaCampo = ContrasenaCampo;
+        this.contrasenaCampo = ContrasenaCampo;
     }
 
     public JTextField getUsuarioCampo() {
-        return UsuarioCampo;
+        return usuarioCampo;
     }
 
     public void setUsuarioCampo(JTextField UsuarioCampo) {
-        this.UsuarioCampo = UsuarioCampo;
+        this.usuarioCampo = UsuarioCampo;
     }
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAcceder;
-    private javax.swing.JPasswordField ContrasenaCampo;
-    private javax.swing.JTextField UsuarioCampo;
+    private javax.swing.JPasswordField contrasenaCampo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField usuarioCampo;
     // End of variables declaration//GEN-END:variables
 }

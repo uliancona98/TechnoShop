@@ -5,6 +5,7 @@
  */
 package View;
 
+import Modelo.Usuario;
 import java.awt.Color;
 import javax.swing.JButton;
 
@@ -17,9 +18,16 @@ public class VHome extends javax.swing.JFrame {
     /**
      * Creates new form VHome
      */
+    Usuario usuario = null;
     public VHome() {
         initComponents();
         this.getContentPane().setBackground(Color.white);
+    }
+    
+    public VHome(Usuario usuario){
+        initComponents();
+        this.getContentPane().setBackground(Color.white);
+        this.usuario = usuario;
     }
 
     /**
