@@ -5,13 +5,15 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author A13003988
  */
 public class Usuario extends Cuenta {
    private Membresia membresia;
-   private Pedido list;
+   private ArrayList <Pedido> pedidos = new ArrayList();
 
     public Membresia getMembresia() {
         return membresia;
@@ -21,12 +23,16 @@ public class Usuario extends Cuenta {
         this.membresia = membresia;
     }
 
-    public Pedido getList() {
-        return list;
+    public ArrayList <Pedido> getPedidos() {
+        return pedidos;
     }
 
-    public void setList(Pedido list) {
-        this.list = list;
+    public void addPedido(Pedido pedido) {
+        pedidos.add(pedido);
+    }
+    
+    public void realizarPedido(){
+        
     }
    
    
