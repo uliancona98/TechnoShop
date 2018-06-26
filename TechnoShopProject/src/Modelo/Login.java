@@ -10,7 +10,8 @@ package Modelo;
  * @author Usuario
  */
 public class Login {
-    private static Cuenta cuenta;
+    private static Usuario usuario;
+    private static Administrador admin;
     
     public static boolean validarCuenta(String correo, char[] contrasenaChar, String tabla){
         String contrasena = "";
@@ -20,18 +21,26 @@ public class Login {
         if(correo.equals("uliancona@hotmail.com")){
             if(contrasena.equals("123")){
                 System.out.println("Sesion iniciada");
-                cuenta = new Cuenta();
-                String apellido = "Ancona"; //*****
-                String nombre = "Ulises"; //******
-                cuenta.setApellido(apellido);
-                cuenta.setContraseña(contrasena);
-                cuenta.setCorreo(correo);
-                cuenta.setNombre(nombre);
                 
                 if(tabla.equals("Administradores")){
-                    setCuenta(cuenta,1);
-                }else if(tabla.equals("Usuarios")){
-                    setCuenta(cuenta,0);
+                    admin = new Administrador();
+                    String apellido = "Ancona"; //*****
+                    String nombre = "Ulises"; //******+
+
+                    admin.setApellido(apellido);
+                    admin.setContraseña(contrasena);
+                    admin.setCorreo(correo);
+                    admin.setNombre(nombre);
+                }else{
+                    usuario = new Usuario();
+                    String apellido = "Ancona"; //*****
+                    String nombre = "Ulises"; //******+
+
+                    usuario.setApellido(apellido);
+                    usuario.setContraseña(contrasena);
+                    usuario.setCorreo(correo);
+                    usuario.setNombre(nombre);    
+                    //Buscar en la tabla de membresia y de pedidos
                 }
                 return true;
             }else{
@@ -42,16 +51,13 @@ public class Login {
         }
         return false;
     }
-    public static void setCuenta(Cuenta cuenta, int bandera){
-        if(bandera==0){
-            //Tabla de usuarios
-        }else{
-            //Tabla de administradores
-        }
+    
+    public static Usuario getUsuario(){
+        return usuario;
     }
     
-    public Cuenta getCuenta(){
-        return cuenta;
+    public static Administrador getAdministrador(){
+        return admin;
     }
     
 }

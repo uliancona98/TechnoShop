@@ -42,7 +42,6 @@ public class ControlVHome implements ActionListener{
         }
         if(home.getBotonSesion() == evento.getSource()){
         //Condicional si se presiona el boton "Iniciar Sesion"    
-            System.out.println("INICIAR SESION");
         //Condicional si se presiona el boton "Administrar tienda"  
            VIniciarSesion I = new VIniciarSesion();
            I.setLocationRelativeTo(null);

@@ -26,12 +26,27 @@ public class ControlVIniciarSesion implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(iniciarSesion.getBotonAcceder() == evento.getSource()){
-            if (Login.validarCuenta(iniciarSesion.getUsuarioCampo().getText(), iniciarSesion.getContrasenaCampo().getPassword(), "Administradores")){
-                System.out.println("Iniciado sesion");
-                iniciarSesion.setVisible(false);
-                VHome home = new VHome();
+            if(bandera==1){
+                if (Login.validarCuenta(iniciarSesion.getUsuarioCampo().getText(), iniciarSesion.getContrasenaCampo().getPassword(), "Administradores")){
+                    System.out.println("Iniciado sesion");
+                    iniciarSesion.setVisible(false);
+                    VAdministrador vAdmin = new VAdministrador();
+                    vAdmin.setLocationRelativeTo(null);
+                    vAdmin.setVisible(true);
+                    ControlVAdministrador Chome = new ControlVAdministrador(vAdmin, Login.getAdministrador());                    
+                    
+                }                 
+            }else if(bandera==0){
+                if (Login.validarCuenta(iniciarSesion.getUsuarioCampo().getText(), iniciarSesion.getContrasenaCampo().getPassword(), "Usuarios")){
+                    System.out.println("Iniciado sesion");
+                    iniciarSesion.setVisible(false);
+                    VHome home = new VHome(Login.getUsuario());
+                    home.setLocationRelativeTo(null);
+                    home.setVisible(true);
+                    ControlVHome Chome = new ControlVHome(home);                    
+                    
+                }                 
             }
-            
-        }   
+        }
     }  
 }
