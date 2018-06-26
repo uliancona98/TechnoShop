@@ -5,10 +5,23 @@
  */
 package Control;
 
+import Modelo.*;
+import View.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  *
  * @author Juan D.M
  */
-public class ControlVDispositivos {
+public class ControlVDispositivos implements ActionListener{
+    private VDispositivos dispositvos;
+
+    public ControlVDispositivos() {
     
+    }
+    
+    @Override
+    public void actionPerformed(ActionEvent evento) {
+        
+    }
 }

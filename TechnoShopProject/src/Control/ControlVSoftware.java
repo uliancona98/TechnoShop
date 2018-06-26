@@ -5,10 +5,21 @@
  */
 package Control;
 
+import Modelo.*;
+import View.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  *
  * @author Juan D.M
  */
-public class ControlVSoftware {
+public class ControlVSoftware implements ActionListener{
+    private VSoftware software;
+    public ControlVSoftware() {
+    }
     
+    @Override
+    public void actionPerformed(ActionEvent evento) {
+        
+    }
 }

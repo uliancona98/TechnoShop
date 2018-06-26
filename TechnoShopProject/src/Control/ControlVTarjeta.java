@@ -13,15 +13,15 @@ import java.awt.event.ActionListener;
  *
  * @author Juan D.M
  */
-public class ControlVIniciarSesion implements ActionListener{
-    private VIniciarSesion iniciarsesion;
-    public ControlVIniciarSesion() {
+public class ControlVTarjeta implements ActionListener{
+    private VTarjeta tarjeta;
+    
+    public ControlVTarjeta() {
     
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent evento) {
         
     }
-    
 }

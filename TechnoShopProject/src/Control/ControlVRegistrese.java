@@ -5,10 +5,21 @@
  */
 package Control;
 
+import Modelo.*;
+import View.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  *
  * @author Juan D.M
  */
-public class ControlVRegistrese {
+public class ControlVRegistrese implements ActionListener{
+    private VRegistrese registrese;
+    public ControlVRegistrese() {
+    }
     
+    @Override
+    public void actionPerformed(ActionEvent evento) {
+        
+    }
 }
