@@ -14,28 +14,35 @@ import java.awt.event.ActionListener;
  * @author Juan D.M
  */
 public class ControlVProducto implements ActionListener{
-    private VProducto producto;
-    public ControlVProducto() {
+    private VProducto Vproducto;
+    private Producto producto= new Producto();
+    private Usuario usuario=null;
+    public ControlVProducto(VProducto producto) {
+        this.Vproducto=producto;
+    }
+    public ControlVProducto(VProducto producto, Usuario usuario) {
+        this.Vproducto=producto;
+        this.usuario=usuario;
     }
     
     @Override
     public void actionPerformed(ActionEvent evento) {
-         if(producto.getBAnadirCarro() == evento.getSource()){
+         if(Vproducto.getBAnadirCarro() == evento.getSource()){
              
          } 
-         if(producto.getBComprar() == evento.getSource()){
+         if(Vproducto.getBComprar() == evento.getSource()){
              
          } 
-         if(producto.getBVolver() == evento.getSource()){
+         if(Vproducto.getBVolver() == evento.getSource()){
              
          } 
          
-         if(producto.getBComprar() == evento.getSource()){
+         if(Vproducto.getBComprar() == evento.getSource()){
              VPedido ventanaPedido =new VPedido();
              ventanaPedido.setLocationRelativeTo(null);
              ventanaPedido.setVisible(true);
-             producto.setVisible(false);
-             ControlVPedido CP = new ControlVPedido(ventanaPedido);
+             //producto.setVisible(false);
+             ControlVPedido CP = new ControlVPedido(ventanaPedido,usuario,producto);
   
          }
     }

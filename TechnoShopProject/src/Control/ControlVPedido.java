@@ -10,9 +10,12 @@ import java.util.Date;
 
 public class ControlVPedido implements ActionListener {
     private VPedido pedido;
-    
-    public ControlVPedido(VPedido pedido){
+    private  Usuario usuario;
+    private Producto producto;
+    public ControlVPedido(VPedido pedido, Usuario usuario, Producto producto){
         this.pedido=pedido;
+        this.usuario=usuario;
+        this.producto=producto;
         pedido.getetiquetaFechaPedido().setText(FechaActual());
     }
     
@@ -22,14 +25,17 @@ public class ControlVPedido implements ActionListener {
         return formatoFecha.format(fecha);
     }
     
-    
- 
-    
-    
-    
     @Override
-    public void actionPerformed(ActionEvent e) {
-        
+    public void actionPerformed(ActionEvent evento) {
+        if(pedido.getbotonCancelar()== evento.getSource()){
+            pedido.setVisible(false);
+        }
+        if(pedido.getbotonAgregarTarjeta()== evento.getSource()){
+            VTarjeta VT = new VTarjeta();
+            VT.setLocationRelativeTo(null);
+            VT.setVisible(true);
+            ControlVTarjeta CT= new ControlVTarjeta();
+        }
         
         
         
