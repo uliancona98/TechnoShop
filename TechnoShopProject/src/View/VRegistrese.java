@@ -10,7 +10,10 @@ import Modelo.Usuario;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 
 
@@ -132,51 +135,7 @@ public class VRegistrese extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarseActionPerformed
-          boolean bandera1=false;
-          boolean bandera2=false;
-          boolean bandera3=false;
-        Pattern pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-        /*validarcorreo*/
-        String nombre=CampoRNombre.getText();
-        String apellido=CampoRApellido.getText();
-        String correo=CampoRCorreo.getText();
-        String contrasena=new String(CampoRContrasena.getPassword());
-        
-        Matcher mat = pat.matcher(correo);
-        if ((nombre).matches("([a-z]|[A-Z]|\\s)+")) { 
-            System.out.println("valido");
-            bandera1=true;
-        }
-        if ((apellido).matches("([a-z]|[A-Z]|\\s)+")) {
-            System.out.println("valido");
-            bandera2=true;
-        }
-        if(mat.find()){
-          System.out.println("Correo Válido");
-          bandera3=true;
-        }
-        if(bandera1 && bandera2 && bandera3){
-            Usuario usuario=new Usuario();
-            Membresia menbresia= new Membresia();
-            usuario.setNombre(nombre);
-            usuario.setApellido(apellido);
-            usuario.setCorreo(correo);
-            usuario.setContraseña(contrasena);
-            menbresia.setTipo("Nivel 1");
-            usuario.setMembresia(menbresia);
-            usuarios.add(usuario);
-        }else{
-            if(!bandera1){
-                JOptionPane.showMessageDialog(null, "Nombre Invalido");
-            }
-            if(!bandera2){
-                JOptionPane.showMessageDialog(null, "Apellido Invalido");
-            }
-            if(!bandera3){
-                JOptionPane.showMessageDialog(null, "Correo Invalido");
-            }
-            
-        }
+
     }//GEN-LAST:event_BotonRegistrarseActionPerformed
 
     private void CampoRNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoRNombreActionPerformed
@@ -186,6 +145,46 @@ public class VRegistrese extends javax.swing.JFrame {
     private void CampoRCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoRCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoRCorreoActionPerformed
+
+    public JButton getBotonRegistrarse() {
+        return BotonRegistrarse;
+    }
+
+    public void setBotonRegistrarse(JButton BotonRegistrarse) {
+        this.BotonRegistrarse = BotonRegistrarse;
+    }
+
+    public JTextField getCampoRApellido() {
+        return CampoRApellido;
+    }
+
+    public void setCampoRApellido(JTextField CampoRApellido) {
+        this.CampoRApellido = CampoRApellido;
+    }
+
+    public JPasswordField getCampoRContrasena() {
+        return CampoRContrasena;
+    }
+
+    public void setCampoRContrasena(JPasswordField CampoRContrasena) {
+        this.CampoRContrasena = CampoRContrasena;
+    }
+
+    public JTextField getCampoRCorreo() {
+        return CampoRCorreo;
+    }
+
+    public void setCampoRCorreo(JTextField CampoRCorreo) {
+        this.CampoRCorreo = CampoRCorreo;
+    }
+
+    public JTextField getCampoRNombre() {
+        return CampoRNombre;
+    }
+
+    public void setCampoRNombre(JTextField CampoRNombre) {
+        this.CampoRNombre = CampoRNombre;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonRegistrarse;

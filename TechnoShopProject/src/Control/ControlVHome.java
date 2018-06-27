@@ -16,17 +16,17 @@ import java.awt.event.ActionListener;
  */
 public class ControlVHome implements ActionListener{
     private VHome home;
-    private Usuario usuario; 
+    private Usuario usuario;
     
     public ControlVHome(VHome h){
-    //Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome
-    home = h;
-    home.getBotonAccesory().addActionListener(this);
-    home.getBotonAdministrador().addActionListener(this);
-    home.getBotonDevice().addActionListener(this);
-    home.getBotonRegistrese().addActionListener(this);
-    home.getBotonSesion().addActionListener(this);
-    home.getBotonSoftware().addActionListener(this);
+        //Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome
+        home = h;
+        home.getBotonAccesory().addActionListener(this);
+        home.getBotonAdministrador().addActionListener(this);
+        home.getBotonDevice().addActionListener(this);
+        home.getBotonRegistrese().addActionListener(this);
+        home.getBotonSesion().addActionListener(this);
+        home.getBotonSoftware().addActionListener(this);
     }
     
     @Override
@@ -50,7 +50,11 @@ public class ControlVHome implements ActionListener{
            ControlVIniciarSesion CI = new ControlVIniciarSesion(I,0);
         }
         if(home.getBotonRegistrese() == evento.getSource()){
-        //Condicional si se presiona el boton "Registrese"    
+           VRegistrese ventanaRegistro = new VRegistrese();
+           ventanaRegistro.setLocationRelativeTo(null);
+           ventanaRegistro.setVisible(true);
+           home.setVisible(false);
+           ControlVRegistrese CR = new ControlVRegistrese(ventanaRegistro);           
         }
         if(home.getBotonDevice() == evento.getSource()){
         //Condicional si se presiona el boton "Dispositivos"    

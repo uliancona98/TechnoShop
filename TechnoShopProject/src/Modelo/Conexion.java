@@ -15,25 +15,30 @@ import javax.swing.JOptionPane;
  * @author Asus
  */
 public class Conexion {
-    public static String URL = "";
-    public static String tabla = "";
-    public static String database;
+    public static String URL ="";
+    public static final String database = "technoshop";
     public static final String USERNAME = "root";
     public static final String PASSWORD = "19980519uli";    
     PreparedStatement ps;
-    
-    public void setDataBase(String database){
-        this.database = database;
-        URL= "jdbc:mysql://localhost:3306/"+ database + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    public Conexion(){
+        URL = "jdbc:mysql://localhost:3306/"+ database + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";        
     }
     public void insert(String tabla, String[] valores){
         Connection con = null;
         try{
             con = getConection();
-            ps = con.prepareStatement("INSERT INTO "+tabla+ " VALUES(?,?,?) ");
-            ps.setString(1, valores[0] );
-            ps.setString(2, valores[1]);
-            ps.setString(3, valores[2]);
+            String values = "";
+            for(int i=0;i<valores.length;i++){
+                if(i!=valores.length-1){
+                    values = values +"?,";
+                }else{
+                    values = values +"?";
+                }
+            }
+            ps = con.prepareStatement("INSERT INTO "+tabla+ " VALUES("+values+") ");
+            for(int i=0;i<valores.length;i++){
+                ps.setString(i+1, valores[i]);
+            }
             int res = ps.executeUpdate();
             if(res>0){
                 JOptionPane.showMessageDialog(null, "Elemento insertado");
@@ -44,7 +49,7 @@ public class Conexion {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }        
-    }    
+    }
     public static Connection getConection(){
         Connection con = null;
         try{

@@ -10,6 +10,7 @@ package Modelo;
  * @author Usuario
  */
 public class Login {
+    private static Conexion conexion;
     private static Usuario usuario;
     private static Administrador admin;
     
@@ -18,6 +19,8 @@ public class Login {
         for(int i=0;i<contrasenaChar.length;i++){
             contrasena = contrasena+contrasenaChar[i];
         }
+        conexion = new Conexion();
+        
         if(correo.equals("uliancona@hotmail.com")){
             if(contrasena.equals("123")){
                 System.out.println("Sesion iniciada");

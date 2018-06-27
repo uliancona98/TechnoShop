@@ -16,12 +16,13 @@ import java.awt.event.ActionListener;
 public class ControlVIniciarSesion implements ActionListener{
     private VIniciarSesion iniciarSesion;
     private int bandera=0;
+    
     public ControlVIniciarSesion(VIniciarSesion vIniciarSesion, int bandera) {
         this.bandera = bandera;
         iniciarSesion = vIniciarSesion;
         iniciarSesion.getBotonAcceder().addActionListener(this);
     }
-    //bandera=0 se accede a los ususarios
+    //bandera=0 se accede a los usuarios
     //bandera =1 se accede a los administradores
     @Override
     public void actionPerformed(ActionEvent evento) {
@@ -34,7 +35,6 @@ public class ControlVIniciarSesion implements ActionListener{
                     vAdmin.setLocationRelativeTo(null);
                     vAdmin.setVisible(true);
                     ControlVAdministrador Chome = new ControlVAdministrador(vAdmin, Login.getAdministrador());                    
-                    
                 }                 
             }else if(bandera==0){
                 if (Login.validarCuenta(iniciarSesion.getUsuarioCampo().getText(), iniciarSesion.getContrasenaCampo().getPassword(), "Usuarios")){
