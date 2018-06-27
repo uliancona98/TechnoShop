@@ -29,5 +29,14 @@ public class ControlVProducto implements ActionListener{
          if(producto.getBVolver() == evento.getSource()){
              
          } 
+         
+         if(producto.getBComprar() == evento.getSource()){
+             VPedido ventanaPedido =new VPedido();
+             ventanaPedido.setLocationRelativeTo(null);
+             ventanaPedido.setVisible(true);
+             producto.setVisible(false);
+             ControlVPedido CP = new ControlVPedido(ventanaPedido);
+  
+         }
     }
 }
