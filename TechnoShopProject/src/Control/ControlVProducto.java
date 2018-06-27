@@ -20,6 +20,14 @@ public class ControlVProducto implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent evento) {
-        
+         if(producto.getBAnadirCarro() == evento.getSource()){
+             
+         } 
+         if(producto.getBComprar() == evento.getSource()){
+             
+         } 
+         if(producto.getBVolver() == evento.getSource()){
+             
+         } 
     }
 }
