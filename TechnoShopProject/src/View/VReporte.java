@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Emmanuel
@@ -59,14 +61,14 @@ public class VReporte extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TReporte);
 
-        BMostrar.setText("Mostar");
+        BMostrar.setText("Mostrar");
         BMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BMostrarActionPerformed(evt);
             }
         });
 
-        BImprimir.setText("imprimir");
+        BImprimir.setText("Imprimir");
         BImprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BImprimirActionPerformed(evt);
@@ -125,7 +127,20 @@ public class VReporte extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BRegresarActionPerformed
 
+    public JButton getBImprimir() {
+        return BImprimir;
+    }
 
+    public JButton getBMostrar() {
+        return BMostrar;
+    }
+
+    public JButton getBRegresar() {
+        return BRegresar;
+    }
+
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BImprimir;
     private javax.swing.JButton BMostrar;

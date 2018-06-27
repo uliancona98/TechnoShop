@@ -160,7 +160,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="BMostrar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Mostar"/>
+        <Property name="text" type="java.lang.String" value="Mostrar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BMostrarActionPerformed"/>
@@ -168,7 +168,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="BImprimir">
       <Properties>
-        <Property name="text" type="java.lang.String" value="imprimir"/>
+        <Property name="text" type="java.lang.String" value="Imprimir"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BImprimirActionPerformed"/>
