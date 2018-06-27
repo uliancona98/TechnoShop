@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
  */
 public class ControlVHome implements ActionListener{
     private VHome home;
-    private Usuario usuario;
+    private Usuario usuario = null;
     
     public ControlVHome(VHome h){
         //Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome
@@ -62,20 +62,52 @@ public class ControlVHome implements ActionListener{
            ControlVIniciarSesion CI = new ControlVIniciarSesion(I,0);
         }
         if(home.getBotonRegistrese() == evento.getSource()){
+        //Condicional si se presiona el boton "Registrese"
            VRegistrese ventanaRegistro = new VRegistrese();
            ventanaRegistro.setLocationRelativeTo(null);
            ventanaRegistro.setVisible(true);
            home.setVisible(false);
-           ControlVRegistrese CR = new ControlVRegistrese(ventanaRegistro);           
+           ControlVRegistrese CR = new ControlVRegistrese(ventanaRegistro);
+           
         }
         if(home.getBotonDevice() == evento.getSource()){
-        //Condicional si se presiona el boton "Dispositivos"    
+        //Condicional si se presiona el boton "Dispositivos"
+           if(usuario==null){
+           //En caso de que no haya ninguna sesion iniciada
+           VDispositivos d = new VDispositivos();
+           ControlVDispositivos cd = new ControlVDispositivos(d);
+           }
+           else{
+           //Cuando se haya ya ingresado un usuario
+           VDispositivos d = new VDispositivos();
+           ControlVDispositivos cd = new ControlVDispositivos(d,usuario); 
+           }
         }
         if(home.getBotonAccesory() == evento.getSource()){
-        //Condicional si se presiona el boton "Accesorios"    
+        //Condicional si se presiona el boton "Accesorios"
+           if(usuario==null){
+           //En caso de que no haya ninguna sesion iniciada
+           VAccesorios a = new VAccesorios();
+           ControlVAccesorios ca = new ControlVAccesorios(a);
+           }
+           else{
+           //Cuando se haya ya ingresado un usuario
+           VAccesorios a = new VAccesorios();
+           ControlVAccesorios ca = new ControlVAccesorios(a,usuario);
+           }
         }
         if(home.getBotonSoftware() == evento.getSource()){
         //Condicional si se presiona el boton "Software"
+           if(usuario==null){
+           //En caso de que no haya ninguna sesion iniciada
+           VSoftware s = new VSoftware();
+           ControlVSoftware cs = new ControlVSoftware(s);
+           }
+           else{
+           //Cuando se haya ya ingresado un usuario
+           VSoftware s = new VSoftware();
+           ControlVSoftware cs = new ControlVSoftware(s,usuario);
+           }
         }
     }
     }

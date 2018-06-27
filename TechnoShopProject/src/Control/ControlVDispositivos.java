@@ -15,8 +15,15 @@ import java.awt.event.ActionListener;
  */
 public class ControlVDispositivos implements ActionListener{
     private VDispositivos dispositivos;
-
+    private Usuario usuario;
+    
     public ControlVDispositivos(VDispositivos VD) {
+    dispositivos = VD;
+    dispositivos.getBRegresar().addActionListener(this);
+    }
+    
+    public ControlVDispositivos(VDispositivos VD, Usuario user) {
+    usuario = user;
     dispositivos = VD;
     dispositivos.getBRegresar().addActionListener(this);
     }
@@ -24,7 +31,20 @@ public class ControlVDispositivos implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(dispositivos.getBRegresar() == evento.getSource()){
-             
+          if(usuario==null){
+          VHome home = new VHome();
+          ControlVHome Chome = new ControlVHome(home);
+          home.setLocationRelativeTo(null);
+          home.setVisible(true);
+          dispositivos.setVisible(false);
+          }
+          else{
+          VHome home = new VHome();
+          ControlVHome Chome = new ControlVHome(home,usuario);
+          home.setLocationRelativeTo(null);
+          home.setVisible(true);
+          dispositivos.setVisible(false);
+          }
         }
     }
 }

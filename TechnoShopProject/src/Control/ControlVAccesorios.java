@@ -15,7 +15,15 @@ import java.awt.event.ActionListener;
  */
 public class ControlVAccesorios implements ActionListener{
     private VAccesorios accesorios;
+    private Usuario usuario;
+    
     public ControlVAccesorios(VAccesorios va) {
+    accesorios = va;
+    accesorios.getBRegresar().addActionListener(this);
+    }
+    
+    public ControlVAccesorios(VAccesorios va, Usuario user) {
+    usuario = user;
     accesorios = va;
     accesorios.getBRegresar().addActionListener(this);
     }
@@ -23,7 +31,21 @@ public class ControlVAccesorios implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(accesorios.getBRegresar() == evento.getSource()){
-             
+          if(usuario==null){
+          VHome home = new VHome();
+          ControlVHome Chome = new ControlVHome(home);
+          home.setLocationRelativeTo(null);
+          home.setVisible(true);
+          accesorios.setVisible(false);
+          }
+          else{
+          VHome home = new VHome();
+          ControlVHome Chome = new ControlVHome(home,usuario);
+          home.setLocationRelativeTo(null);
+          home.setVisible(true);
+          accesorios.setVisible(false);
+          }
+         
         }
     }
 }
