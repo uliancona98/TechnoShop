@@ -28,6 +28,18 @@ public class ControlVHome implements ActionListener{
         home.getBotonSesion().addActionListener(this);
         home.getBotonSoftware().addActionListener(this);
     }
+    public ControlVHome(VHome h, Usuario user){
+        //Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome
+        this.usuario = user;
+        home = h;
+        home.getBotonAccesory().addActionListener(this);
+        home.getBotonAdministrador().addActionListener(this);
+        home.getBotonDevice().addActionListener(this);
+        home.getBotonRegistrese().addActionListener(this);
+        home.getBotonSesion().addActionListener(this);
+        home.getBotonSoftware().addActionListener(this);
+    }
+    
     
     @Override
     public void actionPerformed(ActionEvent evento) {

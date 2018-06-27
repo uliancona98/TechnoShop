@@ -16,13 +16,21 @@ public class Membresia {
     private double puntos=0;
     private double valorCompras=0;
     protected Membresia membresia;
-    Pago pago=new Pago();
+    
     public String getTipo() {
         return tipo;
     }
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+    
+    public void setValorCompras(double valorCompras){
+        this.valorCompras = valorCompras;
+    }
+    
+    public double getValorCompras(){
+        return valorCompras;
     }
 
     public double getPuntos() {
@@ -47,22 +55,18 @@ public class Membresia {
         }else if(puntosUtilizar<=puntos){
             puntos=puntos-puntosUtilizar;
         }
-        
     }
     
     public void acumularPuntos(double pago)
     {       
         if(tipo.equals("Nivel 1")){
             puntos=puntos+(.05*pago);
-            
         }
         if(tipo.equals("Nivel 2")){
             puntos=puntos+(.10*pago);
-            
         }
         if(tipo.equals("Nivel ")){
-            puntos=puntos+(.15*pago);
-            
+            puntos=puntos+(.15*pago);  
         }
         
     }

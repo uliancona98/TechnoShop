@@ -11,8 +11,8 @@ package Modelo;
  */
 public class Login {
     private static Conexion conexion;
-    private static Usuario usuario;
-    private static Administrador admin;
+    public static Usuario usuario;
+    public static Administrador admin;
     
     public static boolean validarCuenta(String correo, char[] contrasenaChar, String tabla){
         String contrasena = "";
@@ -20,47 +20,36 @@ public class Login {
             contrasena = contrasena+contrasenaChar[i];
         }
         conexion = new Conexion();
+        String []resultado = conexion.buscar(tabla, correo, "correo");
         
-        if(correo.equals("uliancona@hotmail.com")){
-            if(contrasena.equals("123")){
-                System.out.println("Sesion iniciada");
-                
-                if(tabla.equals("Administradores")){
-                    admin = new Administrador();
-                    String apellido = "Ancona"; //*****
-                    String nombre = "Ulises"; //******+
-
-                    admin.setApellido(apellido);
-                    admin.setContraseña(contrasena);
-                    admin.setCorreo(correo);
-                    admin.setNombre(nombre);
-                }else{
+        if(resultado!=null){
+            if(contrasena.equals(resultado[3])){
+                System.out.println("Contrasena correcta, has iniciado sesion");
+                if(tabla.equals("Usuarios")){
                     usuario = new Usuario();
-                    String apellido = "Ancona"; //*****
-                    String nombre = "Ulises"; //******+
-
-                    usuario.setApellido(apellido);
-                    usuario.setContraseña(contrasena);
-                    usuario.setCorreo(correo);
-                    usuario.setNombre(nombre);    
-                    //Buscar en la tabla de membresia y de pedidos
+                    usuario.setCorreo(resultado[0]);
+                    usuario.setNombre(resultado[1]); 
+                    usuario.setApellido(resultado[2]);
+                    usuario.setContraseña(resultado[3]);         
+                    Membresia membresia = new Membresia();
+                    membresia.setTipo(resultado[4]);
+                    membresia.setPuntos(Double.parseDouble(resultado[5]));
+                    membresia.setValorCompras(Double.parseDouble(resultado[6]));
+                    usuario.setMembresia(membresia);              
+                }else if(tabla.equals("Administradores")){
+                    admin = new Administrador();
+                    admin.setCorreo(resultado[0]);
+                    admin.setNombre(resultado[1]);
+                    admin.setApellido(resultado[2]);
+                    admin.setContraseña(resultado[3]);
                 }
                 return true;
             }else{
-                System.out.println("Password incorrecto");
+                System.out.println("Contrasena incorrecta, vuelve a intentar");
             }
         }else{
-            System.out.println("Correo incorrecto");
-        }
+            System.out.println("No existe cuenta asociada con este correo");
+        }      
         return false;
-    }
-    
-    public static Usuario getUsuario(){
-        return usuario;
-    }
-    
-    public static Administrador getAdministrador(){
-        return admin;
-    }
-    
+    }        
 }

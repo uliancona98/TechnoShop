@@ -5,13 +5,9 @@
  */
 package View;
 
-import Modelo.Membresia;
 import Modelo.Usuario;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 

@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
  */
 public class ControlVIniciarSesion implements ActionListener{
     private VIniciarSesion iniciarSesion;
-    private int bandera=0;
+    private int bandera;
     
     public ControlVIniciarSesion(VIniciarSesion vIniciarSesion, int bandera) {
         this.bandera = bandera;
@@ -34,18 +34,17 @@ public class ControlVIniciarSesion implements ActionListener{
                     VAdministrador vAdmin = new VAdministrador();
                     vAdmin.setLocationRelativeTo(null);
                     vAdmin.setVisible(true);
-                    ControlVAdministrador Chome = new ControlVAdministrador(vAdmin, Login.getAdministrador());                    
+                    ControlVAdministrador cAdmin = new ControlVAdministrador(vAdmin, Login.admin);     
                 }                 
             }else if(bandera==0){
                 if (Login.validarCuenta(iniciarSesion.getUsuarioCampo().getText(), iniciarSesion.getContrasenaCampo().getPassword(), "Usuarios")){
                     System.out.println("Iniciado sesion");
                     iniciarSesion.setVisible(false);
-                    VHome home = new VHome(Login.getUsuario());
+                    VHome home = new VHome(Login.usuario);
                     home.setLocationRelativeTo(null);
                     home.setVisible(true);
-                    ControlVHome Chome = new ControlVHome(home);                    
-                    
-                }                 
+                    ControlVHome cHome = new ControlVHome(home, Login.usuario);                    
+                }   
             }
         }
     }  
