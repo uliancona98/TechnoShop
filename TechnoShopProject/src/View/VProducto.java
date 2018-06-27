@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Asus
@@ -19,6 +21,20 @@ public class VProducto extends javax.swing.JFrame {
         textPaneInfo.setEditable(false);
     }
 
+    public JButton getBAnadirCarro() {
+        return BAnadirCarro;
+    }
+
+    public JButton getBComprar() {
+        return BComprar;
+    }
+
+    public JButton getBVolver() {
+        return BVolver;
+    }
+
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,9 +49,9 @@ public class VProducto extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         textPaneInfo = new javax.swing.JTextPane();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        BComprar = new javax.swing.JButton();
+        BAnadirCarro = new javax.swing.JButton();
+        BVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,11 +72,11 @@ public class VProducto extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(textPaneInfo);
 
-        jButton1.setText("COMPRAR");
+        BComprar.setText("COMPRAR");
 
-        jButton2.setText("AÑADIR AL CARRITO");
+        BAnadirCarro.setText("AÑADIR AL CARRITO");
 
-        jButton3.setText("VOLVER");
+        BVolver.setText("VOLVER");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,11 +100,11 @@ public class VProducto extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(212, 212, 212))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(BComprar)
                         .addGap(59, 59, 59)
-                        .addComponent(jButton2)
+                        .addComponent(BAnadirCarro)
                         .addGap(81, 81, 81)
-                        .addComponent(jButton3)
+                        .addComponent(BVolver)
                         .addGap(59, 59, 59))))
         );
         layout.setVerticalGroup(
@@ -104,9 +120,9 @@ public class VProducto extends javax.swing.JFrame {
                     .addComponent(panelProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(BComprar)
+                    .addComponent(BAnadirCarro)
+                    .addComponent(BVolver))
                 .addGap(26, 26, 26))
         );
 
@@ -114,9 +130,9 @@ public class VProducto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton BAnadirCarro;
+    private javax.swing.JButton BComprar;
+    private javax.swing.JButton BVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelNombre;
