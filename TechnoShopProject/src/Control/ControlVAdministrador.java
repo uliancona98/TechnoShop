@@ -21,6 +21,12 @@ public class ControlVAdministrador implements ActionListener {
     ControlVAdministrador(VAdministrador vAdmin, Administrador a){
         this.administradorV = vAdmin;
         this.admin = a;
+        vAdmin.getBotonAceptar().addActionListener(this);
+        vAdmin.getBotonCancelar().addActionListener(this);
+        vAdmin.getBotonNewProducto().addActionListener(this);
+        vAdmin.getBotonRemoveProducto().addActionListener(this);
+        vAdmin.getBotonReporte().addActionListener(this);
+        vAdmin.getBotonSalir().addActionListener(this);
     }
     
     @Override

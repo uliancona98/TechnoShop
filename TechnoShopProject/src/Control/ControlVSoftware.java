@@ -15,11 +15,15 @@ import java.awt.event.ActionListener;
  */
 public class ControlVSoftware implements ActionListener{
     private VSoftware software;
-    public ControlVSoftware() {
+    public ControlVSoftware(VSoftware Vs) {
+        software = Vs;
+        software.getBRegresar().addActionListener(this);
     }
     
     @Override
     public void actionPerformed(ActionEvent evento) {
-        
+        if(software.getBRegresar() == evento.getSource()){
+             
+        }
     }
 }

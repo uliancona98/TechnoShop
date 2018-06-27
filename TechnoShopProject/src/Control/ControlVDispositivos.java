@@ -14,14 +14,17 @@ import java.awt.event.ActionListener;
  * @author Juan D.M
  */
 public class ControlVDispositivos implements ActionListener{
-    private VDispositivos dispositvos;
+    private VDispositivos dispositivos;
 
-    public ControlVDispositivos() {
-    
+    public ControlVDispositivos(VDispositivos VD) {
+    dispositivos = VD;
+    dispositivos.getBRegresar().addActionListener(this);
     }
     
     @Override
     public void actionPerformed(ActionEvent evento) {
-        
+        if(dispositivos.getBRegresar() == evento.getSource()){
+             
+        }
     }
 }

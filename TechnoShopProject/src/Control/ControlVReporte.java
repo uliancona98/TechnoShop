@@ -16,7 +16,11 @@ import View.*;
 public class ControlVReporte implements ActionListener {
     private VReporte reporte; 
     
-    public ControlVReporte() {
+    public ControlVReporte(VReporte VR) {
+    reporte = VR;
+    reporte.getBImprimir().addActionListener(this);
+    reporte.getBMostrar().addActionListener(this);
+    reporte.getBRegresar().addActionListener(this);
     }
     
     @Override

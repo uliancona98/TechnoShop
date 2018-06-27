@@ -15,11 +15,15 @@ import java.awt.event.ActionListener;
  */
 public class ControlVAccesorios implements ActionListener{
     private VAccesorios accesorios;
-    public ControlVAccesorios() {
+    public ControlVAccesorios(VAccesorios va) {
+    accesorios = va;
+    accesorios.getBRegresar().addActionListener(this);
     }
     
     @Override
     public void actionPerformed(ActionEvent evento) {
-        
+        if(accesorios.getBRegresar() == evento.getSource()){
+             
+        }
     }
 }
