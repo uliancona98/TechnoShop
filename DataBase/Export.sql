@@ -37,7 +37,7 @@ CREATE TABLE `administradores` (
 
 LOCK TABLES `administradores` WRITE;
 /*!40000 ALTER TABLE `administradores` DISABLE KEYS */;
-INSERT INTO `administradores` VALUES ('juanito.1397@gmail.com','Juan','Duran','a'),('mrt_5_ap@hotmail.com','Martin','Alpuche','rot'),('shaid.bojorquez@gmail.com','Shaid','Bojorquez','shaid'),('uliancona@hotmail.com','Emmanuel','Azcorra','elefante');
+INSERT INTO `administradores` VALUES ('emmanuel_azcorra1993@hotmail.com','Emmanuel','Azcorra','elefante'),('juanito.1397@gmail.com','Juan','Duran','a'),('mrt_5_ap@hotmail.com','Martin','Alpuche','rot'),('shaid.bojorquez@gmail.com','Shaid','Bojorquez','shaid'),('uliancona@hotmail.com','Ulises','Ancona','123');
 /*!40000 ALTER TABLE `administradores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -189,4 +189,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-28  0:24:23
+-- Dump completed on 2018-06-28  0:54:23
