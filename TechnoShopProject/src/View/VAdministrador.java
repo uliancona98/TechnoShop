@@ -9,8 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -119,8 +119,18 @@ public class VAdministrador extends javax.swing.JFrame {
         });
 
         BotonCancelar.setText("Cancelar");
+        BotonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonCancelarActionPerformed(evt);
+            }
+        });
 
         BotonAceptar.setText("Aceptar");
+        BotonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAceptarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelAgregarLayout = new javax.swing.GroupLayout(PanelAgregar);
         PanelAgregar.setLayout(PanelAgregarLayout);
@@ -210,6 +220,11 @@ public class VAdministrador extends javax.swing.JFrame {
         );
 
         botonAnadirProducto2.setText("AÑADIR NUEVO PRODUCTO");
+        botonAnadirProducto2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAnadirProducto2ActionPerformed(evt);
+            }
+        });
 
         botonAnadirExistente.setText("AÑADIR PRODUCTO EXISTENTE");
         botonAnadirExistente.addActionListener(new java.awt.event.ActionListener() {
@@ -223,20 +238,23 @@ public class VAdministrador extends javax.swing.JFrame {
         VAnadirProducto2Layout.setHorizontalGroup(
             VAnadirProducto2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VAnadirProducto2Layout.createSequentialGroup()
-                .addGap(118, 118, 118)
                 .addGroup(VAnadirProducto2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonAnadirExistente)
-                    .addComponent(botonAnadirProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(VAnadirProducto2Layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(botonAnadirProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(VAnadirProducto2Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(botonAnadirExistente, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(95, Short.MAX_VALUE))
         );
         VAnadirProducto2Layout.setVerticalGroup(
             VAnadirProducto2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VAnadirProducto2Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(66, 66, 66)
                 .addComponent(botonAnadirProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(botonAnadirExistente, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(41, 41, 41))
         );
 
         jLabel14.setText("Elegir producto a añadir nuevas unidades");
@@ -244,6 +262,11 @@ public class VAdministrador extends javax.swing.JFrame {
         comboProductos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         botonAumentar.setText("AUMENTAR");
+        botonAumentar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAumentarActionPerformed(evt);
+            }
+        });
 
         jLabel15.setText("Introduce las unidades");
 
@@ -354,6 +377,11 @@ public class VAdministrador extends javax.swing.JFrame {
         jLabel2.setText("Selecciona el producto para retirar");
 
         botonRetirar.setText("RETIRAR DE VENTA");
+        botonRetirar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRetirarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout VRemoverLayout = new javax.swing.GroupLayout(VRemover.getContentPane());
         VRemover.getContentPane().setLayout(VRemoverLayout);
@@ -508,15 +536,66 @@ public class VAdministrador extends javax.swing.JFrame {
 
     private void BImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BImprimirActionPerformed
         // TODO add your handling code here:
+        System.out.println("Se imprime el reporte");
     }//GEN-LAST:event_BImprimirActionPerformed
 
     private void BRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRegresarActionPerformed
         // TODO add your handling code here:
+        getVReporte().setVisible(false);
     }//GEN-LAST:event_BRegresarActionPerformed
 
     private void botonAnadirExistenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAnadirExistenteActionPerformed
         // TODO add your handling code here:
+        getVAnadirProducto2().setVisible(false);
+        getVAumentarProducto().setVisible(true);
+        getVAumentarProducto().setBounds(0, 0, 400, 432);
+        getVAumentarProducto().setLocationRelativeTo(null);   
     }//GEN-LAST:event_botonAnadirExistenteActionPerformed
+
+    private void botonAnadirProducto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAnadirProducto2ActionPerformed
+        // TODO add your handling code here:   
+            getVAnadirProducto2().setVisible(false);
+            getVAnadirProducto().setVisible(true);
+            getVAnadirProducto().setBounds(0, 0, 555, 725);
+            getVAnadirProducto().setLocationRelativeTo(null);
+    }//GEN-LAST:event_botonAnadirProducto2ActionPerformed
+
+    private void botonAumentarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAumentarActionPerformed
+        // TODO add your handling code here:
+        getVAumentarProducto().setVisible(false);
+        JOptionPane.showMessageDialog(null, "Articulos añadidos");
+    }//GEN-LAST:event_botonAumentarActionPerformed
+
+    private void BotonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCancelarActionPerformed
+        // TODO add your handling code here:
+        getVAnadirProducto().setVisible(false);
+    }//GEN-LAST:event_BotonCancelarActionPerformed
+
+    private void botonRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRetirarActionPerformed
+        // TODO add your handling code here:
+            getVRemover().setVisible(false);
+            System.out.println("Articulo removido de la tienda");
+    }//GEN-LAST:event_botonRetirarActionPerformed
+
+    private void BotonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarActionPerformed
+        // TODO add your handling code here:
+            //Se añade el nuevo producto a la base
+            String nombre = getTextNombre().getText();
+            String precio_venta = getTextPrecio().getText();
+            String precio_compra = getTextPrecioCompra().getText();
+            String descripcion = getTextDescripcion().getText();
+            String no_articulos  = getTextCantidad().getText();
+            String marca = getTextMarca().getText();
+            int id_categoria = getComboBoxCategoria().getSelectedIndex();
+            if(nombre.equals("") || precio_venta.equals("") || precio_compra.equals("") ||descripcion.equals("") || no_articulos.equals("") || marca.equals("") ){
+                System.out.println("Te falta escribir un campo");
+            }
+            
+            
+            //************
+            
+            getVAnadirProducto().setVisible(false);        
+    }//GEN-LAST:event_BotonAceptarActionPerformed
   
     public JButton getBotonAceptar() {
         return BotonAceptar;
@@ -562,32 +641,16 @@ public class VAdministrador extends javax.swing.JFrame {
         return TextMarca;
     }
 
-    public void setTextMarca(JTextField TextMarca) {
-        this.TextMarca = TextMarca;
-    }
-
     public JTextField getTextNombre() {
         return TextNombre;
-    }
-
-    public void setTextNombre(JTextField TextNombre) {
-        this.TextNombre = TextNombre;
     }
 
     public JTextField getTextPrecio() {
         return TextPrecio;
     }
 
-    public void setTextPrecio(JTextField TextPrecio) {
-        this.TextPrecio = TextPrecio;
-    }
-
     public JTextField getTextPrecioCompra() {
         return TextPrecioCompra;
-    }
-
-    public void setTextPrecioCompra(JTextField TextPrecioCompra) {
-        this.TextPrecioCompra = TextPrecioCompra;
     }
 
     public JButton getBotonNewProducto() {
@@ -610,32 +673,16 @@ public class VAdministrador extends javax.swing.JFrame {
         return comboProductos;
     }
 
-    public void setBotonNewProducto(JButton BotonNewProducto) {
-        this.BotonNewProducto = BotonNewProducto;
-    }
-
     public JButton getBotonRemoveProducto() {
         return BotonRemoveProducto;
-    }
-
-    public void setBotonRemoveProducto(JButton BotonRemoveProducto) {
-        this.BotonRemoveProducto = BotonRemoveProducto;
     }
 
     public JButton getBotonReporte() {
         return BotonReporte;
     }
 
-    public void setBotonReporte(JButton BotonReporte) {
-        this.BotonReporte = BotonReporte;
-    }
-
     public JPanel getPanelAgregar() {
         return PanelAgregar;
-    }
-
-    public void setPanelAgregar(JPanel PanelAgregar) {
-        this.PanelAgregar = PanelAgregar;
     }
 
     public JButton getBotonSalir() {

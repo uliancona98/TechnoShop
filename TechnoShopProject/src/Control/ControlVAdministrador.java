@@ -56,43 +56,56 @@ public class ControlVAdministrador implements ActionListener {
         }
         if(administradorV.getBotonAceptar() == evento.getSource()){
             //Se añade el nuevo producto a la base
+            String nombre = administradorV.getTextNombre().getText();
+            String precio_venta = administradorV.getTextPrecio().getText();
+            String precio_compra = administradorV.getTextPrecioCompra().getText();
+            String descripcion = administradorV.getTextDescripcion().getText();
+            String no_articulos  = administradorV.getTextCantidad().getText();
+            String marca = administradorV.getTextMarca().getText();
+            int id_categoria = administradorV.getComboBoxCategoria().getSelectedIndex();
+            if(nombre.equals("") || precio_venta.equals("") || precio_compra.equals("") ||descripcion.equals("") || no_articulos.equals("") || marca.equals("") ){
+                System.out.println("Te falta escribir un campo");
+            }
+            
+            
             //************
+            
             administradorV.getVAnadirProducto().setVisible(false);
         }
-        if(administradorV.getBotonCancelar() == evento.getSource()){
+        /*if(administradorV.getBotonCancelar() == evento.getSource()){
             //Se cancela la agregacion de nuevo producto
             administradorV.getVAnadirProducto().setVisible(false);
-        }
-        if(administradorV.getBotonAnadirExistente() == evento.getSource()){
+        }*/
+        /*if(administradorV.getBotonAnadirExistente() == evento.getSource()){
             //Se selecciona la opcion de añadir existente, se abre 
+            System.out.println("jeee");
             administradorV.getVAnadirProducto2().setVisible(false);
             administradorV.getVAumentarProducto().setVisible(true);
             administradorV.getVAumentarProducto().setBounds(0, 0, 400, 432);
             administradorV.getVAumentarProducto().setLocationRelativeTo(null);            
-        }
-        if(administradorV.getBotonAumentar()== evento.getSource()){
+        }*/
+        /*if(administradorV.getBotonAumentar()== evento.getSource()){
             //Se selecciona la opcion de añadir existente, se abre 
             administradorV.getVAumentarProducto().setVisible(false);       
-        }
-        if(administradorV.getBotonAnadirProducto2() == evento.getSource()){
+        }*/
+        /*if(administradorV.getBotonAnadirProducto2() == evento.getSource()){
             //Se selecciona la opcion de añadir existente 2, se abre la ventana del formulario del nuevo producto
             administradorV.getVAnadirProducto2().setVisible(false);
             administradorV.getVAnadirProducto().setVisible(true);
             administradorV.getVAnadirProducto().setBounds(0, 0, 555, 725);
             administradorV.getVAnadirProducto().setLocationRelativeTo(null);
-        }
-        if(administradorV.getBotonRetirar() == evento.getSource()){
+        }*/
+        /*if(administradorV.getBotonRetirar() == evento.getSource()){
             //Se seleccion la opcion de añadir existente 2
             administradorV.getVRemover().setVisible(false);
             System.out.println("Articulo removido de la tienda");
-        }
-        if(administradorV.getBImprimir()== evento.getSource()){
+        }*/
+        /*if(administradorV.getBImprimir()== evento.getSource()){
             System.out.println("Se imprime el reporte");
         }
         if(administradorV.getBRegresar()== evento.getSource()){
             administradorV.getVReporte().setVisible(false);
-        }
-        
+        }*/
     }
     
 }
