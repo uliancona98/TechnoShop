@@ -9,6 +9,7 @@ import Modelo.*;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.InputMismatchException;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,31 +29,18 @@ public class ControlVAdministrador implements ActionListener {
         administradorV.getBotonRemoveProducto().addActionListener(this);
         administradorV.getBotonReporte().addActionListener(this);
         administradorV.getBotonSalir().addActionListener(this);
+        administradorV.getBotonAnadirExistente().addActionListener(this);
+        administradorV.getBotonAnadirProducto2().addActionListener(this);
+        administradorV.getBotonAumentar().addActionListener(this);
+        administradorV.getBotonRetirar().addActionListener(this);
+        administradorV.getBImprimir().addActionListener(this);
+        administradorV.getBRegresar().addActionListener(this);
         administradorV.getLabelBienvenida().setText("Bienvenid@ "+ a.getNombre()+" "+ a.getApellido());
         
     }
     
     @Override
     public void actionPerformed(ActionEvent evento) {
-        if(administradorV.getBotonAceptar() == evento.getSource()){
-            //Se añade el nuevo producto a la base
-            String nombre = administradorV.getTextNombre().getText();
-            String precio_venta = administradorV.getTextPrecio().getText();
-            String precio_compra = administradorV.getTextPrecioCompra().getText();
-            String descripcion = administradorV.getTextDescripcion().getText();
-            String no_articulos  = administradorV.getTextCantidad().getText();
-            String marca = administradorV.getTextMarca().getText();
-            int id_categoria = administradorV.getComboBoxCategoria().getSelectedIndex();
-            if(nombre.equals("") || precio_venta.equals("") || precio_compra.equals("") ||descripcion.equals("") || no_articulos.equals("") || marca.equals("") ){
-                System.out.println("Te falta escribir un campo");
-            }
-            administradorV.getVAnadirProducto().setVisible(false);
-            
-            
-            //************
-            
-            administradorV.getVAnadirProducto().setVisible(false);
-        }        
         if(administradorV.getBotonAnadirProducto2() == evento.getSource()){
             System.out.println("se anade producto");
             administradorV.getVAnadirProducto2().setVisible(false);
@@ -86,25 +74,17 @@ public class ControlVAdministrador implements ActionListener {
             administradorV.getVAnadirProducto().setVisible(false);
         }
         if(administradorV.getBotonAnadirExistente() == evento.getSource()){
-            //Se selecciona la opcion de añadir existente, se abre 
+            //Se selecciona la opcion de añadir existente, se abre       
             System.out.println("jeee");
             administradorV.getVAnadirProducto2().setVisible(false);
             administradorV.getVAumentarProducto().setVisible(true);
             administradorV.getVAumentarProducto().setBounds(0, 0, 400, 432);
-            administradorV.getVAumentarProducto().setLocationRelativeTo(null);            
+            administradorV.getVAumentarProducto().setLocationRelativeTo(null);                 
         }
         if(administradorV.getBotonAumentar()== evento.getSource()){
-            //Se selecciona la opcion de añadir existente, se abre 
+            JOptionPane.showMessageDialog(null, "Articulos añadido");
             administradorV.getVAumentarProducto().setVisible(false);
-            JOptionPane.showMessageDialog(null, "Articulos añadidos");
-        }
-        if(administradorV.getBotonAnadirProducto2() == evento.getSource()){
-            //Se selecciona la opcion de añadir existente 2, se abre la ventana del formulario del nuevo producto
-            System.out.println("naca");
-            administradorV.getVAnadirProducto2().setVisible(false);
-            administradorV.getVAnadirProducto().setVisible(true);
-            administradorV.getVAnadirProducto().setBounds(0, 0, 555, 725);
-            administradorV.getVAnadirProducto().setLocationRelativeTo(null);
+            //Se selecciona la opcion de añadir existente, se abre 
         }
         if(administradorV.getBotonRetirar() == evento.getSource()){
             //Se seleccion la opcion de añadir existente 2
@@ -113,10 +93,33 @@ public class ControlVAdministrador implements ActionListener {
         }
         if(administradorV.getBImprimir()== evento.getSource()){
             System.out.println("Se imprime el reporte");
+            administradorV.getVReporte().setVisible(false);
+            
         }
         if(administradorV.getBRegresar()== evento.getSource()){
             administradorV.getVReporte().setVisible(false);
         }
+        if(administradorV.getBotonAceptar() == evento.getSource()){
+            //Se añade el nuevo producto a la base
+            try{
+                String nombre = administradorV.getTextNombre().getText();
+                double precio_venta = Double.parseDouble(administradorV.getTextPrecio().getText());
+                double precio_compra = Double.parseDouble(administradorV.getTextPrecioCompra().getText());
+                String descripcion = administradorV.getTextDescripcion().getText();
+                int no_articulos  = Integer.parseInt(administradorV.getTextCantidad().getText());
+                String marca = administradorV.getTextMarca().getText();
+                int id_categoria = administradorV.getComboBoxCategoria().getSelectedIndex();  
+                if(nombre.equals("") || precio_venta<0 || precio_compra<0 ||descripcion.equals("") || no_articulos<0 || marca.equals("") ){
+                    System.out.println("Te falta escribir un campo");
+                }else{
+                    System.out.println(nombre+" "+ precio_venta + " "+ precio_compra+ " "+ descripcion+ " "+ no_articulos+" "+
+                    marca+" "+ id_categoria);
+                }
+                administradorV.getVAnadirProducto().setVisible(false);              
+            }catch(InputMismatchException exception){
+                JOptionPane.showMessageDialog(null, "Datos erroneos");
+            }
+        }      
     }
     
 }

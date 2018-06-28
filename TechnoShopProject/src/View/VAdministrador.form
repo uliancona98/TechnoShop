@@ -247,7 +247,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="botonAnadirProducto2" min="-2" pref="213" max="-2" attributes="0"/>
                           <Component id="botonAnadirExistente" min="-2" pref="206" max="-2" attributes="0"/>
                       </Group>
@@ -258,11 +258,11 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="85" max="32767" attributes="0"/>
+                      <EmptySpace pref="78" max="32767" attributes="0"/>
                       <Component id="botonAnadirProducto2" min="-2" pref="75" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="botonAnadirExistente" min="-2" pref="76" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -270,7 +270,7 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="botonAnadirProducto2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="A&#xd1;ADIR NUEVO PRODUCTO"/>
+                <Property name="text" type="java.lang.String" value="AGREGAR NUEVO PRODUCTO"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonAnadirProducto2ActionPerformed"/>
@@ -281,7 +281,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="botonAnadirExistente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="A&#xd1;ADIR PRODUCTO EXISTENTE"/>
+                <Property name="text" type="java.lang.String" value="AGREGAR PRODUCTO EXISTENTE"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonAnadirExistenteActionPerformed"/>

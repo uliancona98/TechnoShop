@@ -10,6 +10,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -219,14 +220,14 @@ public class VAdministrador extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        botonAnadirProducto2.setText("AÑADIR NUEVO PRODUCTO");
+        botonAnadirProducto2.setText("AGREGAR NUEVO PRODUCTO");
         botonAnadirProducto2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonAnadirProducto2ActionPerformed(evt);
             }
         });
 
-        botonAnadirExistente.setText("AÑADIR PRODUCTO EXISTENTE");
+        botonAnadirExistente.setText("AGREGAR PRODUCTO EXISTENTE");
         botonAnadirExistente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonAnadirExistenteActionPerformed(evt);
@@ -239,7 +240,7 @@ public class VAdministrador extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(84, 84, 84)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonAnadirProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonAnadirExistente, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(103, Short.MAX_VALUE))
@@ -247,11 +248,11 @@ public class VAdministrador extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
+                .addContainerGap(78, Short.MAX_VALUE)
                 .addComponent(botonAnadirProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(32, 32, 32)
                 .addComponent(botonAnadirExistente, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout VAnadirProducto2Layout = new javax.swing.GroupLayout(VAnadirProducto2.getContentPane());
@@ -552,15 +553,19 @@ public class VAdministrador extends javax.swing.JFrame {
 
     private void botonAnadirExistenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAnadirExistenteActionPerformed
         // TODO add your handling code here: 
-        
+        /*System.out.println("jeee");
+        getVAnadirProducto2().setVisible(false);
+        getVAumentarProducto().setVisible(true);
+        getVAumentarProducto().setBounds(0, 0, 400, 432);
+        getVAumentarProducto().setLocationRelativeTo(null);   */     
     }//GEN-LAST:event_botonAnadirExistenteActionPerformed
 
     private void botonAnadirProducto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAnadirProducto2ActionPerformed
         // TODO add your handling code here:
-            getVAnadirProducto2().setVisible(false);
+            /*getVAnadirProducto2().setVisible(false);
             getVAnadirProducto().setVisible(true);
             getVAnadirProducto().setBounds(0, 0, 555, 725);
-            getVAnadirProducto().setLocationRelativeTo(null);
+            getVAnadirProducto().setLocationRelativeTo(null);*/
     }//GEN-LAST:event_botonAnadirProducto2ActionPerformed
 
     private void botonAumentarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAumentarActionPerformed
@@ -592,6 +597,14 @@ public class VAdministrador extends javax.swing.JFrame {
     public JButton getBotonCancelar() {
         return BotonCancelar;
     }
+    
+    public JButton getBotonAnadirExistente(){
+        return botonAnadirExistente;
+    }
+    
+    public JButton getBotonAnadirProducto2(){
+        return botonAnadirProducto2;
+    }    
 
     public void setBotonCancelar(JButton BotonCancelar) {
         this.BotonCancelar = BotonCancelar;
@@ -675,10 +688,6 @@ public class VAdministrador extends javax.swing.JFrame {
     public JLabel getLabelBienvenida(){
         return labelBienvenida;
     }
-    
-    
-
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BImprimir;
     private javax.swing.JButton BRegresar;
@@ -730,42 +739,35 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField textCantidad;
     // End of variables declaration//GEN-END:variables
 
-    public JButton getBotonAnadirExistente() {
-        return botonAnadirExistente;
-    }
-
-    public JButton getBotonAnadirProducto2() {
-        return botonAnadirProducto2;
-    }
 
     public JButton getBotonAumentar() {
         return botonAumentar;
     }
 
-    public javax.swing.JButton getBImprimir() {
+    public JButton getBImprimir() {
         return BImprimir;
     }
-    public javax.swing.JButton getBRegresar() {
+    public JButton getBRegresar() {
         return BRegresar;
     }
 
-    public javax.swing.JTable getTReporte() {
+    public JTable getTReporte() {
         return TReporte;
     }
 
-    public javax.swing.JFrame getVReporte() {
+    public JFrame getVReporte() {
         return VReporte;
     }
 
-    public javax.swing.JFrame getVRemover() {
+    public JFrame getVRemover() {
         return VRemover;
     }
 
-    public javax.swing.JButton getBotonRetirar() {
+    public JButton getBotonRetirar() {
         return botonRetirar;
     }
 
-    public javax.swing.JComboBox<String> getComboRetirarProducto() {
+    public JComboBox<String> getComboRetirarProducto() {
         return comboRetirarProducto;
     }
 }
