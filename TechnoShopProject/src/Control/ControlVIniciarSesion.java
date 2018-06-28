@@ -44,7 +44,7 @@ public class ControlVIniciarSesion implements ActionListener{
                     home.setLocationRelativeTo(null);
                     home.setVisible(true);
                     ControlVHome cHome = new ControlVHome(home, Login.usuario);                    
-                }   
+                }
             }
         }
     }  
