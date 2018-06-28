@@ -7,6 +7,8 @@ package View;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -33,7 +35,6 @@ public class VAdministrador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         VAnadirProducto = new javax.swing.JFrame();
         PanelAgregar = new javax.swing.JPanel();
         ComboBoxCategoria = new javax.swing.JComboBox<>();
@@ -54,26 +55,24 @@ public class VAdministrador extends javax.swing.JFrame {
         TextCantidad = new javax.swing.JTextField();
         BotonCancelar = new javax.swing.JButton();
         BotonAceptar = new javax.swing.JButton();
+        VAnadirProducto2 = new javax.swing.JFrame();
+        botonAnadirProducto2 = new javax.swing.JButton();
+        botonAnadirExistente = new javax.swing.JButton();
+        VAumentarProducto = new javax.swing.JFrame();
+        jLabel14 = new javax.swing.JLabel();
+        comboProductos = new javax.swing.JComboBox<>();
+        botonAumentar = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        textCantidad = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         BotonNewProducto = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        labelBienvenida = new javax.swing.JLabel();
         BotonRemoveProducto = new javax.swing.JButton();
         BotonReporte = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         BotonSalir = new javax.swing.JButton();
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 563, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 345, Short.MAX_VALUE)
-        );
 
         ComboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dispositivo", "Accesorio", "Software", "Otro" }));
         ComboBoxCategoria.addActionListener(new java.awt.event.ActionListener() {
@@ -201,6 +200,76 @@ public class VAdministrador extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        botonAnadirProducto2.setText("AÑADIR NUEVO PRODUCTO");
+
+        botonAnadirExistente.setText("AÑADIR PRODUCTO EXISTENTE");
+
+        javax.swing.GroupLayout VAnadirProducto2Layout = new javax.swing.GroupLayout(VAnadirProducto2.getContentPane());
+        VAnadirProducto2.getContentPane().setLayout(VAnadirProducto2Layout);
+        VAnadirProducto2Layout.setHorizontalGroup(
+            VAnadirProducto2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VAnadirProducto2Layout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addGroup(VAnadirProducto2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonAnadirExistente)
+                    .addComponent(botonAnadirProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(95, Short.MAX_VALUE))
+        );
+        VAnadirProducto2Layout.setVerticalGroup(
+            VAnadirProducto2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VAnadirProducto2Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(botonAnadirProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(botonAnadirExistente, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+
+        jLabel14.setText("Elegir producto a añadir nuevas unidades");
+
+        comboProductos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        botonAumentar.setText("AUMENTAR");
+
+        jLabel15.setText("Introduce las unidades");
+
+        javax.swing.GroupLayout VAumentarProductoLayout = new javax.swing.GroupLayout(VAumentarProducto.getContentPane());
+        VAumentarProducto.getContentPane().setLayout(VAumentarProductoLayout);
+        VAumentarProductoLayout.setHorizontalGroup(
+            VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VAumentarProductoLayout.createSequentialGroup()
+                .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VAumentarProductoLayout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(comboProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(VAumentarProductoLayout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(botonAumentar))
+                    .addGroup(VAumentarProductoLayout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))))
+                .addContainerGap(89, Short.MAX_VALUE))
+        );
+        VAumentarProductoLayout.setVerticalGroup(
+            VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VAumentarProductoLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jLabel14)
+                .addGap(32, 32, 32)
+                .addComponent(comboProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                .addComponent(jLabel15)
+                .addGap(18, 18, 18)
+                .addComponent(textCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(botonAumentar)
+                .addGap(74, 74, 74))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -213,7 +282,7 @@ public class VAdministrador extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Bienvenido: ¿Que desea usted hacer?");
+        labelBienvenida.setText("Bienvenido: ¿Que desea usted hacer?");
 
         BotonRemoveProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/bag-remove.jpg"))); // NOI18N
 
@@ -244,31 +313,30 @@ public class VAdministrador extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addComponent(BotonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BotonNewProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(BotonNewProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(BotonRemoveProducto))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel4)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(BotonReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(41, 41, 41)
-                                        .addComponent(jLabel5))))
+                                .addGap(18, 18, 18)
+                                .addComponent(BotonRemoveProducto))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(162, 162, 162)
-                                .addComponent(jLabel2)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel4)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(BotonReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(jLabel5)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(174, 174, 174)
+                .addComponent(labelBienvenida)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,7 +349,7 @@ public class VAdministrador extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(BotonSalir)))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(labelBienvenida)
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -300,8 +368,6 @@ public class VAdministrador extends javax.swing.JFrame {
 
     private void BotonNewProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonNewProductoActionPerformed
         // TODO add your handling code here:
-        PanelAgregar.setVisible(true);
-        PanelAgregar.setBounds(478, 617, 478, 617);
     }//GEN-LAST:event_BotonNewProductoActionPerformed
 
     private void ComboBoxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCategoriaActionPerformed
@@ -392,6 +458,22 @@ public class VAdministrador extends javax.swing.JFrame {
         return BotonNewProducto;
     }
 
+    public JFrame getVAnadirProducto() {
+        return VAnadirProducto;
+    }
+
+    public JFrame getVAnadirProducto2() {
+        return VAnadirProducto2;
+    }
+
+    public JFrame getVAumentarProducto() {
+        return VAumentarProducto;
+    }
+
+    public JComboBox<String> getComboProductos() {
+        return comboProductos;
+    }
+
     public void setBotonNewProducto(JButton BotonNewProducto) {
         this.BotonNewProducto = BotonNewProducto;
     }
@@ -423,6 +505,9 @@ public class VAdministrador extends javax.swing.JFrame {
     public JButton getBotonSalir() {
         return BotonSalir;
     }
+    public JLabel getLabelBienvenida(){
+        return labelBienvenida;
+    }
     
     
 
@@ -443,12 +528,19 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField TextPrecio;
     private javax.swing.JTextField TextPrecioCompra;
     private javax.swing.JFrame VAnadirProducto;
+    private javax.swing.JFrame VAnadirProducto2;
+    private javax.swing.JFrame VAumentarProducto;
+    private javax.swing.JButton botonAnadirExistente;
+    private javax.swing.JButton botonAnadirProducto2;
+    private javax.swing.JButton botonAumentar;
+    private javax.swing.JComboBox<String> comboProductos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -456,7 +548,20 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelBienvenida;
+    private javax.swing.JTextField textCantidad;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBotonAnadirExistente() {
+        return botonAnadirExistente;
+    }
+
+    public JButton getBotonAnadirProducto2() {
+        return botonAnadirProducto2;
+    }
+
+    public JButton getBotonAumentar() {
+        return botonAumentar;
+    }
 }
