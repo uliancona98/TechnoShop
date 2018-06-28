@@ -49,13 +49,7 @@ public class Membresia {
             tipo="Nivel 3";
         }
     }
-    public void pagoMenbresia(double puntosUtilizar){
-        if(puntosUtilizar>puntos){
-            JOptionPane.showMessageDialog(null,"No tiene suficientes puntos");
-        }else if(puntosUtilizar<=puntos){
-            puntos=puntos-puntosUtilizar;
-        }
-    }
+  
     
     public void acumularPuntos(double pago)
     {       
