@@ -110,16 +110,27 @@ public class ControlVAdministrador implements ActionListener {
                 String marca = administradorV.getTextMarca().getText();
                 int id_categoria = administradorV.getComboBoxCategoria().getSelectedIndex();  
                 if(nombre.equals("") || precio_venta<0 || precio_compra<0 ||descripcion.equals("") || no_articulos<0 || marca.equals("") ){
-                    System.out.println("Te falta escribir un campo");
+                    JOptionPane.showMessageDialog(null, "Datos erroneos");
+                    limpiarCampos();
                 }else{
                     System.out.println(nombre+" "+ precio_venta + " "+ precio_compra+ " "+ descripcion+ " "+ no_articulos+" "+
                     marca+" "+ id_categoria);
+                    administradorV.getVAnadirProducto().setVisible(false);
                 }
-                administradorV.getVAnadirProducto().setVisible(false);              
+                            
             }catch(InputMismatchException exception){
                 JOptionPane.showMessageDialog(null, "Datos erroneos");
             }
         }      
+    }
+    
+    public void limpiarCampos(){
+        administradorV.getTextCantidad().setText(null);
+        administradorV.getTextDescripcion().setText(null);
+        administradorV.getTextMarca().setText(null);
+        administradorV.getTextNombre().setText(null);
+        administradorV.getTextPrecio().setText(null);
+        administradorV.getTextPrecioCompra().setText(null);
     }
     
 }
