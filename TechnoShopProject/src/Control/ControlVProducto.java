@@ -17,6 +17,7 @@ public class ControlVProducto implements ActionListener{
     private VProducto Vproducto;
     private Producto producto= new Producto();
     private Usuario usuario=null;
+    
     public ControlVProducto(VProducto producto) {
         this.Vproducto=producto;
     }
