@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
     public static String URL ="";
-    public static final String database = "techshop";
+    public static final String database = "database";
     public static final String USERNAME = "root";
-    public static final String PASSWORD = "19980519uli";    
+    public static final String PASSWORD = "root";    
     PreparedStatement ps;
     ResultSet rs;
     public Conexion(){
