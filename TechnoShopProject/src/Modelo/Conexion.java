@@ -15,16 +15,14 @@ import javax.swing.JOptionPane;
  * @author Asus
  */
 public class Conexion {
-    public static String URL ="";
-    public static final String database = "database";
+    public static String URL = "jdbc:mysql://localhost:3306/"+ "technoshop" + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    public static final String database = "technoshop";
     public static final String USERNAME = "root";
-    public static final String PASSWORD = "root";    
-    PreparedStatement ps;
-    ResultSet rs;
-    public Conexion(){
-        URL = "jdbc:mysql://localhost:3306/"+ database + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";        
-    }
-    public void insert(String tabla, String[] valores){
+    public static final String PASSWORD = "19980519uli";    
+    public static PreparedStatement ps;
+    public static ResultSet rs;
+
+    public static void insert(String tabla, Object[] valores){
         Connection con = null;
         try{
             con = getConection();
@@ -38,7 +36,13 @@ public class Conexion {
             }
             ps = con.prepareStatement("INSERT INTO "+tabla+ " VALUES("+values+") ");
             for(int i=0;i<valores.length;i++){
-                ps.setString(i+1, valores[i]);
+                if(valores[i] instanceof Double){
+                    ps.setDouble(i+1, (double)valores[i]);
+                }else if(valores[i] instanceof Integer){
+                    ps.setInt(i+1, (int)valores[i]);
+                }else{
+                    ps.setString(i+1, (String)valores[i]);
+                }
             }
             int res = ps.executeUpdate();
             if(res>0){
@@ -51,7 +55,7 @@ public class Conexion {
             System.out.println(e.getMessage());
         }        
     }
-    public String[] buscar(String tabla, String dato, String nombreDato){
+    public static String[] buscar(String tabla, String dato, String nombreDato){
         
         String[] busqueda=null;
         Connection con = null;
@@ -75,6 +79,7 @@ public class Conexion {
         }      
         return busqueda;
     }
+    
     public static Connection getConection(){
         Connection con = null;
         try{

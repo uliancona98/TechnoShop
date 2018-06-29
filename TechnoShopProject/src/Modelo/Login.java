@@ -10,7 +10,6 @@ package Modelo;
  * @author Usuario
  */
 public class Login {
-    private static Conexion conexion;
     public static Usuario usuario;
     public static Administrador admin;
     
@@ -19,8 +18,7 @@ public class Login {
         for(int i=0;i<contrasenaChar.length;i++){
             contrasena = contrasena+contrasenaChar[i];
         }
-        conexion = new Conexion();
-        String []resultado = conexion.buscar(tabla, correo, "correo");
+        String []resultado = Conexion.buscar(tabla, correo, "correo");
         
         if(resultado!=null){
             if(contrasena.equals(resultado[3])){
