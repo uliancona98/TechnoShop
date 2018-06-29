@@ -15,6 +15,4 @@ public class Accesorio extends Producto {
     public void setInformacionCategoria(){
         informacionCategoria = "Mouses y teclados";
     }
-    
-    
 }

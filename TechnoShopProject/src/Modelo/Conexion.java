@@ -23,7 +23,6 @@ public class Conexion {
     private static PreparedStatement ps;
     private static ResultSet rs;
     private static ArrayList<String[]> busquedaRes = new ArrayList<String[]>();
-   
     public static void insert(String tabla, Object[] valores){
         Connection con = null;
         try{
@@ -57,29 +56,34 @@ public class Conexion {
             System.out.println(e.getMessage());
         }        
     }
-    public void buscarTablasRelacionadas(String tabla1, String tabla2, String atributoTabla1, String atributoTabla2){
+    public static ArrayList<String[]> buscarTablasRelacionadas(String tabla1, String tabla2, String atributoTabla1, String atributoTabla2){
         PreparedStatement stmt = null;
         ResultSet rs = null;
+        busquedaRes.clear();
+        String[] busqueda=null;
         try{
             Connection con = getConection();
             String ps = "SELECT * FROM "+tabla1+" as A INNER JOIN "+tabla2+" as"
-            + " B ON (A."+atributoTabla1+"+=B."+atributoTabla2+")";                               
+            + " B ON (A."+atributoTabla1+"+=B."+atributoTabla2+")";
             stmt = con.prepareStatement(ps);
             rs = stmt.executeQuery();      
             while(rs.next()) {
-               for (int x=1;x<=rs.getMetaData().getColumnCount();x++){
-                   //System.out.print(rs.getString(x)+ "\t");
-                    if(x==1){
+                busqueda = new String[rs.getMetaData().getColumnCount()];                
+                for (int x=1;x<=rs.getMetaData().getColumnCount();x++){
+                    busqueda[x-1] = rs.getString(x);
+                    /*if(x==1){
                        System.out.print(rs.getString(x)+ "\t");
                     }else{
                        System.out.print(rs.getString(x)+ "\t");
-                    }
+                    }*/
                 }
+                busquedaRes.add(busqueda);                  
             }
             con.close();
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+        return busquedaRes;
     }    
     public static void modificarTabla(String tabla, String[] campos, Object[]datosNuevos, String atributoBuscar, String datoBuscar){
         Connection con = null;
