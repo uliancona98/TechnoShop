@@ -23,7 +23,7 @@ public class Conexion {
     private static PreparedStatement ps;
     private static ResultSet rs;
     private static ArrayList<String[]> busquedaRes = new ArrayList<String[]>();
-
+   
     public static void insert(String tabla, Object[] valores){
         Connection con = null;
         try{
@@ -57,8 +57,65 @@ public class Conexion {
             System.out.println(e.getMessage());
         }        
     }
-
-    public static ArrayList<String[]> buscar(String tabla, int indice, Object dato, String nombreDato){
+    
+    public static void modificarTabla(String tabla, String[] campos, Object[]datosNuevos, String atributoBuscar, String datoBuscar){
+        Connection con = null;
+        try{
+            con = getConection();
+            String cadena="";
+            for(int i=0;i<campos.length;i++){
+                if(i!=(campos.length-1)){
+                    cadena = cadena + campos[i]+"=?,";
+                }else{
+                    cadena = cadena + campos[i]+"=?";
+                }               
+            }
+            ps = con.prepareStatement("UPDATE "+ tabla +" SET "+cadena+" WHERE "+atributoBuscar+"="+datoBuscar);
+            for(int i=0;i<datosNuevos.length;i++){
+                if(datosNuevos[i] instanceof Double){
+                    ps.setDouble(i+1, (double)datosNuevos[i]);
+                }else if(datosNuevos[i] instanceof Integer){
+                    ps.setInt(i+1, (int)datosNuevos[i]);
+                }else{
+                    ps.setString(i+1, (String)datosNuevos[i]);
+                }                     
+            }
+            int res = ps.executeUpdate();
+            if(res>0){
+                JOptionPane.showMessageDialog(null, "Elemento modificado");
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al modificar");
+            }
+            con.close();
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }                
+    }
+    public static ArrayList<String[]> obtenerTabla(String tabla){
+            
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            try{
+                Connection con = getConection();
+                stmt = con.prepareStatement("SELECT * FROM "+tabla);
+                rs = stmt.executeQuery();      
+                busquedaRes.clear();
+                String[] busqueda=null;
+                while(rs.next()) {
+                    busqueda = new String[rs.getMetaData().getColumnCount()];
+                    for (int x=1;x<=rs.getMetaData().getColumnCount();x++){      
+                        busqueda[x-1] = rs.getString(x);
+                        System.out.print(busqueda[x-1]);
+                    }
+                    busquedaRes.add(busqueda);                     
+                }    
+                con.close();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+            return busquedaRes;
+    }    
+    public static ArrayList<String[]> buscar(String tabla, Object dato, String nombreDato){
         busquedaRes.clear();
         String[] busqueda=null;
         Connection con = null;
@@ -66,19 +123,21 @@ public class Conexion {
             con = getConection();
             ps = con.prepareCall("SELECT * FROM "+ tabla +" WHERE "+nombreDato+" = ?");
             if(dato instanceof Integer){
-                ps.setInt(indice, (int)dato);
+                ps.setInt(1, (int)dato);
             }else if(dato instanceof String){
-                ps.setString(indice, (String)dato);
+                ps.setString(1, (String)dato);
             }
             rs = ps.executeQuery();
-            busqueda = new String[rs.getMetaData().getColumnCount()];
-            if(rs.next()){
-                
-                for (int x=1;x<=rs.getMetaData().getColumnCount();x++){      
-                    busqueda[x-1] = rs.getString(x);
-                    System.out.print(rs.getString(x)+ "-");
+            boolean res = rs.next();
+            if(res){
+                while(res){
+                    busqueda = new String[rs.getMetaData().getColumnCount()];
+                    for (int x=1;x<=rs.getMetaData().getColumnCount();x++){      
+                        busqueda[x-1] = rs.getString(x);
+                    }
+                    busquedaRes.add(busqueda);  
+                    res=rs.next();
                 }
-                busquedaRes.add(busqueda);
             }else{
                 JOptionPane.showMessageDialog(null, "No existe el elemento buscado");    
             }

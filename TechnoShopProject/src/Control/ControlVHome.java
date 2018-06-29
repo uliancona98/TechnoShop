@@ -71,6 +71,7 @@ public class ControlVHome implements ActionListener{
            
         }
         if(home.getBotonDevice() == evento.getSource()){
+           home.setVisible(false);            
         //Condicional si se presiona el boton "Dispositivos"
            if(usuario==null){
            //En caso de que no haya ninguna sesion iniciada
@@ -84,6 +85,7 @@ public class ControlVHome implements ActionListener{
            }
         }
         if(home.getBotonAccesory() == evento.getSource()){
+           home.setVisible(false);            
         //Condicional si se presiona el boton "Accesorios"
            if(usuario==null){
            //En caso de que no haya ninguna sesion iniciada
@@ -98,6 +100,7 @@ public class ControlVHome implements ActionListener{
         }
         if(home.getBotonSoftware() == evento.getSource()){
         //Condicional si se presiona el boton "Software"
+           home.setVisible(false);
            if(usuario==null){
            //En caso de que no haya ninguna sesion iniciada
            VSoftware s = new VSoftware();
@@ -108,6 +111,7 @@ public class ControlVHome implements ActionListener{
            VSoftware s = new VSoftware();
            ControlVSoftware cs = new ControlVSoftware(s,usuario);
            }
+           
         }
     }
     }

@@ -26,6 +26,6 @@ public class Administrador extends Cuenta{
     }
     
     public void PedirLista(){
-        bodega.getListaDeProductos();
+        //bodega.getListaDeProductos();
     }
 }

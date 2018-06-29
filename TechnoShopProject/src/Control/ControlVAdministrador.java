@@ -9,6 +9,7 @@ import Modelo.*;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,8 @@ import javax.swing.JOptionPane;
 public class ControlVAdministrador implements ActionListener {
     private VAdministrador administradorV;
     private Administrador admin;
+    private ArrayList<String> id = new ArrayList();
+    private ArrayList<String[]> busquedaProductos;
     
     ControlVAdministrador(VAdministrador vAdmin, Administrador a){
         this.administradorV = vAdmin;
@@ -77,11 +80,30 @@ public class ControlVAdministrador implements ActionListener {
             administradorV.getVAnadirProducto2().setVisible(false);
             administradorV.getVAumentarProducto().setVisible(true);
             administradorV.getVAumentarProducto().setBounds(0, 0, 400, 432);
-            administradorV.getVAumentarProducto().setLocationRelativeTo(null);                 
+            administradorV.getVAumentarProducto().setLocationRelativeTo(null);
+            //Se lee la base de datos y agrega al combo box
+            busquedaProductos = Conexion.obtenerTabla("productos");
+            administradorV.getComboProductos().removeAllItems();
+            for(int i=0;i<busquedaProductos.size();i++){
+                String[] busquedaArray = busquedaProductos.get(i);                
+                administradorV.getComboProductos().addItem("Id: "+busquedaArray[0] +"  Nombre: " +busquedaArray[1]
+                + " No.Articulos: "+busquedaArray[5]);
+            }
+            
         }
         if(administradorV.getBotonAumentar()== evento.getSource()){
-            JOptionPane.showMessageDialog(null, "Articulos añadido");
-            administradorV.getVAumentarProducto().setVisible(false);
+            String []camposModificar = new String [1];
+            camposModificar[0]= "no_articulos";
+            Object []datosNuevos = new Object[1];
+            try{
+                String [] cadenaArray = busquedaProductos.get(administradorV.getComboProductos().getSelectedIndex());
+                datosNuevos[0]= Integer.parseInt(cadenaArray[5])+Integer.parseInt(administradorV.getTextAumentar().getText());
+                Conexion.modificarTabla("productos", camposModificar, datosNuevos , "id", cadenaArray[0]);
+                administradorV.getVAumentarProducto().setVisible(false);                
+            }catch(Exception e){
+                administradorV.getTextAumentar().setText(null);
+                JOptionPane.showMessageDialog(null, "Datos invalidos");
+            }
             //Se selecciona la opcion de añadir existente, se abre 
         }
         if(administradorV.getBotonRetirar() == evento.getSource()){
@@ -100,9 +122,6 @@ public class ControlVAdministrador implements ActionListener {
         if(administradorV.getBotonAceptar() == evento.getSource()){
             //Se añade el nuevo producto a la base
             try{
-                if(administradorV.getTextId().getText().equals("")){
-                    System.out.println("YA");
-                }
                 Integer id = Integer.parseInt(administradorV.getTextId().getText());
                 String nombre = administradorV.getTextNombre().getText();
                 double precio_venta = Double.parseDouble(administradorV.getTextPrecio().getText());

@@ -9,64 +9,81 @@ package Modelo;
  *
  * @author Juan D.M
  */
-public class Producto {
-    protected String Nombre;
-    protected int precioVenta;
-    protected int precioCompra;
-    protected String Descripcion;
-    protected int NoArticulo=0;
-    protected String Marca;
+public abstract class Producto {
+    protected int id;
+    protected String nombre;
+    protected double precioVenta;
+    protected double precioCompra;
+    protected String descripcion;
+    protected int noArticulos=0;
+    protected String marca;
+    protected String categoria;
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+        this.nombre = Nombre;
     }
 
-    public int getPrecioVenta() {
+    public Double getPrecioVenta() {
         return precioVenta;
     }
 
-    public void setPrecioVenta(int precio) {
+    public void setPrecioVenta(double precio) {
         this.precioVenta = precio;
     }
     
-    public int getPrecioCompra() {
+    public Double getPrecioCompra() {
         return precioCompra;
     }
 
-    public void setPrecioCompra(int precio) {
+    public void setPrecioCompra(double precio) {
         this.precioCompra = precio;
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
     public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
+        this.descripcion = Descripcion;
     }
 
     public int getNoArticulos() {
-        return NoArticulo;
+        return noArticulos;
     }
 
-    public void setNoArticulos(int NoArticulo) {
-        this.NoArticulo = NoArticulo+ this.NoArticulo;
+    public void setNoArticulos(int noArticulos) {
+        this.noArticulos = noArticulos+ this.noArticulos;
     }
 
     public void reducirNoArticulos(){
-        this.NoArticulo --;       
+        this.noArticulos --;       
     }
+    
     public String getMarca() {
-        return Marca;
+        return marca;
     }
 
     public void setMarca(String Marca) {
-        this.Marca = Marca;
+        this.marca = Marca;
     }
-    
-    
 }

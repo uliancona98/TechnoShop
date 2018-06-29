@@ -67,7 +67,7 @@ public class VAdministrador extends javax.swing.JFrame {
         comboProductos = new javax.swing.JComboBox<>();
         botonAumentar = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        textCantidad = new javax.swing.JTextField();
+        textAumentar = new javax.swing.JTextField();
         VReporte = new javax.swing.JFrame();
         jScrollPane2 = new javax.swing.JScrollPane();
         TReporte = new javax.swing.JTable();
@@ -298,18 +298,20 @@ public class VAdministrador extends javax.swing.JFrame {
                 .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(VAumentarProductoLayout.createSequentialGroup()
                         .addGap(99, 99, 99)
-                        .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(comboProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel14))
                     .addGroup(VAumentarProductoLayout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(botonAumentar))
+                        .addGap(38, 38, 38)
+                        .addComponent(comboProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(VAumentarProductoLayout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15))))
-                .addContainerGap(89, Short.MAX_VALUE))
+                        .addGap(123, 123, 123)
+                        .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel15)
+                            .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(textAumentar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(VAumentarProductoLayout.createSequentialGroup()
+                                    .addGap(20, 20, 20)
+                                    .addComponent(botonAumentar))))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         VAumentarProductoLayout.setVerticalGroup(
             VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,7 +323,7 @@ public class VAdministrador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addComponent(jLabel15)
                 .addGap(18, 18, 18)
-                .addComponent(textCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textAumentar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(botonAumentar)
                 .addGap(74, 74, 74))
@@ -699,6 +701,10 @@ public class VAdministrador extends javax.swing.JFrame {
     public JLabel getLabelBienvenida(){
         return labelBienvenida;
     }
+    
+    public JTextField getTextAumentar(){
+        return textAumentar;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BImprimir;
     private javax.swing.JButton BRegresar;
@@ -749,7 +755,7 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelBienvenida;
-    private javax.swing.JTextField textCantidad;
+    private javax.swing.JTextField textAumentar;
     // End of variables declaration//GEN-END:variables
 
 

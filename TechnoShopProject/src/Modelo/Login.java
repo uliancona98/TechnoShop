@@ -20,7 +20,7 @@ public class Login {
         for(int i=0;i<contrasenaChar.length;i++){
             contrasena = contrasena+contrasenaChar[i];
         }
-        ArrayList<String[]>resultado = Conexion.buscar(tabla, 1, correo, "correo");
+        ArrayList<String[]>resultado = Conexion.buscar(tabla, correo, "correo");
         String []res = resultado.get(0);
         if(res!=null){
             if(contrasena.equals(res[3])){
