@@ -13,7 +13,7 @@ import javax.swing.JButton;
  * @author Juan D.M
  */
 public class VAccesorios extends javax.swing.JFrame {
-    ArrayList <JButton> botonesProductos;
+    private ArrayList <JButton> botonesProductos;
     public VAccesorios() {
         initComponents();
         botonesProductos = new ArrayList();

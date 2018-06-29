@@ -12,15 +12,21 @@ import java.util.ArrayList;
  * @author Juan D.M
  */
 public class Carrito {
-    //private Producto producto;
-    ArrayList<Producto> carro = new ArrayList();
+    private ArrayList<Producto> productos = new ArrayList();
     
-    public void agregarProducto(){
-    //producto = new Producto();
-    //carro.add(producto);
+    public void agregarProducto(Producto producto){
+        productos.add(producto);
     }
     
-    public void getProducto(){
-        
+    public ArrayList<Producto> getProductos(){
+        return productos;
+    }
+    
+    public void removerProducto(int indice){
+        try{
+            productos.remove(indice);
+        }catch(Exception e){
+            System.out.println("No se puede remover el producto");
+        }
     }
 }

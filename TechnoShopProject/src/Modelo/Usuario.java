@@ -30,10 +30,6 @@ public class Usuario extends Cuenta {
     public void addPedido(Pedido pedido) {
         pedidos.add(pedido);
     }
-    
-    public void realizarPedido(){
-        
-    }
    
    
 }

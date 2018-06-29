@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class ControlVRegistrese implements ActionListener{
     private VRegistrese registrese;
+    
     public ControlVRegistrese(VRegistrese registrese) {
         this.registrese = registrese;
         registrese.getBotonRegistrarse().addActionListener(this);

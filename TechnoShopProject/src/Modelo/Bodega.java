@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Bodega {
     //Producto producto;
-    ArrayList<Producto> listaproductos = new ArrayList(); 
+    private ArrayList<Producto> listaproductos = new ArrayList(); 
     
     public void AnadirProducto(){   
     }

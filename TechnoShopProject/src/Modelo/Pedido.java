@@ -7,6 +7,7 @@ package Modelo;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -16,11 +17,17 @@ import java.util.Calendar;
 public class Pedido {
 
     private int NoPedido;
-    private Producto list;
+    private ArrayList<Producto> productos = new ArrayList();
     private String fecha;
     
     public int getNoPedido() {
         return NoPedido;
+    }
+    public void setProductos(ArrayList<Producto> productos){
+        this.productos = productos;
+    }
+    public ArrayList<Producto> getProductos(){
+        return productos;
     }
 
     public void asignarNoPedido(int NoPedido) {
@@ -31,9 +38,12 @@ public class Pedido {
         return fecha;
     }
 
-    public void setFecha() {
+    public void setFecha(String fecha) {
         // prints "Sep 6, 2009 9:03:20 PM"
-        DateFormat dateTimeInstance = SimpleDateFormat.getDateTimeInstance();
-        fecha = dateTimeInstance.format(Calendar.getInstance().getTime());    
+        /*DateFormat dateTimeInstance = SimpleDateFormat.getDateTimeInstance();
+        fecha = dateTimeInstance.format(Calendar.getInstance().getTime()); */
+        this.fecha = fecha;
     }
+    
+    
 }

@@ -9,7 +9,7 @@ package Modelo;
  *
  * @author Juan D.M
  */
-public abstract class Producto {
+public class Producto {
     protected int id;
     protected String nombre;
     protected double precioVenta;

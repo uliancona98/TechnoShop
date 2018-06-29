@@ -14,7 +14,7 @@ public class ControlVPedido implements ActionListener {
     private VPedido pedido;
     private  Usuario usuario;
     private ArrayList <Producto> productos;
-    public double totalCompra=0;
+    private double totalCompra=0;
     private Producto producto;
     public ControlVPedido(VPedido pedido, Usuario usuario, Producto producto){
         this.pedido=pedido;

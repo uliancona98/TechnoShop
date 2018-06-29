@@ -565,20 +565,11 @@ public class VAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_BRegresarActionPerformed
 
     private void botonAnadirExistenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAnadirExistenteActionPerformed
-        // TODO add your handling code here: 
-        /*System.out.println("jeee");
-        getVAnadirProducto2().setVisible(false);
-        getVAumentarProducto().setVisible(true);
-        getVAumentarProducto().setBounds(0, 0, 400, 432);
-        getVAumentarProducto().setLocationRelativeTo(null);   */     
+
     }//GEN-LAST:event_botonAnadirExistenteActionPerformed
 
     private void botonAnadirProducto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAnadirProducto2ActionPerformed
-        // TODO add your handling code here:
-            /*getVAnadirProducto2().setVisible(false);
-            getVAnadirProducto().setVisible(true);
-            getVAnadirProducto().setBounds(0, 0, 555, 725);
-            getVAnadirProducto().setLocationRelativeTo(null);*/
+
     }//GEN-LAST:event_botonAnadirProducto2ActionPerformed
 
     private void botonAumentarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAumentarActionPerformed
@@ -724,11 +715,11 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField TextNombre;
     private javax.swing.JTextField TextPrecio;
     private javax.swing.JTextField TextPrecioCompra;
-    public javax.swing.JFrame VAnadirProducto;
-    public javax.swing.JFrame VAnadirProducto2;
-    public javax.swing.JFrame VAumentarProducto;
-    public javax.swing.JFrame VRemover;
-    public javax.swing.JFrame VReporte;
+    private javax.swing.JFrame VAnadirProducto;
+    private javax.swing.JFrame VAnadirProducto2;
+    private javax.swing.JFrame VAumentarProducto;
+    private javax.swing.JFrame VRemover;
+    private javax.swing.JFrame VReporte;
     private javax.swing.JButton botonAnadirExistente;
     public javax.swing.JButton botonAnadirProducto2;
     private javax.swing.JButton botonAumentar;
