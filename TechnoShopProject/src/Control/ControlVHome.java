@@ -5,6 +5,7 @@
  */
 package Control;
 
+import Modelo.Conexion;
 import Modelo.Producto;
 import Modelo.Usuario;
 import View.*;
@@ -30,6 +31,7 @@ public class ControlVHome implements ActionListener{
         home.getBotonRegistrese().addActionListener(this);
         home.getBotonSesion().addActionListener(this);
         home.getBotonSoftware().addActionListener(this);
+        inicializarTablaTop5();
     }
     public ControlVHome(VHome h, Usuario user){
         //Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome
@@ -41,6 +43,19 @@ public class ControlVHome implements ActionListener{
         home.getBotonRegistrese().addActionListener(this);
         home.getBotonSesion().addActionListener(this);
         home.getBotonSoftware().addActionListener(this);
+        inicializarTablaTop5();
+    }
+    
+    public void inicializarTablaTop5(){
+        //relacionar tablas detalles_pedidos con productos y sumar frecuencias de los productos
+        ArrayList<String[]> tablaPedidos = Conexion.obtenerTabla("pedidos");
+        if(tablaPedidos.size()==0){
+            //No se muestra la tabla porque no se ha comprado nada           
+        }else{
+            ArrayList<String[]> tablaDetallesPedidos = Conexion.obtenerTabla("detalles_pedidos");
+            //tabla = Conexion.obtenerTabla("productos");
+        }
+        
     }
     
     
