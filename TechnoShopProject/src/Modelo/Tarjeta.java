@@ -9,7 +9,7 @@ package Modelo;
  *
  * @author A13003988
  */
-public class PagoTarjeta extends Pago{
+public class Tarjeta extends Pago{
     private String tipo;
     private int noTarjeta;
 

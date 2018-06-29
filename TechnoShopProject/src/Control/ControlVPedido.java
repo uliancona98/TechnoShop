@@ -83,10 +83,6 @@ public class ControlVPedido implements ActionListener {
                 JOptionPane.showMessageDialog(null, "No cuentas con suficientes puntos");
             }
         }
-        
-        
-        
-        
     }
     
 }

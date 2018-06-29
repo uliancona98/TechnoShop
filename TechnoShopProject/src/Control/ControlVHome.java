@@ -5,10 +5,12 @@
  */
 package Control;
 
+import Modelo.Producto;
 import Modelo.Usuario;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,6 +19,7 @@ import java.awt.event.ActionListener;
 public class ControlVHome implements ActionListener{
     private VHome home;
     private Usuario usuario = null;
+    private ArrayList <Producto> productosVendidos = new ArrayList();
     
     public ControlVHome(VHome h){
         //Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome
@@ -44,7 +47,6 @@ public class ControlVHome implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(home.getBotonAdministrador() == evento.getSource()){
-            System.out.println("ADMIN");
         //Condicional si se presiona el boton "Administrar tienda"  
            VIniciarSesion I = new VIniciarSesion();         
            I.setLocationRelativeTo(null);
@@ -114,5 +116,5 @@ public class ControlVHome implements ActionListener{
            
         }
     }
-    }
+}
 

@@ -9,7 +9,7 @@ package Modelo;
  *
  * @author Juan D.M
  */
-public class Pago {
+public abstract class Pago {
     private double cantidad;
 
     public double getCantidad() {
