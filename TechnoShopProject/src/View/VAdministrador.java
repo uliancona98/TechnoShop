@@ -56,6 +56,8 @@ public class VAdministrador extends javax.swing.JFrame {
         TextCantidad = new javax.swing.JTextField();
         BotonCancelar = new javax.swing.JButton();
         BotonAceptar = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        TextId = new javax.swing.JTextField();
         VAnadirProducto2 = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
         botonAnadirProducto2 = new javax.swing.JButton();
@@ -94,7 +96,7 @@ public class VAdministrador extends javax.swing.JFrame {
 
         jLabel6.setText("Ingrese la categoria del producto");
 
-        jLabel7.setText("Ingrese el nombre del producto:");
+        jLabel7.setText("Ingrese el id del producto");
 
         jLabel8.setText("Ingrese la marca o compañía del producto");
 
@@ -133,6 +135,8 @@ public class VAdministrador extends javax.swing.JFrame {
             }
         });
 
+        jLabel16.setText("Ingrese el nombre del producto");
+
         javax.swing.GroupLayout PanelAgregarLayout = new javax.swing.GroupLayout(PanelAgregar);
         PanelAgregar.setLayout(PanelAgregarLayout);
         PanelAgregarLayout.setHorizontalGroup(
@@ -144,37 +148,44 @@ public class VAdministrador extends javax.swing.JFrame {
                         .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
                             .addComponent(jLabel12)
+                            .addComponent(TextCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel11)
                                 .addComponent(jLabel9)
-                                .addComponent(jLabel8)
                                 .addComponent(jLabel6)
                                 .addComponent(ComboBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TextNombre)
                                 .addComponent(TextMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                                 .addComponent(TextPrecio)
                                 .addComponent(jLabel7)
-                                .addComponent(TextPrecioCompra))
-                            .addComponent(TextCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(TextPrecioCompra)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel16))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextId, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PanelAgregarLayout.createSequentialGroup()
                         .addGap(155, 155, 155)
                         .addComponent(BotonAceptar)
                         .addGap(75, 75, 75)
-                        .addComponent(BotonCancelar))
-                    .addGroup(PanelAgregarLayout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(jLabel10)))
+                        .addComponent(BotonCancelar)))
                 .addContainerGap(39, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(193, 193, 193))
         );
         PanelAgregarLayout.setVerticalGroup(
             PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAgregarLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(jLabel10)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TextId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel16)
+                .addGap(11, 11, 11)
                 .addComponent(TextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
@@ -198,8 +209,8 @@ public class VAdministrador extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TextCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TextCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonAceptar)
@@ -702,6 +713,7 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JTable TReporte;
     private javax.swing.JTextField TextCantidad;
     private javax.swing.JTextArea TextDescripcion;
+    private javax.swing.JTextField TextId;
     private javax.swing.JTextField TextMarca;
     private javax.swing.JTextField TextNombre;
     private javax.swing.JTextField TextPrecio;
@@ -724,6 +736,7 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -769,5 +782,9 @@ public class VAdministrador extends javax.swing.JFrame {
 
     public JComboBox<String> getComboRetirarProducto() {
         return comboRetirarProducto;
+    }
+
+    public JTextField getTextId() {
+        return TextId;
     }
 }
