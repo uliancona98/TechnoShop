@@ -5,13 +5,16 @@
  */
 package Modelo;
 
-/**
- *
- * @author Asus
- */
 public class Accesorio extends Producto {
+    
     public Accesorio(){
         super();
     }
+    
+    @Override
+    public void setInformacionCategoria(){
+        informacionCategoria = "Mouses y teclados";
+    }
+    
     
 }

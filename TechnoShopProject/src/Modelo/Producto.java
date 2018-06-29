@@ -9,7 +9,7 @@ package Modelo;
  *
  * @author Juan D.M
  */
-public class Producto {
+public abstract class Producto {
     protected int id;
     protected String nombre;
     protected double precioVenta;
@@ -18,6 +18,8 @@ public class Producto {
     protected int noArticulos=0;
     protected String marca;
     protected String categoria;
+    protected String informacionCategoria;
+
     
     public int getId() {
         return id;
@@ -42,7 +44,13 @@ public class Producto {
     public void setNombre(String Nombre) {
         this.nombre = Nombre;
     }
+    
+    public String getInformacionCategoria() {
+        return informacionCategoria;
+    }
 
+    public abstract void setInformacionCategoria();
+    
     public Double getPrecioVenta() {
         return precioVenta;
     }

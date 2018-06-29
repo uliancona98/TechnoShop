@@ -13,10 +13,17 @@ import java.util.ArrayList;
  */
 public class Usuario extends Cuenta {
    private Membresia membresia;
+   private Carrito carrito;
    private ArrayList <Pedido> pedidos = new ArrayList();
 
     public Membresia getMembresia() {
         return membresia;
+    }
+    public void setCarrito(Carrito carrito){
+        this.carrito = carrito;
+    }
+    public Carrito getCarrito(){
+        return carrito;
     }
 
     public void setMembresia(Membresia membresia) {

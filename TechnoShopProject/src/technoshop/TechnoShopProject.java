@@ -1,6 +1,8 @@
 package technoshop;
 import View.*;
 import Control.*;
+import Modelo.Cuenta;
+import Modelo.Usuario;
 import javax.swing.UIManager;
 
 public class TechnoShopProject {
