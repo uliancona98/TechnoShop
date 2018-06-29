@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 public class ControlVSoftware implements ActionListener{
     private VSoftware software;
     private Usuario usuario;
+    private Integer ID=2;
     
     public ControlVSoftware(VSoftware Vs) {
         software = Vs;

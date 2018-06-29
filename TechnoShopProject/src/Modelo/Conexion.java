@@ -9,18 +9,20 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
  *
  * @author Asus
  */
 public class Conexion {
-    public static String URL = "jdbc:mysql://localhost:3306/"+ "technoshop" + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    public static final String database = "technoshop";
-    public static final String USERNAME = "root";
-    public static final String PASSWORD = "19980519uli";    
-    public static PreparedStatement ps;
-    public static ResultSet rs;
+    private static String URL = "jdbc:mysql://localhost:3306/"+ "technoshop" + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private static final String database = "technoshop";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "19980519uli";    
+    private static PreparedStatement ps;
+    private static ResultSet rs;
+    private static ArrayList<String[]> busquedaRes = new ArrayList<String[]>();
 
     public static void insert(String tabla, Object[] valores){
         Connection con = null;
@@ -55,29 +57,36 @@ public class Conexion {
             System.out.println(e.getMessage());
         }        
     }
-    public static String[] buscar(String tabla, String dato, String nombreDato){
-        
+
+    public static ArrayList<String[]> buscar(String tabla, int indice, Object dato, String nombreDato){
+        busquedaRes.clear();
         String[] busqueda=null;
         Connection con = null;
         try{
             con = getConection();
             ps = con.prepareCall("SELECT * FROM "+ tabla +" WHERE "+nombreDato+" = ?");
-            ps.setString(1, dato);
+            if(dato instanceof Integer){
+                ps.setInt(indice, (int)dato);
+            }else if(dato instanceof String){
+                ps.setString(indice, (String)dato);
+            }
             rs = ps.executeQuery();
             busqueda = new String[rs.getMetaData().getColumnCount()];
             if(rs.next()){
+                
                 for (int x=1;x<=rs.getMetaData().getColumnCount();x++){      
                     busqueda[x-1] = rs.getString(x);
-                    //System.out.print(rs.getString(x)+ "-");
+                    System.out.print(rs.getString(x)+ "-");
                 }
+                busquedaRes.add(busqueda);
             }else{
                 JOptionPane.showMessageDialog(null, "No existe el elemento buscado");    
             }
             con.close();
         }catch(Exception e){
             System.out.println(e.getMessage());           
-        }      
-        return busqueda;
+        }
+        return busquedaRes;
     }
     
     public static Connection getConection(){

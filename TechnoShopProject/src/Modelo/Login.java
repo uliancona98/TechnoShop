@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Usuario
@@ -18,28 +20,28 @@ public class Login {
         for(int i=0;i<contrasenaChar.length;i++){
             contrasena = contrasena+contrasenaChar[i];
         }
-        String []resultado = Conexion.buscar(tabla, correo, "correo");
-        
-        if(resultado!=null){
-            if(contrasena.equals(resultado[3])){
+        ArrayList<String[]>resultado = Conexion.buscar(tabla, 1, correo, "correo");
+        String []res = resultado.get(0);
+        if(res!=null){
+            if(contrasena.equals(res[3])){
                 System.out.println("Contrasena correcta, has iniciado sesion");
                 if(tabla.equals("Usuarios")){
                     usuario = new Usuario();
-                    usuario.setCorreo(resultado[0]);
-                    usuario.setNombre(resultado[1]); 
-                    usuario.setApellido(resultado[2]);
-                    usuario.setContraseña(resultado[3]);         
+                    usuario.setCorreo(res[0]);
+                    usuario.setNombre(res[1]); 
+                    usuario.setApellido(res[2]);
+                    usuario.setContraseña(res[3]);         
                     Membresia membresia = new Membresia();
-                    membresia.setTipo(resultado[4]);
-                    membresia.setPuntos(Double.parseDouble(resultado[5]));
-                    membresia.setValorCompras(Double.parseDouble(resultado[6]));
+                    membresia.setTipo(res[4]);
+                    membresia.setPuntos(Double.parseDouble(res[5]));
+                    membresia.setValorCompras(Double.parseDouble(res[6]));
                     usuario.setMembresia(membresia);              
                 }else if(tabla.equals("Administradores")){
                     admin = new Administrador();
-                    admin.setCorreo(resultado[0]);
-                    admin.setNombre(resultado[1]);
-                    admin.setApellido(resultado[2]);
-                    admin.setContraseña(resultado[3]);
+                    admin.setCorreo(res[0]);
+                    admin.setNombre(res[1]);
+                    admin.setApellido(res[2]);
+                    admin.setContraseña(res[3]);
                 }
                 return true;
             }else{

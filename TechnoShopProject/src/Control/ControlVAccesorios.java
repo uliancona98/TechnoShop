@@ -9,7 +9,7 @@ import Modelo.*;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.Icon;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 /**
  *
@@ -17,7 +17,8 @@ import javax.swing.ImageIcon;
  */
 public class ControlVAccesorios implements ActionListener{
     private VAccesorios accesorios;
-    private Usuario usuario;
+    private Usuario usuario=null;
+    private Integer ID=2;
     
     public ControlVAccesorios(VAccesorios va) {
         accesorios = va;
@@ -35,6 +36,7 @@ public class ControlVAccesorios implements ActionListener{
         accesorios.setVisible(true);  
         accesorios.setLocationRelativeTo(null);
         //Buscar las imagenes de la categoria de accesorios
+        ArrayList<String[]>busqueda = Conexion.buscar("productos", 8,ID, "id_tipoproducto");
         //Conexion.buscar(tabla, dato, nombreDato);
         ImageIcon imagen = new ImageIcon("icono1.jpg"); 
         accesorios.getBoton().setIcon(imagen);       

@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 public class ControlVDispositivos implements ActionListener{
     private VDispositivos dispositivos;
     private Usuario usuario;
+    private Integer ID=1;
     
     public ControlVDispositivos(VDispositivos VD) {
     dispositivos = VD;
