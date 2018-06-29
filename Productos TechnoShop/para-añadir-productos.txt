@@ -1,0 +1,269 @@
+Computadora de escritorio Acer Aspire AC20-720-MB13
+Acer 
+Dispositivo
+$9,562.5
+$7,650
+
+Procesador
+Silicio 14 nm
+Frecuencia boost del procesador 2,48 GHz
+Procesador Intel® Celeron®
+Núcleos/Hilos 2
+Modelo de procesador Procesador Intel® Celeron® J3060
+Caché 2 MB
+TDP máx. 6 W
+Velocidad de CPU 1,6 GHz
+Hilos de procesador 2
+
+20
+
+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+
+Laptop Asus  E402NA-GA002T
+Asus
+Dispositivo
+$5,375
+$4,300
+
+Posee una pantalla de 14 pulgadas
+RAM de 2 GB
+Disco duro de 500 GB
+Sistema Operativo Windows 10 Home
+
+20
+
+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+
+HP - Laptop 15-BW014LA
+Hp
+Dispositivo
+$10,562.5
+$8,450
+
+Sistema operativo
+Windows 10 Home 64
+Memoria (RAM)
+4GB
+Procesador
+Procesador AMD Dual-Core serie A
+Tamaño de pantalla
+15.6"
+
+20
+
+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+
+Smartphone Techpad M6
+techpad
+Dispositivo
+$2,496.25
+$1,997
+
+Cámara frontal 5MP y trasera 8MP
+Memoria interna 8GB
+Procesador Quad Core 1.30 GHz
+
+20
+
+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+
+Apple - iPhone 8   
+Apple
+Dispositivo
+$18,125
+$14,500
+
+GigaRed
+10 veces mayor velocidad en conexión
+Pantalla
+1334 x 750 pixeles, 4.7 pulgadas
+Memoria
+Interna: 64 GB y 256 GB.
+Cámara
+Cámara frontal: 7 megapixeles
+Cámara trasera: 12 megapixeles
+Procesador
+Chip A11 Bionic
+Sistema Operativo
+iOS 11
+
+20
+
+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+
+
+Smartphone Motorola Moto C 
+Motorola
+Dispositivo
+$1,600
+$2,000
+
+Pantalla
+854 x 480 pixeles, 5 pulgadas
+Memoria
+Memoria externa: Micro SD, expandible hasta 32 GB
+Memoria interna: 8 GB de memoria total, 3.5 GB de memoria disponible para usuario
+Cámara
+Cámara frontal: 2 megapixeles
+Cámara trasera: 5 megapixeles
+Procesador
+Mediatek MT6737M Quad Core 1.1 GHz
+Sistema Operativo
+Android 7.0 Nougat
+Conexiones Inalámbricas
+USB
+Wi Fi
+Bluetooth V 4.2
+
+20
+
+.-.-.--.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+
+Mouse Inalambrico M525 
+Logitech
+Accesorio
+$937.5
+$750
+
+Tipo de sensor
+Láser
+Conexión
+Inalámbrico
+
+20
+
+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+
+Teclado con conexión Bluetooth para PC o Mac NEGRO AUDIOBAHN  
+Accesorio
+AUDIOBAHN
+$350
+$280 
+
+Series	MK270
+Color	Negro
+Factor de forma	Standard
+Alto del producto	10 centimeter
+Ancho del producto	7 centimeter
+Resolución máxima de la pantalla	pixels pixels
+Marca del procesador	No aplicable
+Fuente de energía	Batería
+Plataforma de hardware	PC; Mac;UNI;Linux
+Descripción de la batería	Alkaline
+Lithium Battery Packaging	Batteries packed with equipment
+
+20
+
+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+
+Teclado numérico ideal para Laptop alámbrico USB marca AUDIOBAHN AKY60
+Accesorio
+AUDIOBAHN
+$147.5
+$118
+
+Modelo	AKY60
+Número de parte	AKY60
+Baterías incluidas	No
+Baterías necesarias	No
+
+20
+
+
+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-..-.-
+
+Mouse óptico inalámbrico conector USB AOM60 AUDIOBAHN AOM60
+Accesorio
+AUDIOBAHN
+$177.5
+$142
+
+Mouse Óptico Inalámbrico
+Sensor óptico
+Alta tecnología y sensibilidad de rastreo
+Mayor precisión y control en casi cualquier superficie
+2,000 DPI
+Fácil desplazamiento con rueda “scroll”
+
+20
+
+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-..-.-
+
+FIFA 16
+Xbox 360
+Software
+$375
+$300
+
+ASIN: B00YC7DZ3G
+Dimensiones del producto: 1.5 x 13.5 x 19 cm ; 81.6 g
+Edición: Standard
+
+20
+
+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-..-.-
+
+GTA V
+Xbox 360
+Software
+$750
+$937.5
+
+ASIN: B00FAZKZY6
+Dimensiones del producto: 19 x 13.5 x 1.5 cm ; 90.7 g
+Edición: Standard
+
+20
+
+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-..-.-
+
+Call of Duty Black Ops III
+Xbox 360
+Software
+$562.5
+$450 
+
+ASIN: B00YX0Z40Y
+Dimensiones del producto: 1.5 x 13.5 x 19 cm ; 68 g
+Edición: Standard
+
+20
+
+
+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-..-.-
+Office 2016 Hogar y Estudiante Microsoft para PC 1 Equipo 
+Microsoft
+Software
+$2,500
+$2,000
+
+Descripción
+• Compra por única vez para 1 dispositivo
+• Instalación en 1 PC
+• Versiones 2016 clásicas de Word, Excel, PowerPoint y OneNote
+• Soporte de Microsoft incluido durante 60 días sin costo adicional
+• Licencia para uso doméstico
+
+Compatible con Windows 7 o versiones posteriores. Todos los idiomas incluidos
+
+20
+
+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-..-.-
+
+Kit de Productividad Microsoft Mouse más Office 365 Personal más Internet Security
+Microsoft
+Software
+$1,500
+$1,200
+
+Descripción
+Posee toda la paquetería de Office
+Mantén protegida la información personal y bancaria de tu computadora al entrar a páginas Web
+Desplázate de manera sencilla gracias a la rueda de desplazamiento
+incluye antiviruz kaspersky
+
+20
+
+.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-..-.-
+
+
