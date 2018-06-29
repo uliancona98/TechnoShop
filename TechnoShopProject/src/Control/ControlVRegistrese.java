@@ -18,7 +18,6 @@ import javax.swing.JOptionPane;
  */
 public class ControlVRegistrese implements ActionListener{
     private VRegistrese registrese;
-    private Conexion conexion;
     public ControlVRegistrese(VRegistrese registrese) {
         this.registrese = registrese;
         registrese.getBotonRegistrarse().addActionListener(this);
@@ -60,7 +59,6 @@ public class ControlVRegistrese implements ActionListener{
                 usuario.setContraseña(contrasena);
                 membresia.setTipo("Nivel 1");
                 usuario.setMembresia(membresia);
-                conexion = new Conexion();
                 String[] valores = new String[7];
                 valores[0] = correo;
                 valores[1] = nombre;
@@ -70,7 +68,7 @@ public class ControlVRegistrese implements ActionListener{
                 valores[5] = "0";
                 valores[6] = "0";
                 //Insertar a la base de datos
-                conexion.insert("Usuarios", valores);
+                Conexion.insert("Usuarios", valores);
                 registrese.setVisible(false);
                 VHome vHome = new VHome(usuario);
                 vHome.setLocationRelativeTo(null);

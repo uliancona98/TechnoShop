@@ -9,7 +9,6 @@ import Modelo.*;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.InputMismatchException;
 import javax.swing.JOptionPane;
 
 /**
@@ -75,7 +74,6 @@ public class ControlVAdministrador implements ActionListener {
         }
         if(administradorV.getBotonAnadirExistente() == evento.getSource()){
             //Se selecciona la opcion de añadir existente, se abre       
-            System.out.println("jeee");
             administradorV.getVAnadirProducto2().setVisible(false);
             administradorV.getVAumentarProducto().setVisible(true);
             administradorV.getVAumentarProducto().setBounds(0, 0, 400, 432);
@@ -91,10 +89,10 @@ public class ControlVAdministrador implements ActionListener {
             administradorV.getVRemover().setVisible(false);
             System.out.println("Articulo removido de la tienda");
         }
+        //Checar si dejarlo
         if(administradorV.getBImprimir()== evento.getSource()){
             System.out.println("Se imprime el reporte");
             administradorV.getVReporte().setVisible(false);
-            
         }
         if(administradorV.getBRegresar()== evento.getSource()){
             administradorV.getVReporte().setVisible(false);
@@ -102,23 +100,38 @@ public class ControlVAdministrador implements ActionListener {
         if(administradorV.getBotonAceptar() == evento.getSource()){
             //Se añade el nuevo producto a la base
             try{
+                if(administradorV.getTextId().getText().equals("")){
+                    System.out.println("YA");
+                }
+                Integer id = Integer.parseInt(administradorV.getTextId().getText());
                 String nombre = administradorV.getTextNombre().getText();
                 double precio_venta = Double.parseDouble(administradorV.getTextPrecio().getText());
                 double precio_compra = Double.parseDouble(administradorV.getTextPrecioCompra().getText());
                 String descripcion = administradorV.getTextDescripcion().getText();
-                int no_articulos  = Integer.parseInt(administradorV.getTextCantidad().getText());
+                Integer no_articulos  = Integer.parseInt(administradorV.getTextCantidad().getText());
                 String marca = administradorV.getTextMarca().getText();
-                int id_categoria = administradorV.getComboBoxCategoria().getSelectedIndex();  
-                if(nombre.equals("") || precio_venta<0 || precio_compra<0 ||descripcion.equals("") || no_articulos<0 || marca.equals("") ){
+                Integer id_categoria = administradorV.getComboBoxCategoria().getSelectedIndex();
+                if(id<0 || nombre.equals("") || precio_venta<0 || precio_compra<0 ||descripcion.equals("") || no_articulos<0 || marca.equals("") ){
                     JOptionPane.showMessageDialog(null, "Datos erroneos");
                     limpiarCampos();
                 }else{
-                    System.out.println(nombre+" "+ precio_venta + " "+ precio_compra+ " "+ descripcion+ " "+ no_articulos+" "+
+                    System.out.println(nombre+" "+ precio_venta + " "+ precio_compra+ " "+ 
+                    descripcion+ " "+ no_articulos+" "+
                     marca+" "+ id_categoria);
-                    administradorV.getVAnadirProducto().setVisible(false);
+                    Conexion con = new Conexion();
+                    Object[]valoresProducto = new Object [8];
+                    valoresProducto[0]=id;
+                    valoresProducto[1]=nombre;
+                    valoresProducto[2]=precio_venta;
+                    valoresProducto[3]=precio_compra;
+                    valoresProducto[4]=descripcion;
+                    valoresProducto[5]=no_articulos;
+                    valoresProducto[6]=marca;
+                    valoresProducto[7]=id_categoria+1;  
+                    con.insert("productos", valoresProducto);
+                    administradorV.getVAnadirProducto().setVisible(false); 
                 }
-                            
-            }catch(InputMismatchException exception){
+            }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Datos erroneos");
             }
         }      

@@ -9,6 +9,8 @@ import Modelo.*;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 /**
  *
  * @author Juan D.M
@@ -18,14 +20,24 @@ public class ControlVAccesorios implements ActionListener{
     private Usuario usuario;
     
     public ControlVAccesorios(VAccesorios va) {
-    accesorios = va;
-    accesorios.getBRegresar().addActionListener(this);
+        accesorios = va;
+        inicializar();
     }
     
     public ControlVAccesorios(VAccesorios va, Usuario user) {
-    usuario = user;
-    accesorios = va;
-    accesorios.getBRegresar().addActionListener(this);
+        usuario = user;
+        accesorios = va;
+        inicializar();
+    }
+    
+    public void inicializar(){
+        accesorios.getBRegresar().addActionListener(this);
+        accesorios.setVisible(true);  
+        accesorios.setLocationRelativeTo(null);
+        //Buscar las imagenes de la categoria de accesorios
+        //Conexion.buscar(tabla, dato, nombreDato);
+        ImageIcon imagen = new ImageIcon("icono1.jpg"); 
+        accesorios.getBoton().setIcon(imagen);       
     }
     
     @Override
