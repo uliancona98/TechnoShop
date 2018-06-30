@@ -5,7 +5,6 @@ package Control;
 import Modelo.Carrito;
 import Modelo.Usuario;
 import View.VCarrito;
-import View.VCarrito;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
