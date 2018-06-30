@@ -180,9 +180,9 @@ public class Conexion {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            JOptionPane.showMessageDialog(null, "Conexion exitosa");
+            //JOptionPane.showMessageDialog(null, "Conexion exitosa");
         }catch(Exception e){
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "Conexeion fallida");
         }
         return con;
     }
