@@ -10,22 +10,14 @@ package Modelo;
  * @author A13003988
  */
 public class Tarjeta extends Pago{
-    private String tipo;
-    private int noTarjeta;
+   
+    private String noTarjeta;
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public int getNoTarjeta() {
+    public String getNoTarjeta() {
         return noTarjeta;
     }
 
-    public void setNoTarjeta(int noTarjeta) {
+    public void setNoTarjeta(String noTarjeta) {
         this.noTarjeta = noTarjeta;
     }
     

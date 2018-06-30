@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public class Usuario extends Cuenta {
    private Membresia membresia;
    private Carrito carrito;
+  
+   Tarjeta tarjeta=null;
    private ArrayList <Pedido> pedidos = new ArrayList();
 
     public Membresia getMembresia() {
@@ -37,6 +39,10 @@ public class Usuario extends Cuenta {
     public void addPedido(Pedido pedido) {
         pedidos.add(pedido);
     }
-   
+    
+    public void setTarjeta(Tarjeta tarjeta){
+        this.tarjeta=tarjeta;
+        
+    }
    
 }
