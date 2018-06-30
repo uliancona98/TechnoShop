@@ -19,7 +19,7 @@ public class Conexion {
     private static String URL = "jdbc:mysql://localhost:3306/"+ "technoshop" + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String database = "technoshop";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "root";    
+    private static final String PASSWORD = "19980519uli";    
     private static PreparedStatement ps;
     private static ResultSet rs;
     private static ArrayList<String[]> busquedaRes = new ArrayList<String[]>();

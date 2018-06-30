@@ -122,15 +122,15 @@ public class ControlVAdministrador implements ActionListener {
         if(administradorV.getBotonAceptar() == evento.getSource()){
             //Se añade el nuevo producto a la base
             try{
-                Integer id = Integer.parseInt(administradorV.getTextId().getText());
+                String id = administradorV.getTextId().getText();
                 String nombre = administradorV.getTextNombre().getText();
-                double precio_venta = Double.parseDouble(administradorV.getTextPrecio().getText());
+                double precio_venta = Double.parseDouble(administradorV.getTextPrecio().getText());          
                 double precio_compra = Double.parseDouble(administradorV.getTextPrecioCompra().getText());
                 String descripcion = administradorV.getTextDescripcion().getText();
                 Integer no_articulos  = Integer.parseInt(administradorV.getTextCantidad().getText());
                 String marca = administradorV.getTextMarca().getText();
                 Integer id_categoria = administradorV.getComboBoxCategoria().getSelectedIndex();
-                if(id<0 || nombre.equals("") || precio_venta<0 || precio_compra<0 ||descripcion.equals("") || no_articulos<0 || marca.equals("") ){
+                if(id.length()<13 || nombre.equals("") || precio_venta<0 || precio_compra<0 ||descripcion.equals("") || no_articulos<0 || marca.equals("") ){
                     JOptionPane.showMessageDialog(null, "Datos erroneos");
                     limpiarCampos();
                 }else{
