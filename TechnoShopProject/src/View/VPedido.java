@@ -21,14 +21,12 @@ public class VPedido extends javax.swing.JFrame {
 
         ventanaAgregarTarjeta = new javax.swing.JFrame();
         TNumeroTarjeta = new javax.swing.JTextField();
-        TValidacionTarjeta = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         SMes = new javax.swing.JSpinner();
         SAnio = new javax.swing.JSpinner();
         LTitularTarjeta = new javax.swing.JLabel();
         LNumerotarjeta = new javax.swing.JLabel();
         LValidacion = new javax.swing.JLabel();
-        LCodigoValidacion = new javax.swing.JLabel();
         TTitularTarjeta = new javax.swing.JTextField();
         botonAceptarTarjeta = new javax.swing.JButton();
         botonAgregarTarjeta = new javax.swing.JButton();
@@ -56,8 +54,6 @@ public class VPedido extends javax.swing.JFrame {
 
         LValidacion.setText("Valida hasta: ");
 
-        LCodigoValidacion.setText("codigo de validacion de la tarjeta de credito: ");
-
         TTitularTarjeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TTitularTarjetaActionPerformed(evt);
@@ -72,29 +68,24 @@ public class VPedido extends javax.swing.JFrame {
             ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ventanaAgregarTarjetaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonAceptarTarjeta)
                     .addGroup(ventanaAgregarTarjetaLayout.createSequentialGroup()
-                        .addComponent(LCodigoValidacion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TValidacionTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(botonAceptarTarjeta)
-                        .addGroup(ventanaAgregarTarjetaLayout.createSequentialGroup()
-                            .addGroup(ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(LTitularTarjeta)
-                                .addComponent(LNumerotarjeta)
-                                .addGroup(ventanaAgregarTarjetaLayout.createSequentialGroup()
-                                    .addComponent(LValidacion)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(SMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(TTitularTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TNumeroTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(ventanaAgregarTarjetaLayout.createSequentialGroup()
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(SAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGroup(ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(LTitularTarjeta)
+                            .addComponent(LNumerotarjeta)
+                            .addGroup(ventanaAgregarTarjetaLayout.createSequentialGroup()
+                                .addComponent(LValidacion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(SMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TTitularTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TNumeroTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ventanaAgregarTarjetaLayout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         ventanaAgregarTarjetaLayout.setVerticalGroup(
@@ -114,11 +105,7 @@ public class VPedido extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(SMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(LCodigoValidacion)
-                    .addComponent(TValidacionTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(botonAceptarTarjeta)
                 .addGap(27, 27, 27))
         );
@@ -162,7 +149,7 @@ public class VPedido extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(etiquetaFechaPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 241, Short.MAX_VALUE)))))
-                .addGap(109, 109, 109))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -254,7 +241,7 @@ public class VPedido extends javax.swing.JFrame {
     public void setetiquetaFechaPedido(JLabel etiquetaFechaPedido){
         this.etiquetaFechaPedido= etiquetaFechaPedido;
     }
-    public JLabel geetiquetaTotal()
+    public JLabel getetiquetaTotal()
     {
         return etiquetaTotal;
     }
@@ -276,7 +263,7 @@ public class VPedido extends javax.swing.JFrame {
         return ventanaAgregarTarjeta;
     }
     
-    public void settVentanaTarjeta(JFrame ventanaTarjeta){
+    public void setVentanaTarjeta(JFrame ventanaTarjeta){
         this.ventanaAgregarTarjeta=ventanaTarjeta;
     }
     
@@ -292,7 +279,6 @@ public class VPedido extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel LCodigoValidacion;
     private javax.swing.JLabel LNumerotarjeta;
     private javax.swing.JLabel LTitularTarjeta;
     private javax.swing.JLabel LValidacion;
@@ -300,7 +286,6 @@ public class VPedido extends javax.swing.JFrame {
     private javax.swing.JSpinner SMes;
     private javax.swing.JTextField TNumeroTarjeta;
     private javax.swing.JTextField TTitularTarjeta;
-    private javax.swing.JTextField TValidacionTarjeta;
     private javax.swing.JButton botonAceptar;
     private javax.swing.JButton botonAceptarTarjeta;
     private javax.swing.JButton botonAgregarTarjeta;
@@ -333,7 +318,5 @@ public class VPedido extends javax.swing.JFrame {
         return TTitularTarjeta;
     }
 
-    public JTextField getTValidacionTarjeta() {
-        return TValidacionTarjeta;
-    }
+  
 }
