@@ -1,40 +1,55 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Control;
+
 
 import Modelo.Carrito;
 import Modelo.Usuario;
+import View.VCarrito;
 import View.VCarrito;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
  *
- * @author A13003862
+ * @author Usuario
  */
-public class ControlVCarrito implements ActionListener{
+public class ControlVCarrito implements ActionListener {
+    
     private VCarrito vCarrito;
-    private  Usuario usuario;
+     private  Usuario usuario;
     private Carrito carrito;
-    
-    
-    public ControlVCarrito(VCarrito vCarrito, Usuario usuario){
-        this.vCarrito=vCarrito;
-        this.usuario=usuario;
-        carrito = usuario.getCarrito();
-        /*this.pedido.getbotonAceptar().addActionListener(this);
-        this.pedido.getbotonAgregarTarjeta().addActionListener(this);
-        this.pedido.getbotonCancelar().addActionListener(this);
-        this.pedido.getbotonPagarPuntos().addActionListener(this);*/        
-        inicializarCarrito();
+    public ControlVCarrito(VCarrito c) {
+        
+        vCarrito = c;
+        vCarrito.getbComprar().addActionListener(this);
+        vCarrito.getbEliminar().addActionListener(this);
+        vCarrito.getbReturn().addActionListener(this);
+        
     }
-    public void inicializarCarrito(){
-        //Se agregan los datos del carrito a la ventana
-    }
+    
     @Override
     public void actionPerformed(ActionEvent evento) {
-    }    
+        //Condicional si se presiona el boton "Comprar"  
+        if(vCarrito.getbComprar() == evento.getSource()){
+            
+            
+        }
+        
+        //Condicional si se presiona el boton "Eliminar"  
+        if(vCarrito.getbEliminar() == evento.getSource()){
+            
+            
+        }
+        
+        //Condicional si se presiona el boton "Return"  
+        if(vCarrito.getbReturn() == evento.getSource()){
+            
+            
+        }
+        
+        
+    }
+    
 }
+
+
