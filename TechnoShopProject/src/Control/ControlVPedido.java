@@ -1,6 +1,7 @@
 
 package Control;
 import Modelo.*;
+
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,9 +9,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 
 public class ControlVPedido implements ActionListener {
+    public static TableRowSorter<TableModel> tr;
     private VPedido vPedido;
     private  Usuario usuario;
     private ArrayList <Producto> productos;//para que es el array? que recibe?
@@ -19,12 +25,12 @@ public class ControlVPedido implements ActionListener {
     private Producto producto;
     Tarjeta tarjeta;
     String precioTotal;//para convertir el totalCompra a string e imprimirlo en etiqueta Total
-    
+    JTable tabla;
     public ControlVPedido(VPedido pedido, Usuario usuario, Producto producto){
         this.vPedido=pedido;
         this.usuario=usuario;
         this.producto=producto;
-        PasarDatosAtablas.llenarTabla(vPedido.gettablaProductos(), producto);
+        llenarTabla(tabla, producto);
         this.totalCompra=producto.getPrecioVenta()*producto.getNoArticulos();//multiplio el precio del producto por el numero deproductos
          precioTotal=String.valueOf(totalCompra);//para poner el precio total en la ventana
        
@@ -54,7 +60,7 @@ public class ControlVPedido implements ActionListener {
         this.vPedido=pedido;
         this.usuario=usuario;
         this.productos=productos;
-       PasarDatosAtablas.llenarTabla(vPedido.gettablaProductos(), productos);
+        llenarTabla(tabla,productos);
         this.vPedido.getbotonAceptar().addActionListener(this);
         this.vPedido.getbotonAgregarTarjeta().addActionListener(this);
         this.vPedido.getbotonCancelar().addActionListener(this);
@@ -120,6 +126,51 @@ public class ControlVPedido implements ActionListener {
         }
     }
     
+    public void llenarTabla(JTable tabla, Producto producto){
+          String []columnas = {"                     Producto",
+        "                    Unidades","                    Precio individual","                   Precio Total"};
+          DefaultTableModel dtm=new DefaultTableModel(null,columnas){
+                     @Override
+                    public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                    return false;
+    }
+          };
+            String dato1=producto.getNombre();
+            String dato2=Integer.toString(producto.getNoArticulos());
+            String dato3=Double.toString(producto.getPrecioVenta());
+            String dato4=Double.toString(producto.getPrecioVenta()*producto.getNoArticulos());
+            String[]filasContenido={dato1,dato2,dato3,dato4};
+            dtm.addRow(filasContenido);
+            tabla.setModel(dtm); 
+        tr=new TableRowSorter<>(dtm);
+        tabla.setRowSorter(tr);     
+    }
+    
+    public void llenarTabla(JTable tabla, ArrayList <Producto> productos){
+         String []columnas = {"                     Producto",
+        "                    Unidades","                    Precio individual","                   Precio Total"};
+      
+      DefaultTableModel dtm=new DefaultTableModel(null,columnas){
+                 @Override
+                public boolean isCellEditable(int row, int column) {
+                //all cells false
+                    return false;
+    }
+      };
+       for(int i=0;i<productos.size();i++){
+           String dato1= productos.get(i).getNombre();
+            String dato2=Integer.toString(productos.get(i).getNoArticulos());
+            String dato3=Double.toString(productos.get(i).getPrecioVenta());
+            String dato4=Double.toString(productos.get(i).getPrecioVenta()*productos.get(i).getNoArticulos());
+            String[]filasContenido={dato1,dato2,dato3,dato4};
+            dtm.addRow(filasContenido);
+            
+       }
+       tabla.setModel(dtm); 
+       tr=new TableRowSorter<>(dtm);
+       tabla.setRowSorter(tr);  
+    }
     
     
     

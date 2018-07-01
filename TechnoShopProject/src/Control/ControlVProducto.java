@@ -21,11 +21,19 @@ public class ControlVProducto implements ActionListener{
     public ControlVProducto(VProducto producto, int idCategoria) {
         this.Vproducto=producto;
         this.idCategoria=idCategoria;
+        this.Vproducto.getBAnadirCarro().addActionListener(this);
+        this.Vproducto.getBVolver().addActionListener(this);
+        this.Vproducto.getBComprar().addActionListener(this);
+        this.Vproducto.getbotonVerCarrito().addActionListener(this);
     }
     public ControlVProducto(VProducto producto, Usuario usuario,int idCategoria) {
         this.Vproducto=producto;
         this.usuario=usuario;
         this.idCategoria=idCategoria;
+        this.Vproducto.getBAnadirCarro().addActionListener(this);
+        this.Vproducto.getBVolver().addActionListener(this);
+        this.Vproducto.getBComprar().addActionListener(this);
+        this.Vproducto.getbotonVerCarrito().addActionListener(this);
     }
     
     @Override
@@ -50,13 +58,22 @@ public class ControlVProducto implements ActionListener{
          } 
  
          if(Vproducto.getBVolver() == evento.getSource()){
-             
+             if(idCategoria==1){
+                 VDispositivos dispositivos = new VDispositivos();
+                 dispositivos.setLocationRelativeTo(null);
+                 dispositivos.setVisible(true);
+             }else if(idCategoria==2){
+                 VSoftware software=new VSoftware();
+                 software.setLocationRelativeTo(null);
+                 software.setVisible(true);
+             }else if(idCategoria==3){
+                 VAccesorios accesorios = new VAccesorios();
+                 accesorios.setLocationRelativeTo(null);
+                 accesorios.setVisible(true);
+             }
          } 
          
          if(Vproducto.getBComprar() == evento.getSource()){
-             
-             
-             
              int noArticulos=(Integer)Vproducto.getspinnerCantidadProductos().getValue();
              
              producto.setNoArticulos(noArticulos);
