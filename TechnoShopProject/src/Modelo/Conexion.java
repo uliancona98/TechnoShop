@@ -19,7 +19,7 @@ public class Conexion {
     private static String URL = "jdbc:mysql://localhost:3306/"+ "technoshop" + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String database = "technoshop";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "root";    
+    private static final String PASSWORD = "19980519uli";    
     private static PreparedStatement ps;
     private static ResultSet rs;
     private static ArrayList<String[]> busquedaRes = new ArrayList<String[]>();
@@ -89,7 +89,8 @@ public class Conexion {
             System.out.println(e.getMessage());
         }
         return busquedaRes;
-    }    
+    }
+    
     public static void modificarTabla(String tabla, String[] campos, Object[]datosNuevos, String atributoBuscar, String datoBuscar){
         Connection con = null;
         try{
@@ -123,6 +124,7 @@ public class Conexion {
             System.out.println(e.getMessage());
         }                
     }
+    
     public static ArrayList<String[]> obtenerTabla(String tabla){
             
             PreparedStatement stmt = null;
@@ -146,7 +148,8 @@ public class Conexion {
                 System.out.println(e.getMessage());
             }
             return busquedaRes;
-    }    
+    }
+    
     public static ArrayList<String[]> buscar(String tabla, Object dato, String nombreDato){
         busquedaRes.clear();
         String[] busqueda=null;
@@ -175,6 +178,7 @@ public class Conexion {
             }
             con.close();
         }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error al buscar elemento");
             System.out.println(e.getMessage());           
         }
         return busquedaRes;
@@ -187,10 +191,32 @@ public class Conexion {
             con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             //JOptionPane.showMessageDialog(null, "Conexion exitosa");
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Conexeion fallida");
+            JOptionPane.showMessageDialog(null, "Conexion fallida");
         }
         return con;
     }
+    private void eliminar(String tabla, Object id) {                                         
+        // TODO add your handling code here:
+        Connection con = null;
+        try{
+            con = getConection();
+            ps = con.prepareStatement("DELETE FROM "+ tabla +" WHERE "+"id"+"=?");
+            if(id instanceof String){
+                ps.setString(1, (String)id);                
+            }else if(id instanceof Integer){
+                ps.setInt(1, (Integer)id);                
+            }
+            int res = ps.executeUpdate();
+            if(res>0){
+                JOptionPane.showMessageDialog(null, "Elemento eliminado");
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al eliminar elemento");
+            }
+            con.close();
+        }catch(Exception e){
+            System.out.println("Error al eliminar elemento");
+        }                
+    }     
 }
 
 
