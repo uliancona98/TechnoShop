@@ -38,7 +38,6 @@ public class ControlVAdministrador implements ActionListener {
         administradorV.getBImprimir().addActionListener(this);
         administradorV.getBRegresar().addActionListener(this);
         administradorV.getLabelBienvenida().setText("Bienvenid@ "+ a.getNombre()+" "+ a.getApellido());
-        
     }
     
     @Override
@@ -132,7 +131,6 @@ public class ControlVAdministrador implements ActionListener {
                 Integer id_categoria = administradorV.getComboBoxCategoria().getSelectedIndex();
                 if(id.length()<13 || nombre.equals("") || precio_venta<0 || precio_compra<0 ||descripcion.equals("") || no_articulos<0 || marca.equals("") ){
                     JOptionPane.showMessageDialog(null, "Datos erroneos");
-                    limpiarCampos();
                 }else{
                     System.out.println(nombre+" "+ precio_venta + " "+ precio_compra+ " "+ 
                     descripcion+ " "+ no_articulos+" "+
@@ -148,7 +146,7 @@ public class ControlVAdministrador implements ActionListener {
                     valoresProducto[6]=marca;
                     valoresProducto[7]=id_categoria+1;  
                     con.insert("productos", valoresProducto);
-                    administradorV.getVAnadirProducto().setVisible(false); 
+                    limpiarCampos(); 
                 }
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Datos erroneos");
@@ -157,6 +155,7 @@ public class ControlVAdministrador implements ActionListener {
     }
     
     public void limpiarCampos(){
+        administradorV.getTextId().setText(null);
         administradorV.getTextCantidad().setText(null);
         administradorV.getTextDescripcion().setText(null);
         administradorV.getTextMarca().setText(null);
