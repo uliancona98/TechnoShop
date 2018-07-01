@@ -3,10 +3,13 @@ package Control;
 
 
 import Modelo.Carrito;
+import Modelo.Producto;
 import Modelo.Usuario;
 import View.VCarrito;
+import View.VProducto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,9 +20,10 @@ public class ControlVCarrito implements ActionListener {
     private VCarrito vCarrito;
      private  Usuario usuario;
     private Carrito carrito;
-    public ControlVCarrito(VCarrito c) {
+    private ArrayList <Producto> productos;
+    public ControlVCarrito(VCarrito cArrito) {
         
-        vCarrito = c;
+        vCarrito = cArrito;
         vCarrito.getbComprar().addActionListener(this);
         vCarrito.getbEliminar().addActionListener(this);
         vCarrito.getbReturn().addActionListener(this);
@@ -42,7 +46,7 @@ public class ControlVCarrito implements ActionListener {
         
         //Condicional si se presiona el boton "Return"  
         if(vCarrito.getbReturn() == evento.getSource()){
-            
+            vCarrito.setVisible(false);
             
         }
         
