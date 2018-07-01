@@ -6,11 +6,14 @@
 package Control;
 
 import Modelo.*;
+import static Modelo.PasarDatosAtablas.tr;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -38,6 +41,7 @@ public class ControlVAdministrador implements ActionListener {
         administradorV.getBotonImprimir().addActionListener(this);
         administradorV.getBotonRegresar().addActionListener(this);
         administradorV.getBotonRetirarVolver().addActionListener(this);
+        administradorV.getBotonVolverAumentarProductos().addActionListener(this);
         administradorV.getLabelBienvenida().setText("Bienvenid@ "+ a.getNombre()+" "+ a.getApellido());
     }
     
@@ -57,7 +61,8 @@ public class ControlVAdministrador implements ActionListener {
         if(administradorV.getBotonRemoveProducto() == evento.getSource()){
            administradorV.getVRemover().setVisible(true);
            administradorV.getVRemover().setBounds(0, 0, 400, 440);
-           administradorV.getVRemover().setLocationRelativeTo(null);   
+           administradorV.getVRemover().setLocationRelativeTo(null);
+           llenarTablaProductos();
         }
         if(administradorV.getBotonReporte() == evento.getSource()){       
             administradorV.getVReporte().setVisible(true);
@@ -81,33 +86,15 @@ public class ControlVAdministrador implements ActionListener {
             administradorV.getVAumentarProducto().setBounds(0, 0, 400, 432);
             administradorV.getVAumentarProducto().setLocationRelativeTo(null);
             //Se lee la base de datos y agrega al combo box
-            busquedaProductos = Conexion.obtenerTabla("productos");
-            administradorV.getComboProductos().removeAllItems();
-            for(int i=0;i<busquedaProductos.size();i++){
-                String[] busquedaArray = busquedaProductos.get(i);                
-                administradorV.getComboProductos().addItem("Id: "+busquedaArray[0] +"  Nombre: " +busquedaArray[1]
-                + " No.Articulos: "+busquedaArray[5]);
-            }
+            llenarTablaProductosAumentar();
         }
         if(administradorV.getBotonAumentar()== evento.getSource()){
-            String []camposModificar = new String [1];
-            camposModificar[0]= "no_articulos";
-            Object []datosNuevos = new Object[1];
-            try{
-                String [] cadenaArray = busquedaProductos.get(administradorV.getComboProductos().getSelectedIndex());
-                datosNuevos[0]= Integer.parseInt(cadenaArray[5])+Integer.parseInt(administradorV.getTextAumentar().getText());
-                Conexion.modificarTabla("productos", camposModificar, datosNuevos , "id", cadenaArray[0]);
-                administradorV.getVAumentarProducto().setVisible(false);                
-            }catch(Exception e){
-                administradorV.getTextAumentar().setText(null);
-                JOptionPane.showMessageDialog(null, "Datos invalidos");
-            }
+            agregarUnidadesNuevas();
+            llenarTablaProductosAumentar();
             //Se selecciona la opcion de añadir existente, se abre 
         }
         if(administradorV.getBotonRetirar() == evento.getSource()){
-            //Se seleccion la opcion de añadir existente 2
-            administradorV.getVRemover().setVisible(false);
-            System.out.println("Articulo removido de la tienda");
+            retirarProducto();
         }
         //Checar si dejarlo
         if(administradorV.getBotonImprimir()== evento.getSource()){
@@ -118,45 +105,65 @@ public class ControlVAdministrador implements ActionListener {
             administradorV.getVReporte().setVisible(false);
         }
         if(administradorV.getBotonRetirarVolver()== evento.getSource()){
-            administradorV.getVRemover().setVisible(false);
-            
+            administradorV.getVRemover().setVisible(false);    
+        }
+        if(administradorV.getBotonVolverAumentarProductos()== evento.getSource()){
+            administradorV.getVAumentarProducto().setVisible(false);
         }
         if(administradorV.getBotonAceptar() == evento.getSource()){
             //Se añade el nuevo producto a la base
-            try{
-                String id = administradorV.getTextId().getText();
-                String nombre = administradorV.getTextNombre().getText();
-                double precio_venta = Double.parseDouble(administradorV.getTextPrecio().getText());          
-                double precio_compra = Double.parseDouble(administradorV.getTextPrecioCompra().getText());
-                String descripcion = administradorV.getTextDescripcion().getText();
-                Integer no_articulos  = Integer.parseInt(administradorV.getTextCantidad().getText());
-                String marca = administradorV.getTextMarca().getText();
-                Integer id_categoria = administradorV.getComboBoxCategoria().getSelectedIndex();
-                if(id.length()<13 || nombre.equals("") || precio_venta<0 || precio_compra<0 ||descripcion.equals("") || no_articulos<0 || marca.equals("") ){
-                    JOptionPane.showMessageDialog(null, "Datos erroneos");
-                }else{
-                    System.out.println(nombre+" "+ precio_venta + " "+ precio_compra+ " "+ 
-                    descripcion+ " "+ no_articulos+" "+
-                    marca+" "+ id_categoria);
-                    Conexion con = new Conexion();
-                    Object[]valoresProducto = new Object [8];
-                    valoresProducto[0]=id;
-                    valoresProducto[1]=nombre;
-                    valoresProducto[2]=precio_venta;
-                    valoresProducto[3]=precio_compra;
-                    valoresProducto[4]=descripcion;
-                    valoresProducto[5]=no_articulos;
-                    valoresProducto[6]=marca;
-                    valoresProducto[7]=id_categoria+1;  
-                    con.insert("productos", valoresProducto);
-                    limpiarCampos(); 
-                }
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "Datos erroneos");
-            }
-        }      
+            agregarNuevoProducto(); 
+        }
     }
-    
+    public void agregarNuevoProducto(){
+        try{
+            String id = administradorV.getTextId().getText();
+            String nombre = administradorV.getTextNombre().getText();
+            double precio_venta = Double.parseDouble(administradorV.getTextPrecio().getText());          
+            double precio_compra = Double.parseDouble(administradorV.getTextPrecioCompra().getText());
+            String descripcion = administradorV.getTextDescripcion().getText();
+            Integer no_articulos  = Integer.parseInt(administradorV.getTextCantidad().getText());
+            String marca = administradorV.getTextMarca().getText();
+            Integer id_categoria = administradorV.getComboBoxCategoria().getSelectedIndex();
+            if(id.length()<13 || nombre.equals("") || precio_venta<0 || precio_compra<0 ||descripcion.equals("") || no_articulos<0 || marca.equals("") ){
+                JOptionPane.showMessageDialog(null, "Datos erroneos");
+            }else{
+                System.out.println(nombre+" "+ precio_venta + " "+ precio_compra+ " "+ 
+                descripcion+ " "+ no_articulos+" "+
+                marca+" "+ id_categoria);
+                Conexion con = new Conexion();
+                Object[]valoresProducto = new Object [8];
+                valoresProducto[0]=id;
+                valoresProducto[1]=nombre;
+                valoresProducto[2]=precio_venta;
+                valoresProducto[3]=precio_compra;
+                valoresProducto[4]=descripcion;
+                valoresProducto[5]=no_articulos;
+                valoresProducto[6]=marca;
+                valoresProducto[7]=id_categoria+1;  
+                con.insert("productos", valoresProducto);
+                limpiarCampos(); 
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Datos erroneos");
+        }
+    }            
+
+    public void agregarUnidadesNuevas(){
+        String []camposModificar = new String [1];
+        camposModificar[0]= "no_articulos";
+        Object []datosNuevos = new Object[1];
+        try{
+            String [] cadenaArray = busquedaProductos.get(administradorV.getTablaAumentarProductos().getSelectedRow());
+            datosNuevos[0]= Integer.parseInt(cadenaArray[5])+Integer.parseInt(administradorV.getTextAumentar().getText());
+            Conexion.modificarTabla("productos", camposModificar, datosNuevos , "id", cadenaArray[0]);
+            //administradorV.getVAumentarProducto().setVisible(false);  
+            administradorV.getTextAumentar().setText(null);
+        }catch(Exception e){
+            administradorV.getTextAumentar().setText(null);
+            JOptionPane.showMessageDialog(null, "No has seleccionado un elemento de la tabla");
+        }        
+    }
     public void limpiarCampos(){
         administradorV.getTextId().setText(null);
         administradorV.getTextCantidad().setText(null);
@@ -166,5 +173,71 @@ public class ControlVAdministrador implements ActionListener {
         administradorV.getTextPrecio().setText(null);
         administradorV.getTextPrecioCompra().setText(null);
     }
-    
+    public void retirarProducto(){     
+        try{
+            String [] productoAEliminar = busquedaProductos.get(0);
+            try{
+                DefaultTableModel tm = (DefaultTableModel) administradorV.getTablaProductos().getModel();
+                String idEliminar = busquedaProductos.get(administradorV.getTablaProductos().getSelectedRow())[0];
+                Conexion.eliminar("productos", idEliminar);
+                llenarTablaProductos();
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, " No has selecionado una producto para retirar");
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No hay elementos para agregar a la tabla");
+        }
+    }
+    public void llenarTablaProductos(){
+        String []columnas = {"                     Id",
+        "                    Nombre","                    Unidades"};
+        DefaultTableModel dtm=new DefaultTableModel(null,columnas){
+        public boolean isCellEditable(int rowIndex, int vColIndex) {
+            return false;
+        }};
+        try{
+            busquedaProductos = Conexion.obtenerTabla("productos"); 
+            for(int i=0;i<busquedaProductos.size();i++){
+                String[] busquedaArray = busquedaProductos.get(i); 
+                String dato1= busquedaArray[0];
+                String dato2= busquedaArray[1];
+                String dato3= busquedaArray[5];
+                String[]filasContenido={dato1,dato2,dato3};
+                dtm.addRow(filasContenido);                   
+            }
+            administradorV.getTablaProductos().setModel(dtm);    
+            tr=new TableRowSorter<>(dtm);
+            administradorV.getTablaProductos().setRowSorter(tr);            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No hay elementos para agregar a la tabla");
+        }                
+    }
+    public void llenarTablaProductosAumentar(){
+        String []columnas = {"                     Id",
+        "                    Nombre","                    Unidades"};
+        DefaultTableModel dtm=new DefaultTableModel(null,columnas){
+        public boolean isCellEditable(int rowIndex, int vColIndex) {
+            return false;
+        }};
+        try{
+            busquedaProductos = Conexion.obtenerTabla("productos");
+            int i;
+            for(i=0;i<busquedaProductos.size();i++){
+                String[] busquedaArray = busquedaProductos.get(i); 
+                String dato1= busquedaArray[0];
+                String dato2= busquedaArray[1];
+                String dato3= busquedaArray[5];
+                String[]filasContenido={dato1,dato2,dato3};
+                dtm.addRow(filasContenido);                   
+            }   
+
+            administradorV.getTablaAumentarProductos().setModel(dtm);    
+            tr=new TableRowSorter<>(dtm);
+            administradorV.getTablaAumentarProductos().setRowSorter(tr);            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No hay elementos para agregar a la tabla");
+        }        
+    }
+    public void llenarTablaReporte(){
+    }
 }

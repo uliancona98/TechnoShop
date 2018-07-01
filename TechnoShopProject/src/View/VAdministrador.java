@@ -64,10 +64,13 @@ public class VAdministrador extends javax.swing.JFrame {
         botonAnadirExistente = new javax.swing.JButton();
         VAumentarProducto = new javax.swing.JFrame();
         jLabel14 = new javax.swing.JLabel();
-        comboProductos = new javax.swing.JComboBox<>();
         botonAumentar = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         textAumentar = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablaAumentarProductos = new javax.swing.JTable();
+        jLabel17 = new javax.swing.JLabel();
+        botonVolverAumentarProducto = new javax.swing.JButton();
         VReporte = new javax.swing.JFrame();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaReporte = new javax.swing.JTable();
@@ -280,9 +283,7 @@ public class VAdministrador extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabel14.setText("Elegir producto a añadir nuevas unidades");
-
-        comboProductos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel14.setText("Selecciona el articulo que desees aumentar unidades");
 
         botonAumentar.setText("AUMENTAR");
         botonAumentar.addActionListener(new java.awt.event.ActionListener() {
@@ -293,42 +294,78 @@ public class VAdministrador extends javax.swing.JFrame {
 
         jLabel15.setText("Introduce las unidades");
 
+        tablaAumentarProductos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tablaAumentarProductos);
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel17.setText("AGREGAR NUEVAS UNIDADES");
+
+        botonVolverAumentarProducto.setText("VOLVER");
+
         javax.swing.GroupLayout VAumentarProductoLayout = new javax.swing.GroupLayout(VAumentarProducto.getContentPane());
         VAumentarProducto.getContentPane().setLayout(VAumentarProductoLayout);
         VAumentarProductoLayout.setHorizontalGroup(
             VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VAumentarProductoLayout.createSequentialGroup()
-                .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(VAumentarProductoLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(comboProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(VAumentarProductoLayout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addComponent(jLabel14))
-                    .addGroup(VAumentarProductoLayout.createSequentialGroup()
-                        .addGap(234, 234, 234)
-                        .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textAumentar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15)))
-                    .addGroup(VAumentarProductoLayout.createSequentialGroup()
-                        .addGap(255, 255, 255)
-                        .addComponent(botonAumentar)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                        .addGap(319, 319, 319)
+                        .addComponent(botonAumentar)
+                        .addGap(199, 199, 199)
+                        .addComponent(botonVolverAumentarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(VAumentarProductoLayout.createSequentialGroup()
+                            .addGap(241, 241, 241)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(VAumentarProductoLayout.createSequentialGroup()
+                            .addGap(203, 203, 203)
+                            .addComponent(jLabel17))
+                        .addGroup(VAumentarProductoLayout.createSequentialGroup()
+                            .addGap(55, 55, 55)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(VAumentarProductoLayout.createSequentialGroup()
+                            .addGap(300, 300, 300)
+                            .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(textAumentar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel15)))))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         VAumentarProductoLayout.setVerticalGroup(
             VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VAumentarProductoLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel17)
+                .addGap(31, 31, 31)
                 .addComponent(jLabel14)
-                .addGap(34, 34, 34)
-                .addComponent(comboProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
                 .addComponent(jLabel15)
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textAumentar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(botonAumentar)
-                .addGap(44, 44, 44))
+                .addGap(43, 43, 43)
+                .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonAumentar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonVolverAumentarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         tablaReporte.setModel(new javax.swing.table.DefaultTableModel(
@@ -427,10 +464,6 @@ public class VAdministrador extends javax.swing.JFrame {
         VRetirarProductoLayout.setHorizontalGroup(
             VRetirarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VRetirarProductoLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 104, Short.MAX_VALUE))
-            .addGroup(VRetirarProductoLayout.createSequentialGroup()
                 .addGap(147, 147, 147)
                 .addGroup(VRetirarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(comboRetirarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -438,11 +471,16 @@ public class VAdministrador extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(VRetirarProductoLayout.createSequentialGroup()
-                .addGap(270, 270, 270)
-                .addComponent(botonRetirar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonRetirarVolver)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VRetirarProductoLayout.createSequentialGroup()
+                .addGroup(VRetirarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(VRetirarProductoLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(VRetirarProductoLayout.createSequentialGroup()
+                        .addGap(270, 270, 270)
+                        .addComponent(botonRetirar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                        .addComponent(botonRetirarVolver)))
                 .addGap(76, 76, 76))
         );
         VRetirarProductoLayout.setVerticalGroup(
@@ -476,6 +514,11 @@ public class VAdministrador extends javax.swing.JFrame {
         labelBienvenida.setText("Bienvenido: ¿Que desea usted hacer?");
 
         BotonRemoveProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/bag-remove.jpg"))); // NOI18N
+        BotonRemoveProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonRemoveProductoActionPerformed(evt);
+            }
+        });
 
         BotonReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporticon.jpg"))); // NOI18N
         BotonReporte.addActionListener(new java.awt.event.ActionListener() {
@@ -615,6 +658,10 @@ public class VAdministrador extends javax.swing.JFrame {
         // TODO add your handling code here:
    
     }//GEN-LAST:event_BotonAceptarActionPerformed
+
+    private void BotonRemoveProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRemoveProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonRemoveProductoActionPerformed
   
     public JButton getBotonAceptar() {
         return BotonAceptar;
@@ -696,10 +743,6 @@ public class VAdministrador extends javax.swing.JFrame {
         return VAumentarProducto;
     }
 
-    public JComboBox<String> getComboProductos() {
-        return comboProductos;
-    }
-
     public JButton getBotonRemoveProducto() {
         return BotonRemoveProducto;
     }
@@ -763,7 +806,14 @@ public class VAdministrador extends javax.swing.JFrame {
 
     public JTextField getTextId() {
         return TextId;
-    }    
+    }
+    public JTable getTablaAumentarProductos(){
+        return tablaAumentarProductos;
+    }   
+    public JButton getBotonVolverAumentarProductos(){
+        return botonVolverAumentarProducto;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BImprimir;
     private javax.swing.JButton BRegresar;
@@ -792,7 +842,7 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton botonAumentar;
     private javax.swing.JButton botonRetirar;
     private javax.swing.JButton botonRetirarVolver;
-    private javax.swing.JComboBox<String> comboProductos;
+    private javax.swing.JButton botonVolverAumentarProducto;
     private javax.swing.JComboBox<String> comboRetirarProducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -802,6 +852,7 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -814,7 +865,9 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel labelBienvenida;
+    private javax.swing.JTable tablaAumentarProductos;
     private javax.swing.JTable tablaProductos;
     private javax.swing.JTable tablaReporte;
     private javax.swing.JTextField textAumentar;

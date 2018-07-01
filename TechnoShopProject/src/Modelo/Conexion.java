@@ -195,7 +195,7 @@ public class Conexion {
         }
         return con;
     }
-    private void eliminar(String tabla, Object id) {                                         
+    public static void eliminar(String tabla, Object id) {                             
         // TODO add your handling code here:
         Connection con = null;
         try{

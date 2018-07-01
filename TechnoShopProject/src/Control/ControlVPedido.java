@@ -24,7 +24,7 @@ public class ControlVPedido implements ActionListener {
         this.vPedido=pedido;
         this.usuario=usuario;
         this.producto=producto;
-        pasarDatosAtablas.llenarTabla(vPedido.gettablaProductos(), producto);
+        PasarDatosAtablas.llenarTabla(vPedido.gettablaProductos(), producto);
         this.totalCompra=producto.getPrecioVenta()*producto.getNoArticulos();//multiplio el precio del producto por el numero deproductos
          precioTotal=String.valueOf(totalCompra);//para poner el precio total en la ventana
        
@@ -54,7 +54,7 @@ public class ControlVPedido implements ActionListener {
         this.vPedido=pedido;
         this.usuario=usuario;
         this.productos=productos;
-       pasarDatosAtablas.llenarTabla(vPedido.gettablaProductos(), productos);
+       PasarDatosAtablas.llenarTabla(vPedido.gettablaProductos(), productos);
         this.vPedido.getbotonAceptar().addActionListener(this);
         this.vPedido.getbotonAgregarTarjeta().addActionListener(this);
         this.vPedido.getbotonCancelar().addActionListener(this);
