@@ -8,6 +8,7 @@ package View;
 import Modelo.Usuario;
 import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -18,23 +19,10 @@ public class VHome extends javax.swing.JFrame {
     /**
      * Creates new form VHome
      */
-    Usuario usuario = null;
-    public VHome() {
-        initComponents();
-        this.getContentPane().setBackground(Color.white);
-        botonPedidos.setVisible(false);
-    }
     
-    public VHome(Usuario usuario){
+    public VHome(){
         initComponents();
         this.getContentPane().setBackground(Color.white);
-        this.usuario = usuario;
-        labelBienvenida.setText("Bienvenido "+ usuario.getNombre() +" "+ usuario.getApellido());
-        System.out.println(usuario.getMembresia().getTipo()+"es mi tipo");
-        BotonRegistrese.setVisible(false);
-        BotonSesion.setVisible(false);
-        botonPedidos.setVisible(true);
-        BotonAdministrador.setVisible(false);
     }
 
     /**
@@ -265,6 +253,13 @@ public class VHome extends javax.swing.JFrame {
 
     public void setBotonSoftware(JButton BotonSoftware) {
         this.BotonSoftware = BotonSoftware;
+    }
+    
+    public JLabel getLabelBienvenida(){
+        return labelBienvenida;
+    }
+    public JButton getBotonPedidos(){
+        return botonPedidos;
     }
 
     

@@ -71,10 +71,10 @@ public class ControlVRegistrese implements ActionListener{
                 //Insertar a la base de datos
                 Conexion.insert("Usuarios", valores);
                 registrese.setVisible(false);
-                VHome vHome = new VHome(usuario);
+                VHome vHome = new VHome();
                 vHome.setLocationRelativeTo(null);
                 vHome.setVisible(true);
-                ControlVHome Chome = new ControlVHome(vHome);
+                ControlVHome Chome = new ControlVHome(vHome,usuario);
             }else{
                 if(!bandera1){
                     JOptionPane.showMessageDialog(null, "Nombre Invalido");

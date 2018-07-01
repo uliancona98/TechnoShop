@@ -43,6 +43,13 @@ public class ControlVHome implements ActionListener{
         home.getBotonRegistrese().addActionListener(this);
         home.getBotonSesion().addActionListener(this);
         home.getBotonSoftware().addActionListener(this);
+        
+        home.getLabelBienvenida().setText("Bienvenido "+ usuario.getNombre() +" "+ usuario.getApellido());
+        System.out.println(usuario.getMembresia().getTipo()+"es mi tipo");
+        home.getBotonRegistrese().setVisible(false);
+        home.getBotonRegistrese().setVisible(false);
+        home.getBotonPedidos().setVisible(true);
+        home.getBotonAdministrador().setVisible(false);      
         inicializarTablaTop5();
     }
     
@@ -55,7 +62,6 @@ public class ControlVHome implements ActionListener{
             ArrayList<String[]> tablaDetallesPedidos = Conexion.obtenerTabla("detalles_pedidos");
             //tabla = Conexion.obtenerTabla("productos");
         }
-        
     }
     
     
@@ -84,36 +90,35 @@ public class ControlVHome implements ActionListener{
            ventanaRegistro.setLocationRelativeTo(null);
            ventanaRegistro.setVisible(true);
            home.setVisible(false);
-           ControlVRegistrese CR = new ControlVRegistrese(ventanaRegistro);
-           
+           ControlVRegistrese CR = new ControlVRegistrese(ventanaRegistro);  
         }
         if(home.getBotonDevice() == evento.getSource()){
-           home.setVisible(false);            
+            home.setVisible(false);            
         //Condicional si se presiona el boton "Dispositivos"
-           if(usuario==null){
+            if(usuario==null){
            //En caso de que no haya ninguna sesion iniciada
-           VDispositivos d = new VDispositivos();
-           ControlVDispositivos cd = new ControlVDispositivos(d);
-           }
-           else{
+                VDispositivos d = new VDispositivos();
+                ControlVDispositivos cd = new ControlVDispositivos(d);
+            }else{
            //Cuando se haya ya ingresado un usuario
-           VDispositivos d = new VDispositivos();
-           ControlVDispositivos cd = new ControlVDispositivos(d,usuario); 
-           }
+                System.out.println("here");
+                VDispositivos d = new VDispositivos();
+                ControlVDispositivos cd = new ControlVDispositivos(d,usuario); 
+            }
         }
         if(home.getBotonAccesory() == evento.getSource()){
            home.setVisible(false);            
         //Condicional si se presiona el boton "Accesorios"
-           if(usuario==null){
-           //En caso de que no haya ninguna sesion iniciada
-           VAccesorios a = new VAccesorios();
-           ControlVAccesorios ca = new ControlVAccesorios(a);
-           }
-           else{
-           //Cuando se haya ya ingresado un usuario
-           VAccesorios a = new VAccesorios();
-           ControlVAccesorios ca = new ControlVAccesorios(a,usuario);
-           }
+            if(usuario==null){
+                //En caso de que no haya ninguna sesion iniciada
+                VAccesorios a = new VAccesorios();
+                ControlVAccesorios ca = new ControlVAccesorios(a);
+            }
+            else{
+                //Cuando se haya ya ingresado un usuario
+                VAccesorios a = new VAccesorios();
+                ControlVAccesorios ca = new ControlVAccesorios(a,usuario);
+            }
         }
         if(home.getBotonSoftware() == evento.getSource()){
         //Condicional si se presiona el boton "Software"
@@ -122,13 +127,11 @@ public class ControlVHome implements ActionListener{
            //En caso de que no haya ninguna sesion iniciada
            VSoftware s = new VSoftware();
            ControlVSoftware cs = new ControlVSoftware(s);
-           }
-           else{
+           }else{
            //Cuando se haya ya ingresado un usuario
            VSoftware s = new VSoftware();
            ControlVSoftware cs = new ControlVSoftware(s,usuario);
            }
-           
         }
     }
 }

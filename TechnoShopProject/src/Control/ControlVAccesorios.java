@@ -34,10 +34,9 @@ public class ControlVAccesorios implements ActionListener{
     }
     
     public void inicializar(){
-        ventanaAccesorios.getBotonP1().addActionListener(this);
-        ventanaAccesorios.getBotonP2().addActionListener(this);
-        ventanaAccesorios.getBotonP3().addActionListener(this);
-        ventanaAccesorios.getBotonP4().addActionListener(this);        
+        for(int i=0;i<ventanaAccesorios.getBotonesProductos().size();i++){
+            ventanaAccesorios.getBotonesProductos().get(i).addActionListener(this);
+        }        
         accesorios = new ArrayList();
         ventanaAccesorios.getBRegresar().addActionListener(this);
         ventanaAccesorios.setVisible(true);
@@ -96,7 +95,7 @@ public class ControlVAccesorios implements ActionListener{
             VProducto vProducto = new VProducto();
             vProducto.setVisible(true);
             vProducto.setLocationRelativeTo(null);
-            if(usuario!=null){
+            if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)accesorios.get(0));                
             }else{
@@ -108,7 +107,7 @@ public class ControlVAccesorios implements ActionListener{
             VProducto vProducto = new VProducto();
             vProducto.setVisible(true);
             vProducto.setLocationRelativeTo(null);
-            if(usuario!=null){
+            if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)accesorios.get(1));                
             }else{
@@ -120,7 +119,7 @@ public class ControlVAccesorios implements ActionListener{
             VProducto vProducto = new VProducto();
             vProducto.setVisible(true);
             vProducto.setLocationRelativeTo(null);
-            if(usuario!=null){
+            if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)accesorios.get(2));                
             }else{
@@ -132,7 +131,7 @@ public class ControlVAccesorios implements ActionListener{
             VProducto vProducto = new VProducto();
             vProducto.setVisible(true);
             vProducto.setLocationRelativeTo(null);
-            if(usuario!=null){
+            if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)accesorios.get(1));                
             }else{

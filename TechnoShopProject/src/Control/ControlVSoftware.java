@@ -37,10 +37,9 @@ public class ControlVSoftware implements ActionListener{
     }
     
     public void inicializar(){
-        ventanaSoftware.getBotonP1().addActionListener(this);
-        ventanaSoftware.getBotonP2().addActionListener(this);
-        ventanaSoftware.getBotonP3().addActionListener(this);
-        ventanaSoftware.getBotonP4().addActionListener(this);                
+        for(int i=0;i<ventanaSoftware.getBotonesProductos().size();i++){
+            ventanaSoftware.getBotonesProductos().get(i).addActionListener(this);
+        }                    
         softwares= new ArrayList();
         ventanaSoftware.getBRegresar().addActionListener(this);
         ventanaSoftware.setVisible(true);  
@@ -59,8 +58,8 @@ public class ControlVSoftware implements ActionListener{
             software.setMarca(busquedaArray[6]);                
             software.setCategoria(busquedaArray[7]);
             softwares.add(software);
-            mostrarProductos();
         }
+        mostrarProductos();        
     }
     public void mostrarProductos(){
         for(int i=0;i<ventanaSoftware.getBotonesProductos().size();i++){
@@ -70,8 +69,9 @@ public class ControlVSoftware implements ActionListener{
                 ImageIcon imagen = new ImageIcon("IconsP\\"+id+".jpg");
                 if(imagen.getImageLoadStatus()==4){
                     JOptionPane.showMessageDialog(null, "No se encontro la imagen");
-                }
-                ventanaSoftware.getBotonesProductos().get(i).setIcon(imagen);                    
+                }else{
+                    ventanaSoftware.getBotonesProductos().get(i).setIcon(imagen);                     
+                }               
             }else{
                 i=ventanaSoftware.getBotonesProductos().size()-1;
             }
@@ -99,7 +99,7 @@ public class ControlVSoftware implements ActionListener{
             VProducto vProducto = new VProducto();
             vProducto.setVisible(true);
             vProducto.setLocationRelativeTo(null);
-            if(usuario!=null){
+            if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)softwares.get(0));                
             }else{
@@ -111,7 +111,7 @@ public class ControlVSoftware implements ActionListener{
             VProducto vProducto = new VProducto();
             vProducto.setVisible(true);
             vProducto.setLocationRelativeTo(null);
-            if(usuario!=null){
+            if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)softwares.get(1));                
             }else{
@@ -135,7 +135,7 @@ public class ControlVSoftware implements ActionListener{
             VProducto vProducto = new VProducto();
             vProducto.setVisible(true);
             vProducto.setLocationRelativeTo(null);
-            if(usuario!=null){
+            if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)softwares.get(1));                
             }else{

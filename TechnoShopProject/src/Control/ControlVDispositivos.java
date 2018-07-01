@@ -34,12 +34,10 @@ public class ControlVDispositivos implements ActionListener{
         ventanaDispositivos.getBRegresar().addActionListener(this);
         inicializar();
     }
-    
     public void inicializar(){
-        ventanaDispositivos.getBotonP1().addActionListener(this);
-        ventanaDispositivos.getBotonP2().addActionListener(this);
-        ventanaDispositivos.getBotonP3().addActionListener(this);
-        ventanaDispositivos.getBotonP4().addActionListener(this);         
+        for(int i=0;i<ventanaDispositivos.getBotonesProductos().size();i++){
+            ventanaDispositivos.getBotonesProductos().get(i).addActionListener(this);
+        }    
         dispositivos= new ArrayList();
         ventanaDispositivos.getBRegresar().addActionListener(this);
         ventanaDispositivos.setVisible(true);  
@@ -57,20 +55,24 @@ public class ControlVDispositivos implements ActionListener{
             dispositivo.setNoArticulos(Integer.parseInt(busquedaArray[5]));                
             dispositivo.setMarca(busquedaArray[6]);                
             dispositivo.setCategoria(busquedaArray[7]);
-            dispositivos.add(dispositivo);
-            mostrarProductos();             
+            dispositivos.add(dispositivo);         
         }
+        mostrarProductos();           
     }
     public void mostrarProductos(){
+        System.out.println(ventanaDispositivos.getBotonesProductos().size()+"----");
         for(int i=0;i<ventanaDispositivos.getBotonesProductos().size();i++){
+            System.out.println("qii");
             if(i<dispositivos.size()){
                 ventanaDispositivos.getlabelsProductos().get(i).setText(dispositivos.get(i).getNombre());
                 String id = dispositivos.get(i).getId();
+                System.out.println("id" + id);
                 ImageIcon imagen = new ImageIcon("IconsP\\"+id+".jpg");
                 if(imagen.getImageLoadStatus()==4){
                     JOptionPane.showMessageDialog(null, "No se encontro la imagen");
-                }
-                ventanaDispositivos.getBotonesProductos().get(i).setIcon(imagen);                    
+                }else{
+                    ventanaDispositivos.getBotonesProductos().get(i).setIcon(imagen);                       
+                }                 
             }else{
                 i=ventanaDispositivos.getBotonesProductos().size()-1;
             }
@@ -98,7 +100,7 @@ public class ControlVDispositivos implements ActionListener{
             VProducto vProducto = new VProducto();
             vProducto.setVisible(true);
             vProducto.setLocationRelativeTo(null);
-            if(usuario!=null){
+            if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)dispositivos.get(0));                
             }else{
@@ -110,7 +112,7 @@ public class ControlVDispositivos implements ActionListener{
             VProducto vProducto = new VProducto();
             vProducto.setVisible(true);
             vProducto.setLocationRelativeTo(null);
-            if(usuario!=null){
+            if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)dispositivos.get(1));                
             }else{
@@ -122,7 +124,7 @@ public class ControlVDispositivos implements ActionListener{
             VProducto vProducto = new VProducto();
             vProducto.setVisible(true);
             vProducto.setLocationRelativeTo(null);
-            if(usuario!=null){
+            if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)dispositivos.get(2));                
             }else{
@@ -134,13 +136,12 @@ public class ControlVDispositivos implements ActionListener{
             VProducto vProducto = new VProducto();
             vProducto.setVisible(true);
             vProducto.setLocationRelativeTo(null);
-            if(usuario!=null){
+            if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)dispositivos.get(1));                
             }else{
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)dispositivos.get(3));                         
-            }            
+            }
         }           
-        
     }
 }

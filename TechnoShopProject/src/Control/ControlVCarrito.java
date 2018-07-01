@@ -1,8 +1,6 @@
 
 package Control;
 
-
-import static Control.ControlVPedido.tr;
 import Modelo.Carrito;
 import Modelo.Producto;
 import Modelo.Usuario;

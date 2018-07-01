@@ -40,7 +40,7 @@ public class ControlVIniciarSesion implements ActionListener{
                 if (Login.validarCuenta(iniciarSesion.getUsuarioCampo().getText(), iniciarSesion.getContrasenaCampo().getPassword(), "Usuarios")){
                     System.out.println("Iniciado sesion");
                     iniciarSesion.setVisible(false);
-                    VHome home = new VHome(Login.usuario);
+                    VHome home = new VHome();
                     home.setLocationRelativeTo(null);
                     home.setVisible(true);
                     ControlVHome cHome = new ControlVHome(home, Login.usuario);                    
