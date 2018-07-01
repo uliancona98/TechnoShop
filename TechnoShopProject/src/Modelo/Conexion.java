@@ -19,7 +19,7 @@ public class Conexion {
     private static String URL = "jdbc:mysql://localhost:3306/"+ "technoshop" + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String database = "technoshop";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "19980519uli";    
+    private static final String PASSWORD = "root";    
     private static PreparedStatement ps;
     private static ResultSet rs;
     private static ArrayList<String[]> busquedaRes = new ArrayList<String[]>();
@@ -53,7 +53,12 @@ public class Conexion {
             }
             con.close();
         }catch(Exception e){
-            System.out.println(e.getMessage());
+            String [] cadenaPartes = e.getMessage().split(" ");
+            if(cadenaPartes[0].equals("Duplicate")){
+                JOptionPane.showMessageDialog(null, "ID Duplicado, no puedes añadir el mismo producto");
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al insertar articulo");
+            }
         }        
     }
     public static ArrayList<String[]> buscarTablasRelacionadas(String tabla1, String tabla2, String atributoTabla1, String atributoTabla2){
