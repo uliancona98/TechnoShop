@@ -34,45 +34,45 @@ public class ControlVSoftware implements ActionListener{
         inicializar();
     }
     
-     public void inicializar(){
-        Softwares= new ArrayList();
-        ventanaSoftware.getBRegresar().addActionListener(this);
-        ventanaSoftware.setVisible(true);  
-        ventanaSoftware.setLocationRelativeTo(null);
-        //Buscar las imagenes de la categoria de accesorios
-        ArrayList<String[]>busqueda = Conexion.buscar("productos", 3, "id_tipoproducto");
-        for(int i=0;i<busqueda.size();i++){
-            String[] busquedaArray = busqueda.get(i);
-            Software software = new Software();                
-            software.setId(Integer.parseInt(busquedaArray[0]));  
-            software.setNombre(busquedaArray[1]);   
-            software.setPrecioVenta(Double.parseDouble(busquedaArray[2]));                
-            software.setPrecioCompra(Double.parseDouble(busquedaArray[3]));                
-            software.setDescripcion(busquedaArray[4]); 
-            software.setNoArticulos(Integer.parseInt(busquedaArray[5]));                
-            software.setMarca(busquedaArray[6]);                
-            software.setCategoria(busquedaArray[7]);
-            Softwares.add(software);
-        }
+        public void inicializar(){
+            Softwares= new ArrayList();
+            ventanaSoftware.getBRegresar().addActionListener(this);
+            ventanaSoftware.setVisible(true);  
+            ventanaSoftware.setLocationRelativeTo(null);
+            //Buscar las imagenes de la categoria de accesorios
+            ArrayList<String[]>busqueda = Conexion.buscar("productos", 3, "id_tipoproducto");
+            for(int i=0;i<busqueda.size();i++){
+                String[] busquedaArray = busqueda.get(i);
+                Software software = new Software();                
+                software.setId(busquedaArray[0]);  
+                software.setNombre(busquedaArray[1]);   
+                software.setPrecioVenta(Double.parseDouble(busquedaArray[2]));                
+                software.setPrecioCompra(Double.parseDouble(busquedaArray[3]));                
+                software.setDescripcion(busquedaArray[4]); 
+                software.setNoArticulos(Integer.parseInt(busquedaArray[5]));                
+                software.setMarca(busquedaArray[6]);                
+                software.setCategoria(busquedaArray[7]);
+                Softwares.add(software);
+            }
         }
     
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(ventanaSoftware.getBRegresar() == evento.getSource()){
-          if(usuario==null){
-          VHome home = new VHome();
-          ControlVHome Chome = new ControlVHome(home);
-          home.setLocationRelativeTo(null);
-          home.setVisible(true);
-          ventanaSoftware.setVisible(false);
-          }
-          else{
-          VHome home = new VHome();
-          ControlVHome Chome = new ControlVHome(home,usuario);
-          home.setLocationRelativeTo(null);
-          home.setVisible(true);
-          ventanaSoftware.setVisible(false);
-          }
+            if(usuario==null){
+            VHome home = new VHome();
+            ControlVHome Chome = new ControlVHome(home);
+            home.setLocationRelativeTo(null);
+            home.setVisible(true);
+            ventanaSoftware.setVisible(false);
+            }
+            else{
+            VHome home = new VHome();
+            ControlVHome Chome = new ControlVHome(home,usuario);
+            home.setLocationRelativeTo(null);
+            home.setVisible(true);
+            ventanaSoftware.setVisible(false);
+            }
         }
     }
 }

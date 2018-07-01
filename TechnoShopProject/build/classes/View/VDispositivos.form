@@ -48,9 +48,9 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-              <Component id="botonP5" min="-2" pref="223" max="-2" attributes="0"/>
+              <Component id="botonP3" min="-2" pref="223" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="botonP6" min="-2" pref="223" max="-2" attributes="0"/>
+              <Component id="botonP4" min="-2" pref="223" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
@@ -60,9 +60,9 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-              <Component id="botonP7" min="-2" pref="223" max="-2" attributes="0"/>
+              <Component id="botonP1" min="-2" pref="223" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="botonP4" min="-2" pref="223" max="-2" attributes="0"/>
+              <Component id="botonP2" min="-2" pref="223" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -79,8 +79,8 @@
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="botonP4" min="-2" pref="166" max="-2" attributes="0"/>
-                  <Component id="botonP7" min="-2" pref="166" max="-2" attributes="0"/>
+                  <Component id="botonP2" min="-2" pref="166" max="-2" attributes="0"/>
+                  <Component id="botonP1" min="-2" pref="166" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -90,13 +90,13 @@
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="botonP5" min="-2" pref="166" max="-2" attributes="0"/>
+                      <Component id="botonP3" min="-2" pref="166" max="-2" attributes="0"/>
                       <EmptySpace pref="266" max="32767" attributes="0"/>
                       <Component id="BRegresar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="botonP6" min="-2" pref="166" max="-2" attributes="0"/>
+                      <Component id="botonP4" min="-2" pref="166" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -157,6 +157,24 @@
         </Property>
       </Properties>
     </Component>
+    <Component class="javax.swing.JButton" name="botonP2">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="botonP3">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JButton" name="botonP4">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -166,25 +184,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="botonP5">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder/>
-          </Border>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="botonP6">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder/>
-          </Border>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="botonP7">
+    <Component class="javax.swing.JButton" name="botonP1">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">

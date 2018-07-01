@@ -147,9 +147,6 @@ public class VAccesorios extends javax.swing.JFrame {
         return botonesProductos;
     }
     
-    public JButton getBoton() {
-        return botonP1;
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BRegresar;
     private javax.swing.JButton botonP1;

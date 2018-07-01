@@ -10,6 +10,7 @@ import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 /**
  *
  * @author Juan D.M
@@ -39,11 +40,11 @@ public class ControlVDispositivos implements ActionListener{
         ventanaDispositivos.setVisible(true);  
         ventanaDispositivos.setLocationRelativeTo(null);
         //Buscar las imagenes de la categoria de dispositivos
-        ArrayList<String[]>busqueda = Conexion.buscar("productos", 3, "id_tipoproducto");
+        ArrayList<String[]>busqueda = Conexion.buscar("productos", ID, "id_tipoproducto");
         for(int i=0;i<busqueda.size();i++){
             String[] busquedaArray = busqueda.get(i);
             Dispositivo dispositivo = new Dispositivo();                
-            dispositivo.setId(Integer.parseInt(busquedaArray[0]));  
+            dispositivo.setId(busquedaArray[0]);  
             dispositivo.setNombre(busquedaArray[1]);   
             dispositivo.setPrecioVenta(Double.parseDouble(busquedaArray[2]));                
             dispositivo.setPrecioCompra(Double.parseDouble(busquedaArray[3]));                
@@ -52,9 +53,23 @@ public class ControlVDispositivos implements ActionListener{
             dispositivo.setMarca(busquedaArray[6]);                
             dispositivo.setCategoria(busquedaArray[7]);
             Dispositivos.add(dispositivo);
+            cargarImagenes();             
         }
-        }
-    
+    }
+    public void cargarImagenes(){
+        for(int i=0;i<ventanaDispositivos.getBotonesProductos().size();i++){
+            if(i<Dispositivos.size()){
+                String id = Dispositivos.get(i).getId();
+                ImageIcon imagen = new ImageIcon("IconsP\\"+id+".jpg");
+                if(imagen.getImageLoadStatus()==4){
+                    System.out.println("Imagen no encontrada");
+                }
+                ventanaDispositivos.getBotonesProductos().get(i).setIcon(imagen);                    
+            }else{
+                i=ventanaDispositivos.getBotonesProductos().size()-1;
+            }
+        }             
+    }    
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(ventanaDispositivos.getBRegresar() == evento.getSource()){

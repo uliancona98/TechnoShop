@@ -10,7 +10,7 @@ package Modelo;
  * @author Juan D.M
  */
 public abstract class Producto {
-    protected int id;
+    protected String id;
     protected String nombre;
     protected double precioVenta;
     protected double precioCompra;
@@ -21,11 +21,11 @@ public abstract class Producto {
     protected String informacionCategoria;
 
     
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

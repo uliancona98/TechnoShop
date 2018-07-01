@@ -37,13 +37,12 @@ public class ControlVAccesorios implements ActionListener{
         accesorios = new ArrayList();
         ventanaAccesorios.getBRegresar().addActionListener(this);
         ventanaAccesorios.setVisible(true);  
-        ventanaAccesorios.setLocationRelativeTo(null);
         //Buscar las imagenes de la categoria de accesorios
-        ArrayList<String[]>busqueda = Conexion.buscar("productos", 3, "id_tipoproducto");
+        ArrayList<String[]>busqueda = Conexion.buscar("productos", 2, "id_tipoproducto");
         for(int i=0;i<busqueda.size();i++){
             String[] busquedaArray = busqueda.get(i);
             Accesorio accesorio = new Accesorio();                
-            accesorio.setId(Integer.parseInt(busquedaArray[0]));  
+            accesorio.setId(busquedaArray[0]);  
             accesorio.setNombre(busquedaArray[1]);   
             accesorio.setPrecioVenta(Double.parseDouble(busquedaArray[2]));                
             accesorio.setPrecioCompra(Double.parseDouble(busquedaArray[3]));                
@@ -53,9 +52,12 @@ public class ControlVAccesorios implements ActionListener{
             accesorio.setCategoria(busquedaArray[7]);
             accesorios.add(accesorio);
         }
+        cargarImagenes();  
+    }
+    public void cargarImagenes(){
         for(int i=0;i<ventanaAccesorios.getBotonesProductos().size();i++){
             if(i<accesorios.size()){
-                String id = Integer.toString(accesorios.get(i).getId());
+                String id = accesorios.get(i).getId();
                 ImageIcon imagen = new ImageIcon("IconsP\\"+id+".jpg");
                 if(imagen.getImageLoadStatus()==4){
                     System.out.println("Imagen no encontrada");
@@ -64,7 +66,7 @@ public class ControlVAccesorios implements ActionListener{
             }else{
                 i=ventanaAccesorios.getBotonesProductos().size()-1;
             }
-        }       
+        }             
     }
     
     @Override

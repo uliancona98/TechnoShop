@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.util.ArrayList;
 import javax.swing.JButton;
 
 /**
@@ -12,12 +13,14 @@ import javax.swing.JButton;
  * @author Juan D.M
  */
 public class VSoftware extends javax.swing.JFrame {
-
-    /**
-     * Creates new form VSoftware
-     */
+    private ArrayList <JButton> botonesProductos;
     public VSoftware() {
         initComponents();
+        botonesProductos = new ArrayList();
+        botonesProductos.add(botonP1);
+        botonesProductos.add(botonP2);
+        botonesProductos.add(botonP3);
+        botonesProductos.add(botonP2);        
     }
 
     /**
@@ -140,7 +143,9 @@ public class VSoftware extends javax.swing.JFrame {
     private void BRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRegresarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BRegresarActionPerformed
-
+    public ArrayList<JButton> getBotonesProductos(){
+        return botonesProductos;
+    }
     public JButton getBRegresar() {
         return BRegresar;
     }

@@ -6,7 +6,6 @@
 package Control;
 
 import Modelo.*;
-import static Modelo.PasarDatosAtablas.tr;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -24,6 +24,7 @@ public class ControlVAdministrador implements ActionListener {
     private Administrador admin;
     private ArrayList<String> id = new ArrayList();
     private ArrayList<String[]> busquedaProductos;
+    public TableRowSorter<TableModel> tr;
     
     ControlVAdministrador(VAdministrador vAdmin, Administrador a){
         this.administradorV = vAdmin;
