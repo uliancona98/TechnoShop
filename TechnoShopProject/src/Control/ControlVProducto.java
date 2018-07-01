@@ -9,55 +9,79 @@ import Modelo.*;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 /**
  *
  * @author Juan D.M
  */
 public class ControlVProducto implements ActionListener{
-    private VProducto Vproducto;
+    private VProducto vProducto;
     private Producto producto;
     private Usuario usuario=null;
     private int idCategoria;
-    public ControlVProducto(VProducto producto, int idCategoria) {
-        this.Vproducto=producto;
+    public ControlVProducto(VProducto vProducto, int idCategoria, Producto producto ) {
+        this.vProducto.getbotonVerCarrito().setVisible(false);
+        
+        this.vProducto=vProducto;
         this.idCategoria=idCategoria;
-        this.Vproducto.getBAnadirCarro().addActionListener(this);
-        this.Vproducto.getBVolver().addActionListener(this);
-        this.Vproducto.getBComprar().addActionListener(this);
-        this.Vproducto.getbotonVerCarrito().addActionListener(this);
+        this.producto = producto;
+        this.vProducto.getBAnadirCarro().addActionListener(this);
+        this.vProducto.getBVolver().addActionListener(this);
+        this.vProducto.getBComprar().addActionListener(this);
+        this.vProducto.getbotonVerCarrito().addActionListener(this);
+        inicializar();
     }
-    public ControlVProducto(VProducto producto, Usuario usuario,int idCategoria) {
-        this.Vproducto=producto;
+    public ControlVProducto(VProducto vProducto, Usuario usuario,int idCategoria, Producto producto) {
+        this.vProducto=vProducto;
         this.usuario=usuario;
+        this.producto = producto;        
         this.idCategoria=idCategoria;
-        this.Vproducto.getBAnadirCarro().addActionListener(this);
-        this.Vproducto.getBVolver().addActionListener(this);
-        this.Vproducto.getBComprar().addActionListener(this);
-        this.Vproducto.getbotonVerCarrito().addActionListener(this);
+        this.vProducto.getBAnadirCarro().addActionListener(this);
+        this.vProducto.getBVolver().addActionListener(this);
+        this.vProducto.getBComprar().addActionListener(this);
+        this.vProducto.getbotonVerCarrito().addActionListener(this);
+        inicializar();
     }
     
+    public void inicializar(){
+        
+        ImageIcon Imagen = new javax.swing.ImageIcon("productos\\"+producto.getId()+".jpg"); 
+        JLabel Img = new javax.swing.JLabel(Imagen); 
+        Img.setSize(884, 509); 
+        vProducto.getPanelProducto().add(Img);        
+    }
     @Override
     public void actionPerformed(ActionEvent evento) {
-         if(Vproducto.getBAnadirCarro() == evento.getSource()){
-             //producto=new Producto();
-             //usuario.setCarritoProducto(producto);
-             
-             if(idCategoria==1){
-                 Dispositivo dispositivo=new Dispositivo();
-                 Producto producto=(Producto)dispositivo;
-                 
-             }else if(idCategoria==2){
-                 Software soft=new Software();
-                  Producto producto=(Producto)soft;
-             }else if(idCategoria==3){
-                 Accesorio acce=new Accesorio();
-                  Producto producto=(Producto)acce;
-             }
-             
-             
-         } 
+        if(vProducto.getBAnadirCarro() == evento.getSource()){
+            //validarArticulosDisponibles();
+            //Se verifican las unidades en la bases de datos *************************
+            
+            Carrito carrito = usuario.getCarrito();         
+            for(int i=0;i< carrito.getProductos().size();i++){
+                if(carrito.getProductos().get(i).getId().equals(producto.getId())){
+                
+                }else{
+                    if(i==carrito.getProductos().size()-1){
+                        
+                    }
+                }
+            }
+            if(idCategoria==1){
+               Dispositivo dispositivo=new Dispositivo();
+               producto=(Producto)dispositivo;
+            }else if(idCategoria==2){
+               Software soft=new Software();
+               producto=(Producto)soft;
+            }else if(idCategoria==3){
+               Accesorio acce=new Accesorio();
+               producto=(Producto)acce;
+            }
+            usuario.setCarritoProducto(producto);
+        }
  
-         if(Vproducto.getBVolver() == evento.getSource()){
+         if(vProducto.getBVolver() == evento.getSource()){
              if(idCategoria==1){
                  VDispositivos dispositivos = new VDispositivos();
                  dispositivos.setLocationRelativeTo(null);
@@ -73,8 +97,8 @@ public class ControlVProducto implements ActionListener{
              }
          } 
          
-         if(Vproducto.getBComprar() == evento.getSource()){
-             int noArticulos=(Integer)Vproducto.getspinnerCantidadProductos().getValue();
+         if(vProducto.getBComprar() == evento.getSource()){
+             int noArticulos=(Integer)vProducto.getspinnerCantidadProductos().getValue();
              
              producto.setNoArticulos(noArticulos);
              VPedido ventanaPedido =new VPedido();
@@ -85,14 +109,13 @@ public class ControlVProducto implements ActionListener{
   
          }
          
-         if(Vproducto.getbotonVerCarrito()== evento.getSource()){
-             VCarrito cArrito= new VCarrito();
-              cArrito.setLocationRelativeTo(null);
-              cArrito.setVisible(true);
+        if(vProducto.getbotonVerCarrito()== evento.getSource()){
+            VCarrito vCarrito= new VCarrito();
+            vCarrito.setLocationRelativeTo(null);
+            vCarrito.setVisible(true);
+            ControlVCarrito controlVCarrito = new ControlVCarrito(vCarrito, usuario);
               
-         }
-         
-         
+        } 
     }
     public boolean validarArticulosDisponibles(){
         return true;

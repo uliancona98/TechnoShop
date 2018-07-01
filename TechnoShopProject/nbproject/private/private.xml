@@ -3,17 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Desktop/Curso%20Java/TechnoShop/TechnoShopProject/src/Modelo/Producto.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Curso%20Java/TechnoShop/TechnoShopProject/src/View/VAdministrador.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Curso%20Java/TechnoShop/TechnoShopProject/src/Modelo/Administrador.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Curso%20Java/TechnoShop/TechnoShopProject/src/Modelo/Usuario.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Curso%20Java/TechnoShop/TechnoShopProject/src/Modelo/Bodega.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Curso%20Java/TechnoShop/TechnoShopProject/src/technoshop/TechnoShopProject.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Curso%20Java/TechnoShop/TechnoShopProject/src/Modelo/Cuenta.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Curso%20Java/TechnoShop/TechnoShopProject/src/Control/ControlVIniciarSesion.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Curso%20Java/TechnoShop/TechnoShopProject/src/View/VHome.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Curso%20Java/TechnoShop/TechnoShopProject/src/Modelo/Login.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Curso%20Java/TechnoShop/TechnoShopProject/src/Control/ControlVHome.java</file>
+            <file>file:/C:/Users/Asus/Desktop/Verano_Uli/POO/Repositorio/TechnoShop8/TechnoShopProject/src/Control/ControlVProducto.java</file>
+            <file>file:/C:/Users/Asus/Desktop/Verano_Uli/POO/Repositorio/TechnoShop8/TechnoShopProject/src/View/VDispositivos.java</file>
+            <file>file:/C:/Users/Asus/Desktop/Verano_Uli/POO/Repositorio/TechnoShop8/TechnoShopProject/src/Control/ControlVDispositivos.java</file>
+            <file>file:/C:/Users/Asus/Desktop/Verano_Uli/POO/Repositorio/TechnoShop8/TechnoShopProject/src/View/VProducto.java</file>
+            <file>file:/C:/Users/Asus/Desktop/Verano_Uli/POO/Repositorio/TechnoShop8/TechnoShopProject/src/Control/ControlVAccesorios.java</file>
+            <file>file:/C:/Users/Asus/Desktop/Verano_Uli/POO/Repositorio/TechnoShop8/TechnoShopProject/src/Control/ControlVSoftware.java</file>
+            <file>file:/C:/Users/Asus/Desktop/Verano_Uli/POO/Repositorio/TechnoShop8/TechnoShopProject/src/View/VSoftware.java</file>
         </group>
     </open-files>
 </project-private>

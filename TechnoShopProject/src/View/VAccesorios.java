@@ -7,6 +7,7 @@ package View;
 
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -14,13 +15,19 @@ import javax.swing.JButton;
  */
 public class VAccesorios extends javax.swing.JFrame {
     private ArrayList <JButton> botonesProductos;
+    private ArrayList <JLabel> labelsProductos;
     public VAccesorios() {
         initComponents();
         botonesProductos = new ArrayList();
         botonesProductos.add(botonP1);
         botonesProductos.add(botonP2);
         botonesProductos.add(botonP3);
-        botonesProductos.add(botonP4);        
+        botonesProductos.add(botonP4);
+        labelsProductos = new ArrayList();
+        labelsProductos.add(label1);
+        labelsProductos.add(label2);
+        labelsProductos.add(label3);
+        labelsProductos.add(label4);        
     }
 
     /**
@@ -75,10 +82,6 @@ public class VAccesorios extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -93,7 +96,7 @@ public class VAccesorios extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(75, 75, 75)
+                                .addGap(63, 63, 63)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -105,12 +108,16 @@ public class VAccesorios extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(327, 327, 327)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(58, 216, Short.MAX_VALUE))
+                .addGap(58, 144, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(BRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel1)
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -128,9 +135,9 @@ public class VAccesorios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonP3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonP4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(133, 133, 133)
+                .addGap(2, 2, 2)
                 .addComponent(BRegresar)
-                .addContainerGap(320, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -146,7 +153,41 @@ public class VAccesorios extends javax.swing.JFrame {
     public ArrayList<JButton> getBotonesProductos(){
         return botonesProductos;
     }
+    public ArrayList<JLabel> getlabelsProductos(){
+        return labelsProductos;
+    }    
+    public JButton getBotonP1() {
+        return botonP1;
+    }
+
+    public JButton getBotonP2() {
+        return botonP2;
+    }
+
+    public JButton getBotonP3() {
+        return botonP3;
+    }
+
+    public JButton getBotonP4() {
+        return botonP4;
+    }
     
+    public JLabel getLabel1() {
+        return label1;
+    }
+
+    public JLabel getLabel2() {
+        return label2;
+    }
+
+    public JLabel getLabel3() {
+        return label3;
+    }
+
+    public JLabel getLabel4() {
+        return label4;
+    }
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BRegresar;
     private javax.swing.JButton botonP1;

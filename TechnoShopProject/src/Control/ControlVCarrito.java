@@ -8,14 +8,12 @@ import Modelo.Producto;
 import Modelo.Usuario;
 import View.VCarrito;
 import View.VPedido;
-import View.VProducto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -28,13 +26,18 @@ public class ControlVCarrito implements ActionListener {
     private Carrito carrito;
     private ArrayList <Producto> productos;
     JTable tabla;
-    public ControlVCarrito(VCarrito cArrito) {
-        llenarTabla(tabla,productos);
-        vCarrito = cArrito;
-        vCarrito.getbComprar().addActionListener(this);
-        vCarrito.getbEliminar().addActionListener(this);
-        vCarrito.getbReturn().addActionListener(this);
-        
+    
+    public ControlVCarrito(VCarrito vCarrito, Usuario usuario) {
+        this.usuario = usuario;
+        this.vCarrito = vCarrito;
+        this.vCarrito.getbComprar().addActionListener(this);
+        this.vCarrito.getbEliminar().addActionListener(this);
+        this.vCarrito.getbReturn().addActionListener(this);
+        if(usuario.getCarrito().getProductos().size()<1){
+            JOptionPane.showMessageDialog(null, "No hay elemento en el carrito");
+        }else{
+            llenarTabla(tabla,usuario.getCarrito().getProductos());    
+        }      
     }
     
     @Override

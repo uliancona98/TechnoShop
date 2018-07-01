@@ -34,11 +34,16 @@ public class ControlVAccesorios implements ActionListener{
     }
     
     public void inicializar(){
+        ventanaAccesorios.getBotonP1().addActionListener(this);
+        ventanaAccesorios.getBotonP2().addActionListener(this);
+        ventanaAccesorios.getBotonP3().addActionListener(this);
+        ventanaAccesorios.getBotonP4().addActionListener(this);        
         accesorios = new ArrayList();
         ventanaAccesorios.getBRegresar().addActionListener(this);
-        ventanaAccesorios.setVisible(true);  
+        ventanaAccesorios.setVisible(true);
+        ventanaAccesorios.setLocationRelativeTo(null);
         //Buscar las imagenes de la categoria de accesorios
-        ArrayList<String[]>busqueda = Conexion.buscar("productos", 2, "id_tipoproducto");
+        ArrayList<String[]>busqueda = Conexion.buscar("productos", ID, "id_tipoproducto");
         for(int i=0;i<busqueda.size();i++){
             String[] busquedaArray = busqueda.get(i);
             Accesorio accesorio = new Accesorio();                
@@ -52,11 +57,12 @@ public class ControlVAccesorios implements ActionListener{
             accesorio.setCategoria(busquedaArray[7]);
             accesorios.add(accesorio);
         }
-        cargarImagenes();  
+        mostrarProductos();  
     }
-    public void cargarImagenes(){
+    public void mostrarProductos(){
         for(int i=0;i<ventanaAccesorios.getBotonesProductos().size();i++){
             if(i<accesorios.size()){
+                ventanaAccesorios.getlabelsProductos().get(i).setText(accesorios.get(i).getNombre());
                 String id = accesorios.get(i).getId();
                 ImageIcon imagen = new ImageIcon("IconsP\\"+id+".jpg");
                 if(imagen.getImageLoadStatus()==4){
@@ -72,21 +78,66 @@ public class ControlVAccesorios implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(ventanaAccesorios.getBRegresar() == evento.getSource()){
-          if(usuario==null){
-          VHome home = new VHome();
-          ControlVHome Chome = new ControlVHome(home);
-          home.setLocationRelativeTo(null);
-          home.setVisible(true);
-          ventanaAccesorios.setVisible(false);
-          }
-          else{
-          VHome home = new VHome();
-          ControlVHome Chome = new ControlVHome(home,usuario);
-          home.setLocationRelativeTo(null);
-          home.setVisible(true);
-          ventanaAccesorios.setVisible(false);
-          }
-         
+            ventanaAccesorios.setVisible(false);            
+            if(usuario==null){
+                VHome home = new VHome();
+                ControlVHome Chome = new ControlVHome(home);
+                home.setLocationRelativeTo(null);
+                home.setVisible(true);
+            }else{
+                VHome home = new VHome();
+                ControlVHome Chome = new ControlVHome(home,usuario);
+                home.setLocationRelativeTo(null);
+                home.setVisible(true);
+            }
         }
+        if(ventanaAccesorios.getBotonP1()== evento.getSource()){
+            ventanaAccesorios.setVisible(false);
+            VProducto vProducto = new VProducto();
+            vProducto.setVisible(true);
+            vProducto.setLocationRelativeTo(null);
+            if(usuario!=null){
+                //Se abre la ventana del producto sin el usuario
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)accesorios.get(0));                
+            }else{
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)accesorios.get(0));                         
+            }
+        }
+        if(ventanaAccesorios.getBotonP2()== evento.getSource()){
+            ventanaAccesorios.setVisible(false);
+            VProducto vProducto = new VProducto();
+            vProducto.setVisible(true);
+            vProducto.setLocationRelativeTo(null);
+            if(usuario!=null){
+                //Se abre la ventana del producto sin el usuario
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)accesorios.get(1));                
+            }else{
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)accesorios.get(1));                         
+            }
+        }
+        if(ventanaAccesorios.getBotonP3()== evento.getSource()){
+            ventanaAccesorios.setVisible(false);
+            VProducto vProducto = new VProducto();
+            vProducto.setVisible(true);
+            vProducto.setLocationRelativeTo(null);
+            if(usuario!=null){
+                //Se abre la ventana del producto sin el usuario
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)accesorios.get(2));                
+            }else{
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)accesorios.get(1));                         
+            }            
+        }
+        if(ventanaAccesorios.getBotonP4()== evento.getSource()){
+            ventanaAccesorios.setVisible(false);
+            VProducto vProducto = new VProducto();
+            vProducto.setVisible(true);
+            vProducto.setLocationRelativeTo(null);
+            if(usuario!=null){
+                //Se abre la ventana del producto sin el usuario
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)accesorios.get(1));                
+            }else{
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)accesorios.get(3));                         
+            }            
+        }        
     }
 }
