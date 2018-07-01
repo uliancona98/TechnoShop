@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Usuario extends Cuenta {
    private Membresia membresia;
-   private Carrito carrito;
+   private Carrito carrito=null;
   
    Tarjeta tarjeta=null;
    private ArrayList <Pedido> pedidos = new ArrayList();
@@ -21,8 +21,14 @@ public class Usuario extends Cuenta {
     public Membresia getMembresia() {
         return membresia;
     }
-    public void setCarrito(Carrito carrito){
-        this.carrito = carrito;
+    public void setCarritoProducto(Producto producto){
+        if(carrito==null){
+            carrito=new Carrito();
+            carrito.agregarProducto(producto);
+        }else{
+            carrito.agregarProducto(producto);
+        }
+        
     }
     public Carrito getCarrito(){
         return carrito;
