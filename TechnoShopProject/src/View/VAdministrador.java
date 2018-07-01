@@ -70,13 +70,16 @@ public class VAdministrador extends javax.swing.JFrame {
         textAumentar = new javax.swing.JTextField();
         VReporte = new javax.swing.JFrame();
         jScrollPane2 = new javax.swing.JScrollPane();
-        TReporte = new javax.swing.JTable();
+        tablaReporte = new javax.swing.JTable();
         BImprimir = new javax.swing.JButton();
         BRegresar = new javax.swing.JButton();
-        VRemover = new javax.swing.JFrame();
+        VRetirarProducto = new javax.swing.JFrame();
         comboRetirarProducto = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         botonRetirar = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaProductos = new javax.swing.JTable();
+        botonRetirarVolver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         BotonNewProducto = new javax.swing.JButton();
         labelBienvenida = new javax.swing.JLabel();
@@ -328,7 +331,7 @@ public class VAdministrador extends javax.swing.JFrame {
                 .addGap(44, 44, 44))
         );
 
-        TReporte.setModel(new javax.swing.table.DefaultTableModel(
+        tablaReporte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Comp. escritorio Acer Aspire AC20-720-MB13", "$7,650", null, "", null},
                 {"Laptop Asus  E402NA-GA002T    ", "$4,300", null, null, null},
@@ -350,7 +353,7 @@ public class VAdministrador extends javax.swing.JFrame {
                 "Productos", "Precio", "Porcentaje/ganancia", "Total/Neto", "Total"
             }
         ));
-        jScrollPane2.setViewportView(TReporte);
+        jScrollPane2.setViewportView(tablaReporte);
 
         BImprimir.setText("Imprimir");
         BImprimir.addActionListener(new java.awt.event.ActionListener() {
@@ -404,34 +407,58 @@ public class VAdministrador extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout VRemoverLayout = new javax.swing.GroupLayout(VRemover.getContentPane());
-        VRemover.getContentPane().setLayout(VRemoverLayout);
-        VRemoverLayout.setHorizontalGroup(
-            VRemoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(VRemoverLayout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addGroup(VRemoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VRemoverLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VRemoverLayout.createSequentialGroup()
-                        .addComponent(comboRetirarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))))
-            .addGroup(VRemoverLayout.createSequentialGroup()
-                .addGap(131, 131, 131)
+        tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tablaProductos);
+
+        botonRetirarVolver.setText("VOLVER");
+
+        javax.swing.GroupLayout VRetirarProductoLayout = new javax.swing.GroupLayout(VRetirarProducto.getContentPane());
+        VRetirarProducto.getContentPane().setLayout(VRetirarProductoLayout);
+        VRetirarProductoLayout.setHorizontalGroup(
+            VRetirarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VRetirarProductoLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 104, Short.MAX_VALUE))
+            .addGroup(VRetirarProductoLayout.createSequentialGroup()
+                .addGap(147, 147, 147)
+                .addGroup(VRetirarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(comboRetirarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(VRetirarProductoLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(VRetirarProductoLayout.createSequentialGroup()
+                .addGap(270, 270, 270)
                 .addComponent(botonRetirar)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonRetirarVolver)
+                .addGap(76, 76, 76))
         );
-        VRemoverLayout.setVerticalGroup(
-            VRemoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(VRemoverLayout.createSequentialGroup()
+        VRetirarProductoLayout.setVerticalGroup(
+            VRetirarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VRetirarProductoLayout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addComponent(jLabel2)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addComponent(comboRetirarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
-                .addComponent(botonRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addGroup(VRetirarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonRetirarVolver))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -695,6 +722,48 @@ public class VAdministrador extends javax.swing.JFrame {
     public JTextField getTextAumentar(){
         return textAumentar;
     }
+
+    public JButton getBotonAumentar() {
+        return botonAumentar;
+    }
+    
+    public JTable getTablaProductos(){
+        return tablaProductos;
+    }
+
+    public JButton getBotonImprimir() {
+        return BImprimir;
+    }
+    public JButton getBotonRetirarVolver(){
+        return botonRetirarVolver;
+    }
+    public JButton getBotonRegresar() {
+        return BRegresar;
+    }
+
+    public JTable getTReporte() {
+        return tablaReporte;
+    }
+
+    public JFrame getVReporte() {
+        return VReporte;
+    }
+
+    public JFrame getVRemover() {
+        return VRetirarProducto;
+    }
+
+    public JButton getBotonRetirar() {
+        return botonRetirar;
+    }
+
+    public JComboBox<String> getComboRetirarProducto() {
+        return comboRetirarProducto;
+    }
+
+    public JTextField getTextId() {
+        return TextId;
+    }    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BImprimir;
     private javax.swing.JButton BRegresar;
@@ -706,7 +775,6 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton BotonSalir;
     private javax.swing.JComboBox<String> ComboBoxCategoria;
     private javax.swing.JPanel PanelAgregar;
-    private javax.swing.JTable TReporte;
     private javax.swing.JTextField TextCantidad;
     private javax.swing.JTextArea TextDescripcion;
     private javax.swing.JTextField TextId;
@@ -717,12 +785,13 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JFrame VAnadirProducto;
     private javax.swing.JFrame VAnadirProducto2;
     private javax.swing.JFrame VAumentarProducto;
-    private javax.swing.JFrame VRemover;
     private javax.swing.JFrame VReporte;
+    private javax.swing.JFrame VRetirarProducto;
     private javax.swing.JButton botonAnadirExistente;
     public javax.swing.JButton botonAnadirProducto2;
     private javax.swing.JButton botonAumentar;
     private javax.swing.JButton botonRetirar;
+    private javax.swing.JButton botonRetirarVolver;
     private javax.swing.JComboBox<String> comboProductos;
     private javax.swing.JComboBox<String> comboRetirarProducto;
     private javax.swing.JLabel jLabel1;
@@ -744,43 +813,11 @@ public class VAdministrador extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel labelBienvenida;
+    private javax.swing.JTable tablaProductos;
+    private javax.swing.JTable tablaReporte;
     private javax.swing.JTextField textAumentar;
     // End of variables declaration//GEN-END:variables
 
-
-    public JButton getBotonAumentar() {
-        return botonAumentar;
-    }
-
-    public JButton getBImprimir() {
-        return BImprimir;
-    }
-    public JButton getBRegresar() {
-        return BRegresar;
-    }
-
-    public JTable getTReporte() {
-        return TReporte;
-    }
-
-    public JFrame getVReporte() {
-        return VReporte;
-    }
-
-    public JFrame getVRemover() {
-        return VRemover;
-    }
-
-    public JButton getBotonRetirar() {
-        return botonRetirar;
-    }
-
-    public JComboBox<String> getComboRetirarProducto() {
-        return comboRetirarProducto;
-    }
-
-    public JTextField getTextId() {
-        return TextId;
-    }
 }

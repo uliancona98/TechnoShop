@@ -35,15 +35,15 @@ public class ControlVAdministrador implements ActionListener {
         administradorV.getBotonAnadirProducto2().addActionListener(this);
         administradorV.getBotonAumentar().addActionListener(this);
         administradorV.getBotonRetirar().addActionListener(this);
-        administradorV.getBImprimir().addActionListener(this);
-        administradorV.getBRegresar().addActionListener(this);
+        administradorV.getBotonImprimir().addActionListener(this);
+        administradorV.getBotonRegresar().addActionListener(this);
+        administradorV.getBotonRetirarVolver().addActionListener(this);
         administradorV.getLabelBienvenida().setText("Bienvenid@ "+ a.getNombre()+" "+ a.getApellido());
     }
     
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(administradorV.getBotonAnadirProducto2() == evento.getSource()){
-            System.out.println("se anade producto");
             administradorV.getVAnadirProducto2().setVisible(false);
             administradorV.getVAnadirProducto().setVisible(true);
             administradorV.getVAnadirProducto().setBounds(0, 0, 555, 725);
@@ -88,7 +88,6 @@ public class ControlVAdministrador implements ActionListener {
                 administradorV.getComboProductos().addItem("Id: "+busquedaArray[0] +"  Nombre: " +busquedaArray[1]
                 + " No.Articulos: "+busquedaArray[5]);
             }
-            
         }
         if(administradorV.getBotonAumentar()== evento.getSource()){
             String []camposModificar = new String [1];
@@ -111,12 +110,16 @@ public class ControlVAdministrador implements ActionListener {
             System.out.println("Articulo removido de la tienda");
         }
         //Checar si dejarlo
-        if(administradorV.getBImprimir()== evento.getSource()){
+        if(administradorV.getBotonImprimir()== evento.getSource()){
             System.out.println("Se imprime el reporte");
             administradorV.getVReporte().setVisible(false);
         }
-        if(administradorV.getBRegresar()== evento.getSource()){
+        if(administradorV.getBotonRegresar()== evento.getSource()){
             administradorV.getVReporte().setVisible(false);
+        }
+        if(administradorV.getBotonRetirarVolver()== evento.getSource()){
+            administradorV.getVRemover().setVisible(false);
+            
         }
         if(administradorV.getBotonAceptar() == evento.getSource()){
             //Se añade el nuevo producto a la base

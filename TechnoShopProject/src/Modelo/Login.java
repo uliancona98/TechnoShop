@@ -6,6 +6,7 @@
 package Modelo;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,8 +22,8 @@ public class Login {
             contrasena = contrasena+contrasenaChar[i];
         }
         ArrayList<String[]>resultado = Conexion.buscar(tabla, correo, "correo");
-        String []res = resultado.get(0);
-        if(res!=null){
+        if(resultado.size()>0){
+            String []res = resultado.get(0);            
             if(contrasena.equals(res[3])){
                 System.out.println("Contrasena correcta, has iniciado sesion");
                 if(tabla.equals("Usuarios")){
@@ -45,11 +46,11 @@ public class Login {
                 }
                 return true;
             }else{
-                System.out.println("Contrasena incorrecta, vuelve a intentar");
+                JOptionPane.showMessageDialog(null,"Contrasena incorrecta, vuelve a intentar");
             }
         }else{
-            System.out.println("No existe cuenta asociada con este correo");
-        }      
+            JOptionPane.showMessageDialog(null, "No existe cuenta asociada con este correo");
+        }
         return false;
     }        
 }
