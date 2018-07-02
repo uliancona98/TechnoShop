@@ -9,7 +9,7 @@ package Modelo;
  *
  * @author A13003988
  */
-public class Tarjeta extends Pago{
+public class Tarjeta {
     private String titular;
     private String noTarjeta;
     private String fechaVencimiento;
@@ -36,8 +36,4 @@ public class Tarjeta extends Pago{
     public void setNoTarjeta(String noTarjeta) {
         this.noTarjeta = noTarjeta;
     }
-    
-    
-    
-    
 }

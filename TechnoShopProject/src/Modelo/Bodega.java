@@ -27,7 +27,5 @@ public class Bodega {
             System.out.println(listaproductos.get(i).getNombre());
         }
         return producto;
-    }*/
-    
-    
+    }*/  
 }

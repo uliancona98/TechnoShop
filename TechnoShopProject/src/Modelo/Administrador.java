@@ -21,10 +21,6 @@ public class Administrador extends Cuenta{
         bodega.RemoverProducto();
     }
     
-    public void SolicitarReporte(){
-        
-    }
-    
     public void PedirLista(){
         //bodega.getListaDeProductos();
     }

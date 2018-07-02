@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author A13003988
  */
-public class Membresia extends Pago{
+public class Membresia{
     private String tipo;
     private double puntos=0;
     private double valorCompras=0;
