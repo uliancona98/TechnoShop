@@ -77,7 +77,6 @@ public class VAdministrador extends javax.swing.JFrame {
         BImprimir = new javax.swing.JButton();
         BRegresar = new javax.swing.JButton();
         VRetirarProducto = new javax.swing.JFrame();
-        comboRetirarProducto = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         botonRetirar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -365,7 +364,7 @@ public class VAdministrador extends javax.swing.JFrame {
                 .addGroup(VAumentarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonAumentar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonVolverAumentarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         tablaReporte.setModel(new javax.swing.table.DefaultTableModel(
@@ -433,8 +432,6 @@ public class VAdministrador extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        comboRetirarProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel2.setText("Selecciona el producto para retirar");
 
         botonRetirar.setText("RETIRAR DE VENTA");
@@ -464,13 +461,9 @@ public class VAdministrador extends javax.swing.JFrame {
         VRetirarProductoLayout.setHorizontalGroup(
             VRetirarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VRetirarProductoLayout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addGroup(VRetirarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboRetirarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(VRetirarProductoLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(192, 192, 192)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(264, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VRetirarProductoLayout.createSequentialGroup()
                 .addGroup(VRetirarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(VRetirarProductoLayout.createSequentialGroup()
@@ -488,9 +481,7 @@ public class VAdministrador extends javax.swing.JFrame {
             .addGroup(VRetirarProductoLayout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(comboRetirarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(65, 65, 65)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addGroup(VRetirarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -799,11 +790,6 @@ public class VAdministrador extends javax.swing.JFrame {
     public JButton getBotonRetirar() {
         return botonRetirar;
     }
-
-    public JComboBox<String> getComboRetirarProducto() {
-        return comboRetirarProducto;
-    }
-
     public JTextField getTextId() {
         return TextId;
     }
@@ -843,7 +829,6 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton botonRetirar;
     private javax.swing.JButton botonRetirarVolver;
     private javax.swing.JButton botonVolverAumentarProducto;
-    private javax.swing.JComboBox<String> comboRetirarProducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
