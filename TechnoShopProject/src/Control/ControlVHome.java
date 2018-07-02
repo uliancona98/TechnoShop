@@ -47,10 +47,10 @@ public class ControlVHome implements ActionListener{
         home.getLabelBienvenida().setText("Bienvenido "+ usuario.getNombre() +" "+ usuario.getApellido());
         System.out.println(usuario.getMembresia().getTipo()+"es mi tipo");
         home.getBotonRegistrese().setVisible(false);
-        home.getBotonRegistrese().setVisible(false);
         home.getBotonPedidos().setVisible(true);
+        home.getBotonSesion().setVisible(false);
         home.getBotonAdministrador().setVisible(false);      
-        inicializarTablaTop5();
+        //inicializarTablaTop5();
     }
     
     public void inicializarTablaTop5(){
@@ -113,8 +113,7 @@ public class ControlVHome implements ActionListener{
                 //En caso de que no haya ninguna sesion iniciada
                 VAccesorios a = new VAccesorios();
                 ControlVAccesorios ca = new ControlVAccesorios(a);
-            }
-            else{
+            }else{
                 //Cuando se haya ya ingresado un usuario
                 VAccesorios a = new VAccesorios();
                 ControlVAccesorios ca = new ControlVAccesorios(a,usuario);
@@ -124,13 +123,14 @@ public class ControlVHome implements ActionListener{
         //Condicional si se presiona el boton "Software"
            home.setVisible(false);
            if(usuario==null){
-           //En caso de que no haya ninguna sesion iniciada
-           VSoftware s = new VSoftware();
-           ControlVSoftware cs = new ControlVSoftware(s);
+            //En caso de que no haya ninguna sesion iniciada
+               System.out.println("si");
+                VSoftware s = new VSoftware();
+                ControlVSoftware cs = new ControlVSoftware(s);
            }else{
-           //Cuando se haya ya ingresado un usuario
-           VSoftware s = new VSoftware();
-           ControlVSoftware cs = new ControlVSoftware(s,usuario);
+                //Cuando se haya ya ingresado un usuario
+                VSoftware s = new VSoftware();
+                ControlVSoftware cs = new ControlVSoftware(s,usuario);
            }
         }
     }

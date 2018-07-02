@@ -34,7 +34,7 @@ public class VCarrito extends javax.swing.JFrame {
         bReturn = new javax.swing.JButton();
         bComprar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tCarrito = new javax.swing.JTable();
+        tablaCarrito = new javax.swing.JTable();
         bEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,7 +51,7 @@ public class VCarrito extends javax.swing.JFrame {
 
         bComprar.setText("Comprar");
 
-        tCarrito.setModel(new javax.swing.table.DefaultTableModel(
+        tablaCarrito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -74,7 +74,7 @@ public class VCarrito extends javax.swing.JFrame {
                 "Producto ", "Unidades", "Precio Individual", "Precio Total"
             }
         ));
-        jScrollPane2.setViewportView(tCarrito);
+        jScrollPane2.setViewportView(tablaCarrito);
 
         bEliminar.setText("Eliminar");
 
@@ -91,9 +91,9 @@ public class VCarrito extends javax.swing.JFrame {
                 .addComponent(bReturn)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85)
+                .addGap(48, 48, 48)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(bEliminar)
                     .addComponent(bComprar))
@@ -139,9 +139,9 @@ public class VCarrito extends javax.swing.JFrame {
         return bReturn;
     }
     
-    public JTable gettCarrito()
+    public JTable getTablaCarrito()
     {
-        return tCarrito;
+        return tablaCarrito;
     }
     
     
@@ -153,6 +153,6 @@ public class VCarrito extends javax.swing.JFrame {
     private javax.swing.JButton bReturn;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lCarritoCompras;
-    private javax.swing.JTable tCarrito;
+    private javax.swing.JTable tablaCarrito;
     // End of variables declaration//GEN-END:variables
 }

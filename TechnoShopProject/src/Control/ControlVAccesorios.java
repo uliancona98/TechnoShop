@@ -123,7 +123,7 @@ public class ControlVAccesorios implements ActionListener{
                 //Se abre la ventana del producto sin el usuario
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)accesorios.get(2));                
             }else{
-                ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)accesorios.get(1));                         
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)accesorios.get(2));                         
             }            
         }
         if(ventanaAccesorios.getBotonP4()== evento.getSource()){
@@ -133,7 +133,7 @@ public class ControlVAccesorios implements ActionListener{
             vProducto.setLocationRelativeTo(null);
             if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
-                ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)accesorios.get(1));                
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)accesorios.get(3));                
             }else{
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)accesorios.get(3));                         
             }            

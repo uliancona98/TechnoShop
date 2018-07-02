@@ -23,7 +23,7 @@ public class VDispositivos extends javax.swing.JFrame {
         botonesProductos.add(botonP1);
         botonesProductos.add(botonP2);
         botonesProductos.add(botonP3);
-        botonesProductos.add(botonP2);
+        botonesProductos.add(botonP4);
         labelsProductos = new ArrayList();
         labelsProductos.add(label1);
         labelsProductos.add(label2);

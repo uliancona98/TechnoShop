@@ -30,13 +30,6 @@
               <Component id="botonP4" min="-2" pref="223" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-              <Component id="botonP2" min="-2" pref="223" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="botonP3" min="-2" pref="223" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Component id="label1" min="-2" pref="294" max="-2" attributes="0"/>
@@ -58,11 +51,22 @@
                       <Component id="label3" min="-2" pref="294" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="372" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="BRegresar" min="-2" pref="83" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="BRegresar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                      <Component id="botonP2" min="-2" pref="223" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="botonP3" min="-2" pref="223" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -91,9 +95,9 @@
                   <Component id="botonP2" min="-2" pref="166" max="-2" attributes="0"/>
                   <Component id="botonP3" min="-2" pref="166" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
               <Component id="BRegresar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -106,14 +110,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Software"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="BRegresar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Atras"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BRegresarActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="label1">
       <Properties>
@@ -185,6 +181,11 @@
             <LineBorder/>
           </Border>
         </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="BRegresar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="REGRESAR"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -9,8 +9,9 @@ import Modelo.*;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 /**
@@ -22,6 +23,7 @@ public class ControlVProducto implements ActionListener{
     private Producto producto;
     private Usuario usuario=null;
     private int idCategoria;
+    private int unidadesDisponibles;
     public ControlVProducto(VProducto vProducto, int idCategoria, Producto producto ) {
         
         this.vProducto=vProducto;
@@ -31,10 +33,10 @@ public class ControlVProducto implements ActionListener{
         this.vProducto.getBVolver().addActionListener(this);
         this.vProducto.getBComprar().addActionListener(this);
         this.vProducto.getbotonVerCarrito().addActionListener(this);
+        this.vProducto.getBotonCalcularPrecio().addActionListener(this);
         inicializar();
     }
     public ControlVProducto(VProducto vProducto, Usuario usuario,int idCategoria, Producto producto) {
-        System.out.println("soy una pertsona");
         this.vProducto=vProducto;
         this.usuario=usuario;
         this.producto = producto;        
@@ -43,50 +45,69 @@ public class ControlVProducto implements ActionListener{
         this.vProducto.getBVolver().addActionListener(this);
         this.vProducto.getBComprar().addActionListener(this);
         this.vProducto.getbotonVerCarrito().addActionListener(this);
+        this.vProducto.getBotonCalcularPrecio().addActionListener(this);
         inicializar();
     }
     
     public void inicializar(){
+        DecimalFormat decimales = new DecimalFormat("0.00");
+        vProducto.getLabelPrecio().setText("$ "+decimales.format(producto.getPrecioVenta()));
+        vProducto.getLabelNombre().setText(producto.getNombre());
+        vProducto.getTextInfo().setText("Nombre del producto:    "+ producto.getNombre()+
+        "\n\nMarca:   "+ producto.getMarca()+"\n\nDescripcion:    "+producto.getDescripcion()+
+        "\n\n Precio individual: "+ decimales.format(producto.getPrecioVenta()));
+        vProducto.getspinnerCantidadProductos().enableInputMethods(false);        
         if(usuario==null){
             vProducto.getbotonVerCarrito().setVisible(false);
-            System.out.println("jjeeeeeeeeee");
         }
         ImageIcon Imagen = new javax.swing.ImageIcon("productos\\"+producto.getId()+".jpg"); 
         JLabel Img = new javax.swing.JLabel(Imagen); 
-        Img.setSize(297, 330); 
-        vProducto.getPanelProducto().add(Img);    
+        Img.setSize(297, 330);
+        vProducto.getPanelProducto().add(Img);
+        try{
+            ArrayList<String[]>busqueda = Conexion.buscar("productos", producto.getId(), "id");        
+            unidadesDisponibles = Integer.parseInt(busqueda.get(0)[5]);            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el producto");
+        }
     }
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(vProducto.getBAnadirCarro() == evento.getSource()){
-            //validarArticulosDisponibles();
-            //Se verifican las unidades en la bases de datos *************************
-            if(usuario!=null){
-                Carrito carrito = usuario.getCarrito();         
-                for(int i=0;i< carrito.getProductos().size();i++){
-                    if(carrito.getProductos().get(i).getId().equals(producto.getId())){
-
-                    }else{
-                        if(i==carrito.getProductos().size()-1){
-
-                        }
-                    }
-                }
-                if(idCategoria==1){
-                   Dispositivo dispositivo=new Dispositivo();
-                   producto=(Producto)dispositivo;
-                }else if(idCategoria==2){
-                   Accesorio acce=new Accesorio();
-                   producto=(Producto)acce;                
-                }else if(idCategoria==3){
-                   Software soft=new Software();
-                   producto=(Producto)soft;               
-                }
-                usuario.setCarritoProducto(producto);                
+            if(!validarArticulosDisponibles()){
+                JOptionPane.showMessageDialog(null, "No hay disponibles el numero de productos que eligio\n"
+                + "pruebe seleccionando un numero menor de unidades");
             }else{
-                JOptionPane.showMessageDialog(null, "Reigistrate o inicia sesion para "
-                + "\n añadir productos al carrito");
+                if(usuario!=null){
+                    int noArticulos=(Integer)vProducto.getspinnerCantidadProductos().getValue();
+                    producto.setNoArticulos(noArticulos);                
+                    if(usuario.getCarrito()!=null){
+                        Carrito carrito = usuario.getCarrito();
+                        for(int i=0;i< carrito.getProductos().size();i++){
+                            if(carrito.getProductos().get(i).getId().equals(producto.getId())){
+                                carrito.removerProducto(i);
+                                usuario.setCarritoProducto(producto);
+                            }else{
+                                if(i==carrito.getProductos().size()-1){
+                                    usuario.setCarritoProducto(producto);
+                                }
+                            } 
+                        }                           
+                    }else{
+                        usuario.setCarritoProducto(producto);
+                    }       
+                    JOptionPane.showMessageDialog(null, "Producto agregado al producto");          
+                }else{
+                    JOptionPane.showMessageDialog(null, "Registrate o inicia sesion para "
+                    + "\n añadir productos al carrito");
+                }                
             }
+//Se verifican las unidades en la bases de datos *************************
+        }
+        if(vProducto.getBotonCalcularPrecio() == evento.getSource()){
+            DecimalFormat decimales = new DecimalFormat("0.00");            
+            double precio = producto.getPrecioVenta()*(Integer)vProducto.getspinnerCantidadProductos().getValue();
+            vProducto.getLabelPrecio().setText("$ "+decimales.format(precio));
         }
         if(vProducto.getBVolver() == evento.getSource()){
             vProducto.setVisible(false);
@@ -117,22 +138,27 @@ public class ControlVProducto implements ActionListener{
                 }else{
                     ControlVSoftware cVSoftware = new ControlVSoftware(vSoftware);
                 }
-                
             }
-        } 
-         
-         if(vProducto.getBComprar() == evento.getSource()){
-             int noArticulos=(Integer)vProducto.getspinnerCantidadProductos().getValue();
-             
-             producto.setNoArticulos(noArticulos);
-             VPedido ventanaPedido =new VPedido();
-             ventanaPedido.setLocationRelativeTo(null);
-             ventanaPedido.setVisible(true);
-             //producto.setVisible(false);
-             ControlVPedido CP = new ControlVPedido(ventanaPedido,usuario,producto);
-  
-         }
-         
+        }
+        if(vProducto.getBComprar() == evento.getSource()){
+            if(validarArticulosDisponibles()){
+                if(usuario==null){
+                    int noArticulos=(Integer)vProducto.getspinnerCantidadProductos().getValue();
+                    producto.setNoArticulos(noArticulos);
+                    VPedido ventanaPedido =new VPedido();
+                    ventanaPedido.setLocationRelativeTo(null);
+                    ventanaPedido.setVisible(true);
+                    //producto.setVisible(false);
+                    ControlVPedido CP = new ControlVPedido(ventanaPedido,usuario,producto);                
+                }else{
+                    JOptionPane.showMessageDialog(null, "Tienes que iniciar sesion para realizar"
+                    + "una compra");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "No hay disponibles el numero de productos que eligio\n"
+                + "pruebe seleccionando un numero menor de unidades");                
+            }            
+        }
         if(vProducto.getbotonVerCarrito()== evento.getSource()){
             VCarrito vCarrito= new VCarrito();
             vCarrito.setLocationRelativeTo(null);
@@ -141,6 +167,7 @@ public class ControlVProducto implements ActionListener{
         }
     }
     public boolean validarArticulosDisponibles(){
-        return true;
+        Integer unidadesAComprar = (Integer)vProducto.getspinnerCantidadProductos().getValue(); 
+        return unidadesAComprar <= unidadesDisponibles;
     }
 }

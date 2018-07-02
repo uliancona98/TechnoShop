@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 public class ControlVSoftware implements ActionListener{
     private VSoftware ventanaSoftware;
     private Usuario usuario;
-    private Integer ID=2;
+    private Integer ID=3;
     private ArrayList<Software> softwares;
     
     
@@ -39,13 +39,12 @@ public class ControlVSoftware implements ActionListener{
     public void inicializar(){
         for(int i=0;i<ventanaSoftware.getBotonesProductos().size();i++){
             ventanaSoftware.getBotonesProductos().get(i).addActionListener(this);
-        }                    
+        }           
         softwares= new ArrayList();
-        ventanaSoftware.getBRegresar().addActionListener(this);
         ventanaSoftware.setVisible(true);  
         ventanaSoftware.setLocationRelativeTo(null);
         //Buscar las imagenes de la categoria de accesorios
-        ArrayList<String[]>busqueda = Conexion.buscar("productos", 3, "id_tipoproducto");
+        ArrayList<String[]>busqueda = Conexion.buscar("productos", ID, "id_tipoproducto");
         for(int i=0;i<busqueda.size();i++){
             String[] busquedaArray = busqueda.get(i);
             Software software = new Software();                
@@ -80,18 +79,18 @@ public class ControlVSoftware implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(ventanaSoftware.getBRegresar() == evento.getSource()){
+            ventanaSoftware.setVisible(false);                
             if(usuario==null){
-                VHome home = new VHome();
-                home.setLocationRelativeTo(null);
-                home.setVisible(true);
-                ventanaSoftware.setVisible(false);                
+                System.out.println("ou");
+                VHome home = new VHome();         
                 ControlVHome Chome = new ControlVHome(home);
-            }else{
-                VHome home = new VHome();
                 home.setLocationRelativeTo(null);
-                home.setVisible(true);
-                ventanaSoftware.setVisible(false);                
-                ControlVHome Chome = new ControlVHome(home,usuario);
+                home.setVisible(true);                   
+            }else{                  
+                VHome home = new VHome();
+                ControlVHome Chome = new ControlVHome(home,usuario);                 
+                home.setLocationRelativeTo(null);
+                home.setVisible(true);               
             }
         }
         if(ventanaSoftware.getBotonP1()== evento.getSource()){
@@ -127,7 +126,7 @@ public class ControlVSoftware implements ActionListener{
                 //Se abre la ventana del producto sin el usuario
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)softwares.get(2));                
             }else{
-                ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)softwares.get(1));                         
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)softwares.get(2));                         
             }            
         }
         if(ventanaSoftware.getBotonP4()== evento.getSource()){
@@ -137,7 +136,7 @@ public class ControlVSoftware implements ActionListener{
             vProducto.setLocationRelativeTo(null);
             if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
-                ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)softwares.get(1));                
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)softwares.get(3));                
             }else{
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)softwares.get(3));                         
             }            

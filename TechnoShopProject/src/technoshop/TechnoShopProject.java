@@ -7,8 +7,6 @@ import javax.swing.UIManager;
 public class TechnoShopProject {
     static VHome window;
     public static void main(String[] args) {
-        //insertarAdministradores();
-        //insertarCategoriasProductos();
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
 	} catch (Exception e) {

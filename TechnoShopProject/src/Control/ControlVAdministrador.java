@@ -61,13 +61,14 @@ public class ControlVAdministrador implements ActionListener {
         }
         if(administradorV.getBotonRemoveProducto() == evento.getSource()){
            administradorV.getVRemover().setVisible(true);
-           administradorV.getVRemover().setBounds(0, 0, 400, 440);
+           administradorV.getVRemover().setBounds(0, 0, 800, 550);
            administradorV.getVRemover().setLocationRelativeTo(null);
            llenarTablaProductos();
         }
         if(administradorV.getBotonReporte() == evento.getSource()){       
             administradorV.getVReporte().setVisible(true);
-            administradorV.getVReporte().setBounds(0, 0, 709, 356);
+            administradorV.getVReporte().setBounds(0, 0, 800, 490);
+     
             administradorV.getVReporte().setLocationRelativeTo(null);
         }
         if(administradorV.getBotonSalir() == evento.getSource()){
@@ -84,7 +85,7 @@ public class ControlVAdministrador implements ActionListener {
             //Se selecciona la opcion de añadir existente, se abre       
             administradorV.getVAnadirProducto2().setVisible(false);
             administradorV.getVAumentarProducto().setVisible(true);
-            administradorV.getVAumentarProducto().setBounds(0, 0, 400, 432);
+            administradorV.getVAumentarProducto().setBounds(0, 0, 900, 800);
             administradorV.getVAumentarProducto().setLocationRelativeTo(null);
             //Se lee la base de datos y agrega al combo box
             llenarTablaProductosAumentar();

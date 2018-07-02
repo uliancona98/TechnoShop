@@ -80,7 +80,7 @@ public abstract class Producto {
     }
 
     public void setNoArticulos(int noArticulos) {
-        this.noArticulos = noArticulos+ this.noArticulos;
+        this.noArticulos = noArticulos;
     }
 
     public void reducirNoArticulos(){

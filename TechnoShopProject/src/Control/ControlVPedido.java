@@ -16,21 +16,29 @@ import javax.swing.table.TableRowSorter;
 
 
 public class ControlVPedido implements ActionListener {
+    
     public static TableRowSorter<TableModel> tr;
+    
     private VPedido vPedido;
     private  Usuario usuario;
     private ArrayList <Producto> productos;//para que es el array? que recibe?
     private double totalCompra=0;
     
     private Producto producto;
-    Tarjeta tarjeta;
+    
     String precioTotal;//para convertir el totalCompra a string e imprimirlo en etiqueta Total
     JTable tabla;
     public ControlVPedido(VPedido pedido, Usuario usuario, Producto producto){
+        tabla=pedido.gettablaProductos();
+        
+        pedido.getetiquetaFechaPedido().setText(FechaActual());
         this.vPedido=pedido;
+        
         this.usuario=usuario;
         this.producto=producto;
+        System.out.println(producto.getId()+" popi ");
         llenarTabla(tabla, producto);
+        
         this.totalCompra=producto.getPrecioVenta()*producto.getNoArticulos();//multiplio el precio del producto por el numero deproductos
          precioTotal=String.valueOf(totalCompra);//para poner el precio total en la ventana
        
@@ -42,13 +50,17 @@ public class ControlVPedido implements ActionListener {
         this.vPedido.getbotonAgregarTarjeta().addActionListener(this);
         this.vPedido.getbotonCancelar().addActionListener(this);
         this.vPedido.getbotonPagarPuntos().addActionListener(this);
+        this.vPedido.getbotonAceptarTarjeta().addActionListener(this);
+        this.vPedido.getbotonCancelar().addActionListener(this);
         
-        pedido.getetiquetaFechaPedido().setText(FechaActual());
+        
     }
     
     
     
     public ControlVPedido(VPedido pedido, Usuario usuario,ArrayList <Producto> productos){
+         pedido.getetiquetaFechaPedido().setText(FechaActual());
+        tabla=pedido.gettablaProductos();
         this.productos=new ArrayList();
         
         for(int i=0;i<productos.size();i++){
@@ -65,6 +77,9 @@ public class ControlVPedido implements ActionListener {
         this.vPedido.getbotonAgregarTarjeta().addActionListener(this);
         this.vPedido.getbotonCancelar().addActionListener(this);
         this.vPedido.getbotonPagarPuntos().addActionListener(this);
+        this.vPedido.getbotonAceptarTarjeta().addActionListener(this);
+        
+       
     }
     
     
@@ -111,8 +126,14 @@ public class ControlVPedido implements ActionListener {
             }
             
             
-            if(vPedido.getbotonAceptarTarjeta()==evento.getSource()){
-                if(vPedido.getTTitularTarjeta().getText() !=" "   && vPedido.getTNumeroTarjeta().getText() !=" " ){
+ 
+            
+        }
+        
+        
+                if(vPedido.getbotonAceptarTarjeta()==evento.getSource()){
+                Tarjeta tarjeta= new Tarjeta();
+                if(vPedido.getTTitularTarjeta().getText().length() !=0  && vPedido.getTNumeroTarjeta().getText().length()!=0 ){
                     tarjeta.setNoTarjeta(vPedido.getTNumeroTarjeta().getText());
                     usuario.setTarjeta(tarjeta);//le agrego una tarjeta al usuario
                     JOptionPane.showMessageDialog(null, "Tarjeta Agregada");
@@ -122,8 +143,6 @@ public class ControlVPedido implements ActionListener {
                 }
                 
             }
-            
-        }
     }
     
     public void llenarTabla(JTable tabla, Producto producto){
@@ -141,6 +160,7 @@ public class ControlVPedido implements ActionListener {
             String dato3=Double.toString(producto.getPrecioVenta());
             String dato4=Double.toString(producto.getPrecioVenta()*producto.getNoArticulos());
             String[]filasContenido={dato1,dato2,dato3,dato4};
+            System.out.println(dato1+dato2+dato3+dato4);
             dtm.addRow(filasContenido);
             tabla.setModel(dtm); 
         tr=new TableRowSorter<>(dtm);

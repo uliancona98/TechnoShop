@@ -24,20 +24,18 @@ public class ControlVDispositivos implements ActionListener{
       
     public ControlVDispositivos(VDispositivos VD) {
         ventanaDispositivos = VD;
-        ventanaDispositivos.getBRegresar().addActionListener(this);
         inicializar();
     }
     
     public ControlVDispositivos(VDispositivos VD, Usuario user) {
         usuario = user;
         ventanaDispositivos = VD;
-        ventanaDispositivos.getBRegresar().addActionListener(this);
         inicializar();
     }
     public void inicializar(){
         for(int i=0;i<ventanaDispositivos.getBotonesProductos().size();i++){
             ventanaDispositivos.getBotonesProductos().get(i).addActionListener(this);
-        }    
+        }
         dispositivos= new ArrayList();
         ventanaDispositivos.getBRegresar().addActionListener(this);
         ventanaDispositivos.setVisible(true);  
@@ -62,11 +60,9 @@ public class ControlVDispositivos implements ActionListener{
     public void mostrarProductos(){
         System.out.println(ventanaDispositivos.getBotonesProductos().size()+"----");
         for(int i=0;i<ventanaDispositivos.getBotonesProductos().size();i++){
-            System.out.println("qii");
             if(i<dispositivos.size()){
-                ventanaDispositivos.getlabelsProductos().get(i).setText(dispositivos.get(i).getNombre());
+                ventanaDispositivos.getlabelsProductos().get(i).setText(dispositivos.get(i).getId());
                 String id = dispositivos.get(i).getId();
-                System.out.println("id" + id);
                 ImageIcon imagen = new ImageIcon("IconsP\\"+id+".jpg");
                 if(imagen.getImageLoadStatus()==4){
                     JOptionPane.showMessageDialog(null, "No se encontro la imagen");
@@ -82,17 +78,17 @@ public class ControlVDispositivos implements ActionListener{
     public void actionPerformed(ActionEvent evento) {
         if(ventanaDispositivos.getBRegresar() == evento.getSource()){
             if(usuario==null){
-              VHome home = new VHome();
-              ControlVHome Chome = new ControlVHome(home);
-              home.setLocationRelativeTo(null);
-              home.setVisible(true);
-              ventanaDispositivos.setVisible(false);
+                VHome home = new VHome();
+                ControlVHome Chome = new ControlVHome(home);
+                home.setLocationRelativeTo(null);
+                home.setVisible(true);
+                ventanaDispositivos.setVisible(false);
             }else{
-              VHome home = new VHome();
-              ControlVHome Chome = new ControlVHome(home,usuario);
-              home.setLocationRelativeTo(null);
-              home.setVisible(true);
-              ventanaDispositivos.setVisible(false);
+                VHome home = new VHome();
+                ControlVHome Chome = new ControlVHome(home,usuario);
+                home.setLocationRelativeTo(null);
+                home.setVisible(true);
+                ventanaDispositivos.setVisible(false);
             }
         }
         if(ventanaDispositivos.getBotonP1()== evento.getSource()){
@@ -102,7 +98,9 @@ public class ControlVDispositivos implements ActionListener{
             vProducto.setLocationRelativeTo(null);
             if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
-                ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)dispositivos.get(0));                
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)dispositivos.get(0));
+                Producto pro = (Producto)dispositivos.get(0);
+                System.out.println(pro.getId()+ pro.getNombre());
             }else{
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)dispositivos.get(0));                         
             }
@@ -128,7 +126,7 @@ public class ControlVDispositivos implements ActionListener{
                 //Se abre la ventana del producto sin el usuario
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)dispositivos.get(2));                
             }else{
-                ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)dispositivos.get(1));                         
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)dispositivos.get(2));                         
             }            
         }
         if(ventanaDispositivos.getBotonP4()== evento.getSource()){
@@ -138,7 +136,7 @@ public class ControlVDispositivos implements ActionListener{
             vProducto.setLocationRelativeTo(null);
             if(usuario==null){
                 //Se abre la ventana del producto sin el usuario
-                ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)dispositivos.get(1));                
+                ControlVProducto controlVProducto = new ControlVProducto(vProducto, ID, (Producto)dispositivos.get(3));                
             }else{
                 ControlVProducto controlVProducto = new ControlVProducto(vProducto, usuario, ID, (Producto)dispositivos.get(3));                         
             }
