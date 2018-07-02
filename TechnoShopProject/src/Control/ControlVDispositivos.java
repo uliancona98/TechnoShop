@@ -52,7 +52,7 @@ public class ControlVDispositivos implements ActionListener{
             dispositivo.setDescripcion(busquedaArray[4]); 
             dispositivo.setNoArticulos(Integer.parseInt(busquedaArray[5]));                
             dispositivo.setMarca(busquedaArray[6]);                
-            dispositivo.setCategoria(busquedaArray[7]);
+            dispositivo.setCategoria(Integer.parseInt(busquedaArray[7]));
             dispositivos.add(dispositivo);         
         }
         mostrarProductos();           

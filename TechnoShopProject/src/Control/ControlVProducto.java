@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner.DefaultEditor;
 /**
  *
  * @author Juan D.M
@@ -56,7 +57,7 @@ public class ControlVProducto implements ActionListener{
         vProducto.getTextInfo().setText("Nombre del producto:    "+ producto.getNombre()+
         "\n\nMarca:   "+ producto.getMarca()+"\n\nDescripcion:    "+producto.getDescripcion()+
         "\n\n Precio individual: "+ decimales.format(producto.getPrecioVenta()));
-        vProducto.getspinnerCantidadProductos().enableInputMethods(false);        
+        ((DefaultEditor) vProducto.getspinnerCantidadProductos().getEditor()).getTextField().setEditable(false);        
         if(usuario==null){
             vProducto.getbotonVerCarrito().setVisible(false);
         }
@@ -102,7 +103,6 @@ public class ControlVProducto implements ActionListener{
                     + "\n añadir productos al carrito");
                 }                
             }
-//Se verifican las unidades en la bases de datos *************************
         }
         if(vProducto.getBotonCalcularPrecio() == evento.getSource()){
             DecimalFormat decimales = new DecimalFormat("0.00");            
@@ -142,17 +142,17 @@ public class ControlVProducto implements ActionListener{
         }
         if(vProducto.getBComprar() == evento.getSource()){
             if(validarArticulosDisponibles()){
-                if(usuario==null){
+                if(usuario!=null){
                     int noArticulos=(Integer)vProducto.getspinnerCantidadProductos().getValue();
                     producto.setNoArticulos(noArticulos);
                     VPedido ventanaPedido =new VPedido();
                     ventanaPedido.setLocationRelativeTo(null);
                     ventanaPedido.setVisible(true);
-                    //producto.setVisible(false);
+                    vProducto.setVisible(false);
                     ControlVPedido CP = new ControlVPedido(ventanaPedido,usuario,producto);                
                 }else{
                     JOptionPane.showMessageDialog(null, "Tienes que iniciar sesion para realizar"
-                    + "una compra");
+                    + " una compra");
                 }
             }else{
                 JOptionPane.showMessageDialog(null, "No hay disponibles el numero de productos que eligio\n"

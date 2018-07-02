@@ -55,13 +55,13 @@ public class ControlVHome implements ActionListener{
     
     public void inicializarTablaTop5(){
         //relacionar tablas detalles_pedidos con productos y sumar frecuencias de los productos
-        ArrayList<String[]> tablaPedidos = Conexion.obtenerTabla("pedidos");
-        if(tablaPedidos.size()==0){
+        //ArrayList<String[]> tablaPedidos = Conexion.obtenerTabla("pedidos");
+        /*if(tablaPedidos.size()==0){
             //No se muestra la tabla porque no se ha comprado nada           
         }else{
             ArrayList<String[]> tablaDetallesPedidos = Conexion.obtenerTabla("detalles_pedidos");
             //tabla = Conexion.obtenerTabla("productos");
-        }
+        }*/
     }
     
     

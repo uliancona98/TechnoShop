@@ -30,6 +30,7 @@ public class VPedido extends javax.swing.JFrame {
         LValidacion = new javax.swing.JLabel();
         TTitularTarjeta = new javax.swing.JTextField();
         botonAceptarTarjeta = new javax.swing.JButton();
+        botonCancelarTarjeta = new javax.swing.JButton();
         botonAgregarTarjeta = new javax.swing.JButton();
         botonPagarPuntos = new javax.swing.JButton();
         botonAceptar = new javax.swing.JButton();
@@ -67,6 +68,8 @@ public class VPedido extends javax.swing.JFrame {
 
         botonAceptarTarjeta.setText("Aceptar");
 
+        botonCancelarTarjeta.setText("Cancelar");
+
         javax.swing.GroupLayout ventanaAgregarTarjetaLayout = new javax.swing.GroupLayout(ventanaAgregarTarjeta.getContentPane());
         ventanaAgregarTarjeta.getContentPane().setLayout(ventanaAgregarTarjetaLayout);
         ventanaAgregarTarjetaLayout.setHorizontalGroup(
@@ -75,14 +78,15 @@ public class VPedido extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(botonAceptarTarjeta)
+                    .addGroup(ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(LTitularTarjeta)
+                        .addComponent(LNumerotarjeta)
+                        .addGroup(ventanaAgregarTarjetaLayout.createSequentialGroup()
+                            .addComponent(LValidacion)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ventanaAgregarTarjetaLayout.createSequentialGroup()
-                        .addGroup(ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(LTitularTarjeta)
-                            .addComponent(LNumerotarjeta)
-                            .addGroup(ventanaAgregarTarjetaLayout.createSequentialGroup()
-                                .addComponent(LValidacion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(SMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TTitularTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -90,8 +94,12 @@ public class VPedido extends javax.swing.JFrame {
                             .addGroup(ventanaAgregarTarjetaLayout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(55, Short.MAX_VALUE))
+                                .addComponent(SAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(55, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaAgregarTarjetaLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonCancelarTarjeta)
+                        .addGap(82, 82, 82))))
         );
         ventanaAgregarTarjetaLayout.setVerticalGroup(
             ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,9 +118,11 @@ public class VPedido extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(SMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(botonAceptarTarjeta)
-                .addGap(27, 27, 27))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGroup(ventanaAgregarTarjetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonAceptarTarjeta)
+                    .addComponent(botonCancelarTarjeta))
+                .addGap(25, 25, 25))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -236,8 +246,6 @@ public class VPedido extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TTitularTarjetaActionPerformed
 
-
-
     public JButton getbotonAceptar() {
         return botonAceptar;
     }
@@ -249,7 +257,9 @@ public class VPedido extends javax.swing.JFrame {
      public JButton getbotonAgregarTarjeta() {
         return botonAgregarTarjeta;
     }
-
+    public JButton getbotonCancelarTarjeta() {
+        return botonCancelarTarjeta;
+    }
     public void setbotonAgregarTarjeta(JButton BotonAgregarTarjeta) {
         this.botonAgregarTarjeta = BotonAgregarTarjeta;
     }
@@ -319,6 +329,7 @@ public class VPedido extends javax.swing.JFrame {
     private javax.swing.JButton botonAceptarTarjeta;
     private javax.swing.JButton botonAgregarTarjeta;
     private javax.swing.JButton botonCancelar;
+    private javax.swing.JButton botonCancelarTarjeta;
     private javax.swing.JButton botonPagarPuntos;
     private javax.swing.JLabel etiquetaFechaPedido;
     private javax.swing.JLabel etiquetaTotal;

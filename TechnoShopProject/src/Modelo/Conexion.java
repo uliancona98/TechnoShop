@@ -23,6 +23,7 @@ public class Conexion {
     private static PreparedStatement ps;
     private static ResultSet rs;
     private static ArrayList<String[]> busquedaRes = new ArrayList<String[]>();
+    
     public static void insert(String tabla, Object[] valores){
         Connection con = null;
         try{
@@ -61,6 +62,58 @@ public class Conexion {
             }
         }        
     }
+    
+    public static void insert(String tabla, Object[] valores, String[]atributos){
+        Connection con = null;
+        try{
+            con = getConection();
+            String values = "";
+            for(int i=0;i<valores.length;i++){
+                if(i!=valores.length-1){
+                    values = values +"?,";
+                }else{
+                    values = values +"?";
+                }
+            }
+            System.out.println(values);
+            System.out.println(tabla);
+            String atributes = "";
+            for(int i=0;i<atributos.length;i++){
+                if(i!=atributos.length-1){
+                    atributes = atributes +atributos[i]+", ";
+                }else{
+                    atributes = atributes +atributos[i];
+                }                
+            }
+            System.out.println(atributes);
+            ps = con.prepareStatement("INSERT INTO "+tabla+" ("
+            +atributes+") VALUES("+values+") ");
+            for(int i=0;i<valores.length;i++){
+                if(valores[i] instanceof Double){
+                    ps.setDouble(i+1, (double)valores[i]);
+                }else if(valores[i] instanceof Integer){
+                    ps.setInt(i+1, (int)valores[i]);
+                }else{
+                    ps.setString(i+1, (String)valores[i]);
+                }
+            }
+            int res = ps.executeUpdate();
+            if(res>0){
+                JOptionPane.showMessageDialog(null, "Elemento insertado");
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al insertar elemento");
+            }
+            con.close();
+        }catch(Exception e){
+            String [] cadenaPartes = e.getMessage().split(" ");
+            if(cadenaPartes[0].equals("Duplicate")){
+                JOptionPane.showMessageDialog(null, "ID Duplicado, no puedes añadir el mismo producto");
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al insertar articulo");
+            }
+        }        
+    }    
+    
     public static ArrayList<String[]> buscarTablasRelacionadas(String tabla1, String tabla2, String atributoTabla1, String atributoTabla2){
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -195,6 +248,7 @@ public class Conexion {
         }
         return con;
     }
+    
     public static void eliminar(String tabla, Object id) {                             
         // TODO add your handling code here:
         Connection con = null;

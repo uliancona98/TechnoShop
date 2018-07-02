@@ -133,7 +133,6 @@ public class ControlVAdministrador implements ActionListener {
                 System.out.println(nombre+" "+ precio_venta + " "+ precio_compra+ " "+ 
                 descripcion+ " "+ no_articulos+" "+
                 marca+" "+ id_categoria);
-                Conexion con = new Conexion();
                 Object[]valoresProducto = new Object [8];
                 valoresProducto[0]=id;
                 valoresProducto[1]=nombre;
@@ -142,8 +141,8 @@ public class ControlVAdministrador implements ActionListener {
                 valoresProducto[4]=descripcion;
                 valoresProducto[5]=no_articulos;
                 valoresProducto[6]=marca;
-                valoresProducto[7]=id_categoria+1;  
-                con.insert("productos", valoresProducto);
+                valoresProducto[7]=id_categoria+1;
+                Conexion.insert("productos", valoresProducto);
                 limpiarCampos(); 
             }
         }catch(Exception e){

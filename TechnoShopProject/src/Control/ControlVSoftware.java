@@ -55,7 +55,7 @@ public class ControlVSoftware implements ActionListener{
             software.setDescripcion(busquedaArray[4]); 
             software.setNoArticulos(Integer.parseInt(busquedaArray[5]));                
             software.setMarca(busquedaArray[6]);                
-            software.setCategoria(busquedaArray[7]);
+            software.setCategoria(Integer.parseInt(busquedaArray[7]));
             softwares.add(software);
         }
         mostrarProductos();        

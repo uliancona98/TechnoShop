@@ -53,7 +53,7 @@ public class ControlVAccesorios implements ActionListener{
             accesorio.setDescripcion(busquedaArray[4]); 
             accesorio.setNoArticulos(Integer.parseInt(busquedaArray[5]));                
             accesorio.setMarca(busquedaArray[6]);                
-            accesorio.setCategoria(busquedaArray[7]);
+            accesorio.setCategoria(Integer.parseInt(busquedaArray[7]));
             accesorios.add(accesorio);
         }
         mostrarProductos();  

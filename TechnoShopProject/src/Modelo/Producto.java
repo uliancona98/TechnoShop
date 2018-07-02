@@ -17,7 +17,7 @@ public abstract class Producto {
     protected String descripcion;
     protected int noArticulos=0;
     protected String marca;
-    protected String categoria;
+    protected int idCategoria;
     protected String informacionCategoria;
 
     
@@ -29,12 +29,12 @@ public abstract class Producto {
         this.id = id;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public int getCategoria() {
+        return idCategoria;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setCategoria(int categoria) {
+        this.idCategoria = categoria;
     }
 
     public String getNombre() {

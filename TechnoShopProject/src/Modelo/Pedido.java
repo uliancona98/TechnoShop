@@ -19,18 +19,29 @@ public class Pedido {
     private int NoPedido;
     private ArrayList<Producto> productos = new ArrayList();
     private String fecha;
+    private double total;
+
+    public double getTotal() {
+        return total;
+    }
+    
+    public void setTotal(double total) {
+        this.total = total;
+    }
     
     public int getNoPedido() {
         return NoPedido;
     }
-    public void setProductos(ArrayList<Producto> productos){
-        this.productos = productos;
+    
+    public void setProducto(Producto producto){
+        productos.add(producto);
     }
+    
     public ArrayList<Producto> getProductos(){
         return productos;
     }
-
-    public void asignarNoPedido(int NoPedido) {
+    
+    public void setNoPedido(int NoPedido) {
         this.NoPedido = NoPedido;
     }
 
@@ -39,11 +50,6 @@ public class Pedido {
     }
 
     public void setFecha(String fecha) {
-        // prints "Sep 6, 2009 9:03:20 PM"
-        /*DateFormat dateTimeInstance = SimpleDateFormat.getDateTimeInstance();
-        fecha = dateTimeInstance.format(Calendar.getInstance().getTime()); */
         this.fecha = fecha;
     }
-    
-    
 }
