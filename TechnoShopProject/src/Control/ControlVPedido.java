@@ -212,11 +212,9 @@ public class ControlVPedido implements ActionListener {
     
     public void realizarPedido(){
         int numeroCompra;
-        numeroCompra = (int) (Math.random() * 100) + 1;
         Pedido pedido = new Pedido();
         pedido.setFecha(fecha);
         pedido.setTotal(totalCompra);
-        pedido.setNoPedido(numeroCompra);
         if(producto!=null){
             System.out.println("here");
             pedido.setProducto(producto);                    
@@ -226,17 +224,17 @@ public class ControlVPedido implements ActionListener {
             }
         }
         //Compra ya realizada
-        String[] atributos = new String[4];
-        atributos[0]="id";
-        atributos[1]="total";
-        atributos[2]="fecha";
-        atributos[3]="id_usuario";
-        Object[] valoresPedido = new Object[4];
-        valoresPedido[0]= numeroCompra;
-        valoresPedido[1]= totalCompra;
-        valoresPedido[2]= fecha;
-        valoresPedido[3]= usuario.getCorreo();
-        Conexion.insert("pedidos", valoresPedido, atributos);            
+        String[] atributos = new String[3];
+        atributos[0]="total";
+        atributos[1]="fecha";
+        atributos[2]="id_usuario";
+        Object[] valoresPedido = new Object[3];
+        valoresPedido[0]= totalCompra;
+        valoresPedido[1]= fecha;
+        valoresPedido[2]= usuario.getCorreo();
+        numeroCompra=Conexion.getLastId("pedidos", valoresPedido, atributos);
+        pedido.setNoPedido(numeroCompra);
+        //Conexion.insert("pedidos", valoresPedido, atributos);            
         if(totalCompra>0){
             if(usuario.getTarjeta()!=null){
                 vPedido.setVisible(false);

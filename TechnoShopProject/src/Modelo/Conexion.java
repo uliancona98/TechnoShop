@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
@@ -237,6 +238,53 @@ public class Conexion {
         return busquedaRes;
     }
     
+    public static int getLastId(String tabla, Object[]valores, String[] atributos){
+        int id=0;
+        Connection con = null;
+        try {
+            con = getConection();
+            String values = "";
+            for(int i=0;i<valores.length;i++){
+                if(i!=valores.length-1){
+                    values = values +"?,";
+                }else{
+                    values = values +"?";
+                }
+            }
+            System.out.println(values);
+            System.out.println(tabla);
+            String atributes = "";
+            for(int i=0;i<atributos.length;i++){
+                if(i!=atributos.length-1){
+                    atributes = atributes +atributos[i]+", ";
+                }else{
+                    atributes = atributes +atributos[i];
+                }                
+            }
+            System.out.println(atributes);
+            ps = con.prepareStatement("INSERT INTO "+tabla+" ("
+            +atributes+") VALUES("+values+") ",Statement.RETURN_GENERATED_KEYS);
+            for(int i=0;i<valores.length;i++){
+                if(valores[i] instanceof Double){
+                    ps.setDouble(i+1, (double)valores[i]);
+                }else if(valores[i] instanceof Integer){
+                    ps.setInt(i+1, (int)valores[i]);
+                }else{
+                    ps.setString(i+1, (String)valores[i]);
+                }
+            }              
+            ps.executeUpdate();
+            ResultSet rs=ps.getGeneratedKeys();
+            if(rs.next()){
+                id=rs.getInt(1);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return id;    
+    }
     public static Connection getConection(){
         Connection con = null;
         try{
