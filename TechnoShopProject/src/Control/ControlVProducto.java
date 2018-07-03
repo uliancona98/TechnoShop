@@ -30,27 +30,28 @@ public class ControlVProducto implements ActionListener{
         this.vProducto=vProducto;
         this.idCategoria=idCategoria;
         this.producto = producto;
-        this.vProducto.getBAnadirCarro().addActionListener(this);
-        this.vProducto.getBVolver().addActionListener(this);
-        this.vProducto.getBComprar().addActionListener(this);
-        this.vProducto.getbotonVerCarrito().addActionListener(this);
-        this.vProducto.getBotonCalcularPrecio().addActionListener(this);
         inicializar();
     }
     public ControlVProducto(VProducto vProducto, Usuario usuario,int idCategoria, Producto producto) {
         this.vProducto=vProducto;
         this.usuario=usuario;
         this.producto = producto;        
-        this.idCategoria=idCategoria;
-        this.vProducto.getBAnadirCarro().addActionListener(this);
-        this.vProducto.getBVolver().addActionListener(this);
-        this.vProducto.getBComprar().addActionListener(this);
-        this.vProducto.getbotonVerCarrito().addActionListener(this);
-        this.vProducto.getBotonCalcularPrecio().addActionListener(this);
+        this.idCategoria=idCategoria;      
         inicializar();
     }
     
     public void inicializar(){
+        vProducto.getBAnadirCarro().addActionListener(this);
+        vProducto.getBVolver().addActionListener(this);
+        vProducto.getBComprar().addActionListener(this);
+        vProducto.getbotonVerCarrito().addActionListener(this);
+        vProducto.getBotonCalcularPrecio().addActionListener(this);
+        vProducto.getBotonIniciarSesion().addActionListener(this);
+        vProducto.getBotonRegistrarse().addActionListener(this); 
+        if(usuario!=null){
+            vProducto.getBotonIniciarSesion().setVisible(false);
+            vProducto.getBotonRegistrarse().setVisible(false);
+        }
         DecimalFormat decimales = new DecimalFormat("0.00");
         vProducto.getLabelPrecio().setText("$ "+decimales.format(producto.getPrecioVenta()));
         vProducto.getLabelNombre().setText(producto.getNombre());
@@ -111,33 +112,36 @@ public class ControlVProducto implements ActionListener{
         }
         if(vProducto.getBVolver() == evento.getSource()){
             vProducto.setVisible(false);
-            if(idCategoria==1){
-                VDispositivos vDispositivos = new VDispositivos();
-                vDispositivos.setLocationRelativeTo(null);
-                vDispositivos.setVisible(true);
-                if(usuario!=null){
-                    ControlVDispositivos cVDispositivos = new ControlVDispositivos(vDispositivos, usuario); 
-                }else{
-                    ControlVDispositivos cVDispositivos = new ControlVDispositivos(vDispositivos);
-                }
-            }else if(idCategoria==2){
-                VAccesorios vAccesorios = new VAccesorios();
-                vAccesorios.setLocationRelativeTo(null);
-                vAccesorios.setVisible(true);
-                if(usuario!=null){
-                    ControlVAccesorios cVAccesorios = new ControlVAccesorios(vAccesorios, usuario); 
-                }else{
-                    ControlVAccesorios cVAccesorios = new ControlVAccesorios(vAccesorios);
-                }                
-            }else if(idCategoria==3){
-                VSoftware vSoftware=new VSoftware();
-                vSoftware.setLocationRelativeTo(null);
-                vSoftware.setVisible(true); 
-                if(usuario!=null){
-                    ControlVSoftware cVSoftware = new ControlVSoftware(vSoftware, usuario); 
-                }else{
-                    ControlVSoftware cVSoftware = new ControlVSoftware(vSoftware);
-                }
+            switch (idCategoria) {
+                case 1:
+                    VDispositivos vDispositivos = new VDispositivos();
+                    vDispositivos.setLocationRelativeTo(null);
+                    vDispositivos.setVisible(true);
+                    if(usuario!=null){
+                        ControlVDispositivos cVDispositivos = new ControlVDispositivos(vDispositivos, usuario);
+                    }else{
+                        ControlVDispositivos cVDispositivos = new ControlVDispositivos(vDispositivos);
+                    }   break;
+                case 2:
+                    VAccesorios vAccesorios = new VAccesorios();
+                    vAccesorios.setLocationRelativeTo(null);
+                    vAccesorios.setVisible(true);
+                    if(usuario!=null){
+                        ControlVAccesorios cVAccesorios = new ControlVAccesorios(vAccesorios, usuario);
+                    }else{
+                        ControlVAccesorios cVAccesorios = new ControlVAccesorios(vAccesorios);
+                    }   break;
+                case 3:
+                    VSoftware vSoftware=new VSoftware();
+                    vSoftware.setLocationRelativeTo(null);
+                    vSoftware.setVisible(true);
+                    if(usuario!=null){
+                        ControlVSoftware cVSoftware = new ControlVSoftware(vSoftware, usuario);
+                    }else{
+                        ControlVSoftware cVSoftware = new ControlVSoftware(vSoftware);
+                    }   break;
+                default:
+                    break;
             }
         }
         if(vProducto.getBComprar() == evento.getSource()){
@@ -160,10 +164,25 @@ public class ControlVProducto implements ActionListener{
             }            
         }
         if(vProducto.getbotonVerCarrito()== evento.getSource()){
+            vProducto.setVisible(false);
             VCarrito vCarrito= new VCarrito();
             vCarrito.setLocationRelativeTo(null);
             vCarrito.setVisible(true);
-            ControlVCarrito controlVCarrito = new ControlVCarrito(vCarrito, usuario);                
+            ControlVCarrito controlVCarrito = new ControlVCarrito(vCarrito, usuario, producto);                
+        }
+        if(vProducto.getBotonIniciarSesion()== evento.getSource()){
+           VIniciarSesion I = new VIniciarSesion();
+           I.setLocationRelativeTo(null);
+           I.setVisible(true);
+           vProducto.setVisible(false);
+           ControlVIniciarSesion CI = new ControlVIniciarSesion(I,producto);            
+        }
+        if(vProducto.getBotonRegistrarse()== evento.getSource()){
+           VRegistrese ventanaRegistro = new VRegistrese();
+           ventanaRegistro.setLocationRelativeTo(null);
+           ventanaRegistro.setVisible(true);
+           vProducto.setVisible(false);
+           ControlVRegistrese CR = new ControlVRegistrese(ventanaRegistro, producto);              
         }
     }
     public boolean validarArticulosDisponibles(){

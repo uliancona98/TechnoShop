@@ -93,13 +93,13 @@ public class ControlVHome implements ActionListener{
         }
         if(home.getBotonDevice() == evento.getSource()){
             home.setVisible(false);            
-        //Condicional si se presiona el boton "Dispositivos"
+            //Condicional si se presiona el boton "Dispositivos"
             if(usuario==null){
-           //En caso de que no haya ninguna sesion iniciada
+            //En caso de que no haya ninguna sesion iniciada
                 VDispositivos d = new VDispositivos();
                 ControlVDispositivos cd = new ControlVDispositivos(d);
             }else{
-           //Cuando se haya ya ingresado un usuario
+            //Cuando se haya ya ingresado un usuario
                 System.out.println("here");
                 VDispositivos d = new VDispositivos();
                 ControlVDispositivos cd = new ControlVDispositivos(d,usuario); 

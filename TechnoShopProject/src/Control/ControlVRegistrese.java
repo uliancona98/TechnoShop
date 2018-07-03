@@ -18,10 +18,18 @@ import javax.swing.JOptionPane;
  */
 public class ControlVRegistrese implements ActionListener{
     private VRegistrese registrese;
+    private Producto producto=null;
     
     public ControlVRegistrese(VRegistrese registrese) {
         this.registrese = registrese;
-        registrese.getBotonRegistrarse().addActionListener(this);
+        this.registrese.getBotonRegistrarse().addActionListener(this);
+        this.registrese.getBotonVolver().addActionListener(this);
+    }
+    public ControlVRegistrese(VRegistrese registrese, Producto producto) {
+        this.registrese = registrese;
+        this.producto = producto;
+        this.registrese.getBotonRegistrarse().addActionListener(this);
+        this.registrese.getBotonVolver().addActionListener(this);
     }
     
     @Override
@@ -70,11 +78,18 @@ public class ControlVRegistrese implements ActionListener{
                 valores[6] = "0";
                 //Insertar a la base de datos
                 Conexion.insert("Usuarios", valores);
-                registrese.setVisible(false);
-                VHome vHome = new VHome();
-                vHome.setLocationRelativeTo(null);
-                vHome.setVisible(true);
-                ControlVHome Chome = new ControlVHome(vHome,usuario);
+                registrese.setVisible(false);                
+                if(producto==null){
+                    VHome vHome = new VHome();
+                    vHome.setLocationRelativeTo(null);
+                    vHome.setVisible(true);
+                    ControlVHome Chome = new ControlVHome(vHome,usuario);                    
+                }else{
+                    VProducto vProducto = new VProducto();
+                    vProducto.setVisible(true);
+                    vProducto.setLocationRelativeTo(null);
+                    ControlVProducto cvProducto = new ControlVProducto(vProducto,usuario, producto.getCategoria(), producto);                          
+                }
             }else{
                 if(!bandera1){
                     JOptionPane.showMessageDialog(null, "Nombre Invalido");
@@ -86,6 +101,19 @@ public class ControlVRegistrese implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Correo Invalido");
                 }
             }            
-        }        
+        }
+        if(registrese.getBotonVolver()== evento.getSource()){
+            if(producto==null){
+                VHome vHome = new VHome();
+                vHome.setLocationRelativeTo(null);
+                vHome.setVisible(true);
+                ControlVHome Chome = new ControlVHome(vHome);                    
+            }else{
+                VProducto vProducto = new VProducto();
+                vProducto.setVisible(true);
+                vProducto.setLocationRelativeTo(null);
+                ControlVProducto cvProducto = new ControlVProducto(vProducto, producto.getCategoria(), producto);                          
+            }            
+        }
     }
 }

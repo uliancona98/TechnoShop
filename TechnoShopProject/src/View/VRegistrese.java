@@ -15,10 +15,7 @@ import javax.swing.JTextField;
 
 public class VRegistrese extends javax.swing.JFrame {
 
-    ArrayList <Usuario> usuarios=new ArrayList();
-  
-   
-    //Pattern pat = Pattern.compile("([a-z]|[A-Z]|\\\\s)+");//para validar nombre
+    ArrayList <Usuario> usuarios=new ArrayList();  
     public VRegistrese() {
         initComponents();
     }
@@ -42,6 +39,7 @@ public class VRegistrese extends javax.swing.JFrame {
         CampoRCorreo = new javax.swing.JTextField();
         BotonRegistrarse = new javax.swing.JButton();
         CampoRContrasena = new javax.swing.JPasswordField();
+        botonVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +73,8 @@ public class VRegistrese extends javax.swing.JFrame {
             }
         });
 
+        botonVolver.setText("Volver");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,22 +84,23 @@ public class VRegistrese extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(202, 202, 202))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2)
-                            .addComponent(CampoRNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                            .addComponent(jLabel3)
-                            .addComponent(CampoRApellido)
-                            .addComponent(CampoRCorreo)
-                            .addComponent(CampoRContrasena)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(BotonRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(72, 72, 72)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2)
+                    .addComponent(CampoRNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                    .addComponent(jLabel3)
+                    .addComponent(CampoRApellido)
+                    .addComponent(CampoRCorreo)
+                    .addComponent(CampoRContrasena))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addComponent(BotonRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonVolver)
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,7 +124,9 @@ public class VRegistrese extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(CampoRContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(BotonRegistrarse)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonRegistrarse)
+                    .addComponent(botonVolver))
                 .addGap(28, 28, 28))
         );
 
@@ -181,17 +184,22 @@ public class VRegistrese extends javax.swing.JFrame {
     public void setCampoRNombre(JTextField CampoRNombre) {
         this.CampoRNombre = CampoRNombre;
     }
-
+    
+    public JButton getBotonVolver() {
+        return botonVolver;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonRegistrarse;
     private javax.swing.JTextField CampoRApellido;
     private javax.swing.JPasswordField CampoRContrasena;
     private javax.swing.JTextField CampoRCorreo;
     private javax.swing.JTextField CampoRNombre;
+    private javax.swing.JButton botonVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
+
 }

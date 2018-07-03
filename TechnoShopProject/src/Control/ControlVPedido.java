@@ -32,7 +32,7 @@ public class ControlVPedido implements ActionListener {
         this.usuario=usuario;
         this.producto=producto;
         this.vPedido=vPedido;
-        this.totalCompra=producto.getPrecioVenta()*producto.getNoArticulos();//multiplio el precio del producto por el numero deproductos        
+        totalCompra=producto.getPrecioVenta()*producto.getNoArticulos();//multiplio el precio del producto por el numero deproductos        
         JTable tabla=vPedido.gettablaProductos();                
         llenarTabla(tabla, producto); 
         inicializar();        
@@ -40,7 +40,7 @@ public class ControlVPedido implements ActionListener {
     public ControlVPedido(VPedido pedido, Usuario usuario,ArrayList <Producto> productos){
         this.productos=new ArrayList();
         for(int i=0;i<productos.size();i++){
-            this.totalCompra=productos.get(i).getPrecioVenta()*productos.get(i).getNoArticulos()+totalCompra;
+            totalCompra=productos.get(i).getPrecioVenta()*productos.get(i).getNoArticulos()+totalCompra;
         }
         this.vPedido=pedido;
         this.usuario=usuario;
