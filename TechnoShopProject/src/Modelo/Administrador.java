@@ -12,15 +12,21 @@ package Modelo;
 public class Administrador extends Cuenta{
 
     private Bodega bodega = new Bodega();
-    
+    /**
+     * @deprecated metodo que no se esta utilizando en este momento
+     */
     public void AnadirProducto(){
         bodega.AnadirProducto();
     }
-    
+    /**
+     * @deprecated metodo que no se esta utilizando en este momento
+     */
     public void RetirarProducto(){
         bodega.RemoverProducto();
     }
-    
+    /**
+     * @deprecated metodo que no se esta utilizando en este momento
+     */
     public void PedirLista(){
         //bodega.getListaDeProductos();
     }

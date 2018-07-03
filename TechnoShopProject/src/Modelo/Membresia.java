@@ -15,31 +15,51 @@ public class Membresia{
     private String tipo;
     private double puntos=0;
     private double valorCompras=0;
-    
+    /**
+     * Devuelve el tipo de membresia
+     * @return String
+     */
     public String getTipo() {
         return tipo;
     }
-
+    /**
+     * En este metodo se define el tipo de membresia
+     * @param tipo 
+     */
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
+    /**
+     * En este metodo se define el atributo valorCompras
+     * @param valorCompras 
+     */
     public void setValorCompras(double valorCompras){
         this.valorCompras = valorCompras;
     }
-    
+    /**
+     * En este metodo se devuelve el valorCompras
+     * @return double
+     */
     public double getValorCompras(){
         return valorCompras;
     }
-
+    /**
+     * En este metodo se devuelven los puntos de la membresia
+     * @return double
+     */
     public double getPuntos() {
         return puntos;
     }
-
+    /**
+     * Metodo donde se definen los puntos de la membresia
+     * @param puntos 
+     */
     public void setPuntos(double puntos) {
         this.puntos = puntos;
     }
-    
+    /**
+     * Actualiza si la membresia si el monto total de compras que ha hecho supera los $2000 a $5000 pesos
+     */
     public void cambiarMembresia(){
         if(valorCompras>=2000 && tipo.equals("Nivel 1")){
             tipo="Nivel 2";
@@ -48,7 +68,10 @@ public class Membresia{
             tipo="Nivel 3";
         }
     }
-  
+  /**
+   * En este metodo acumula los puntos dependiendo del pago del pedido que haya hecho el cliente
+   * @param pago 
+   */
     public void acumularPuntos(double pago)
     {       
         valorCompras = valorCompras + pago;

@@ -15,6 +15,14 @@ import javax.swing.JOptionPane;
 public class Login {
     public static Usuario usuario;
     public static Administrador admin;
+    /**
+     * Recibe el correo y la contraseña y busca si en la tabla de usuario o administrador existe una coincidencia 
+     * @param correo
+     * @param contrasenaChar
+     * @param tabla
+     * @return boolean devolvera "true" si coincide el usuario y contraseña con respecto a la tabla o "false" si
+     * no coincide ningun dato
+     */
     
     public static boolean validarCuenta(String correo, char[] contrasenaChar, String tabla){
         String contrasena = "";

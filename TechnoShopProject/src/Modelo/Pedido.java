@@ -20,15 +20,24 @@ public class Pedido {
     private ArrayList<Producto> productos = new ArrayList();
     private String fecha;
     private double total;
-
+    /**
+     * En este metodo se devuelve el total de pago respecto al pedido
+     * @return double
+     */
     public double getTotal() {
         return total;
     }
-    
+    /**
+     * En este metodo se define o declara el total de pago respecto al pedido
+     * @param total 
+     */
     public void setTotal(double total) {
         this.total = total;
     }
-    
+    /**
+     * 
+     * @return 
+     */
     public int getNoPedido() {
         return NoPedido;
     }

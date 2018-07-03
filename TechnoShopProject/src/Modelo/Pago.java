@@ -11,11 +11,17 @@ package Modelo;
  */
 public abstract class Pago {
     protected double cantidad;
-
+    /**
+     * Metodo que devuelve la cantidad que se necesita pagar
+     * @return 
+     */
     public double getCantidad() {
         return cantidad;
     }
-
+/**
+ * Metodo en el cual se define la cantidad que se necesita pagar
+ * @param cantidad 
+ */
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }

@@ -14,35 +14,59 @@ public class Cuenta {
     protected String Apellido;
     protected String Correo;
     protected String Contraseña;
-
+    /**
+     * Metodo en el que se define el nombre del tipo de cuenta
+     * @param Nombre 
+     */
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
-
+    /**
+     *  Metodo en el que se define el apellido del tipo de cuenta
+     * @param Apellido 
+     */
     public void setApellido(String Apellido) {
         this.Apellido = Apellido;
     }
-
+    /**
+     *  Metodo en el que se define el correo del tipo de cuenta
+     * @param Correo 
+     */
     public void setCorreo(String Correo) {
         this.Correo = Correo;
     }
-
+    /**
+     *  Metodo en el que se define la contraseña del tipo de cuenta
+     * @param Contraseña 
+     */
     public void setContraseña(String Contraseña) {
         this.Contraseña = Contraseña;
     }
-
+    /**
+     * Metodo en el que se devuelve el nombre del tipo de cuenta
+     * @return 
+     */
     public String getNombre() {
         return Nombre;
     }
-
+    /**
+     * Metodo en el que se devuelve el apellido del tipo de cuenta
+     * @return 
+     */
     public String getApellido() {
         return Apellido;
     }
-
+    /**
+     * Metodo en el que se devuelve el correo del tipo de cuenta
+     * @return 
+     */
     public String getCorreo() {
         return Correo;
     }
-
+    /**
+     * Metodo en el que se devuelve la contraseña del tipo de cuenta
+     * @return 
+     */
     public String getContraseña() {
         return Contraseña;
     }

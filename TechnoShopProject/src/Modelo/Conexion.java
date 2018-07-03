@@ -24,6 +24,11 @@ public class Conexion {
     private static PreparedStatement ps;
     private static ResultSet rs;
     private static ArrayList<String[]> busquedaRes = new ArrayList<String[]>();
+    /**
+     * Inserta una fila en la tabla de base de datos con valores en una tabla de la base de datos
+     * @param tabla
+     * @param valores 
+     */
     
     public static void insert(String tabla, Object[] valores){
         Connection con = null;
@@ -63,7 +68,13 @@ public class Conexion {
             }
         }        
     }
-    
+    /**
+     * Inserta una fila en la tabla de base de datos con valores en una tabla de la base de datos especificando las columnas 
+     * que se van a modificar
+     * @param tabla
+     * @param valores
+     * @param atributos 
+     */
     public static void insert(String tabla, Object[] valores, String[]atributos){
         Connection con = null;
         try{
@@ -114,7 +125,16 @@ public class Conexion {
             }
         }        
     }    
-    
+    /**
+     * Busca una columna que tengan en comun los mismos datos en 2 tablas distintas de la base de datos
+     * @param tabla1
+     * @param tabla2
+     * @param atributoTabla1
+     * @param atributoTabla2
+     * @param posicion
+     * @param dato
+     * @return 
+     */
     public static ArrayList<String[]> buscarTablasRelacionadas(String tabla1, String tabla2, String atributoTabla1, String atributoTabla2, int posicion, String dato){
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -146,7 +166,14 @@ public class Conexion {
         }
         return busquedaRes;
     }
-    
+    /**
+     * Modifica una fila de la tabla de la base de datos
+     * @param tabla
+     * @param campos
+     * @param datosNuevos
+     * @param atributoBuscar
+     * @param datoBuscar 
+     */
     public static void modificarTabla(String tabla, String[] campos, Object[]datosNuevos, String atributoBuscar, String datoBuscar){
         Connection con = null;
         try{
@@ -182,7 +209,11 @@ public class Conexion {
             JOptionPane.showMessageDialog(null, "Error con la operacion");
         }                
     }
-    
+    /**
+     * Metpdo en cual obtiene todos los elementos de la tabla de la base de datos
+     * @param tabla
+     * @return 
+     */
     public static ArrayList<String[]> obtenerTabla(String tabla){
             
             PreparedStatement stmt = null;
@@ -207,7 +238,13 @@ public class Conexion {
             }
             return busquedaRes;
     }
-    
+    /**
+     * Metodo que permite encontrar elementos de la tabla de la base de datos
+     * @param tabla
+     * @param dato
+     * @param nombreDato
+     * @return 
+     */
     public static ArrayList<String[]> buscar(String tabla, Object dato, String nombreDato){
         busquedaRes.clear();
         String[] busqueda=null;
@@ -240,7 +277,13 @@ public class Conexion {
         }
         return busquedaRes;
     }
-    
+    /**
+     * Inserta un elemento nuevo en la tabla y devuelve el id asignado de la ultima fila insertada
+     * @param tabla
+     * @param valores
+     * @param atributos
+     * @return 
+     */
     public static int getLastId(String tabla, Object[]valores, String[] atributos){
         int id=0;
         Connection con = null;
@@ -287,6 +330,10 @@ public class Conexion {
         
         return id;    
     }
+    /**
+     * Devuelve la conexion a la base de datos
+     * @return 
+     */
     public static Connection getConection(){
         Connection con = null;
         try{
@@ -298,7 +345,11 @@ public class Conexion {
         }
         return con;
     }
-    
+    /**
+     * Metodo que elimina una fila en la tabla de base de datos
+     * @param tabla
+     * @param id 
+     */
     public static void eliminar(String tabla, Object id) {                             
         // TODO add your handling code here:
         Connection con = null;
