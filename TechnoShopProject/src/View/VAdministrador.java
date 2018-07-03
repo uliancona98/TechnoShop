@@ -71,7 +71,7 @@ public class VAdministrador extends javax.swing.JFrame {
         tablaAumentarProductos = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
         botonVolverAumentarProducto = new javax.swing.JButton();
-        VReporte = new javax.swing.JFrame();
+        VModificaProducto = new javax.swing.JFrame();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaReporte = new javax.swing.JTable();
         BImprimir = new javax.swing.JButton();
@@ -405,28 +405,28 @@ public class VAdministrador extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout VReporteLayout = new javax.swing.GroupLayout(VReporte.getContentPane());
-        VReporte.getContentPane().setLayout(VReporteLayout);
-        VReporteLayout.setHorizontalGroup(
-            VReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VReporteLayout.createSequentialGroup()
+        javax.swing.GroupLayout VModificaProductoLayout = new javax.swing.GroupLayout(VModificaProducto.getContentPane());
+        VModificaProducto.getContentPane().setLayout(VModificaProductoLayout);
+        VModificaProductoLayout.setHorizontalGroup(
+            VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VModificaProductoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(VReporteLayout.createSequentialGroup()
+            .addGroup(VModificaProductoLayout.createSequentialGroup()
                 .addGap(260, 260, 260)
                 .addComponent(BImprimir)
                 .addGap(42, 42, 42)
                 .addComponent(BRegresar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        VReporteLayout.setVerticalGroup(
-            VReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(VReporteLayout.createSequentialGroup()
+        VModificaProductoLayout.setVerticalGroup(
+            VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VModificaProductoLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(VReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BImprimir)
                     .addComponent(BRegresar))
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -511,7 +511,7 @@ public class VAdministrador extends javax.swing.JFrame {
             }
         });
 
-        BotonReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporticon.jpg"))); // NOI18N
+        BotonReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporticon.jpeg"))); // NOI18N
         BotonReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonReporteActionPerformed(evt);
@@ -522,7 +522,7 @@ public class VAdministrador extends javax.swing.JFrame {
 
         jLabel4.setText("Retirar un producto existente");
 
-        jLabel5.setText("Generar un reporte");
+        jLabel5.setText("Modificar un producto");
 
         BotonSalir.setText("Salir");
         BotonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -780,7 +780,7 @@ public class VAdministrador extends javax.swing.JFrame {
     }
 
     public JFrame getVReporte() {
-        return VReporte;
+        return VModificaProducto;
     }
 
     public JFrame getVRemover() {
@@ -821,7 +821,7 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JFrame VAnadirProducto;
     private javax.swing.JFrame VAnadirProducto2;
     private javax.swing.JFrame VAumentarProducto;
-    private javax.swing.JFrame VReporte;
+    private javax.swing.JFrame VModificaProducto;
     private javax.swing.JFrame VRetirarProducto;
     private javax.swing.JButton botonAnadirExistente;
     public javax.swing.JButton botonAnadirProducto2;
