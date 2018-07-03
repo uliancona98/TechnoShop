@@ -185,7 +185,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="BRegresar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="REGRESAR"/>
+        <Property name="text" type="java.lang.String" value="Regresar"/>
       </Properties>
     </Component>
   </SubComponents>

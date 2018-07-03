@@ -108,11 +108,11 @@ public class VProducto extends javax.swing.JFrame {
         textPaneInfo.setOpaque(false);
         jScrollPane1.setViewportView(textPaneInfo);
 
-        BComprar.setText("COMPRAR");
+        BComprar.setText("Comprar");
 
-        BAnadirCarro.setText("AÑADIR AL CARRITO");
+        BAnadirCarro.setText("Agregar al carrito");
 
-        BVolver.setText("VOLVER");
+        BVolver.setText("Volver");
 
         jLabel2.setText("Cantidad:");
 

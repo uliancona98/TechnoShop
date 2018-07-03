@@ -71,7 +71,7 @@ public class VSoftware extends javax.swing.JFrame {
 
         botonP2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        BRegresar.setText("REGRESAR");
+        BRegresar.setText("Regresar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

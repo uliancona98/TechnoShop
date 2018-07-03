@@ -129,7 +129,7 @@ public class VPedido extends javax.swing.JFrame {
 
         botonAgregarTarjeta.setText("Agregar Tarjeta");
 
-        botonPagarPuntos.setText("!Paga con Puntos¡");
+        botonPagarPuntos.setText("Paga con tus Puntos");
 
         botonAceptar.setText("Aceptar");
 

@@ -162,17 +162,17 @@
     </Container>
     <Component class="javax.swing.JButton" name="BComprar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="COMPRAR"/>
+        <Property name="text" type="java.lang.String" value="Comprar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="BAnadirCarro">
       <Properties>
-        <Property name="text" type="java.lang.String" value="A&#xd1;ADIR AL CARRITO"/>
+        <Property name="text" type="java.lang.String" value="Agregar al carrito"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="BVolver">
       <Properties>
-        <Property name="text" type="java.lang.String" value="VOLVER"/>
+        <Property name="text" type="java.lang.String" value="Volver"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">

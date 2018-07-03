@@ -297,7 +297,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="botonPagarPuntos">
       <Properties>
-        <Property name="text" type="java.lang.String" value="!Paga con Puntos&#xa1;"/>
+        <Property name="text" type="java.lang.String" value="Paga con tus Puntos"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="botonAceptar">

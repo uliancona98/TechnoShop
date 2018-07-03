@@ -5,12 +5,18 @@
  */
 package Control;
 
+import Modelo.Accesorio;
+import Modelo.Conexion;
+import Modelo.Dispositivo;
+import Modelo.Pedido;
 import Modelo.Producto;
+import Modelo.Software;
 import Modelo.Usuario;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +26,9 @@ public class ControlVHome implements ActionListener{
     private VHome home;
     private Usuario usuario = null;
     private ArrayList <Producto> productosVendidos = new ArrayList();
+    private ArrayList<String[]> busquedaPedidos;
+    private ArrayList<String[]> busquedaProductos= new ArrayList();
+    private ArrayList<Pedido> pedidos;
     
     public ControlVHome(VHome h){
         //Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome
@@ -27,7 +36,7 @@ public class ControlVHome implements ActionListener{
         home.getBotonPedidos().setVisible(false);
         home.getBotonCerrarSesion().setVisible(false);
         home.getBotonVerCarrito().setVisible(false);
-        home.getLabelBienvenida().setText("B I E N V E N I D O");
+        home.getLabelBienvenida().setText("B I E N V E N I D @");
         incializar();
         //inicializarTablaTop5();
     }
@@ -52,20 +61,11 @@ public class ControlVHome implements ActionListener{
         home.getBotonSoftware().addActionListener(this);
         home.getBotonCerrarSesion().addActionListener(this);
         home.getBotonPedidos().addActionListener(this);
-        home.getBotonVerCarrito().addActionListener(this);        
+        home.getBotonVerCarrito().addActionListener(this);
+        home.getBotonVerPedido().addActionListener(this);
+        home.getComboBoxPedidos().addActionListener(this);
+        home.getBotonVolverPedidos().addActionListener(this);
     }
-    
-    public void inicializarTablaTop5(){
-        //relacionar tablas detalles_pedidos con productos y sumar frecuencias de los productos
-        //ArrayList<String[]> tablaPedidos = Conexion.obtenerTabla("pedidos");
-        /*if(tablaPedidos.size()==0){
-            //No se muestra la tabla porque no se ha comprado nada           
-        }else{
-            ArrayList<String[]> tablaDetallesPedidos = Conexion.obtenerTabla("detalles_pedidos");
-            //tabla = Conexion.obtenerTabla("productos");
-        }*/
-    }
-    
     
     @Override
     public void actionPerformed(ActionEvent evento) {
@@ -150,10 +150,89 @@ public class ControlVHome implements ActionListener{
             ControlVCarrito controlVCarrito = new ControlVCarrito(vCarrito, usuario);  
         }
         if(home.getBotonPedidos()== evento.getSource()){
-            home.setVisible(false);
-            //MOSTRAR LOS PEDIDOS DEL USUARIO
-            usuario.getPedidos();
-        }        
+            buscarPedidos();
+            home.getVMisPedidos().setVisible(true);
+            home.getVMisPedidos().setBounds(0, 0, 634, 470);
+            home.getVMisPedidos().setLocationRelativeTo(null);
+            home.getComboBoxPedidos().removeAllItems();
+            try{
+                for(int i=0;i<usuario.getPedidos().size();i++){
+                    Pedido pedido = usuario.getPedidos().get(i);
+                    home.getComboBoxPedidos().addItem("No. de pedido: "+pedido.getNoPedido()+
+                    "   Fecha: "+pedido.getFecha());
+            }                
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "No hay pedidos para mostrar");
+            }
+        }
+        if(home.getBotonVerPedido()== evento.getSource()){
+            verPedidos();
+        }
+        if(home.getBotonVolverPedidos()==evento.getSource()){
+            home.getVMisPedidos().setVisible(false);
+        }
+    }
+    
+    public void verPedidos(){
+        try{
+            int i= home.getComboBoxPedidos().getSelectedIndex();
+            Pedido pedido = usuario.getPedidos().get(i);
+            String pedidoInfo="No. de pedido"+pedido.getNoPedido()+
+            "\nFecha: "+pedido.getFecha()+"   Total: "+pedido.getTotal()+"\n Productos:";
+            String detallesPedido="";
+            for(int j=0;j<pedido.getProductos().size();j++){
+                Producto producto = pedido.getProductos().get(j);
+                detallesPedido = detallesPedido + "\nProducto: "+producto.getNombre()
+                +"  Precio: $"+ (producto.getPrecioVenta()*producto.getNoArticulos());
+            }
+            home.getTextPedido().setText(pedidoInfo+ detallesPedido);              
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No hay pedidos para mostrar");
+        }      
+    }
+    public void buscarPedidos(){
+        
+        busquedaPedidos = Conexion.buscarTablasRelacionadas("pedidos", "pedidos_detalle", "id", "id_pedido",4,usuario.getCorreo());
+        ArrayList<Pedido> pedidos = new ArrayList();
+        for(int i=0;i<busquedaPedidos.size();i++){
+            for(int j=0;j<busquedaPedidos.get(i).length;j++){
+                System.out.print(busquedaPedidos.get(i)[j]+"-");
+            }
+            System.out.println("");
+        }
+        for(int i=0;i<busquedaPedidos.size();i++){
+            //for(int j=0;j<busquedaPedidos.get(i).length;j++){
+                Pedido pedido = new Pedido();
+                pedido.setNoPedido(Integer.parseInt(busquedaPedidos.get(i)[0]));
+                pedido.setTotal(Double.parseDouble(busquedaPedidos.get(i)[1]));                
+                pedido.setFecha(busquedaPedidos.get(i)[2]);
+                //debo buscar el producto y su nombre en la base de datos
+                try{
+                    busquedaProductos=Conexion.buscar("productos", busquedaPedidos.get(i)[6], "id");                    
+                    int id=Integer.parseInt(busquedaProductos.get(0)[0]);
+                    Producto producto=null;
+                    if(Integer.parseInt(busquedaProductos.get(0)[7])==1){
+                        Dispositivo dispositivo = new Dispositivo();
+                        producto = (Producto) dispositivo;
+                    }else if(Integer.parseInt(busquedaProductos.get(0)[7])==2){
+                        Accesorio accesorio = new Accesorio();
+                        producto = (Producto) accesorio;
+                    }else if(Integer.parseInt(busquedaProductos.get(0)[7])==3){
+                        Software software = new Software();
+                        producto = (Producto) software;
+                    }
+                    producto.setId(busquedaPedidos.get(i)[6]);
+                    System.out.print(busquedaPedidos.get(i)[6]+"-");
+                    producto.setNombre(busquedaProductos.get(0)[1]);
+                    producto.setNoArticulos(Integer.parseInt(busquedaPedidos.get(i)[8]));
+                    producto.setPrecioVenta(Double.parseDouble(busquedaPedidos.get(i)[7]));
+                    pedido.setProducto(producto);//**********continuarrr
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "Error");
+                }
+            //}
+            System.out.println("");
+        }
     }
 }
 

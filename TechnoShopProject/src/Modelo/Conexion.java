@@ -49,7 +49,7 @@ public class Conexion {
             }
             int res = ps.executeUpdate();
             if(res>0){
-                JOptionPane.showMessageDialog(null, "Elemento insertado");
+                //JOptionPane.showMessageDialog(null, "Elemento insertado");
             }else{
                 JOptionPane.showMessageDialog(null, "Error al insertar");
             }
@@ -100,7 +100,7 @@ public class Conexion {
             }
             int res = ps.executeUpdate();
             if(res>0){
-                JOptionPane.showMessageDialog(null, "Elemento regustrado");
+                //JOptionPane.showMessageDialog(null, "Elemento registrado");
             }else{
                 JOptionPane.showMessageDialog(null, "Error al registrar elemento");
             }
@@ -115,7 +115,7 @@ public class Conexion {
         }        
     }    
     
-    public static ArrayList<String[]> buscarTablasRelacionadas(String tabla1, String tabla2, String atributoTabla1, String atributoTabla2){
+    public static ArrayList<String[]> buscarTablasRelacionadas(String tabla1, String tabla2, String atributoTabla1, String atributoTabla2, int posicion, String dato){
         PreparedStatement stmt = null;
         ResultSet rs = null;
         busquedaRes.clear();
@@ -123,20 +123,22 @@ public class Conexion {
         try{
             Connection con = getConection();
             String ps = "SELECT * FROM "+tabla1+" as A INNER JOIN "+tabla2+" as"
-            + " B ON (A."+atributoTabla1+"+=B."+atributoTabla2+")";
+            + " B ON (A."+atributoTabla1+"=B."+atributoTabla2+")";
             stmt = con.prepareStatement(ps);
             rs = stmt.executeQuery();      
             while(rs.next()) {
-                busqueda = new String[rs.getMetaData().getColumnCount()];                
-                for (int x=1;x<=rs.getMetaData().getColumnCount();x++){
-                    busqueda[x-1] = rs.getString(x);
-                    /*if(x==1){
-                       System.out.print(rs.getString(x)+ "\t");
-                    }else{
-                       System.out.print(rs.getString(x)+ "\t");
-                    }*/
-                }
-                busquedaRes.add(busqueda);                  
+                busqueda = new String[rs.getMetaData().getColumnCount()];
+                if(rs.getString(posicion).equals(dato)){
+                    for (int x=1;x<=rs.getMetaData().getColumnCount();x++){
+                        busqueda[x-1] = rs.getString(x);
+                        /*if(x==1){
+                           System.out.print(rs.getString(x)+ "\t");
+                        }else{
+                           System.out.print(rs.getString(x)+ "\t");
+                        }*/
+                    }
+                    busquedaRes.add(busqueda);                     
+                }                 
             }
             con.close();
         }catch(Exception e){
@@ -171,13 +173,13 @@ public class Conexion {
             }
             int res = ps.executeUpdate();
             if(res>0){
-                JOptionPane.showMessageDialog(null, "Elemento modificado");
+                //JOptionPane.showMessageDialog(null, "Elemento modificado");
             }else{
                 JOptionPane.showMessageDialog(null, "Error al modificar");
             }
             con.close();
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error con la operacion");
         }                
     }
     
@@ -201,7 +203,7 @@ public class Conexion {
                 }    
                 con.close();
             }catch(Exception e){
-                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(null, "Error con la operacion");
             }
             return busquedaRes;
     }
@@ -234,8 +236,7 @@ public class Conexion {
             }
             con.close();
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Error al buscar elemento");
-            System.out.println(e.getMessage());           
+            JOptionPane.showMessageDialog(null, "Error al buscar elemento");          
         }
         return busquedaRes;
     }
@@ -318,7 +319,7 @@ public class Conexion {
             con.close();
         }catch(Exception e){
             System.out.println("Error al eliminar elemento");
-        }                
+        }            
     }     
 }
 

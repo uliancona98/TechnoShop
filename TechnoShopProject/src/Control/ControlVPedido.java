@@ -5,10 +5,8 @@ import Modelo.*;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -298,22 +296,28 @@ public class ControlVPedido implements ActionListener {
     
     public void insertarDetallesPedido(int id_pedido){
         //tabla valores y atribustos
-        Object [] valores = new Object [3];
+        Object [] valores = new Object [4];
         System.out.println(pedido.getNoPedido());
         Integer noPedido = pedido.getNoPedido();
         valores[0]= noPedido;
-        String[]atributos = new String[3];
+        String[]atributos = new String[4];
         atributos[0]= "id_pedido";
         atributos[1]= "id_producto";
         atributos[2]="precio";
+        atributos[3]="unidades";
+        Integer unidades=0;
         if(producto!=null){
             valores[1]=producto.getId();
             valores[2]=producto.getPrecioVenta();
+            unidades=producto.getNoArticulos();
+            valores[3]= unidades;
             Conexion.insert("pedidos_detalle", valores, atributos);              
         }else{
             for(int i=0;i<productos.size();i++){
                 valores[1]=productos.get(i).getId();
                 valores[2]=productos.get(i).getPrecioVenta();
+                unidades=productos.get(i).getNoArticulos();
+                valores[3]= unidades;                
                 Conexion.insert("pedidos_detalle", valores, atributos);            
             }            
         }

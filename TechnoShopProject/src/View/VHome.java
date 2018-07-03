@@ -7,7 +7,10 @@ package View;
 
 import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextPane;
 
 /**
  *
@@ -33,6 +36,13 @@ public class VHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        VMisPedidos = new javax.swing.JFrame();
+        jLabel3 = new javax.swing.JLabel();
+        comboBoxPedidos = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textPedido = new javax.swing.JTextPane();
+        botonVerPedido = new javax.swing.JButton();
+        botonVolverPedidos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         BotonSesion = new javax.swing.JButton();
         BotonRegistrese = new javax.swing.JButton();
@@ -45,6 +55,56 @@ public class VHome extends javax.swing.JFrame {
         botonPedidos = new javax.swing.JButton();
         botonVerCarrito = new javax.swing.JButton();
         botonCerrarSesion = new javax.swing.JButton();
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setText("Mis Pedidos");
+
+        comboBoxPedidos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jScrollPane1.setViewportView(textPedido);
+
+        botonVerPedido.setText("Ver");
+
+        botonVolverPedidos.setText("Volver");
+
+        javax.swing.GroupLayout VMisPedidosLayout = new javax.swing.GroupLayout(VMisPedidos.getContentPane());
+        VMisPedidos.getContentPane().setLayout(VMisPedidosLayout);
+        VMisPedidosLayout.setHorizontalGroup(
+            VMisPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VMisPedidosLayout.createSequentialGroup()
+                .addGroup(VMisPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VMisPedidosLayout.createSequentialGroup()
+                        .addGap(219, 219, 219)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(VMisPedidosLayout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(comboBoxPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(botonVerPedido))
+                    .addGroup(VMisPedidosLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(73, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VMisPedidosLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(botonVolverPedidos)
+                .addGap(83, 83, 83))
+        );
+        VMisPedidosLayout.setVerticalGroup(
+            VMisPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VMisPedidosLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel3)
+                .addGap(26, 26, 26)
+                .addGroup(VMisPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboBoxPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonVerPedido))
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(botonVolverPedidos)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -227,6 +287,26 @@ public class VHome extends javax.swing.JFrame {
         return BotonRegistrese;
     }
 
+    public JButton getBotonVolverPedidos() {
+        return botonVolverPedidos;
+    }
+
+    public JFrame getVMisPedidos() {
+        return VMisPedidos;
+    }
+
+    public JButton getBotonVerPedido() {
+        return botonVerPedido;
+    }
+
+    public JComboBox<String> getComboBoxPedidos() {
+        return comboBoxPedidos;
+    }
+
+    public JTextPane getTextPedido() {
+        return textPedido;
+    }
+
     public void setBotonRegistrese(JButton BotonRegistrese) {
         this.BotonRegistrese = BotonRegistrese;
     }
@@ -269,12 +349,19 @@ public class VHome extends javax.swing.JFrame {
     private javax.swing.JButton BotonRegistrese;
     private javax.swing.JButton BotonSesion;
     private javax.swing.JButton BotonSoftware;
+    private javax.swing.JFrame VMisPedidos;
     private javax.swing.JButton botonCerrarSesion;
     private javax.swing.JButton botonPedidos;
     private javax.swing.JButton botonVerCarrito;
+    private javax.swing.JButton botonVerPedido;
+    private javax.swing.JButton botonVolverPedidos;
+    private javax.swing.JComboBox<String> comboBoxPedidos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelBienvenida;
+    private javax.swing.JTextPane textPedido;
     // End of variables declaration//GEN-END:variables
 
 }

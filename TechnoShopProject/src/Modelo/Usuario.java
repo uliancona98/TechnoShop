@@ -15,7 +15,7 @@ public class Usuario extends Cuenta {
    private Membresia membresia;
    private Carrito carrito=null;
    private Tarjeta tarjeta=null;
-   private ArrayList <Pedido> pedidos = new ArrayList();
+   private ArrayList <Pedido> pedidos;
 
     public Membresia getMembresia() {
         return membresia;
@@ -42,7 +42,12 @@ public class Usuario extends Cuenta {
     }
 
     public void addPedido(Pedido pedido) {
-        pedidos.add(pedido);
+        if(pedidos==null){
+            pedidos = new ArrayList();
+            pedidos.add(pedido);
+        }else{
+            pedidos.add(pedido);
+        }
     }
     
     public void setTarjeta(Tarjeta tarjeta){
