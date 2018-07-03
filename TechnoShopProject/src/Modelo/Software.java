@@ -10,11 +10,15 @@ package Modelo;
  * @author Asus
  */
 public class Software extends Producto{
-
+    /**
+    * Constructor que llama al constructor de la superclase Producto
+    */
     public Software() {
         super();
     }
-    
+    /**
+     * Metodo heredado de la superclase Producto
+     */
     @Override
     public void setInformacionCategoria(){
         informacionCategoria = "Videojuegos y peliculas";

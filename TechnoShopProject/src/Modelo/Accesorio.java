@@ -6,11 +6,15 @@
 package Modelo;
 
 public class Accesorio extends Producto {
-    
+    /**
+    * Constructor que llama al constructor de la superclase Producto
+    */
     public Accesorio(){
         super();
     }
-    
+    /**
+     * Metodo heredado de la superclase Producto
+     */
     @Override
     public void setInformacionCategoria(){
         informacionCategoria = "Mouses y teclados";
