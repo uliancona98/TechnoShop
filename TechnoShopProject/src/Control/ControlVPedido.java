@@ -17,15 +17,13 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 
-public class ControlVPedido implements ActionListener {
-    
+public class ControlVPedido implements ActionListener {   
     public static TableRowSorter<TableModel> tr;
-    
     private VPedido vPedido;
     private  Usuario usuario;
     private ArrayList <Producto> productos;//para que es el array? que recibe?
     private double totalCompra=0;
-        private ArrayList<String[]> busquedaProductos;
+    private ArrayList<String[]> busquedaProductos;
     private Producto producto;
     private double numeroPuntosUtilizar=0;
     private String precioTotal;//para convertir el totalCompra a string e imprimirlo en etiqueta Total
@@ -43,7 +41,7 @@ public class ControlVPedido implements ActionListener {
         this.productos=new ArrayList();
         for(int i=0;i<productos.size();i++){
             this.totalCompra=productos.get(i).getPrecioVenta()*productos.get(i).getNoArticulos()+totalCompra;
-        } 
+        }
         this.vPedido=pedido;
         this.usuario=usuario;
         this.productos=productos;
