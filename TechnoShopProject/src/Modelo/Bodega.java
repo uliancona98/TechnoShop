@@ -10,11 +10,14 @@ import java.util.ArrayList;
 /**
  *
  * @author Juan D.M
+ * @deprecated Esta clase puede ser innecesaria
  */
 public class Bodega {
     //Producto producto;
     private ArrayList<Producto> listaproductos = new ArrayList(); 
-    
+    /**
+     * @deprecated Metodo que no se utlizara
+     */
     public void AnadirProducto(){   
     }
     

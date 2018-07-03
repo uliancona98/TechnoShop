@@ -35,29 +35,44 @@ public class Pedido {
         this.total = total;
     }
     /**
-     * 
-     * @return 
+     * En este metodo se devuelve el atributo NoPedido
+     * @return integer
      */
     public int getNoPedido() {
         return NoPedido;
     }
-    
+    /**
+     * En este metodo se define y agrega producto al pedido
+     * @param producto 
+     */
     public void setProducto(Producto producto){
         productos.add(producto);
     }
-    
+    /**
+     * En este metodo se devuelve el arreglo de productos
+     * @return ArrayList
+     */
     public ArrayList<Producto> getProductos(){
         return productos;
     }
-    
+    /**
+     * En este metodo se define el NoPedido
+     * @param NoPedido 
+     */
     public void setNoPedido(int NoPedido) {
         this.NoPedido = NoPedido;
     }
-
+    /**
+     * En este metodo devuelve la fecha del pedido
+     * @return 
+     */
     public String getFecha() {
         return fecha;
     }
-
+    /**
+     * En este metodo se define la fecha del pedido
+     * @param fecha 
+     */
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
