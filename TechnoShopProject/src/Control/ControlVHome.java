@@ -24,32 +24,35 @@ public class ControlVHome implements ActionListener{
     public ControlVHome(VHome h){
         //Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome
         home = h;
-        home.getBotonAccesory().addActionListener(this);
-        home.getBotonAdministrador().addActionListener(this);
-        home.getBotonDevice().addActionListener(this);
-        home.getBotonRegistrese().addActionListener(this);
-        home.getBotonSesion().addActionListener(this);
-        home.getBotonSoftware().addActionListener(this);
-        inicializarTablaTop5();
+        home.getBotonPedidos().setVisible(false);
+        home.getBotonCerrarSesion().setVisible(false);
+        home.getBotonVerCarrito().setVisible(false);
+        home.getLabelBienvenida().setText("B I E N V E N I D O");
+        incializar();
+        //inicializarTablaTop5();
     }
     public ControlVHome(VHome h, Usuario user){
         //Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome
         this.usuario = user;
         home = h;
+        home.getLabelBienvenida().setText("Bienvenido "+ usuario.getNombre() +" "+ usuario.getApellido());
+        home.getBotonRegistrese().setVisible(false);
+        home.getBotonSesion().setVisible(false);
+        home.getBotonAdministrador().setVisible(false);     
+        incializar();
+        //inicializarTablaTop5();
+    }
+    
+    public void incializar(){
         home.getBotonAccesory().addActionListener(this);
         home.getBotonAdministrador().addActionListener(this);
         home.getBotonDevice().addActionListener(this);
         home.getBotonRegistrese().addActionListener(this);
         home.getBotonSesion().addActionListener(this);
         home.getBotonSoftware().addActionListener(this);
-        
-        home.getLabelBienvenida().setText("Bienvenido "+ usuario.getNombre() +" "+ usuario.getApellido());
-        System.out.println(usuario.getMembresia().getTipo()+"es mi tipo");
-        home.getBotonRegistrese().setVisible(false);
-        home.getBotonPedidos().setVisible(true);
-        home.getBotonSesion().setVisible(false);
-        home.getBotonAdministrador().setVisible(false);      
-        //inicializarTablaTop5();
+        home.getBotonCerrarSesion().addActionListener(this);
+        home.getBotonPedidos().addActionListener(this);
+        home.getBotonVerCarrito().addActionListener(this);        
     }
     
     public void inicializarTablaTop5(){
@@ -132,6 +135,25 @@ public class ControlVHome implements ActionListener{
                 ControlVSoftware cs = new ControlVSoftware(s,usuario);
            }
         }
+        if(home.getBotonCerrarSesion()== evento.getSource()){
+            home.setVisible(false);
+            VHome home = new VHome();
+            home.setLocationRelativeTo(null);
+            home.setVisible(true);
+            ControlVHome cHome = new ControlVHome(home);               
+        }
+        if(home.getBotonVerCarrito()== evento.getSource()){
+            home.setVisible(false);
+            VCarrito vCarrito= new VCarrito();
+            vCarrito.setLocationRelativeTo(null);
+            vCarrito.setVisible(true);
+            ControlVCarrito controlVCarrito = new ControlVCarrito(vCarrito, usuario);  
+        }
+        if(home.getBotonPedidos()== evento.getSource()){
+            home.setVisible(false);
+            //MOSTRAR LOS PEDIDOS DEL USUARIO
+            usuario.getPedidos();
+        }        
     }
 }
 

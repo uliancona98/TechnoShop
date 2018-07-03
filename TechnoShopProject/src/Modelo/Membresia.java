@@ -49,9 +49,9 @@ public class Membresia{
         }
     }
   
-    
     public void acumularPuntos(double pago)
     {       
+        valorCompras = valorCompras + pago;
         if(tipo.equals("Nivel 1")){
             puntos=puntos+(.05*pago);
         }
@@ -61,6 +61,7 @@ public class Membresia{
         if(tipo.equals("Nivel ")){
             puntos=puntos+(.15*pago);  
         }
+        cambiarMembresia();
         
     }
 }

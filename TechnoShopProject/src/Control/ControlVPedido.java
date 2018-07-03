@@ -17,14 +17,15 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 
-public class ControlVPedido implements ActionListener {   
+public class ControlVPedido implements ActionListener {
     public static TableRowSorter<TableModel> tr;
     private VPedido vPedido;
     private  Usuario usuario;
-    private ArrayList <Producto> productos;//para que es el array? que recibe?
     private double totalCompra=0;
     private ArrayList<String[]> busquedaProductos;
-    private Producto producto;
+    private ArrayList <Producto> productos=null;//para que es el array? que recibe?    
+    private Producto producto=null;
+    private Pedido pedido;
     private double numeroPuntosUtilizar=0;
     private String precioTotal;//para convertir el totalCompra a string e imprimirlo en etiqueta Total
     private String fecha;
@@ -39,16 +40,16 @@ public class ControlVPedido implements ActionListener {
     }
     public ControlVPedido(VPedido pedido, Usuario usuario,ArrayList <Producto> productos){
         this.productos=new ArrayList();
+        this.vPedido=pedido;
+        this.usuario=usuario;
+        this.productos=productos;        
         for(int i=0;i<productos.size();i++){
             totalCompra=productos.get(i).getPrecioVenta()*productos.get(i).getNoArticulos()+totalCompra;
         }
-        this.vPedido=pedido;
-        this.usuario=usuario;
-        this.productos=productos;
         JTable tabla=vPedido.gettablaProductos();         
         llenarTabla(tabla,productos);     
         inicializar();
-    }   
+    }
     public void inicializar(){
         fecha = calcularFecha();
         this.vPedido.getetiquetaFechaPedido().setText(fecha);        
@@ -75,14 +76,21 @@ public class ControlVPedido implements ActionListener {
     public void actionPerformed(ActionEvent evento) {
         if(vPedido.getbotonCancelar()== evento.getSource()){
             vPedido.setVisible(false);
+            //Se le devuelven los puntos
+            if(numeroPuntosUtilizar>0){
+                usuario.getMembresia().setPuntos(numeroPuntosUtilizar+usuario.getMembresia().getPuntos());             
+            }
+            System.out.println(usuario.getMembresia().getPuntos()+" puntitos");
             if(producto!=null){
                 VProducto vProducto = new VProducto();
                 vProducto.setVisible(true);
                 vProducto.setLocationRelativeTo(null);                
-                ControlVProducto cvproducto = new ControlVProducto(vProducto, usuario, producto.getCategoria(),producto);                                
+                ControlVProducto cvProducto = new ControlVProducto(vProducto, usuario, producto.getCategoria(),producto);                                
             }else{
                 VCarrito vCarrito = new VCarrito();
                 vCarrito.setVisible(true);
+                vCarrito.setLocationRelativeTo(null);
+                ControlVCarrito cvCarrito = new ControlVCarrito(vCarrito, usuario);
             }
         }
         if(vPedido.getbotonAgregarTarjeta()== evento.getSource()){
@@ -90,9 +98,8 @@ public class ControlVPedido implements ActionListener {
             vPedido.getVentanaTarjeta().setBounds(0, 0, 494, 218);
             vPedido.getVentanaTarjeta().setLocationRelativeTo(null);
         }
-        if(vPedido.getbotonAceptar()== evento.getSource()){
+        if(vPedido.getbotonAceptar()== evento.getSource()){   
             realizarPedido();
-
         }
         //usuario.getMembresia().getPuntos();
         if(vPedido.getbotonPagarPuntos()==evento.getSource()){
@@ -147,7 +154,7 @@ public class ControlVPedido implements ActionListener {
         tabla.setRowSorter(tr);  
     }
     
-    public void restarUnidadesStock(){
+    public void modificarStock(){
         if(producto!=null){
             try{
                 busquedaProductos = Conexion.buscar("productos", (Object)producto.getId(), "id");
@@ -168,8 +175,27 @@ public class ControlVPedido implements ActionListener {
             }
         }else{
             //SE RESTAN EL STOCK DE TODOS LOS PRODUCTOS, ARRAYLIST***********
+            try{
+                for(int i=0;i<productos.size();i++){
+                    busquedaProductos = Conexion.buscar("productos", (Object)productos.get(i).getId(), "id");
+                    String idBuscar="";
+                    int unidadesDisponibles=0;
+                    if(busquedaProductos.size()==1){
+                        idBuscar = busquedaProductos.get(0)[0];
+                        unidadesDisponibles= Integer.parseInt(busquedaProductos.get(0)[5]);
+                    }
+                    String []camposModificar = new String [1];
+                    camposModificar[0]= "no_articulos";
+                    Object []datoNuevo = new Object[1];
+                    Integer unidadesNuevas = unidadesDisponibles-productos.get(i).getNoArticulos();
+                    datoNuevo[0]= unidadesNuevas;
+                    Conexion.modificarTabla("productos", camposModificar, datoNuevo, "id", idBuscar);                    
+                }
+
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Error al buscar el producto en Stock");
+            }            
         }
-        
     }
     public void pagarConMembresia(){
         double puntosNuevos;
@@ -178,10 +204,13 @@ public class ControlVPedido implements ActionListener {
                 numeroPuntosUtilizar=Double.parseDouble(JOptionPane.showInputDialog
                 (null, "Tienes " +usuario.getMembresia().getPuntos()+ 
                 " puntos.\n "+"¿Cuantos puntos deseas usar?"));
-                if(numeroPuntosUtilizar<=usuario.getMembresia().getPuntos()){
+                if(numeroPuntosUtilizar<=usuario.getMembresia().getPuntos()&& numeroPuntosUtilizar>0 ){
                     System.out.println(numeroPuntosUtilizar);
+                    if(numeroPuntosUtilizar>totalCompra){
+                        numeroPuntosUtilizar = totalCompra;
+                    }
                     puntosNuevos=usuario.getMembresia().getPuntos()-numeroPuntosUtilizar;
-                    usuario.getMembresia().setPuntos(puntosNuevos);
+                    usuario.getMembresia().setPuntos(puntosNuevos);                    
                     totalCompra=totalCompra-numeroPuntosUtilizar;
                     vPedido.getetiquetaTotalaPagar().setText("$ "+Double.toString(totalCompra));
                     //una vez que reduce el precio cuando usa sus puntos, imprime el nuevo saldo en la ventana.                        
@@ -193,7 +222,7 @@ public class ControlVPedido implements ActionListener {
             }
         }else{
             JOptionPane.showMessageDialog(null, "No cuentas con suficientes puntos");
-        }        
+        }
     }
     
     public void agregarTarjeta(){
@@ -209,53 +238,106 @@ public class ControlVPedido implements ActionListener {
     }
     
     public void realizarPedido(){
-        int numeroCompra;
-        Pedido pedido = new Pedido();
-        pedido.setFecha(fecha);
-        pedido.setTotal(totalCompra);
-        if(producto!=null){
-            System.out.println("here");
-            pedido.setProducto(producto);                    
+        if(usuario.getTarjeta()==null && totalCompra>0){
+            JOptionPane.showMessageDialog(null, "No has agregado una tarjeta para pagar");            
         }else{
-            for(int i=0;i<productos.size();i++){
-                pedido.setProducto(productos.get(i));  
+            int numeroCompra;
+            Pedido pedido = new Pedido();
+            pedido.setFecha(fecha);
+            pedido.setTotal(totalCompra);
+            if(producto!=null){
+                pedido.setProducto(producto);                    
+            }else{
+                for(int i=0;i<productos.size();i++){
+                    pedido.setProducto(productos.get(i));  
+                }
             }
-        }
-        //Compra ya realizada
-        String[] atributos = new String[3];
-        atributos[0]="total";
-        atributos[1]="fecha";
-        atributos[2]="id_usuario";
-        Object[] valoresPedido = new Object[3];
-        valoresPedido[0]= totalCompra;
-        valoresPedido[1]= fecha;
-        valoresPedido[2]= usuario.getCorreo();
-        numeroCompra=Conexion.getLastId("pedidos", valoresPedido, atributos);
-        pedido.setNoPedido(numeroCompra);
-        //Conexion.insert("pedidos", valoresPedido, atributos);            
-        if(totalCompra>0){
-            if(usuario.getTarjeta()!=null){
+            String[] atributos = new String[3];
+            atributos[0]="total";
+            atributos[1]="fecha";
+            atributos[2]="id_usuario";
+            Object[] valoresPedido = new Object[3];
+            valoresPedido[0]= totalCompra;
+            valoresPedido[1]= fecha;
+            valoresPedido[2]= usuario.getCorreo();
+            usuario.getMembresia().acumularPuntos(totalCompra);           
+            numeroCompra=Conexion.getLastId("pedidos", valoresPedido, atributos);
+            pedido.setNoPedido(numeroCompra);
+            this.pedido = pedido;            
+            insertarDetallesPedido(numeroCompra);            
+            usuario.addPedido(pedido);
+            
+            //Pagar con tarjeta
+            if(usuario.getTarjeta()!=null && totalCompra>0){
                 vPedido.setVisible(false);
                 JOptionPane.showMessageDialog(null, " Compra realizada con exito " + 
-                " Tu numero de compra es " + numeroCompra);
-                restarUnidadesStock();
+                " \nTu numero de compra es " + numeroCompra);
+                modificarStock();
+                actualizarInformacionUsuarios();
                 vPedido.setVisible(false);
                 VHome vHome = new VHome();
                 vHome.setVisible(true);
                 vHome.setLocationRelativeTo(null);
-                ControlVHome cvHome = new ControlVHome(vHome, usuario);                
+                ControlVHome cvHome = new ControlVHome(vHome, usuario);                 
+            }else if(totalCompra==0){
+                //Paga con todo sus puntos
+                JOptionPane.showMessageDialog(null, " Compra realizada con exito " + 
+                "  \nTu numero de compra es " + numeroCompra);
+                modificarStock();
+                actualizarInformacionUsuarios();
+                vPedido.setVisible(false);
+                VHome vHome = new VHome();
+                vHome.setVisible(true);
+                vHome.setLocationRelativeTo(null);
+                ControlVHome cvHome = new ControlVHome(vHome, usuario);                    
             }else{
-                JOptionPane.showMessageDialog(null, "No has agregado una tarjeta para pagar");
-            }          
+                JOptionPane.showMessageDialog(null, "Ha ocurrido un error con tu compra");
+            }
+        }
+    }
+    
+    public void insertarDetallesPedido(int id_pedido){
+        //tabla valores y atribustos
+        Object [] valores = new Object [3];
+        System.out.println(pedido.getNoPedido());
+        Integer noPedido = pedido.getNoPedido();
+        valores[0]= noPedido;
+        String[]atributos = new String[3];
+        atributos[0]= "id_pedido";
+        atributos[1]= "id_producto";
+        atributos[2]="precio";
+        if(producto!=null){
+            valores[1]=producto.getId();
+            valores[2]=producto.getPrecioVenta();
+            Conexion.insert("pedidos_detalle", valores, atributos);              
         }else{
-            JOptionPane.showMessageDialog(null, " Compra realizada con exito " + 
-            " Tu numero de compra es " + numeroCompra);
-            restarUnidadesStock();
-            vPedido.setVisible(false);
-            VHome vHome = new VHome();
-            vHome.setVisible(true);
-            vHome.setLocationRelativeTo(null);
-            ControlVHome cvHome = new ControlVHome(vHome, usuario);
-        }        
+            for(int i=0;i<productos.size();i++){
+                valores[1]=productos.get(i).getId();
+                valores[2]=productos.get(i).getPrecioVenta();
+                Conexion.insert("pedidos_detalle", valores, atributos);            
+            }            
+        }
+    }
+    public void actualizarInformacionUsuarios(){
+        try{
+            busquedaProductos = Conexion.buscar("usuarios", (Object)usuario.getCorreo(), "correo");
+            String idBuscar="";
+            if(busquedaProductos.size()==1){
+                idBuscar = busquedaProductos.get(0)[0];
+            }
+            System.out.println(idBuscar);
+            System.out.println(usuario.getCorreo());
+            String []camposModificar = new String [3];
+            camposModificar[0]= "nombre_membresia";
+            camposModificar[1]= "puntos";
+            camposModificar[2]= "valor_compras";
+            Object []datosNuevos = new Object[3];
+            datosNuevos[0]= usuario.getMembresia().getTipo();
+            datosNuevos[1]= usuario.getMembresia().getPuntos();
+            datosNuevos[2]= usuario.getMembresia().getValorCompras();      
+            Conexion.modificarTabla("usuarios", camposModificar, datosNuevos, "correo", idBuscar);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error al buscar el producto en Stock");
+        }
     }
 }

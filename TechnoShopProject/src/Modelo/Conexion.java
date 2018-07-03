@@ -100,17 +100,17 @@ public class Conexion {
             }
             int res = ps.executeUpdate();
             if(res>0){
-                JOptionPane.showMessageDialog(null, "Elemento insertado");
+                JOptionPane.showMessageDialog(null, "Elemento regustrado");
             }else{
-                JOptionPane.showMessageDialog(null, "Error al insertar elemento");
+                JOptionPane.showMessageDialog(null, "Error al registrar elemento");
             }
             con.close();
         }catch(Exception e){
             String [] cadenaPartes = e.getMessage().split(" ");
             if(cadenaPartes[0].equals("Duplicate")){
-                JOptionPane.showMessageDialog(null, "ID Duplicado, no puedes añadir el mismo producto");
+                JOptionPane.showMessageDialog(null, "ID Duplicado, no puedes añadir el mismo registro");
             }else{
-                JOptionPane.showMessageDialog(null, "Error al insertar articulo");
+                JOptionPane.showMessageDialog(null, e.getMessage());
             }
         }        
     }    
@@ -152,14 +152,16 @@ public class Conexion {
             String cadena="";
             for(int i=0;i<campos.length;i++){
                 if(i!=(campos.length-1)){
-                    cadena = cadena + campos[i]+"=?,";
+                    cadena = cadena + campos[i]+"=?, ";
                 }else{
                     cadena = cadena + campos[i]+"=?";
                 }               
             }
-            ps = con.prepareStatement("UPDATE "+ tabla +" SET "+cadena+" WHERE "+atributoBuscar+"="+datoBuscar);
+            System.out.println(cadena);
+            ps = con.prepareStatement("UPDATE "+ tabla +" SET "+cadena+" WHERE "+atributoBuscar+"='"+datoBuscar+"'");
             for(int i=0;i<datosNuevos.length;i++){
                 if(datosNuevos[i] instanceof Double){
+                    System.out.println("si");
                     ps.setDouble(i+1, (double)datosNuevos[i]);
                 }else if(datosNuevos[i] instanceof Integer){
                     ps.setInt(i+1, (int)datosNuevos[i]);
@@ -175,7 +177,7 @@ public class Conexion {
             }
             con.close();
         }catch(Exception e){
-            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }                
     }
     
@@ -278,7 +280,6 @@ public class Conexion {
             if(rs.next()){
                 id=rs.getInt(1);
             }
-            
         } catch (Exception e) {
             e.printStackTrace();
         }
