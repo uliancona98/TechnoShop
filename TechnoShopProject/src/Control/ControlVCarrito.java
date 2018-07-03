@@ -32,12 +32,12 @@ public class ControlVCarrito implements ActionListener {
         this.vCarrito = vCarrito;  
         inicializar();
     }
-    public ControlVCarrito(VCarrito vCarrito, Usuario usuario, Producto producto) {
+    /*public ControlVCarrito(VCarrito vCarrito, Usuario usuario, Producto producto) {
         this.producto = producto;
         this.usuario = usuario; 
         this.vCarrito = vCarrito;
         inicializar();        
-    }    
+    }    */
     public void inicializar(){
         vCarrito.getbComprar().addActionListener(this);
         vCarrito.getbEliminar().addActionListener(this);
@@ -63,7 +63,8 @@ public class ControlVCarrito implements ActionListener {
         }
         //Condicional si se presiona el boton "Eliminar"  
         if(vCarrito.getbEliminar() == evento.getSource()){
-            eliminarElementoTabla(tabla,productos);  
+            eliminarElementoTabla(tabla,productos); 
+            
         }
         //Condicional si se presiona el boton "Return"  
         if(vCarrito.getbReturn() == evento.getSource()){
@@ -89,11 +90,13 @@ public class ControlVCarrito implements ActionListener {
         @Override
         public boolean isCellEditable(int row, int column) {
         return false;}};
+        double total =0;
         if(productos.isEmpty()){
             vCarrito.getbEliminar().setVisible(false);
+            DecimalFormat decimales = new DecimalFormat("0.00");             
+            vCarrito.getLabelTotal().setText("$ "+decimales.format(total));
             tabla.setModel(dtm);
         }else{
-            double total=0;
             for(int i=0;i<productos.size();i++){
                 String dato1= productos.get(i).getNombre();
                 String dato2=Integer.toString(productos.get(i).getNoArticulos());

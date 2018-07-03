@@ -98,7 +98,7 @@ public class ControlVProducto implements ActionListener{
                     }else{
                         usuario.setCarritoProducto(producto);
                     }       
-                    JOptionPane.showMessageDialog(null, "Producto agregado al producto");          
+                    JOptionPane.showMessageDialog(null, "Producto agregado al carrito");          
                 }else{
                     JOptionPane.showMessageDialog(null, "Registrate o inicia sesion para "
                     + "\n añadir productos al carrito");
@@ -168,7 +168,7 @@ public class ControlVProducto implements ActionListener{
             VCarrito vCarrito= new VCarrito();
             vCarrito.setLocationRelativeTo(null);
             vCarrito.setVisible(true);
-            ControlVCarrito controlVCarrito = new ControlVCarrito(vCarrito, usuario, producto);                
+            ControlVCarrito controlVCarrito = new ControlVCarrito(vCarrito, usuario);                
         }
         if(vProducto.getBotonIniciarSesion()== evento.getSource()){
            VIniciarSesion I = new VIniciarSesion();

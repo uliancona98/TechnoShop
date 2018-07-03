@@ -103,6 +103,7 @@ public class ControlVRegistrese implements ActionListener{
             }            
         }
         if(registrese.getBotonVolver()== evento.getSource()){
+            registrese.setVisible(false);
             if(producto==null){
                 VHome vHome = new VHome();
                 vHome.setLocationRelativeTo(null);
