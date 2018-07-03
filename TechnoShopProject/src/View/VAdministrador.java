@@ -72,10 +72,27 @@ public class VAdministrador extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         botonVolverAumentarProducto = new javax.swing.JButton();
         VModificaProducto = new javax.swing.JFrame();
+        botonRegresarModificar = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        textModifId = new javax.swing.JTextField();
+        textModifPrecioCompra = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        comboBoxModifCategoria = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablaReporte = new javax.swing.JTable();
-        BImprimir = new javax.swing.JButton();
-        BRegresar = new javax.swing.JButton();
+        textModifDescripcion = new javax.swing.JTextArea();
+        jLabel24 = new javax.swing.JLabel();
+        textModifNombre = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        textModifMarca = new javax.swing.JTextField();
+        textModifPrecioVenta = new javax.swing.JTextField();
+        botonAceptarModif = new javax.swing.JButton();
+        comboBoxModificar = new javax.swing.JComboBox<>();
+        jLabel27 = new javax.swing.JLabel();
+        botonMostrarModifProducto = new javax.swing.JButton();
         VRetirarProducto = new javax.swing.JFrame();
         jLabel2 = new javax.swing.JLabel();
         botonRetirar = new javax.swing.JButton();
@@ -367,69 +384,147 @@ public class VAdministrador extends javax.swing.JFrame {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        tablaReporte.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Comp. escritorio Acer Aspire AC20-720-MB13", "$7,650", null, "", null},
-                {"Laptop Asus  E402NA-GA002T    ", "$4,300", null, null, null},
-                {"HP - Laptop 15-BW014LA   ", "$8,450", null, null, null},
-                {"Smartphone Techpad M6    ", "$1,997", null, "", null},
-                {"Apple - iPhone 8  ", "$16,500", null, null, null},
-                {"Smartphone Motorola Moto C  ", " $1,600", null, null, null},
-                {"Mouse Inalambrico M525", "$952", null, null, null},
-                {"Teclado Bluetooth PC/Mac NEGRO AUDIOBAHN ", "$280", null, null, null},
-                {"Teclado N. Laptop alámbrico USB marca AUDIOBAHN AKY60  ", "$118", null, null, null},
-                {"Mouse óptico inalámbrico  USB AOM60 AUDIOBAHN AOM60  ", "$142", null, null, null},
-                {"Juego DVD FIFA 16 ", "$300", null, null, null},
-                {"Juego DVD Call of Duty Black Ops III", "$450 ", null, null, null},
-                {"Juego DVD GTA V", "$800", null, null, null},
-                {"Office 2016 Hogar y Estudiante Microsoft para PC 1  Equipo  ", "$2,000", null, null, null},
-                {"Microsoft Mouse más Office 365 Personal Internet Security  ", "$1200", null, null, null}
-            },
-            new String [] {
-                "Productos", "Precio", "Porcentaje/ganancia", "Total/Neto", "Total"
-            }
-        ));
-        jScrollPane2.setViewportView(tablaReporte);
-
-        BImprimir.setText("Imprimir");
-        BImprimir.addActionListener(new java.awt.event.ActionListener() {
+        botonRegresarModificar.setText("Regresar");
+        botonRegresarModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BImprimirActionPerformed(evt);
+                botonRegresarModificarActionPerformed(evt);
             }
         });
 
-        BRegresar.setText("Regresar");
-        BRegresar.addActionListener(new java.awt.event.ActionListener() {
+        jLabel18.setText("Ingrese el precio de venta del producto");
+
+        jLabel19.setText("Ingrese el nombre del producto");
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel20.setText("Modificar producto");
+
+        jLabel21.setText("Ingrese el precio de compra del producto");
+
+        comboBoxModifCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dispositivo", "Accesorio", "Software", "Otro" }));
+        comboBoxModifCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BRegresarActionPerformed(evt);
+                comboBoxModifCategoriaActionPerformed(evt);
             }
         });
+
+        jLabel22.setText("Ingresa la descripción del artículo (opcional):");
+
+        jLabel23.setText("Ingrese la categoria del producto");
+
+        textModifDescripcion.setColumns(20);
+        textModifDescripcion.setRows(5);
+        jScrollPane2.setViewportView(textModifDescripcion);
+
+        jLabel24.setText("Ingrese el id del producto");
+
+        jLabel26.setText("Ingrese la marca o compañía del producto");
+
+        botonAceptarModif.setText("Aceptar");
+        botonAceptarModif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAceptarModifActionPerformed(evt);
+            }
+        });
+
+        comboBoxModificar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel27.setText("Selecciona el producto a modificar:");
+
+        botonMostrarModifProducto.setText("Mostrar");
 
         javax.swing.GroupLayout VModificaProductoLayout = new javax.swing.GroupLayout(VModificaProducto.getContentPane());
         VModificaProducto.getContentPane().setLayout(VModificaProductoLayout);
         VModificaProductoLayout.setHorizontalGroup(
             VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VModificaProductoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(VModificaProductoLayout.createSequentialGroup()
-                .addGap(260, 260, 260)
-                .addComponent(BImprimir)
-                .addGap(42, 42, 42)
-                .addComponent(BRegresar)
+                .addGroup(VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VModificaProductoLayout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addComponent(jLabel20))
+                    .addGroup(VModificaProductoLayout.createSequentialGroup()
+                        .addGap(258, 258, 258)
+                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VModificaProductoLayout.createSequentialGroup()
+                .addGroup(VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(VModificaProductoLayout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(comboBoxModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addComponent(botonMostrarModifProducto))
+                    .addGroup(VModificaProductoLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(VModificaProductoLayout.createSequentialGroup()
+                                .addGroup(VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel22)
+                                    .addGroup(VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel21)
+                                        .addComponent(jLabel18)
+                                        .addComponent(jLabel23)
+                                        .addComponent(comboBoxModifCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(textModifMarca)
+                                        .addComponent(textModifPrecioVenta)
+                                        .addComponent(jLabel24)
+                                        .addComponent(textModifPrecioCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel26)
+                                        .addComponent(jLabel19))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textModifNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textModifId, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(83, 83, 83))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VModificaProductoLayout.createSequentialGroup()
+                                .addGap(183, 183, 183)
+                                .addComponent(botonAceptarModif, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botonRegresarModificar)
+                                .addGap(33, 33, 33)))))
+                .addGap(59, 59, 59))
         );
         VModificaProductoLayout.setVerticalGroup(
             VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(VModificaProductoLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VModificaProductoLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel20)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BImprimir)
-                    .addComponent(BRegresar))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(comboBoxModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonMostrarModifProducto))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textModifId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel19)
+                .addGap(11, 11, 11)
+                .addComponent(textModifNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textModifMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(comboBoxModifCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textModifPrecioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textModifPrecioCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addGroup(VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonRegresarModificar)
+                    .addComponent(botonAceptarModif, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         jLabel2.setText("Selecciona el producto para retirar");
@@ -616,13 +711,9 @@ public class VAdministrador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonReporteActionPerformed
 
-    private void BImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BImprimirActionPerformed
+    private void botonRegresarModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarModificarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BImprimirActionPerformed
-
-    private void BRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRegresarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BRegresarActionPerformed
+    }//GEN-LAST:event_botonRegresarModificarActionPerformed
 
     private void botonAnadirExistenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAnadirExistenteActionPerformed
 
@@ -653,6 +744,14 @@ public class VAdministrador extends javax.swing.JFrame {
     private void BotonRemoveProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRemoveProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonRemoveProductoActionPerformed
+
+    private void comboBoxModifCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxModifCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxModifCategoriaActionPerformed
+
+    private void botonAceptarModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModifActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonAceptarModifActionPerformed
   
     public JButton getBotonAceptar() {
         return BotonAceptar;
@@ -765,18 +864,11 @@ public class VAdministrador extends javax.swing.JFrame {
         return tablaProductos;
     }
 
-    public JButton getBotonImprimir() {
-        return BImprimir;
-    }
     public JButton getBotonRetirarVolver(){
         return botonRetirarVolver;
     }
     public JButton getBotonRegresar() {
-        return BRegresar;
-    }
-
-    public JTable getTReporte() {
-        return tablaReporte;
+        return botonRegresarModificar;
     }
 
     public JFrame getVReporte() {
@@ -801,8 +893,6 @@ public class VAdministrador extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BImprimir;
-    private javax.swing.JButton BRegresar;
     private javax.swing.JButton BotonAceptar;
     private javax.swing.JButton BotonCancelar;
     private javax.swing.JButton BotonNewProducto;
@@ -823,12 +913,17 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JFrame VAumentarProducto;
     private javax.swing.JFrame VModificaProducto;
     private javax.swing.JFrame VRetirarProducto;
+    private javax.swing.JButton botonAceptarModif;
     private javax.swing.JButton botonAnadirExistente;
     public javax.swing.JButton botonAnadirProducto2;
     private javax.swing.JButton botonAumentar;
+    private javax.swing.JButton botonMostrarModifProducto;
+    private javax.swing.JButton botonRegresarModificar;
     private javax.swing.JButton botonRetirar;
     private javax.swing.JButton botonRetirarVolver;
     private javax.swing.JButton botonVolverAumentarProducto;
+    private javax.swing.JComboBox<String> comboBoxModifCategoria;
+    private javax.swing.JComboBox<String> comboBoxModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -838,7 +933,16 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -854,8 +958,65 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel labelBienvenida;
     private javax.swing.JTable tablaAumentarProductos;
     private javax.swing.JTable tablaProductos;
-    private javax.swing.JTable tablaReporte;
     private javax.swing.JTextField textAumentar;
+    private javax.swing.JTextArea textModifDescripcion;
+    private javax.swing.JTextField textModifId;
+    private javax.swing.JTextField textModifMarca;
+    private javax.swing.JTextField textModifNombre;
+    private javax.swing.JTextField textModifPrecioCompra;
+    private javax.swing.JTextField textModifPrecioVenta;
     // End of variables declaration//GEN-END:variables
+
+    public JFrame getVModificaProducto() {
+        return VModificaProducto;
+    }
+
+    public JButton getBotonAceptarModif() {
+        return botonAceptarModif;
+    }
+
+    public JButton getBotonMostrarModifProducto() {
+        return botonMostrarModifProducto;
+    }
+
+    public JButton getBotonRegresarModificar() {
+        return botonRegresarModificar;
+    }
+
+    public JButton getBotonVolverAumentarProducto() {
+        return botonVolverAumentarProducto;
+    }
+
+    public JComboBox<String> getComboBoxModifCategoria() {
+        return comboBoxModifCategoria;
+    }
+
+    public JComboBox<String> getComboBoxModificar() {
+        return comboBoxModificar;
+    }
+
+    public JTextArea getTextModifDescripcion() {
+        return textModifDescripcion;
+    }
+
+    public JTextField getTextModifId() {
+        return textModifId;
+    }
+
+    public JTextField getTextModifMarca() {
+        return textModifMarca;
+    }
+
+    public JTextField getTextModifNombre() {
+        return textModifNombre;
+    }
+
+    public JTextField getTextModifPrecioCompra() {
+        return textModifPrecioCompra;
+    }
+
+    public JTextField getTextModifPrecioVenta() {
+        return textModifPrecioVenta;
+    }
 
 }

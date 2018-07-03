@@ -39,10 +39,11 @@ public class ControlVAdministrador implements ActionListener {
         administradorV.getBotonAnadirProducto2().addActionListener(this);
         administradorV.getBotonAumentar().addActionListener(this);
         administradorV.getBotonRetirar().addActionListener(this);
-        administradorV.getBotonImprimir().addActionListener(this);
         administradorV.getBotonRegresar().addActionListener(this);
         administradorV.getBotonRetirarVolver().addActionListener(this);
         administradorV.getBotonVolverAumentarProductos().addActionListener(this);
+        administradorV.getBotonAceptarModif().addActionListener(this);
+        administradorV.getBotonMostrarModifProducto().addActionListener(this);
         administradorV.getLabelBienvenida().setText("Bienvenid@ "+ a.getNombre()+" "+ a.getApellido());
     }
     
@@ -99,10 +100,6 @@ public class ControlVAdministrador implements ActionListener {
             retirarProducto();
         }
         //Checar si dejarlo
-        if(administradorV.getBotonImprimir()== evento.getSource()){
-            System.out.println("Se imprime el reporte");
-            administradorV.getVReporte().setVisible(false);
-        }
         if(administradorV.getBotonRegresar()== evento.getSource()){
             administradorV.getVReporte().setVisible(false);
         }
@@ -149,7 +146,6 @@ public class ControlVAdministrador implements ActionListener {
             JOptionPane.showMessageDialog(null, "Datos erroneos");
         }
     }            
-
     public void agregarUnidadesNuevas(){
         String []camposModificar = new String [1];
         camposModificar[0]= "no_articulos";
@@ -239,6 +235,7 @@ public class ControlVAdministrador implements ActionListener {
             JOptionPane.showMessageDialog(null, "No hay elementos para agregar a la tabla");
         }        
     }
-    public void llenarTablaReporte(){
+    public void llenarCamposBusqueda(){
+        
     }
 }
