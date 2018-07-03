@@ -10,9 +10,25 @@ package Modelo;
  * @author A13003988
  */
 public class Tarjeta extends Pago{
-   
+    private String titular;
     private String noTarjeta;
+    private String fechaVencimiento;
 
+    public String getTitular() {
+        return titular;
+    }
+
+    public void setTitular(String titular) {
+        this.titular = titular;
+    }
+
+    public String getFechaVencimiento() {
+        return fechaVencimiento;
+    }
+
+    public void setFechaVencimiento(String fechaVencimiento) {
+        this.fechaVencimiento = fechaVencimiento;
+    }
     public String getNoTarjeta() {
         return noTarjeta;
     }
@@ -20,6 +36,8 @@ public class Tarjeta extends Pago{
     public void setNoTarjeta(String noTarjeta) {
         this.noTarjeta = noTarjeta;
     }
+    
+    
     
     
 }

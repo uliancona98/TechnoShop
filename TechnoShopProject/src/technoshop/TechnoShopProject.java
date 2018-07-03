@@ -12,6 +12,8 @@ public class TechnoShopProject {
 	} catch (Exception e) {
             e.printStackTrace();
 	}
+        //insertarAdministradores();
+        //insertarCategoriasProductos();
 	VHome home = new VHome();
         home.setLocationRelativeTo(null);
 	home.setVisible(true);      

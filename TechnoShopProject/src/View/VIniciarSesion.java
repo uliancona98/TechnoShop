@@ -37,6 +37,7 @@ public class VIniciarSesion extends javax.swing.JFrame {
         usuarioCampo = new javax.swing.JTextField();
         contrasenaCampo = new javax.swing.JPasswordField();
         BotonAcceder = new javax.swing.JButton();
+        botonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +69,8 @@ public class VIniciarSesion extends javax.swing.JFrame {
             }
         });
 
+        botonCancelar.setText("Cancelar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,6 +92,10 @@ public class VIniciarSesion extends javax.swing.JFrame {
                             .addComponent(BotonAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(contrasenaCampo))))
                 .addContainerGap(77, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonCancelar)
+                .addGap(37, 37, 37))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,9 +110,11 @@ public class VIniciarSesion extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(contrasenaCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
                 .addComponent(BotonAcceder)
-                .addGap(44, 44, 44))
+                .addGap(18, 18, 18)
+                .addComponent(botonCancelar)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -127,10 +136,6 @@ public class VIniciarSesion extends javax.swing.JFrame {
         return BotonAcceder;
     }
 
-    public void setBotonAcceder(JButton BotonAcceder) {
-        this.BotonAcceder = BotonAcceder;
-    }
-
     public JPasswordField getContrasenaCampo() {
         return contrasenaCampo;
     }
@@ -142,14 +147,15 @@ public class VIniciarSesion extends javax.swing.JFrame {
     public JTextField getUsuarioCampo() {
         return usuarioCampo;
     }
-
-    public void setUsuarioCampo(JTextField UsuarioCampo) {
-        this.usuarioCampo = UsuarioCampo;
+    
+    public JButton getBotonCancelar(){
+        return botonCancelar;
     }
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAcceder;
+    private javax.swing.JButton botonCancelar;
     private javax.swing.JPasswordField contrasenaCampo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
