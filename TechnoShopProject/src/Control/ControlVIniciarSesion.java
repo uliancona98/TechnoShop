@@ -16,11 +16,6 @@ import java.awt.event.ActionListener;
 public class ControlVIniciarSesion implements ActionListener{
     private VIniciarSesion iniciarSesion;
     private int bandera;
-    private static boolean isCuentaValida=false;
-
-    public static boolean isIsCuentaValida() {
-        return isCuentaValida;
-    }
     
     public ControlVIniciarSesion(VIniciarSesion vIniciarSesion, int bandera) {
         this.bandera = bandera;
@@ -37,31 +32,24 @@ public class ControlVIniciarSesion implements ActionListener{
                 if (Login.validarCuenta(iniciarSesion.getUsuarioCampo().getText(), iniciarSesion.getContrasenaCampo().getPassword(), "Administradores")){
                     System.out.println("Iniciado sesion");
                     iniciarSesion.setVisible(false);
-                    isCuentaValida = true;
-                    /*VAdministrador vAdmin = new VAdministrador();
+                    VAdministrador vAdmin = new VAdministrador();
                     vAdmin.setLocationRelativeTo(null);
                     vAdmin.setVisible(true);
-                    ControlVAdministrador cAdmin = new ControlVAdministrador(vAdmin, Login.admin); */    
-                }else{
-                    isCuentaValida=false;
-                }            
+                    ControlVAdministrador cAdmin = new ControlVAdministrador(vAdmin, Login.admin);    
+                }
             }else if(bandera==0){
                 if (Login.validarCuenta(iniciarSesion.getUsuarioCampo().getText(), iniciarSesion.getContrasenaCampo().getPassword(), "Usuarios")){
                     System.out.println("Iniciado sesion");
-                    iniciarSesion.setVisible(false);
-                    
-                    /*VHome home = new VHome();
+                    iniciarSesion.setVisible(false);                   
+                    VHome home = new VHome();
                     home.setLocationRelativeTo(null);
                     home.setVisible(true);
-                    ControlVHome cHome = new ControlVHome(home, Login.usuario);*/
-                    isCuentaValida = true;
-                }else{
-                    isCuentaValida = true;
+                    ControlVHome cHome = new ControlVHome(home, Login.usuario);
                 }
             }
         }
         if(iniciarSesion.getBotonCancelar() == evento.getSource()){
-            
+            iniciarSesion.setVisible(false);
         }
     }  
 }

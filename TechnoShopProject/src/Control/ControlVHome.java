@@ -5,7 +5,6 @@
  */
 package Control;
 
-import Modelo.Conexion;
 import Modelo.Producto;
 import Modelo.Usuario;
 import View.*;

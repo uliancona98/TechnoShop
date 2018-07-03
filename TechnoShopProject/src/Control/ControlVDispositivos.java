@@ -61,7 +61,7 @@ public class ControlVDispositivos implements ActionListener{
         System.out.println(ventanaDispositivos.getBotonesProductos().size()+"----");
         for(int i=0;i<ventanaDispositivos.getBotonesProductos().size();i++){
             if(i<dispositivos.size()){
-                ventanaDispositivos.getlabelsProductos().get(i).setText(dispositivos.get(i).getId());
+                ventanaDispositivos.getlabelsProductos().get(i).setText(dispositivos.get(i).getNombre());
                 String id = dispositivos.get(i).getId();
                 ImageIcon imagen = new ImageIcon("IconsP\\"+id+".jpg");
                 if(imagen.getImageLoadStatus()==4){
