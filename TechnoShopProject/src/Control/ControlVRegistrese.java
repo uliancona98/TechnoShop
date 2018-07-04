@@ -19,19 +19,33 @@ import javax.swing.JOptionPane;
 public class ControlVRegistrese implements ActionListener{
     private VRegistrese registrese;
     private Producto producto=null;
-    
+/**
+ * Constructor con parametros de la vista Registrese
+ * inicializa los eventos
+ * @param registrese 
+ */    
     public ControlVRegistrese(VRegistrese registrese) {
         this.registrese = registrese;
         this.registrese.getBotonRegistrarse().addActionListener(this);
         this.registrese.getBotonVolver().addActionListener(this);
     }
+/**
+ * Constructor con parametros de la vista Registrese y el producto
+ * inicializa los eventos
+ * @param registrese
+ * @param producto 
+ */
     public ControlVRegistrese(VRegistrese registrese, Producto producto) {
         this.registrese = registrese;
         this.producto = producto;
         this.registrese.getBotonRegistrarse().addActionListener(this);
         this.registrese.getBotonVolver().addActionListener(this);
     }
-    
+    /**
+     * En este metodo se define que es lo que sucedera en cada evento de acuerdo
+     * a las peticiones del usuario en la vista Registrese
+     * @param evento 
+     */
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(registrese.getBotonRegistrarse() == evento.getSource()){

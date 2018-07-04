@@ -25,6 +25,12 @@ public class ControlVProducto implements ActionListener{
     private Usuario usuario=null;
     private int idCategoria;
     private int unidadesDisponibles;
+    /**
+     * Constructor con parametros de la vista Producto, la ID categoria y el producto
+     * @param vProducto
+     * @param idCategoria
+     * @param producto 
+     */
     public ControlVProducto(VProducto vProducto, int idCategoria, Producto producto ) {
         
         this.vProducto=vProducto;
@@ -32,6 +38,14 @@ public class ControlVProducto implements ActionListener{
         this.producto = producto;
         inicializar();
     }
+    /**
+     * Constructor con parametros de la vista Producto, la ID categoria, el producto y 
+     * el usuario si este ya haya iniciado su sesion
+     * @param vProducto
+     * @param usuario
+     * @param idCategoria
+     * @param producto 
+     */
     public ControlVProducto(VProducto vProducto, Usuario usuario,int idCategoria, Producto producto) {
         this.vProducto=vProducto;
         this.usuario=usuario;
@@ -39,7 +53,9 @@ public class ControlVProducto implements ActionListener{
         this.idCategoria=idCategoria;      
         inicializar();
     }
-    
+    /**
+     * Inicializa los eventos de los elementos de la vista Producto
+     */
     public void inicializar(){
         vProducto.getBAnadirCarro().addActionListener(this);
         vProducto.getBVolver().addActionListener(this);
@@ -73,6 +89,11 @@ public class ControlVProducto implements ActionListener{
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error con el producto");
         }
     }
+    /**
+     * De acuerdo a la peticion del usuario se definen los eventos que sucederan de acuerdo a los
+     * elementos de la vista Producto
+     * @param evento 
+     */
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(vProducto.getBAnadirCarro() == evento.getSource()){
@@ -185,6 +206,10 @@ public class ControlVProducto implements ActionListener{
            ControlVRegistrese CR = new ControlVRegistrese(ventanaRegistro, producto);              
         }
     }
+    /**
+     * Metodo que valida si un articulo tiene stock disponible
+     * @return boolean
+     */
     public boolean validarArticulosDisponibles(){
         Integer unidadesAComprar = (Integer)vProducto.getspinnerCantidadProductos().getValue(); 
         return unidadesAComprar <= unidadesDisponibles;

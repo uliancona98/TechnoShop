@@ -25,7 +25,11 @@ public class ControlVAdministrador implements ActionListener {
     private ArrayList<String> id = new ArrayList();
     private ArrayList<String[]> busquedaProductos= new ArrayList();
     public TableRowSorter<TableModel> tr;
-    
+    /**
+     * Constructor con parametros de la vista administrador y el administrador
+     * @param vAdmin
+     * @param a 
+     */
     ControlVAdministrador(VAdministrador vAdmin, Administrador a){
         this.administradorV = vAdmin;
         this.admin = a;
@@ -48,7 +52,10 @@ public class ControlVAdministrador implements ActionListener {
         administradorV.getTextModifId().setEditable(false);
         administradorV.getTextModifId().setEnabled(false);
     }
-    
+    /**
+     * Metodo para recibir peticiones del usuario con respecto a la vista administrador
+     * @param evento 
+     */
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(administradorV.getBotonAnadirProducto2() == evento.getSource()){
@@ -177,6 +184,10 @@ public class ControlVAdministrador implements ActionListener {
             }
         }
     }
+    /**
+     * Metodo que llama a los elementos de llenar campos 
+     * @param producto 
+     */
     public void llenarCampos(String[] producto){
         try{
             administradorV.getTextModifDescripcion().setText(producto[4]);
@@ -199,7 +210,9 @@ public class ControlVAdministrador implements ActionListener {
         }
         
     }
-    
+    /**
+     * Metodo que llama a
+     */
     public void cargarComboBoxProductos(){
         administradorV.getComboBoxModificar().removeAllItems();
         busquedaProductos = Conexion.obtenerTabla("productos");     
@@ -210,6 +223,9 @@ public class ControlVAdministrador implements ActionListener {
             administradorV.getComboBoxModificar().addItem("Id producto: "+ dato1+"  Nombre: "+ dato2);
         }        
     }
+    /**
+     * Metodo que permite agregar un nuevo producto por peticion del administrador
+     */
     public void agregarNuevoProducto(){
         try{
             String id = administradorV.getTextId().getText();
@@ -242,6 +258,9 @@ public class ControlVAdministrador implements ActionListener {
             JOptionPane.showMessageDialog(null, "Datos erroneos");
         }
     }            
+    /**
+     * Metodo que permite agregar unidades a un producto ya existente
+     */
     public void agregarUnidadesNuevas(){
         String []camposModificar = new String [1];
         camposModificar[0]= "no_articulos";
@@ -257,6 +276,9 @@ public class ControlVAdministrador implements ActionListener {
             JOptionPane.showMessageDialog(null, "No has seleccionado un elemento de la tabla");
         }        
     }
+    /**
+     * Metodo que elimina los textos ingresados de los campos
+     */
     public void limpiarCampos(){
         administradorV.getTextId().setText(null);
         administradorV.getTextCantidad().setText(null);
@@ -266,6 +288,9 @@ public class ControlVAdministrador implements ActionListener {
         administradorV.getTextPrecio().setText(null);
         administradorV.getTextPrecioCompra().setText(null);
     }
+    /**
+     * Metodo que elimina los textos ingresados de los campos de modificacion del producto
+     */
     public void limpiarCamposModificacion(){
         administradorV.getTextModifDescripcion().setText(null);
         administradorV.getTextModifId().setText(null);
@@ -276,6 +301,9 @@ public class ControlVAdministrador implements ActionListener {
         administradorV.getTextModifPrecioVenta().setText(null);
         administradorV.getComboBoxCategoria().setSelectedIndex(0);
     }
+    /**
+     * Metodo que permite de acuerdo a la peticion del administrador eliminar un producto existente
+     */
     public void retirarProducto(){     
         try{
             String [] productoAEliminar = busquedaProductos.get(0);
@@ -291,6 +319,9 @@ public class ControlVAdministrador implements ActionListener {
             JOptionPane.showMessageDialog(null, "No hay elementos para agregar a la tabla");
         }
     }
+    /**
+     * Metodo que permite llenar el arreglo de productos
+     */
     public void llenarTablaProductos(){
         String []columnas = {"                     Id",
         "                    Nombre","                    Unidades"};

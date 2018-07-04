@@ -21,17 +21,28 @@ public class ControlVDispositivos implements ActionListener{
     private Usuario usuario;
     private Integer ID=1;
     private ArrayList<Dispositivo> dispositivos;
-      
+    /**
+     * Constructor con parametro de la vista dispositivos
+     * @param VD 
+     */   
     public ControlVDispositivos(VDispositivos VD) {
         ventanaDispositivos = VD;
         inicializar();
     }
-    
+    /**
+     * Constructor con parametros de la vista dispositivos y el usuario en caso
+     * de este haya iniciado su sesion
+     * @param VD
+     * @param user 
+     */
     public ControlVDispositivos(VDispositivos VD, Usuario user) {
         usuario = user;
         ventanaDispositivos = VD;
         inicializar();
     }
+    /**
+     * Metodo en el cual se inicia la vista dispositivos y sus elementos
+     */
     public void inicializar(){
         for(int i=0;i<ventanaDispositivos.getBotonesProductos().size();i++){
             ventanaDispositivos.getBotonesProductos().get(i).addActionListener(this);
@@ -64,6 +75,9 @@ public class ControlVDispositivos implements ActionListener{
             JOptionPane.showMessageDialog(null, "Error al cargar los productos");
         }
     }
+     /**
+     * Metodo que llama a una subventana que muestras los productos existentes
+     */
     public void mostrarProductos(){
         System.out.println(ventanaDispositivos.getBotonesProductos().size()+"----");
         for(int i=0;i<ventanaDispositivos.getBotonesProductos().size();i++){
@@ -82,6 +96,10 @@ public class ControlVDispositivos implements ActionListener{
             }
         }             
     }    
+     /**
+     * Metodo para recibir peticiones del usuario con respecto a la vista Dispositivos
+     * @param evento 
+     */
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(ventanaDispositivos.getBRegresar() == evento.getSource()){

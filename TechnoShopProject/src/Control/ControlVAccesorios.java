@@ -22,18 +22,28 @@ public class ControlVAccesorios implements ActionListener{
     private Usuario usuario=null;
     private Integer ID=2;
     private ArrayList<Accesorio> accesorios;
-    
+    /**
+     * Constructor con parametro de la vista accesorios
+     * @param va 
+     */
     public ControlVAccesorios(VAccesorios va) {
         ventanaAccesorios = va;
         inicializar();
     }
-    
+    /**
+     * Constructor con parametros de la vista accesorios y el usuario en caso
+     * de que ya haya iniciado sesion
+     * @param va
+     * @param user 
+     */
     public ControlVAccesorios(VAccesorios va, Usuario user) {
         usuario = user;
         ventanaAccesorios = va;
         inicializar();
     }
-    
+    /**
+     * Metodo en el cual se inicia la vista accesorios y sus elementos
+     */
     public void inicializar(){
         for(int i=0;i<ventanaAccesorios.getBotonesProductos().size();i++){
             ventanaAccesorios.getBotonesProductos().get(i).addActionListener(this);
@@ -66,6 +76,9 @@ public class ControlVAccesorios implements ActionListener{
             JOptionPane.showMessageDialog(null, "Error al cargar los productos");                
         }             
     }
+    /**
+     * Metodo que llama a una subventana que muestra los productos existentes
+     */
     public void mostrarProductos(){
         for(int i=0;i<ventanaAccesorios.getBotonesProductos().size();i++){
             if(i<accesorios.size()){
@@ -81,7 +94,10 @@ public class ControlVAccesorios implements ActionListener{
             }
         }             
     }
-    
+    /**
+     * Metodo para recibir peticiones del usuario con respecto a la vista Accesorios
+     * @param evento 
+     */
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(ventanaAccesorios.getBRegresar() == evento.getSource()){

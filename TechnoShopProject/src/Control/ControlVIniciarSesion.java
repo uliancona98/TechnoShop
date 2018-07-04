@@ -17,21 +17,36 @@ public class ControlVIniciarSesion implements ActionListener{
     private VIniciarSesion iniciarSesion;
     private int banderaCuenta=0;
     private Producto producto = null;
-    
+    /**
+     * Constructor con parametros de la vista IniciarSesion y bandera
+     * inicializa tambien los eventos
+     * @param vIniciarSesion
+     * @param bandera 
+     */
     public ControlVIniciarSesion(VIniciarSesion vIniciarSesion, int bandera) {
         this.banderaCuenta = bandera;
         iniciarSesion = vIniciarSesion;
         iniciarSesion.getBotonAcceder().addActionListener(this);
         iniciarSesion.getBotonCancelar().addActionListener(this);
     }
+    /**
+     * Constructor con parametros de la vista IniciarSesion y el producto
+     * inicializa tambien los eventos
+     * @param vIniciarSesion
+     * @param producto 
+     */
     public ControlVIniciarSesion(VIniciarSesion vIniciarSesion, Producto producto) {
         this.producto = producto;
         iniciarSesion = vIniciarSesion;
         iniciarSesion.getBotonAcceder().addActionListener(this);
         iniciarSesion.getBotonCancelar().addActionListener(this);
     }    
-    //bandera=0 se accede a los usuarios
-    //bandera =1 se accede a los administradores
+    /**
+     * Dependientos de las peticiones del usuario o administrador sucederan tales eventos
+     * Si bandera=0 se accede a los usuarios
+     * Si bandera =1 se accede a los administradores
+     * @param evento 
+     */
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(iniciarSesion.getBotonAcceder() == evento.getSource()){

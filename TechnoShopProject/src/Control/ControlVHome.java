@@ -29,9 +29,11 @@ public class ControlVHome implements ActionListener{
     private ArrayList<String[]> busquedaPedidos = new ArrayList();
     private ArrayList<String[]> busquedaProductos= new ArrayList();
     private ArrayList<Pedido> pedidos;
-    
+    /**
+     * Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome
+     * @param h 
+     */
     public ControlVHome(VHome h){
-        //Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome
         home = h;
         home.getBotonPedidos().setVisible(false);
         home.getBotonCerrarSesion().setVisible(false);
@@ -39,8 +41,13 @@ public class ControlVHome implements ActionListener{
         home.getLabelBienvenida().setText("B I E N V E N I D @ ");
         incializar();
     }
+    /**
+     * Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome y
+     * al usuario en caso de que este haya iniciado sesion
+     * @param h
+     * @param user 
+     */
     public ControlVHome(VHome h, Usuario user){
-        //Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome
         this.usuario = user;
         home = h;
         home.getLabelBienvenida().setText("Bienvenido "+ usuario.getNombre() +" "+ usuario.getApellido());
@@ -49,7 +56,9 @@ public class ControlVHome implements ActionListener{
         home.getBotonAdministrador().setVisible(false);
         incializar();     
     }
-    
+    /**
+     * Metodo que inicializa los eventos de las peticiones del usuario de la ventana Home
+     */
     public void incializar(){
         home.getBotonAccesory().addActionListener(this);
         home.getBotonAdministrador().addActionListener(this);
@@ -64,7 +73,11 @@ public class ControlVHome implements ActionListener{
         home.getComboBoxPedidos().addActionListener(this);
         home.getBotonVolverPedidos().addActionListener(this);
     }
-    
+    /**
+     * Metodo que dependiendo de las peticiones del usuario, se realizen ciertos
+     * eventos
+     * @param evento 
+     */
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(home.getBotonAdministrador() == evento.getSource()){

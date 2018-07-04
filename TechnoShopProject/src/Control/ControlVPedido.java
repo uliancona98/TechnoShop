@@ -27,6 +27,12 @@ public class ControlVPedido implements ActionListener {
     private double numeroPuntosUtilizar=0;
     private String precioTotal;//para convertir el totalCompra a string e imprimirlo en etiqueta Total
     private String fecha;
+    /**
+     * Constructor con parametros de la vista Pedido, el producto y el usuario
+     * @param vPedido
+     * @param usuario
+     * @param producto 
+     */
     public ControlVPedido(VPedido vPedido, Usuario usuario, Producto producto){
         this.usuario=usuario;
         this.producto=producto;
@@ -36,6 +42,13 @@ public class ControlVPedido implements ActionListener {
         llenarTabla(tabla, producto); 
         inicializar();        
     }
+    /**
+     * Constructor con parametros de la vista Pedido, el producto, el usuario
+     * y un arreglo de productos
+     * @param pedido
+     * @param usuario
+     * @param productos 
+     */
     public ControlVPedido(VPedido pedido, Usuario usuario,ArrayList <Producto> productos){
         this.productos=new ArrayList();
         this.vPedido=pedido;
@@ -48,6 +61,9 @@ public class ControlVPedido implements ActionListener {
         llenarTabla(tabla,productos);     
         inicializar();
     }
+    /**
+     * Metodo que inicializa los eventos de los elementos de la vista Pedido
+     */
     public void inicializar(){
         fecha = calcularFecha();
         this.vPedido.getetiquetaFechaPedido().setText(fecha);        
@@ -61,6 +77,10 @@ public class ControlVPedido implements ActionListener {
         this.vPedido.getbotonAceptarTarjeta().addActionListener(this);
         this.vPedido.getbotonCancelarTarjeta().addActionListener(this);
     }
+    /**
+     * Metodo que define y devuelve la fecha del pedido
+     * @return String
+     */
     public static String calcularFecha(){
         /*DateFormat dateTimeInstance = SimpleDateFormat.getDateTimeInstance();
         String fecha = dateTimeInstance.format(Calendar.getInstance().getTime()); 
@@ -69,7 +89,11 @@ public class ControlVPedido implements ActionListener {
         SimpleDateFormat formatoFecha=new SimpleDateFormat("dd/MM/YY");
         return formatoFecha.format(fecha);
     }
-    
+    /**
+     * Metodo que define cada uno de los eventos que sucederan dependiendo de las
+     * peticiones del usuario
+     * @param evento 
+     */
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(vPedido.getbotonCancelar()== evento.getSource()){
@@ -110,7 +134,11 @@ public class ControlVPedido implements ActionListener {
             vPedido.getVentanaTarjeta().setVisible(false);
         }
     }
-    
+    /**
+     * Metodo que permite agregar productos a la tabla
+     * @param tabla
+     * @param producto 
+     */
     public void llenarTabla(JTable tabla, Producto producto){
         String []columnas = {"Producto","   Unidades"," Precio individual",
         "   Precio Total"};

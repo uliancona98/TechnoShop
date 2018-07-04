@@ -21,21 +21,30 @@ public class ControlVSoftware implements ActionListener{
     private Usuario usuario;
     private Integer ID=3;
     private ArrayList<Software> softwares;
-    
-    
+    /**
+     * Constructor con parametro de la vista Software
+     * @param Vs 
+     */ 
     public ControlVSoftware(VSoftware Vs) {
         ventanaSoftware = Vs;
         ventanaSoftware.getBRegresar().addActionListener(this);
         inicializar();
     }
-    
+    /**
+     * Constructor con parametros de la vista Software y el usuario en caso de 
+     * que este haya iniciado sesion
+     * @param Vs
+     * @param user 
+     */
     public ControlVSoftware(VSoftware Vs, Usuario user) {
         usuario = user;
         ventanaSoftware = Vs;
         ventanaSoftware.getBRegresar().addActionListener(this);
         inicializar();
     }
-    
+    /**
+     * Metodo en el cual se inicia la vista Software y sus elementos
+     */
     public void inicializar(){
         for(int i=0;i<ventanaSoftware.getBotonesProductos().size();i++){
             ventanaSoftware.getBotonesProductos().get(i).addActionListener(this);
@@ -67,6 +76,9 @@ public class ControlVSoftware implements ActionListener{
             JOptionPane.showMessageDialog(null, "Error al cargar los productos");
         }        
     }
+     /**
+     * Metodo que llama a una subventana que muestra los productos existentes
+     */
     public void mostrarProductos(){
         for(int i=0;i<ventanaSoftware.getBotonesProductos().size();i++){
             if(i<softwares.size()){
@@ -82,7 +94,11 @@ public class ControlVSoftware implements ActionListener{
                 i=ventanaSoftware.getBotonesProductos().size()-1;
             }
         }             
-    }        
+    }
+    /**
+    * Metodo para recibir peticiones del usuario con respecto a la vista Software
+    * @param evento 
+    */
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(ventanaSoftware.getBRegresar() == evento.getSource()){

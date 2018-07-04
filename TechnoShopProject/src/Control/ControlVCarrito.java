@@ -26,18 +26,20 @@ public class ControlVCarrito implements ActionListener {
     private ArrayList <Producto> productos;
     private JTable tabla;
     private Producto producto=null;
-    
+    /**
+     * Constructor que inicializa la clase con parametros de la vista carrito y
+     * el usuario ya ingresado
+     * @param vCarrito
+     * @param usuario 
+     */
     public ControlVCarrito(VCarrito vCarrito, Usuario usuario) {
         this.usuario = usuario; 
         this.vCarrito = vCarrito;  
         inicializar();
     }
-    /*public ControlVCarrito(VCarrito vCarrito, Usuario usuario, Producto producto) {
-        this.producto = producto;
-        this.usuario = usuario; 
-        this.vCarrito = vCarrito;
-        inicializar();        
-    }    */
+    /**
+     * Metodo que inicializa la vista Carrito y sus elementos
+     */
     public void inicializar(){
         vCarrito.getbComprar().addActionListener(this);
         vCarrito.getbEliminar().addActionListener(this);
@@ -50,7 +52,10 @@ public class ControlVCarrito implements ActionListener {
             JOptionPane.showMessageDialog(null, "No hay elementos en el carrito");        
         }        
     }
-    
+    /**
+     * Metodo que activa los eventos de las peticiones del usuario de la vista Carrito
+     * @param evento 
+     */
     @Override
     public void actionPerformed(ActionEvent evento) {
         //Condicional si se presiona el boton "Comprar"  
@@ -82,6 +87,11 @@ public class ControlVCarrito implements ActionListener {
             }        
         }
     }
+    /**
+     * Metodo que te permite llenar una arraylist de los productos del carrito
+     * @param tabla
+     * @param productos 
+     */
     public void llenarTabla(JTable tabla,ArrayList <Producto> productos ){
         String []columnas = {"Producto",
         "   Unidades","   Precio individual",
@@ -111,7 +121,11 @@ public class ControlVCarrito implements ActionListener {
             tabla.setModel(dtm); 
         }
     }
-      
+    /**
+     * Metodo que permite eliminar elementos de la tabla
+     * @param tabla
+     * @param productos 
+     */
     public void eliminarElementoTabla(JTable tabla,ArrayList <Producto> productos){       
         try{
         //DefaultTableModel dtm = (DefaultTableModel)tabla.getModel();
