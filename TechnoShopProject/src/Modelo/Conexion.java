@@ -23,7 +23,12 @@ public class Conexion {
     private static final String PASSWORD = "19980519uli";    
     private static PreparedStatement ps;
     private static ResultSet rs;
+    public static boolean elementoInsertado = false;
+    public static boolean elementoModificado = false;
+    public static boolean elementoBuscado = false;
     private static ArrayList<String[]> busquedaRes = new ArrayList<String[]>();
+    private static ArrayList<String[]> busquedaTablasRelacionadas = new ArrayList<String[]>();
+    private static ArrayList<String[]> busquedaTablas = new ArrayList<String[]>();
     /**
      * Inserta una fila en la tabla de base de datos con valores en una tabla de la base de datos
      * @param tabla
@@ -33,6 +38,7 @@ public class Conexion {
     public static void insert(String tabla, Object[] valores){
         Connection con = null;
         try{
+            elementoInsertado = false;
             con = getConection();
             String values = "";
             for(int i=0;i<valores.length;i++){
@@ -54,6 +60,7 @@ public class Conexion {
             }
             int res = ps.executeUpdate();
             if(res>0){
+                elementoInsertado=true;
                 //JOptionPane.showMessageDialog(null, "Elemento insertado");
             }else{
                 JOptionPane.showMessageDialog(null, "Error al insertar");
@@ -77,6 +84,7 @@ public class Conexion {
      */
     public static void insert(String tabla, Object[] valores, String[]atributos){
         Connection con = null;
+        elementoInsertado = false;
         try{
             con = getConection();
             String values = "";
@@ -87,8 +95,6 @@ public class Conexion {
                     values = values +"?";
                 }
             }
-            System.out.println(values);
-            System.out.println(tabla);
             String atributes = "";
             for(int i=0;i<atributos.length;i++){
                 if(i!=atributos.length-1){
@@ -97,7 +103,6 @@ public class Conexion {
                     atributes = atributes +atributos[i];
                 }                
             }
-            System.out.println(atributes);
             ps = con.prepareStatement("INSERT INTO "+tabla+" ("
             +atributes+") VALUES("+values+") ");
             for(int i=0;i<valores.length;i++){
@@ -111,6 +116,7 @@ public class Conexion {
             }
             int res = ps.executeUpdate();
             if(res>0){
+                elementoInsertado = false;
                 //JOptionPane.showMessageDialog(null, "Elemento registrado");
             }else{
                 JOptionPane.showMessageDialog(null, "Error al registrar elemento");
@@ -138,7 +144,7 @@ public class Conexion {
     public static ArrayList<String[]> buscarTablasRelacionadas(String tabla1, String tabla2, String atributoTabla1, String atributoTabla2, int posicion, String dato){
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        busquedaRes.clear();
+        busquedaTablasRelacionadas.clear();
         String[] busqueda=null;
         try{
             Connection con = getConection();
@@ -151,20 +157,15 @@ public class Conexion {
                 if(rs.getString(posicion).equals(dato)){
                     for (int x=1;x<=rs.getMetaData().getColumnCount();x++){
                         busqueda[x-1] = rs.getString(x);
-                        /*if(x==1){
-                           System.out.print(rs.getString(x)+ "\t");
-                        }else{
-                           System.out.print(rs.getString(x)+ "\t");
-                        }*/
                     }
-                    busquedaRes.add(busqueda);                     
+                    busquedaTablasRelacionadas.add(busqueda);                     
                 }                 
             }
             con.close();
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-        return busquedaRes;
+        return busquedaTablasRelacionadas;
     }
     /**
      * Modifica una fila de la tabla de la base de datos
@@ -174,8 +175,9 @@ public class Conexion {
      * @param atributoBuscar
      * @param datoBuscar 
      */
-    public static void modificarTabla(String tabla, String[] campos, Object[]datosNuevos, String atributoBuscar, String datoBuscar){
+    public static void modificar(String tabla, String[] campos, Object[]datosNuevos, String atributoBuscar, String datoBuscar){
         Connection con = null;
+        elementoModificado = false;
         try{
             con = getConection();
             String cadena="";
@@ -186,20 +188,19 @@ public class Conexion {
                     cadena = cadena + campos[i]+"=?";
                 }               
             }
-            System.out.println(cadena);
             ps = con.prepareStatement("UPDATE "+ tabla +" SET "+cadena+" WHERE "+atributoBuscar+"='"+datoBuscar+"'");
             for(int i=0;i<datosNuevos.length;i++){
                 if(datosNuevos[i] instanceof Double){
-                    System.out.println("si");
                     ps.setDouble(i+1, (double)datosNuevos[i]);
                 }else if(datosNuevos[i] instanceof Integer){
                     ps.setInt(i+1, (int)datosNuevos[i]);
                 }else{
                     ps.setString(i+1, (String)datosNuevos[i]);
-                }                     
+                }               
             }
             int res = ps.executeUpdate();
             if(res>0){
+                elementoModificado = true;
                 //JOptionPane.showMessageDialog(null, "Elemento modificado");
             }else{
                 JOptionPane.showMessageDialog(null, "Error al modificar");
@@ -222,21 +223,20 @@ public class Conexion {
                 Connection con = getConection();
                 stmt = con.prepareStatement("SELECT * FROM "+tabla);
                 rs = stmt.executeQuery();      
-                busquedaRes.clear();
+                busquedaTablas.clear();
                 String[] busqueda=null;
                 while(rs.next()) {
                     busqueda = new String[rs.getMetaData().getColumnCount()];
                     for (int x=1;x<=rs.getMetaData().getColumnCount();x++){      
                         busqueda[x-1] = rs.getString(x);
-                        System.out.print(busqueda[x-1]);
                     }
-                    busquedaRes.add(busqueda);                     
+                    busquedaTablas.add(busqueda);                     
                 }    
                 con.close();
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Error con la operacion");
             }
-            return busquedaRes;
+            return busquedaTablas;
     }
     /**
      * Metodo que permite encontrar elementos de la tabla de la base de datos
@@ -247,6 +247,7 @@ public class Conexion {
      */
     public static ArrayList<String[]> buscar(String tabla, Object dato, String nombreDato){
         busquedaRes.clear();
+        elementoBuscado=false;
         String[] busqueda=null;
         Connection con = null;
         try{
@@ -260,6 +261,7 @@ public class Conexion {
             rs = ps.executeQuery();
             boolean res = rs.next();
             if(res){
+                elementoBuscado=true;
                 while(res){
                     busqueda = new String[rs.getMetaData().getColumnCount()];
                     for (int x=1;x<=rs.getMetaData().getColumnCount();x++){      
@@ -297,8 +299,6 @@ public class Conexion {
                     values = values +"?";
                 }
             }
-            System.out.println(values);
-            System.out.println(tabla);
             String atributes = "";
             for(int i=0;i<atributos.length;i++){
                 if(i!=atributos.length-1){
@@ -307,7 +307,6 @@ public class Conexion {
                     atributes = atributes +atributos[i];
                 }                
             }
-            System.out.println(atributes);
             ps = con.prepareStatement("INSERT INTO "+tabla+" ("
             +atributes+") VALUES("+values+") ",Statement.RETURN_GENERATED_KEYS);
             for(int i=0;i<valores.length;i++){

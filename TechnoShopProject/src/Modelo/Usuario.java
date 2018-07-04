@@ -15,7 +15,7 @@ public class Usuario extends Cuenta {
    private Membresia membresia;
    private Carrito carrito=null;
    private Tarjeta tarjeta=null;
-   private ArrayList <Pedido> pedidos;
+   private ArrayList <Pedido> pedidos=null;
     /**
      * Metodo donde se obtiene la membresia del usuario
      * @return membresia
