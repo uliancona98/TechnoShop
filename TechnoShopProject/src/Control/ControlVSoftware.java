@@ -45,20 +45,27 @@ public class ControlVSoftware implements ActionListener{
         ventanaSoftware.setLocationRelativeTo(null);
         //Buscar las imagenes de la categoria de accesorios
         ArrayList<String[]>busqueda = Conexion.buscar("productos", ID, "id_tipoproducto");
-        for(int i=0;i<busqueda.size();i++){
-            String[] busquedaArray = busqueda.get(i);
-            Software software = new Software();                
-            software.setId(busquedaArray[0]);  
-            software.setNombre(busquedaArray[1]);   
-            software.setPrecioVenta(Double.parseDouble(busquedaArray[2]));                
-            software.setPrecioCompra(Double.parseDouble(busquedaArray[3]));                
-            software.setDescripcion(busquedaArray[4]); 
-            software.setNoArticulos(Integer.parseInt(busquedaArray[5]));                
-            software.setMarca(busquedaArray[6]);                
-            software.setCategoria(Integer.parseInt(busquedaArray[7]));
-            softwares.add(software);
-        }
-        mostrarProductos();        
+        if(Conexion.elementoBuscado){
+            for(int i=0;i<busqueda.size();i++){
+                String[] busquedaArray = busqueda.get(i);
+                Software software = new Software();                
+                software.setId(busquedaArray[0]);  
+                software.setNombre(busquedaArray[1]);   
+                software.setPrecioVenta(Double.parseDouble(busquedaArray[2]));                
+                software.setPrecioCompra(Double.parseDouble(busquedaArray[3]));                
+                software.setDescripcion(busquedaArray[4]); 
+                software.setNoArticulos(Integer.parseInt(busquedaArray[5]));                
+                software.setMarca(busquedaArray[6]);                
+                software.setCategoria(Integer.parseInt(busquedaArray[7]));
+                softwares.add(software);
+            }
+            mostrarProductos();  
+        }else{
+            for(int i=0;i<ventanaSoftware.getBotonesProductos().size();i++){
+                ventanaSoftware.getBotonesProductos().get(i).setEnabled(false);              
+            }
+            JOptionPane.showMessageDialog(null, "Error al cargar los productos");
+        }        
     }
     public void mostrarProductos(){
         for(int i=0;i<ventanaSoftware.getBotonesProductos().size();i++){

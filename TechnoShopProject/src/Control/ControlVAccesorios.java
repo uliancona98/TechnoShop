@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Juan D.M
@@ -43,20 +44,27 @@ public class ControlVAccesorios implements ActionListener{
         ventanaAccesorios.setLocationRelativeTo(null);
         //Buscar las imagenes de la categoria de accesorios
         ArrayList<String[]>busqueda = Conexion.buscar("productos", ID, "id_tipoproducto");
-        for(int i=0;i<busqueda.size();i++){
-            String[] busquedaArray = busqueda.get(i);
-            Accesorio accesorio = new Accesorio();                
-            accesorio.setId(busquedaArray[0]);  
-            accesorio.setNombre(busquedaArray[1]);   
-            accesorio.setPrecioVenta(Double.parseDouble(busquedaArray[2]));                
-            accesorio.setPrecioCompra(Double.parseDouble(busquedaArray[3]));                
-            accesorio.setDescripcion(busquedaArray[4]); 
-            accesorio.setNoArticulos(Integer.parseInt(busquedaArray[5]));                
-            accesorio.setMarca(busquedaArray[6]);                
-            accesorio.setCategoria(Integer.parseInt(busquedaArray[7]));
-            accesorios.add(accesorio);
-        }
-        mostrarProductos();  
+        if(Conexion.elementoBuscado){
+            for(int i=0;i<busqueda.size();i++){
+                String[] busquedaArray = busqueda.get(i);
+                Accesorio accesorio = new Accesorio();                
+                accesorio.setId(busquedaArray[0]);  
+                accesorio.setNombre(busquedaArray[1]);   
+                accesorio.setPrecioVenta(Double.parseDouble(busquedaArray[2]));                
+                accesorio.setPrecioCompra(Double.parseDouble(busquedaArray[3]));                
+                accesorio.setDescripcion(busquedaArray[4]); 
+                accesorio.setNoArticulos(Integer.parseInt(busquedaArray[5]));                
+                accesorio.setMarca(busquedaArray[6]);                
+                accesorio.setCategoria(Integer.parseInt(busquedaArray[7]));
+                accesorios.add(accesorio);
+            }
+            mostrarProductos();                 
+        }else{
+            for(int i=0;i<ventanaAccesorios.getBotonesProductos().size();i++){
+                ventanaAccesorios.getBotonesProductos().get(i).setEnabled(false);              
+            }
+            JOptionPane.showMessageDialog(null, "Error al cargar los productos");                
+        }             
     }
     public void mostrarProductos(){
         for(int i=0;i<ventanaAccesorios.getBotonesProductos().size();i++){

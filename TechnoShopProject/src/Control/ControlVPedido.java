@@ -167,7 +167,7 @@ public class ControlVPedido implements ActionListener {
                 Object []datoNuevo = new Object[1];
                 Integer unidadesNuevas = unidadesDisponibles-producto.getNoArticulos();
                 datoNuevo[0]= unidadesNuevas;
-                Conexion.modificarTabla("productos", camposModificar, datoNuevo, "id", idBuscar);
+                Conexion.modificar("productos", camposModificar, datoNuevo, "id", idBuscar);
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Error al buscar el producto en Stock");
             }
@@ -187,7 +187,7 @@ public class ControlVPedido implements ActionListener {
                     Object []datoNuevo = new Object[1];
                     Integer unidadesNuevas = unidadesDisponibles-productos.get(i).getNoArticulos();
                     datoNuevo[0]= unidadesNuevas;
-                    Conexion.modificarTabla("productos", camposModificar, datoNuevo, "id", idBuscar);                    
+                    Conexion.modificar("productos", camposModificar, datoNuevo, "id", idBuscar);                    
                 }
 
             }catch(Exception e){
@@ -339,7 +339,7 @@ public class ControlVPedido implements ActionListener {
             datosNuevos[0]= usuario.getMembresia().getTipo();
             datosNuevos[1]= usuario.getMembresia().getPuntos();
             datosNuevos[2]= usuario.getMembresia().getValorCompras();      
-            Conexion.modificarTabla("usuarios", camposModificar, datosNuevos, "correo", idBuscar);
+            Conexion.modificar("usuarios", camposModificar, datosNuevos, "correo", idBuscar);
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error al buscar el producto en Stock");
         }

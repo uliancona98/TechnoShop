@@ -40,22 +40,29 @@ public class ControlVDispositivos implements ActionListener{
         ventanaDispositivos.getBRegresar().addActionListener(this);
         ventanaDispositivos.setVisible(true);  
         ventanaDispositivos.setLocationRelativeTo(null);
-        //Buscar las imagenes de la categoria de dispositivos
+        //Buscar las imagenes de la categoria de dispositivo
         ArrayList<String[]>busqueda = Conexion.buscar("productos", ID, "id_tipoproducto");
-        for(int i=0;i<busqueda.size();i++){
-            String[] busquedaArray = busqueda.get(i);
-            Dispositivo dispositivo = new Dispositivo();                
-            dispositivo.setId(busquedaArray[0]);  
-            dispositivo.setNombre(busquedaArray[1]);   
-            dispositivo.setPrecioVenta(Double.parseDouble(busquedaArray[2]));                
-            dispositivo.setPrecioCompra(Double.parseDouble(busquedaArray[3]));                
-            dispositivo.setDescripcion(busquedaArray[4]); 
-            dispositivo.setNoArticulos(Integer.parseInt(busquedaArray[5]));                
-            dispositivo.setMarca(busquedaArray[6]);                
-            dispositivo.setCategoria(Integer.parseInt(busquedaArray[7]));
-            dispositivos.add(dispositivo);         
+        if(Conexion.elementoBuscado){
+            for(int i=0;i<busqueda.size();i++){
+                String[] busquedaArray = busqueda.get(i);
+                Dispositivo dispositivo = new Dispositivo();                
+                dispositivo.setId(busquedaArray[0]);  
+                dispositivo.setNombre(busquedaArray[1]);   
+                dispositivo.setPrecioVenta(Double.parseDouble(busquedaArray[2]));                
+                dispositivo.setPrecioCompra(Double.parseDouble(busquedaArray[3]));                
+                dispositivo.setDescripcion(busquedaArray[4]); 
+                dispositivo.setNoArticulos(Integer.parseInt(busquedaArray[5]));                
+                dispositivo.setMarca(busquedaArray[6]);                
+                dispositivo.setCategoria(Integer.parseInt(busquedaArray[7]));
+                dispositivos.add(dispositivo);         
+            } 
+            mostrarProductos();
+        }else{
+            for(int i=0;i<ventanaDispositivos.getBotonesProductos().size();i++){
+                ventanaDispositivos.getBotonesProductos().get(i).setEnabled(false);              
+            }
+            JOptionPane.showMessageDialog(null, "Error al cargar los productos");
         }
-        mostrarProductos();           
     }
     public void mostrarProductos(){
         System.out.println(ventanaDispositivos.getBotonesProductos().size()+"----");
@@ -66,6 +73,7 @@ public class ControlVDispositivos implements ActionListener{
                 ImageIcon imagen = new ImageIcon("IconsP\\"+id+".jpg");
                 if(imagen.getImageLoadStatus()==4){
                     JOptionPane.showMessageDialog(null, "No se encontro la imagen");
+                    ventanaDispositivos.getBotonesProductos().get(i).setEnabled(false);
                 }else{
                     ventanaDispositivos.getBotonesProductos().get(i).setIcon(imagen);                       
                 }                 

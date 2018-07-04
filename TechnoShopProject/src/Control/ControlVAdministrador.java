@@ -23,7 +23,7 @@ public class ControlVAdministrador implements ActionListener {
     private VAdministrador administradorV;
     private Administrador admin;
     private ArrayList<String> id = new ArrayList();
-    private ArrayList<String[]> busquedaProductos;
+    private ArrayList<String[]> busquedaProductos= new ArrayList();
     public TableRowSorter<TableModel> tr;
     
     ControlVAdministrador(VAdministrador vAdmin, Administrador a){
@@ -33,7 +33,7 @@ public class ControlVAdministrador implements ActionListener {
         administradorV.getBotonCancelar().addActionListener(this);
         administradorV.getBotonNewProducto().addActionListener(this);
         administradorV.getBotonRemoveProducto().addActionListener(this);
-        administradorV.getBotonReporte().addActionListener(this);
+        administradorV.getBotonModificar().addActionListener(this);
         administradorV.getBotonSalir().addActionListener(this);
         administradorV.getBotonAnadirExistente().addActionListener(this);
         administradorV.getBotonAnadirProducto2().addActionListener(this);
@@ -45,6 +45,8 @@ public class ControlVAdministrador implements ActionListener {
         administradorV.getBotonAceptarModif().addActionListener(this);
         administradorV.getBotonMostrarModifProducto().addActionListener(this);
         administradorV.getLabelBienvenida().setText("Bienvenid@ "+ a.getNombre()+" "+ a.getApellido());
+        administradorV.getTextModifId().setEditable(false);
+        administradorV.getTextModifId().setEnabled(false);
     }
     
     @Override
@@ -52,27 +54,31 @@ public class ControlVAdministrador implements ActionListener {
         if(administradorV.getBotonAnadirProducto2() == evento.getSource()){
             administradorV.getVAnadirProducto2().setVisible(false);
             administradorV.getVAnadirProducto().setVisible(true);
-            administradorV.getVAnadirProducto().setBounds(0, 0, 555, 725);
+            administradorV.getVAnadirProducto().setBounds(0, 0, 555, 730);
             administradorV.getVAnadirProducto().setLocationRelativeTo(null);            
         }
         if(administradorV.getBotonNewProducto() == evento.getSource()){
-           administradorV.getVAnadirProducto2().setVisible(true);
-           administradorV.getVAnadirProducto2().setBounds(0, 0, 400, 300);
-           administradorV.getVAnadirProducto2().setLocationRelativeTo(null);   
+            administradorV.setVisible(false);
+            administradorV.getVAnadirProducto2().setVisible(true);
+            administradorV.getVAnadirProducto2().setBounds(0, 0, 400, 300);
+            administradorV.getVAnadirProducto2().setLocationRelativeTo(null);   
         }
         if(administradorV.getBotonRemoveProducto() == evento.getSource()){
+           administradorV.setVisible(false);
            administradorV.getVRemover().setVisible(true);
            administradorV.getVRemover().setBounds(0, 0, 800, 550);
            administradorV.getVRemover().setLocationRelativeTo(null);
            llenarTablaProductos();
         }
-        if(administradorV.getBotonReporte() == evento.getSource()){       
-            administradorV.getVReporte().setVisible(true);
-            administradorV.getVReporte().setBounds(0, 0, 800, 490);
-     
+        if(administradorV.getBotonModificar() == evento.getSource()){
+            administradorV.setVisible(false);
+            administradorV.getVModificaProducto().setVisible(true);
+            administradorV.getVReporte().setBounds(0, 0, 700, 750);
             administradorV.getVReporte().setLocationRelativeTo(null);
+            cargarComboBoxProductos();
         }
         if(administradorV.getBotonSalir() == evento.getSource()){
+            administradorV.setVisible(false);
             VHome home = new VHome();
             home.setLocationRelativeTo(null);
             home.setVisible(true);
@@ -81,6 +87,7 @@ public class ControlVAdministrador implements ActionListener {
         if(administradorV.getBotonCancelar() == evento.getSource()){
             //Se cancela la agregacion de nuevo producto
             administradorV.getVAnadirProducto().setVisible(false);
+            administradorV.setVisible(true);
         }
         if(administradorV.getBotonAnadirExistente() == evento.getSource()){
             //Se selecciona la opcion de añadir existente, se abre       
@@ -88,7 +95,7 @@ public class ControlVAdministrador implements ActionListener {
             administradorV.getVAumentarProducto().setVisible(true);
             administradorV.getVAumentarProducto().setBounds(0, 0, 900, 800);
             administradorV.getVAumentarProducto().setLocationRelativeTo(null);
-            //Se lee la base de datos y agrega al combo box
+            //Se lee la base de datos y agrega a la tabla
             llenarTablaProductosAumentar();
         }
         if(administradorV.getBotonAumentar()== evento.getSource()){
@@ -104,15 +111,104 @@ public class ControlVAdministrador implements ActionListener {
             administradorV.getVReporte().setVisible(false);
         }
         if(administradorV.getBotonRetirarVolver()== evento.getSource()){
-            administradorV.getVRemover().setVisible(false);    
+            administradorV.getVRemover().setVisible(false);
+            administradorV.setVisible(true);
         }
         if(administradorV.getBotonVolverAumentarProductos()== evento.getSource()){
             administradorV.getVAumentarProducto().setVisible(false);
+            administradorV.getVAnadirProducto2().setVisible(true);
         }
         if(administradorV.getBotonAceptar() == evento.getSource()){
             //Se añade el nuevo producto a la base
             agregarNuevoProducto(); 
         }
+        if(administradorV.getBotonRegresarModificar()== evento.getSource()){
+            administradorV.getVModificaProducto().setVisible(false);
+            limpiarCamposModificacion();
+            administradorV.setVisible(true);
+        }
+        if(administradorV.getBotonMostrarModifProducto()== evento.getSource()){
+            int indiceSeleccionado = administradorV.getComboBoxModificar().getSelectedIndex();
+            try{
+                llenarCampos(busquedaProductos.get(indiceSeleccionado));                
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null,"Ha ocurrido un error");
+            }
+        }
+        if(administradorV.getBotonAceptarModif()== evento.getSource()){
+            try{
+                String id = administradorV.getTextModifId().getText();  
+                System.out.println(id);
+                String descripcion = administradorV.getTextModifDescripcion().getText();
+                System.out.println(descripcion);
+                String marca = administradorV.getTextModifMarca().getText();
+                System.out.println(marca);
+                String nombre = administradorV.getTextModifNombre().getText();
+                System.out.println(nombre);
+                Double precioCompra = Double.parseDouble(administradorV.getTextModifPrecioCompra().getText());
+                System.out.println(precioCompra);
+                Double precioVenta = Double.parseDouble(administradorV.getTextModifPrecioVenta().getText());
+                System.out.println(precioVenta);
+                Integer idCategoria = (Integer)administradorV.getComboBoxModifCategoria().getSelectedIndex()+1;
+                System.out.println(idCategoria);
+                Object []datosNuevos = new Object[6];
+                datosNuevos[0]=nombre;
+                datosNuevos[1]=precioVenta;
+                datosNuevos[2]=precioCompra;
+                datosNuevos[3]=descripcion;
+                datosNuevos[4]=marca;
+                datosNuevos[5]=idCategoria;
+                System.out.println(nombre+"--"+precioVenta+"--"+ precioCompra+"--"+descripcion+"--"+marca+"--"+idCategoria);
+                String[]campos = new String[6];
+                campos[0]="nombre";
+                campos[1]="precio_venta";
+                campos[2]="precio_compra";
+                campos[3]="descripcion";
+                campos[4]="marca";
+                campos[5]="id_tipoproducto";
+                Conexion.modificar("productos", campos, datosNuevos, "id", id);
+                if(Conexion.elementoModificado){
+                    JOptionPane.showMessageDialog(null, "Elemento modificado correctamente");
+                }
+                limpiarCamposModificacion();
+                cargarComboBoxProductos();
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Datos incorrectos");
+            }
+        }
+    }
+    public void llenarCampos(String[] producto){
+        try{
+            administradorV.getTextModifDescripcion().setText(producto[4]);
+            administradorV.getTextModifId().setText(producto[0]);
+            administradorV.getTextModifMarca().setText(producto[6]);
+            administradorV.getTextModifNombre().setText(producto[1]);
+            administradorV.getTextModifPrecioCompra().setText(producto[3]);
+            administradorV.getTextModifPrecioVenta().setText(producto[2]);
+            if("1".equals(producto[7])){
+                administradorV.getComboBoxModifCategoria().setSelectedIndex(0);            
+            }else if("2".equals(producto[7])){
+                administradorV.getComboBoxModifCategoria().setSelectedIndex(1);  
+            }else if("3".equals(producto[7])){
+                administradorV.getComboBoxModifCategoria().setSelectedIndex(2);
+            }else{
+                administradorV.getComboBoxModifCategoria().setSelectedItem("Otros");
+            }            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
+        }
+        
+    }
+    
+    public void cargarComboBoxProductos(){
+        administradorV.getComboBoxModificar().removeAllItems();
+        busquedaProductos = Conexion.obtenerTabla("productos");     
+        for(int i=0;i<busquedaProductos.size();i++){
+            String[] busquedaArray = busquedaProductos.get(i); 
+            String dato1= busquedaArray[0];
+            String dato2= busquedaArray[1];
+            administradorV.getComboBoxModificar().addItem("Id producto: "+ dato1+"  Nombre: "+ dato2);
+        }        
     }
     public void agregarNuevoProducto(){
         try{
@@ -127,9 +223,6 @@ public class ControlVAdministrador implements ActionListener {
             if(id.length()<13 || nombre.equals("") || precio_venta<0 || precio_compra<0 ||descripcion.equals("") || no_articulos<0 || marca.equals("") ){
                 JOptionPane.showMessageDialog(null, "Datos erroneos");
             }else{
-                System.out.println(nombre+" "+ precio_venta + " "+ precio_compra+ " "+ 
-                descripcion+ " "+ no_articulos+" "+
-                marca+" "+ id_categoria);
                 Object[]valoresProducto = new Object [8];
                 valoresProducto[0]=id;
                 valoresProducto[1]=nombre;
@@ -140,7 +233,10 @@ public class ControlVAdministrador implements ActionListener {
                 valoresProducto[6]=marca;
                 valoresProducto[7]=id_categoria+1;
                 Conexion.insert("productos", valoresProducto);
-                limpiarCampos(); 
+                if(Conexion.elementoInsertado){
+                    limpiarCampos();       
+                    JOptionPane.showMessageDialog(null,"Producto insertado correctamente");                    
+                }
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Datos erroneos");
@@ -153,7 +249,7 @@ public class ControlVAdministrador implements ActionListener {
         try{
             String [] cadenaArray = busquedaProductos.get(administradorV.getTablaAumentarProductos().getSelectedRow());
             datosNuevos[0]= Integer.parseInt(cadenaArray[5])+Integer.parseInt(administradorV.getTextAumentar().getText());
-            Conexion.modificarTabla("productos", camposModificar, datosNuevos , "id", cadenaArray[0]);
+            Conexion.modificar("productos", camposModificar, datosNuevos , "id", cadenaArray[0]);
             //administradorV.getVAumentarProducto().setVisible(false);  
             administradorV.getTextAumentar().setText(null);
         }catch(Exception e){
@@ -169,6 +265,16 @@ public class ControlVAdministrador implements ActionListener {
         administradorV.getTextNombre().setText(null);
         administradorV.getTextPrecio().setText(null);
         administradorV.getTextPrecioCompra().setText(null);
+    }
+    public void limpiarCamposModificacion(){
+        administradorV.getTextModifDescripcion().setText(null);
+        administradorV.getTextModifId().setText(null);
+        administradorV.getTextModifMarca().setText(null);
+        administradorV.getTextModifPrecioCompra().setText(null);
+        administradorV.getTextModifNombre().setText(null);
+        administradorV.getTextModifPrecioCompra().setText(null);
+        administradorV.getTextModifPrecioVenta().setText(null);
+        administradorV.getComboBoxCategoria().setSelectedIndex(0);
     }
     public void retirarProducto(){     
         try{
@@ -234,8 +340,5 @@ public class ControlVAdministrador implements ActionListener {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "No hay elementos para agregar a la tabla");
         }        
-    }
-    public void llenarCamposBusqueda(){
-        
     }
 }
