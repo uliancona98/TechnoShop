@@ -103,7 +103,7 @@ public class VAdministrador extends javax.swing.JFrame {
         BotonNewProducto = new javax.swing.JButton();
         labelBienvenida = new javax.swing.JLabel();
         BotonRemoveProducto = new javax.swing.JButton();
-        BotonReporte = new javax.swing.JButton();
+        botonModificar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -415,7 +415,7 @@ public class VAdministrador extends javax.swing.JFrame {
         textModifDescripcion.setRows(5);
         jScrollPane2.setViewportView(textModifDescripcion);
 
-        jLabel24.setText("Ingrese el id del producto");
+        jLabel24.setText("ID:");
 
         jLabel26.setText("Ingrese la marca o compañía del producto");
 
@@ -444,13 +444,13 @@ public class VAdministrador extends javax.swing.JFrame {
                     .addGroup(VModificaProductoLayout.createSequentialGroup()
                         .addGap(258, 258, 258)
                         .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(257, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VModificaProductoLayout.createSequentialGroup()
                 .addGroup(VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(VModificaProductoLayout.createSequentialGroup()
                         .addGap(160, 160, 160)
                         .addComponent(comboBoxModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(botonMostrarModifProducto))
                     .addGroup(VModificaProductoLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -465,13 +465,15 @@ public class VAdministrador extends javax.swing.JFrame {
                                         .addComponent(comboBoxModifCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(textModifMarca)
                                         .addComponent(textModifPrecioVenta)
-                                        .addComponent(jLabel24)
                                         .addComponent(textModifPrecioCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel26)
-                                        .addComponent(jLabel19))
+                                        .addComponent(jLabel19)
+                                        .addGroup(VModificaProductoLayout.createSequentialGroup()
+                                            .addGap(14, 14, 14)
+                                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(textModifNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textModifId, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(textModifId, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(83, 83, 83))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VModificaProductoLayout.createSequentialGroup()
                                 .addGap(183, 183, 183)
@@ -484,7 +486,7 @@ public class VAdministrador extends javax.swing.JFrame {
         VModificaProductoLayout.setVerticalGroup(
             VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VModificaProductoLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addComponent(jLabel20)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel27)
@@ -492,9 +494,9 @@ public class VAdministrador extends javax.swing.JFrame {
                 .addGroup(VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonMostrarModifProducto))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel24)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textModifId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(jLabel19)
@@ -519,12 +521,12 @@ public class VAdministrador extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addGroup(VModificaProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonRegresarModificar)
                     .addComponent(botonAceptarModif, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel2.setText("Selecciona el producto para retirar");
@@ -606,10 +608,10 @@ public class VAdministrador extends javax.swing.JFrame {
             }
         });
 
-        BotonReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporticon.jpeg"))); // NOI18N
-        BotonReporte.addActionListener(new java.awt.event.ActionListener() {
+        botonModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/reporticon.jpeg"))); // NOI18N
+        botonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonReporteActionPerformed(evt);
+                botonModificarActionPerformed(evt);
             }
         });
 
@@ -652,7 +654,7 @@ public class VAdministrador extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(BotonReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(botonModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
                                 .addComponent(jLabel5)))
@@ -684,7 +686,7 @@ public class VAdministrador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BotonNewProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonRemoveProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botonModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -707,9 +709,9 @@ public class VAdministrador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonSalirActionPerformed
 
-    private void BotonReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReporteActionPerformed
+    private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotonReporteActionPerformed
+    }//GEN-LAST:event_botonModificarActionPerformed
 
     private void botonRegresarModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarModificarActionPerformed
         // TODO add your handling code here:
@@ -837,8 +839,8 @@ public class VAdministrador extends javax.swing.JFrame {
         return BotonRemoveProducto;
     }
 
-    public JButton getBotonReporte() {
-        return BotonReporte;
+    public JButton getBotonModificar() {
+        return botonModificar;
     }
 
     public JPanel getPanelAgregar() {
@@ -897,7 +899,6 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton BotonCancelar;
     private javax.swing.JButton BotonNewProducto;
     private javax.swing.JButton BotonRemoveProducto;
-    private javax.swing.JButton BotonReporte;
     private javax.swing.JButton BotonSalir;
     private javax.swing.JComboBox<String> ComboBoxCategoria;
     private javax.swing.JPanel PanelAgregar;
@@ -917,6 +918,7 @@ public class VAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton botonAnadirExistente;
     public javax.swing.JButton botonAnadirProducto2;
     private javax.swing.JButton botonAumentar;
+    private javax.swing.JButton botonModificar;
     private javax.swing.JButton botonMostrarModifProducto;
     private javax.swing.JButton botonRegresarModificar;
     private javax.swing.JButton botonRetirar;
