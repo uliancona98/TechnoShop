@@ -39,7 +39,7 @@ public class Login {
                     usuario.setCorreo(res[0]);
                     usuario.setNombre(res[1]); 
                     usuario.setApellido(res[2]);
-                    usuario.setContraseña(res[3]);         
+                    usuario.setContrasena(res[3]);         
                     Membresia membresia = new Membresia();
                     membresia.setTipo(res[4]);
                     membresia.setPuntos(Double.parseDouble(res[5]));
@@ -50,7 +50,7 @@ public class Login {
                     admin.setCorreo(res[0]);
                     admin.setNombre(res[1]);
                     admin.setApellido(res[2]);
-                    admin.setContraseña(res[3]);
+                    admin.setContrasena(res[3]);
                 }
                 return true;
             }else{

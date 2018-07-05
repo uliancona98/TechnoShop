@@ -97,7 +97,7 @@ public class ControlVAdministrador implements ActionListener {
             administradorV.setVisible(true);
         }
         if(administradorV.getBotonAnadirExistente() == evento.getSource()){
-            //Se selecciona la opcion de añadir existente, se abre       
+            //Se selecciona la opcion de agregar existente, se abre       
             administradorV.getVAnadirProducto2().setVisible(false);
             administradorV.getVAumentarProducto().setVisible(true);
             administradorV.getVAumentarProducto().setBounds(0, 0, 900, 800);
@@ -108,7 +108,7 @@ public class ControlVAdministrador implements ActionListener {
         if(administradorV.getBotonAumentar()== evento.getSource()){
             agregarUnidadesNuevas();
             llenarTablaProductosAumentar();
-            //Se selecciona la opcion de añadir existente, se abre 
+            //Se selecciona la opcion de agregar existente, se abre 
         }
         if(administradorV.getBotonRetirar() == evento.getSource()){
             retirarProducto();
@@ -126,7 +126,7 @@ public class ControlVAdministrador implements ActionListener {
             administradorV.getVAnadirProducto2().setVisible(true);
         }
         if(administradorV.getBotonAceptar() == evento.getSource()){
-            //Se añade el nuevo producto a la base
+            //Se agrega el nuevo producto a la base
             agregarNuevoProducto(); 
         }
         if(administradorV.getBotonRegresarModificar()== evento.getSource()){

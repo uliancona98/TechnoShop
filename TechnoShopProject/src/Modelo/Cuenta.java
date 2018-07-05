@@ -13,7 +13,7 @@ public class Cuenta {
     protected String Nombre;
     protected String Apellido;
     protected String Correo;
-    protected String Contraseña;
+    protected String Contrasena;
     /**
      * Metodo en el que se define el nombre del tipo de cuenta
      * @param Nombre nombre que se define
@@ -37,10 +37,10 @@ public class Cuenta {
     }
     /**
      *  Metodo en el que se define la contraseña del tipo de cuenta
-     * @param Contraseña contraseña que se define
+     * @param Contrasena contraseña que se define
      */
-    public void setContraseña(String Contraseña) {
-        this.Contraseña = Contraseña;
+    public void setContrasena(String Contrasena) {
+        this.Contrasena = Contrasena;
     }
     /**
      * Metodo en el que se devuelve el nombre del tipo de cuenta
@@ -67,7 +67,7 @@ public class Cuenta {
      * Metodo en el que se devuelve la contraseña del tipo de cuenta
      * @return devuelve la contraseña
      */
-    public String getContraseña() {
-        return Contraseña;
+    public String getContrasena() {
+        return Contrasena;
     }
 }

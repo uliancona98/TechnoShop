@@ -79,7 +79,7 @@ public class ControlVRegistrese implements ActionListener{
                 usuario.setNombre(nombre);
                 usuario.setApellido(apellido);
                 usuario.setCorreo(correo);
-                usuario.setContraseña(contrasena);
+                usuario.setContrasena(contrasena);
                 membresia.setTipo("Nivel 1");
                 usuario.setMembresia(membresia);
                 String[] valores = new String[7];
