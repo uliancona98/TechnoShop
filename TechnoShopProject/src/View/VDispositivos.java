@@ -17,6 +17,11 @@ public class VDispositivos extends javax.swing.JFrame {
     
     private ArrayList <JButton> botonesProductos;
     private ArrayList <JLabel> labelsProductos;    
+    /**
+     * Metodo constructor de la Ventana Accsorios, agrega a un Array List los botones y 
+     * Y los labels en un Array de labels
+     * @return 
+     */
     public VDispositivos() {
         initComponents();
         botonesProductos = new ArrayList();
@@ -151,43 +156,80 @@ public class VDispositivos extends javax.swing.JFrame {
     private void BRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRegresarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BRegresarActionPerformed
-
+    /**
+     * Metodo con el que se obtiene un Array List de botones
+     * @return Devuelve un Array List de botones
+     */
     public ArrayList<JButton> getBotonesProductos(){
         return botonesProductos;
     }
+     /**
+     * Metodo con el que se obtiene un Array List de labels
+     * @return Devuelve un Array List de labels
+     */
     public ArrayList<JLabel> getlabelsProductos(){
         return labelsProductos;
     }        
+     /**
+     * Metodo con el que se obtiene el boton BRegresar
+     * @return Devuelve el boton bRegresar
+     */
     public JButton getBRegresar() {
         return BRegresar;
     }
+    /**
+     * Metodo con el que se obtiene el boton BotonP1
+     * @return Devuelve el boton BotonP1
+     */
     public JButton getBotonP1() {
         return botonP1;
     }
-
+    /**
+     * Metodo con el que se obtiene el boton BotonP2
+     * @return Devuelve el boton BotonP2
+     */
     public JButton getBotonP2() {
         return botonP2;
     }
-
+    /**
+     * Metodo con el que se obtiene el boton BotonP3
+     * @return Devuelve el boton BotonP3
+     */
     public JButton getBotonP3() {
         return botonP3;
     }
-
+    /**
+     * Metodo con el que se obtiene el boton BotonP4
+     * @return Devuelve el boton BotonP4
+     */
     public JButton getBotonP4() {
         return botonP4;
     }
+    /**
+     * Metodo con el que se optiene el label Label11
+     * @return Devuelve el label label11
+     */
     public JLabel getLabel1() {
         return label1;
     }
-
+    /**
+     * Metodo con el que se optiene el label Label12
+     * @return Devuelve el label label12
+     */
     public JLabel getLabel2() {
         return label2;
     }
-
+    /**
+     * Metodo con el que se optiene el label Label13
+     * @return Devuelve el label label13
+     */
     public JLabel getLabel3() {
         return label3;
     }
-
+    /**
+     * Metodo con el que se optiene el label Label14
+     * @return Devuelve el label label14
+     */
     public JLabel getLabel4() {
         return label4;
     }

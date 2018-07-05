@@ -246,72 +246,85 @@ public class VPedido extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TTitularTarjetaActionPerformed
 
+    /**
+     * Metodo con el que se obtiene el boton botonAceptar
+     * @return Devuelve el boton botonAceptar
+     */
     public JButton getbotonAceptar() {
         return botonAceptar;
     }
 
-    public void setbotonAceptar(JButton BotonAceptar) {
-        this.botonAceptar = BotonAceptar;
-    }
     
+    /**
+     * Metodo con el que se obtiene el boton botonAgregarTarjeta
+     * @return Devuelve el boton botonAgregarTarjeta
+     */
      public JButton getbotonAgregarTarjeta() {
         return botonAgregarTarjeta;
     }
+     /**
+     * Metodo con el que se obtiene el boton botonCancelarTarjeta
+     * @return Devuelve el boton botonCancelarTarjeta
+     */
     public JButton getbotonCancelarTarjeta() {
         return botonCancelarTarjeta;
     }
-    public void setbotonAgregarTarjeta(JButton BotonAgregarTarjeta) {
-        this.botonAgregarTarjeta = BotonAgregarTarjeta;
-    }
     
+    /**
+     * Metodo con el que se obtiene el boton botonPagarPuntos
+     * @return Devuelve el boton botonPagarPuntos
+     */
       public JButton getbotonPagarPuntos() {
         return botonPagarPuntos;
     }
 
-    public void setbotonPagarPuntos(JButton botonPagarPuntos) {
-        this.botonPagarPuntos = botonPagarPuntos;
-    }
+   /**
+     * Metodo con el que se obtiene el Label etiquetaFechaPedido
+     * @return Devuelve el Label etiquetaFechaPedido
+     */
     
     public JLabel getetiquetaFechaPedido()
     {
         return etiquetaFechaPedido;
     }
     
-    public void setetiquetaFechaPedido(JLabel etiquetaFechaPedido){
-        this.etiquetaFechaPedido= etiquetaFechaPedido;
-    }
+    /**
+     * Metodo con el que se obtiene el Label etiquetaTotalaPagar
+     * @return Devuelve el Label etiquetaTotalaPagar
+     */
     public JLabel getetiquetaTotalaPagar()
     {
         return etiquetaTotalaPagar;
     }
     
-    public void setetiquetaTotalaPagar(JLabel etiquetaTotal){
-        this.etiquetaTotalaPagar= etiquetaTotal;
-    }
-    
+   
+    /**
+     * Metodo con el que se obtiene el boton botonCancelar
+     * @return Devuelve el boton botonCancelar
+     */
     public JButton getbotonCancelar() {
         return botonCancelar;
     }
 
-    public void setbotonCancelar(JButton botonCancelar) {
-        this.botonCancelar = botonCancelar;
-    }
+   /**
+     * Metodo con el que se obtiene el Frame VentanaTarjetra
+     * @return Devuelve el FrameVentanaTarjeta
+     */
     
     public JFrame getVentanaTarjeta()
     {
         return ventanaAgregarTarjeta;
     }
     
-    public void setVentanaTarjeta(JFrame ventanaTarjeta){
-        this.ventanaAgregarTarjeta=ventanaTarjeta;
-    }
-    
+   
+    /**
+     * Metodo con el que se obtiene el boton botonAceptarTarteja
+     * @return Devuelve el boton botonAceptarTarteja
+     */
     public JButton getbotonAceptarTarjeta(){
         return botonAceptarTarjeta;
     }
-    public void setbotonAceptarTarjeta(JButton botonAceptarTarjeta ){
-        this.botonAceptarTarjeta=botonAceptarTarjeta;
-    }
+   
     
     
     

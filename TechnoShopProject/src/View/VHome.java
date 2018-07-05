@@ -260,84 +260,119 @@ public class VHome extends javax.swing.JFrame {
     private void botonPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPedidosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonPedidosActionPerformed
-
+     /**
+     * Metodo con el que se obtiene el boton BotonAccesory
+     * @return Devuelve el boton BotonAccesory
+     */
     public JButton getBotonAccesory() {
         return BotonAccesory;
     }
 
-    public void setBotonAccesory(JButton BotonAccesory) {
-        this.BotonAccesory = BotonAccesory;
-    }
-
+    
+     /**
+     * Metodo con el que se obtiene el boton BotonAdministrador
+     * @return Devuelve el boton BotonAdministrador
+     */
     public JButton getBotonAdministrador() {
         return BotonAdministrador;
     }
-
-    public void setBotonAdministrador(JButton BotonAdministrador) {
-        this.BotonAdministrador = BotonAdministrador;
-    }
-
+     /**
+     * Metodo con el que se obtiene el boton BotonDevice
+     * @return Devuelve el boton BotonDevice
+     */
+    
     public JButton getBotonDevice() {
         return BotonDevice;
     }
 
-    public void setBotonDevice(JButton BotonDevice) {
-        this.BotonDevice = BotonDevice;
-    }
+     /**
+     * Metodo con el que se obtiene el boton BotonRegistrese
+     * @return Devuelve el boton BotonRegistrese
+     */
 
     public JButton getBotonRegistrese() {
         return BotonRegistrese;
     }
-
+     /**
+     * Metodo con el que se obtiene el boton BotonVolverPedidos
+     * @return Devuelve el boton BotonVolverPedidos
+     */
     public JButton getBotonVolverPedidos() {
         return botonVolverPedidos;
     }
-
+     /**
+     * Metodo con el que se obtiene el FRame VMisPedisos
+     * @return Devuelve el Frame VMisPedidos
+     */
     public JFrame getVMisPedidos() {
         return VMisPedidos;
     }
-
+     /**
+     * Metodo con el que se obtiene el boton BotonVerPedido
+     * @return Devuelve el boton BotonVerPedido
+     */
     public JButton getBotonVerPedido() {
         return botonVerPedido;
     }
-
+     /**
+     * Metodo con el que se obtiene el combobox ComboBoxPedidos
+     * @return Devuelve el combobox ComboBoxPedidos
+     */
     public JComboBox<String> getComboBoxPedidos() {
         return comboBoxPedidos;
     }
-
+     /**
+     * Metodo con el que se obtiene el TextPane TextPedido
+     * @return Devuelve el TextPane TextPedido
+     */
     public JTextPane getTextPedido() {
         return textPedido;
     }
 
-    public void setBotonRegistrese(JButton BotonRegistrese) {
-        this.BotonRegistrese = BotonRegistrese;
-    }
-
+    
+    /**
+     * Metodo con el que se obtiene el boton BotonSesion
+     * @return Devuelve el boton BotonSesion
+     */
     public JButton getBotonSesion() {
         return BotonSesion;
     }
 
-    public void setBotonSesion(JButton BotonSesion) {
-        this.BotonSesion = BotonSesion;
-    }
+    /**
+     * Metodo con el que se obtiene el boton BotonSoftware
+     * @return Devuelve el boton BotonSoftware
+     */
 
     public JButton getBotonSoftware() {
         return BotonSoftware;
     }
 
-    public void setBotonSoftware(JButton BotonSoftware) {
-        this.BotonSoftware = BotonSoftware;
-    }
+      /**
+     * Metodo con el que se obtiene el label LabelBienvenida
+     * @return Devuelve el label LabelBienvenida
+     */
     
     public JLabel getLabelBienvenida(){
         return labelBienvenida;
     }
+      /**
+     * Metodo con el que se obtiene el boton BotonPedidos
+     * @return Devuelve el boton BotonPedidos
+     */
     public JButton getBotonPedidos(){
         return botonPedidos;
     }
+      /**
+     * Metodo con el que se obtiene el boton BotonCerrarSesion
+     * @return Devuelve el boton BotonCerrarSesion
+     */
     public JButton getBotonCerrarSesion() {
         return botonCerrarSesion;
     }
+      /**
+     * Metodo con el que se obtiene el boton BotonVerCarrito
+     * @return Devuelve el boton BotonVerCarrito
+     */
 
     public JButton getBotonVerCarrito() {
         return botonVerCarrito;

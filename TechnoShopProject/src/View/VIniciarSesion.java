@@ -131,23 +131,33 @@ public class VIniciarSesion extends javax.swing.JFrame {
     private void contrasenaCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasenaCampoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_contrasenaCampoActionPerformed
-
+    /**
+     * Metodo con el que se obtiene el boton BotonAcceder
+     * @return Devuelve el boton BotonAcceder
+     */
     public JButton getBotonAcceder() {
         return BotonAcceder;
     }
-
+    /**
+     * Metodo con el que se obtiene el PasswordField ContrasenaCampo
+     * @return Devuelve el PasswordField ContrasenaCampo
+     */
     public JPasswordField getContrasenaCampo() {
         return contrasenaCampo;
     }
-
-    public void setContrasenaCampo(JPasswordField ContrasenaCampo) {
-        this.contrasenaCampo = ContrasenaCampo;
-    }
+    
+    /**
+     * Metodo con el que se obtiene el TextField UsuarioCampo
+     * @return Devuelve el TextField USuarioCampo
+     */
 
     public JTextField getUsuarioCampo() {
         return usuarioCampo;
     }
-    
+    /**
+     * Metodo con el que se obtiene el Boton BotonCancelar
+     * @return Devuelve el boton BotonCancelar
+     */
     public JButton getBotonCancelar(){
         return botonCancelar;
     }

@@ -139,26 +139,41 @@ public class VCarrito extends javax.swing.JFrame {
     private void bReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReturnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bReturnActionPerformed
-
+/**
+ Metodo con el que se obtiene el boton de comprar
+ * @return Devuelve el boton bComprar
+ */
     public JButton getbComprar() {
         return bComprar;
     }
-    
+/**
+ Metodo con el que se obtiene el boton de eliminar
+ * @return Devuelve el boton bEliminar
+ */    
     public JButton getbEliminar()
     {
         return bEliminar;
     }
-    
+/**
+ Metodo con el que se obtiene el boton de regresar
+ * @return Devuelve el boton bReturn 
+ */    
     public JButton getbReturn()
     {
         return bReturn;
     }
-    
+/**
+ Metodo con el que se obtiene la tabla de los productos del carrito
+ * @return Devuelve la tabla tablaCarrito
+ */    
     public JTable getTablaCarrito()
     {
         return tablaCarrito;
     }
-    
+/**
+ Metodo con el que se obtiene el label del total
+ * @return Devuelve el label labelTotal
+ */    
     public JLabel getLabelTotal() {
         return labelTotal;
     }    
