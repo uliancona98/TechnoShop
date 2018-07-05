@@ -17,9 +17,9 @@ public class Login {
     public static Administrador admin;
     /**
      * Recibe el correo y la contraseña y busca si en la tabla de usuario o administrador existe una coincidencia 
-     * @param correo
-     * @param contrasenaChar
-     * @param tabla
+     * @param correo parametro que representa el correo del usuario
+     * @param contrasenaChar parametro que representa la contraseña del usuario
+     * @param tabla parametro que representa el nombre de la tabla de la base de datos
      * @return boolean devolvera "true" si coincide el usuario y contraseña con respecto a la tabla o "false" si
      * no coincide ningun dato
      */

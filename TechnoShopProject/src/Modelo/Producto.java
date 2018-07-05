@@ -22,49 +22,49 @@ public abstract class Producto {
 
     /**
      * Metodo donde se obtiene el dato del atributo id
-     * @return String
+     * @return String devuelve el id del producto
      */
     public String getId() {
         return id;
     }
     /**
      * Metodo donde se define el dato del atributo id
-     * @param id 
+     * @param id parametro que recibe el id
      */
     public void setId(String id) {
         this.id = id;
     }
     /**
      * Metodo donde se obtiene el dato del atributo idCategoria
-     * @return Integer
+     * @return Integer devuelve el id de categoria
      */
     public int getCategoria() {
         return idCategoria;
     }
     /**
      * Metodo donde se define el dato del atributo idCategoria
-     * @param categoria 
+     * @param categoria parametro que recibe la categoria del producto
      */
     public void setCategoria(int categoria) {
         this.idCategoria = categoria;
     }
     /**
      * Metodo donde se obtiene el dato del atributo nombre
-     * @return String 
+     * @return String devuelve el nombre del producto
      */
     public String getNombre() {
         return nombre;
     }
     /**
      * Metodo donde se define el dato del atributo nombre
-     * @param Nombre 
+     * @param Nombre parametro que recibe el nombre del producto
      */
     public void setNombre(String Nombre) {
         this.nombre = Nombre;
     }
     /**
      * Metodo donde se obtiene el dato del atributo informacionCategoria
-     * @return String
+     * @return String devuelve la informacion de la categoria
      */
     public String getInformacionCategoria() {
         return informacionCategoria;
@@ -75,14 +75,14 @@ public abstract class Producto {
     public abstract void setInformacionCategoria();
     /**
      * Metodo donde se obtiene el dato del atributo precioVenta
-     * @return 
+     * @return double devuelve el precio de venta del producto
      */
     public Double getPrecioVenta() {
         return precioVenta;
     }
     /**
      * Metodo donde se define el dato del atributo precioVenta
-     * @param precio 
+     * @param precio parametro que define precio del producto
      */
     public void setPrecioVenta(double precio) {
         this.precioVenta = precio;

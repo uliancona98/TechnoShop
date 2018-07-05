@@ -31,8 +31,8 @@ public class Conexion {
     private static ArrayList<String[]> busquedaTablas = new ArrayList<String[]>();
     /**
      * Inserta una fila en la tabla de base de datos con valores en una tabla de la base de datos
-     * @param tabla
-     * @param valores 
+     * @param tabla parametro que representa el nombre de la tabla de la base de datos
+     * @param valores representa la informacion nueva de una fila que se insertara en la tabla
      */
     
     public static void insert(String tabla, Object[] valores){
@@ -78,9 +78,9 @@ public class Conexion {
     /**
      * Inserta una fila en la tabla de base de datos con valores en una tabla de la base de datos especificando las columnas 
      * que se van a modificar
-     * @param tabla
-     * @param valores
-     * @param atributos 
+     * @param tabla parametro que representa el nombre de la tabla de la base de datos
+     * @param valores representa la informacion nueva de una fila que se insertara en la tabla
+     * @param atributos Representa el nombre de los atributos de la tabla
      */
     public static void insert(String tabla, Object[] valores, String[]atributos){
         Connection con = null;
@@ -133,13 +133,13 @@ public class Conexion {
     }    
     /**
      * Busca una columna que tengan en comun los mismos datos en 2 tablas distintas de la base de datos
-     * @param tabla1
-     * @param tabla2
-     * @param atributoTabla1
-     * @param atributoTabla2
-     * @param posicion
-     * @param dato
-     * @return 
+     * @param tabla1 representa el nombre de la tabla1 en la que se buscara informacion
+     * @param tabla2 representa el nombre de la tabla2 en la que se buscara informacion
+     * @param atributoTabla1 representa el nombre de los atributos de la tabla1
+     * @param atributoTabla2 representa el nombre de los atributos de la tabla2
+     * @param posicion indica la posicion entera en la que esta el atributo a comun
+     * @param dato es el dato en comun que van a tener las 2 tablas
+     * @return devuelve el resultado de los datos que tengan en comun las 2 tablas
      */
     public static ArrayList<String[]> buscarTablasRelacionadas(String tabla1, String tabla2, String atributoTabla1, String atributoTabla2, int posicion, String dato){
         PreparedStatement stmt = null;
@@ -169,11 +169,11 @@ public class Conexion {
     }
     /**
      * Modifica una fila de la tabla de la base de datos
-     * @param tabla
-     * @param campos
-     * @param datosNuevos
-     * @param atributoBuscar
-     * @param datoBuscar 
+     * @param tabla parametro que representa el nombre de la tabla de la base de datos
+     * @param campos es el nombre de los atributos de la tabla
+     * @param datosNuevos los datos nuevos que se modificaran de la tabla
+     * @param atributoBuscar son el nombre de el atributo especifico que se buscara (id)
+     * @param datoBuscar el valor del dato de una fila especifica (valor del id)
      */
     public static void modificar(String tabla, String[] campos, Object[]datosNuevos, String atributoBuscar, String datoBuscar){
         Connection con = null;
@@ -212,8 +212,8 @@ public class Conexion {
     }
     /**
      * Metpdo en cual obtiene todos los elementos de la tabla de la base de datos
-     * @param tabla
-     * @return 
+     * @param tabla parametro que representa el nombre de la tabla de la base de datos
+     * @return regresa la tabña
      */
     public static ArrayList<String[]> obtenerTabla(String tabla){
             
@@ -240,10 +240,10 @@ public class Conexion {
     }
     /**
      * Metodo que permite encontrar elementos de la tabla de la base de datos
-     * @param tabla
-     * @param dato
-     * @param nombreDato
-     * @return 
+     * @param tabla parametro que representa el nombre de la tabla de la base de datos
+     * @param dato es el dato en comun que van a tener las 2 tablas
+     * @param nombreDato el nombre del atributo de la tabla a buscar
+     * @return busquedares retorna la busqueda con la informacion obtenida de la tabla
      */
     public static ArrayList<String[]> buscar(String tabla, Object dato, String nombreDato){
         busquedaRes.clear();
@@ -281,10 +281,10 @@ public class Conexion {
     }
     /**
      * Inserta un elemento nuevo en la tabla y devuelve el id asignado de la ultima fila insertada
-     * @param tabla
-     * @param valores
-     * @param atributos
-     * @return 
+     * @param tabla parametro que representa el nombre de la tabla de la base de datos
+     * @param valores representa la informacion nueva de una fila que se insertara en la tabla
+     * @param atributos Representa el nombre de los atributos de la tabla
+     * @return id devuelve el ultimo id que se inserto en la tabla
      */
     public static int getLastId(String tabla, Object[]valores, String[] atributos){
         int id=0;
@@ -331,7 +331,7 @@ public class Conexion {
     }
     /**
      * Devuelve la conexion a la base de datos
-     * @return 
+     * @return con devuelve la conexion de la base de datos
      */
     public static Connection getConection(){
         Connection con = null;
@@ -346,8 +346,8 @@ public class Conexion {
     }
     /**
      * Metodo que elimina una fila en la tabla de base de datos
-     * @param tabla
-     * @param id 
+     * @param tabla parametro que representa el nombre de la tabla de la base de datos
+     * @param id parametro representa al id a eliminar de la tabla
      */
     public static void eliminar(String tabla, Object id) {                             
         // TODO add your handling code here:

@@ -13,14 +13,14 @@ public abstract class Pago {
     protected double cantidad;
     /**
      * Metodo que devuelve la cantidad que se necesita pagar
-     * @return 
+     * @return double retorna la cantidad de pago
      */
     public double getCantidad() {
         return cantidad;
     }
 /**
  * Metodo en el cual se define la cantidad que se necesita pagar
- * @param cantidad 
+ * @param cantidad define la cantidad de pago
  */
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
