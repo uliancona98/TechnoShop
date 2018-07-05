@@ -89,42 +89,42 @@ public abstract class Producto {
     }
     /**
      * Metodo donde se obtiene el dato del atrinuto precioCompra
-     * @return double 
+     * @return double devuelve el precio de compra
      */
     public Double getPrecioCompra() {
         return precioCompra;
     }
     /**
      * Metodo donde se define el dato del atributo precioCompra
-     * @param precio 
+     * @param precio parametro que define el precio de compra
      */
     public void setPrecioCompra(double precio) {
         this.precioCompra = precio;
     }
     /**
      * Metodo donde se obtiene el dato del atributo descripcion
-     * @return String
+     * @return String devuelve la descripcion del producto
      */
     public String getDescripcion() {
         return descripcion;
     }
     /**
      * Metodo donde se define el dato del atributo descripcion
-     * @param Descripcion 
+     * @param Descripcion parametro que recibe la descripcion del producto
      */
     public void setDescripcion(String Descripcion) {
         this.descripcion = Descripcion;
     }
     /**
      * Metodo donde se obtiene el dato del atributo noArticulos
-     * @return integer
+     * @return integer devuelve el numero de articulos
      */
     public int getNoArticulos() {
         return noArticulos;
     }
     /**
      * Metodo donde se define el dato del atributo noArticulos
-     * @param noArticulos 
+     * @param noArticulos parametro que recibe el numero de articulos
      */
     public void setNoArticulos(int noArticulos) {
         this.noArticulos = noArticulos;
@@ -137,12 +137,15 @@ public abstract class Producto {
     }
     /**
      * Metodo donde se obtiene el dato del atributo marca
-     * @return 
+     * @return devuelve la marca del producto
      */
     public String getMarca() {
         return marca;
     }
-
+/**
+ * Metodo donde se define la marca
+ * @param Marca parametro que recibe la marca del producto
+ */
     public void setMarca(String Marca) {
         this.marca = Marca;
     }
