@@ -250,7 +250,7 @@ public class ControlVHome implements ActionListener{
      * Metodo que te deja agregar Productos nuevos
      * @param id representa el parametro del id del producto
      * @param i parametro con valor entero
-     * @return 
+     * @return producto que representa al nuevo producto agregado.
      */
     public Producto agregarNuevoProducto(String id,int i){
         Producto producto=null;

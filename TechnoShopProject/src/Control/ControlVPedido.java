@@ -29,9 +29,9 @@ public class ControlVPedido implements ActionListener {
     private String fecha;
     /**
      * Constructor con parametros de la vista Pedido, el producto y el usuario
-     * @param vPedido
-     * @param usuario
-     * @param producto 
+     * @param vPedido ventana pedido
+     * @param usuario usuario que realiza el pedido
+     * @param producto el producto que esta en el pedido
      */
     public ControlVPedido(VPedido vPedido, Usuario usuario, Producto producto){
         this.usuario=usuario;
@@ -45,9 +45,9 @@ public class ControlVPedido implements ActionListener {
     /**
      * Constructor con parametros de la vista Pedido, el producto, el usuario
      * y un arreglo de productos
-     * @param pedido
-     * @param usuario
-     * @param productos 
+     * @param pedido recibe el pedido que se realizara
+     * @param usuario es el usuario que esta haciendo el pedido
+     * @param productos los productos del pedido
      */
     public ControlVPedido(VPedido pedido, Usuario usuario,ArrayList <Producto> productos){
         this.productos=new ArrayList();
