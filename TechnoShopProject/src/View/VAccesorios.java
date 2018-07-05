@@ -146,44 +146,80 @@ public class VAccesorios extends javax.swing.JFrame {
     private void BRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRegresarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BRegresarActionPerformed
-
+    /**
+     * Metodo que devuelve el boton regresar
+     * @return devuelve el boton regresar
+     */
     public JButton getBRegresar() {
         return BRegresar;
     }
+    /**
+     * Metodo que devuelve los botones de los productos
+     * @return botonesProductos devuelve los botones de los productos
+     */
     public ArrayList<JButton> getBotonesProductos(){
         return botonesProductos;
     }
+    /**
+     * Metodo que devuelve los labels de los productos
+     * @return labelsProductos devuelve los labels de los productos
+     */
     public ArrayList<JLabel> getlabelsProductos(){
         return labelsProductos;
-    }    
+    }
+    /**
+     * Metodo que devuelve el boton de un accesorio
+     * @return botonP1 devuelve el boton
+     */    
     public JButton getBotonP1() {
         return botonP1;
     }
-
+     /**
+     * Metodo que devuelve el boton de un accesorio
+     * @return botonP2 devuelve el boton
+     */   
     public JButton getBotonP2() {
         return botonP2;
     }
-
+     /**
+     * Metodo que devuelve el boton de un accesorio
+     * @return botonP3 devuelve el boton
+     */   
     public JButton getBotonP3() {
         return botonP3;
     }
-
+     /**
+     * Metodo que devuelve el boton de un accesorio
+     * @return botonP4 devuelve el boton
+     */   
     public JButton getBotonP4() {
         return botonP4;
     }
-    
+    /**
+     * Metodo que devuelve el label de un accesorio
+     * @return label1 devuelve un label
+     */
     public JLabel getLabel1() {
         return label1;
     }
-
+     /**
+     * Metodo que devuelve el label de un accesorio
+     * @return label2 devuelve un label
+     */
     public JLabel getLabel2() {
         return label2;
     }
-
+     /**
+     * Metodo que devuelve el label de un accesorio
+     * @return label3 devuelve un label
+     */
     public JLabel getLabel3() {
         return label3;
     }
-
+     /**
+     * Metodo que devuelve el label de un accesorio
+     * @return label1 devuelve un label
+     */
     public JLabel getLabel4() {
         return label4;
     }

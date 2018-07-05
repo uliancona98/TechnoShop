@@ -754,142 +754,258 @@ public class VAdministrador extends javax.swing.JFrame {
     private void botonAceptarModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarModifActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonAceptarModifActionPerformed
-  
+    /**
+     * Metodo que devuelve el boton de aceptar
+     * @return BotonAceptar devuelve el boton
+     */  
     public JButton getBotonAceptar() {
         return BotonAceptar;
     }
-
+    /**
+     * Metodo que define el boton de aceptar
+     * @param BotonAceptar nombre del parametro que recibe el boton
+     */
     public void setBotonAceptar(JButton BotonAceptar) {
         this.BotonAceptar = BotonAceptar;
     }
-
+    /**
+     * Metodo que devuelve el boton de cancelar
+     * @return BotonCancelar devuelve el boton
+     */
     public JButton getBotonCancelar() {
         return BotonCancelar;
     }
-    
+    /**
+     * Metodo que devuelve el boton de anadir un producto ya existente
+     * @return botonAnadirExistente devuelve el boton
+     */
     public JButton getBotonAnadirExistente(){
         return botonAnadirExistente;
     }
-    
+    /**
+     * Anade productos
+     * @return botonAnadirProducto2
+     */
     public JButton getBotonAnadirProducto2(){
         return botonAnadirProducto2;
     }    
-
+    /**
+     * @deprecated 
+     * @param BotonCancelar 
+     */
     public void setBotonCancelar(JButton BotonCancelar) {
         this.BotonCancelar = BotonCancelar;
     }
-
+    /**
+     * Metodo que llama al comboBox de categoria
+     * @return ComboBoxCategoria devuelve el combo BOX
+     */
     public JComboBox<String> getComboBoxCategoria() {
         return ComboBoxCategoria;
     }
-
+    /**
+     * Metodo que define el combo box categoria 
+     * @param ComboBoxCategoria parametro del combo box
+     */
     public void setComboBoxCategoria(JComboBox<String> ComboBoxCategoria) {
         this.ComboBoxCategoria = ComboBoxCategoria;
     }
-
+    /**
+     * Metodo que recive la cantidad de productos
+     * @return TextCantidad devuelve la cantidad del textfield
+     */
     public JTextField getTextCantidad() {
         return TextCantidad;
     }
-
+    /**
+     * Metodo que define la cantidad 
+     * @param TextCantidad parametro que recibe el textfield
+     */
     public void setTextCantidad(JTextField TextCantidad) {
         this.TextCantidad = TextCantidad;
     }
-
+    /**
+     * Metodo que recibe la descripcion del producto de acuerdo al administrador
+     * en una JtextArea
+     * @return TextDescripcion devuelve un JtextArea
+     */
     public JTextArea getTextDescripcion() {
         return TextDescripcion;
     }
-
+    /**
+     * Metodo que define la descripcion del producto en la JTextArea
+     * @param TextDescripcion parametro que recibe el JTextArea
+     */
     public void setTextDescripcion(JTextArea TextDescripcion) {
         this.TextDescripcion = TextDescripcion;
     }
-
+    /**
+     * Metodo que recibe la marca
+     * @return devuelve la marca
+     */
     public JTextField getTextMarca() {
         return TextMarca;
     }
-
+    /**
+     * Metodo que recibe el nombre
+     * @return TextNombre devuelve el nombre
+     */
     public JTextField getTextNombre() {
         return TextNombre;
     }
-
+    /**
+     * Metodo que recibe el precio
+     * @return TextPrecio devuelve el precio
+     */
     public JTextField getTextPrecio() {
         return TextPrecio;
     }
-
+    /**
+     * Metodo que recibe el precio de compra
+     * @return TextPrecioCompra devuelve el precio de compra 
+     */
     public JTextField getTextPrecioCompra() {
         return TextPrecioCompra;
     }
-
+    /**
+     * metodo que recibe el boton de agregar un nuevo producto por parte
+     * del administrador
+     * @return BotonNewProducto devuelve el boton
+     */
     public JButton getBotonNewProducto() {
         return BotonNewProducto;
     }
-
+    /**
+     * Anade producto
+     * @return VAnadirProducto lo devuelve
+     */
     public JFrame getVAnadirProducto() {
         return VAnadirProducto;
     }
-
+    /**
+     * Anade Producto
+     * @return VAnadirProducto lo devuelve
+     */
     public JFrame getVAnadirProducto2() {
         return VAnadirProducto2;
     }
-
+    /**
+     * Metodo que te deja aumentar producto por parte del administrador
+     * @return VAumentarProducto devuelve la funcion
+     */
     public JFrame getVAumentarProducto() {
         return VAumentarProducto;
     }
-
+    /**
+     * Metodo que te deja reducir producto por parte del administraodr
+     * @return BotonRemoveProducto devuelve la funcion
+     */
     public JButton getBotonRemoveProducto() {
         return BotonRemoveProducto;
     }
-
+    /**
+     * Modifica
+     * @return botonModificar devuelve un boton
+     */
     public JButton getBotonModificar() {
         return botonModificar;
     }
-
+    /**
+     * Agrega
+     * @return PanelAgregar devuelve esto
+     */
     public JPanel getPanelAgregar() {
         return PanelAgregar;
     }
-
+    /**
+     * Metodo cuando el administrador selecciona el boton de salir
+     * @return BotonSalir devuelve un boton
+     */
     public JButton getBotonSalir() {
         return BotonSalir;
     }
+    /**
+     * Metodo cuando en el label sale la pantalla de bienvenida cuando
+     * ingresa exitosamente
+     * @return labelBienvenida devuelve un label
+     */
     public JLabel getLabelBienvenida(){
         return labelBienvenida;
     }
-    
+    /**
+     * Aumenta producto
+     * @return textAumentar
+     */
     public JTextField getTextAumentar(){
         return textAumentar;
     }
-
+    /**
+     * Aumenta producto
+     * @return botonAumentar
+     */
     public JButton getBotonAumentar() {
         return botonAumentar;
     }
-    
+    /**
+     * metodo que muestra la tabla de productos
+     * @return tablaProductos devuelve esta tabla
+     */
     public JTable getTablaProductos(){
         return tablaProductos;
     }
-
+    /**
+     * metodo retirar volver
+     * @return botonRetirarVolver
+     */
     public JButton getBotonRetirarVolver(){
         return botonRetirarVolver;
     }
+    /**
+     * Metodo del boton regresar
+     * @return botonRegresarModificar devuelve un boton
+     */
     public JButton getBotonRegresar() {
         return botonRegresarModificar;
     }
-
+    /**
+     * Muestra el reporte de ventas de la tienda
+     * @return VModificaProducto
+     */
     public JFrame getVReporte() {
         return VModificaProducto;
     }
-
+    /**
+     * Remueve producto
+     * @return VRetirarProducto
+     */
     public JFrame getVRemover() {
         return VRetirarProducto;
     }
-
+    /**
+     * Remueve producro
+     * @return botonRetirar
+     */
     public JButton getBotonRetirar() {
         return botonRetirar;
     }
+    /**
+     * Recibe el id
+     * @return Textid
+     */
     public JTextField getTextId() {
         return TextId;
     }
+    /**
+     * Aumenta y muestra tabla productos por peticion del administrador
+     * @return tablaAumentarProductos
+     */
     public JTable getTablaAumentarProductos(){
         return tablaAumentarProductos;
     }   
+    /**
+     * Metodo que define boton
+     * @return bptonVolverAumentarProducto
+     */
     public JButton getBotonVolverAumentarProductos(){
         return botonVolverAumentarProducto;
     }
