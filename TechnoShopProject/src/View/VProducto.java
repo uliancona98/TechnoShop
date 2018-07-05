@@ -18,54 +18,94 @@ import javax.swing.JTextPane;
 public class VProducto extends javax.swing.JFrame {
 
     /**
-     * Creates new form VProducto
+     * Constructor de la ventana VProducto
+     * 
      */
     public VProducto() {
         initComponents();
         textPaneInfo.setEditable(false);
     }
-
+/**
+ * Metodo que devuelve el Button BaniadirCarro
+ * @return devuelve el boton BAniadirCarro
+ */
     public JButton getBAnadirCarro() {
         return BAnadirCarro;
     }
-
+    /**
+ * Metodo que devuelve el Button BComprar
+ * @return devuelve el boton BComprar
+ */
     public JButton getBComprar() {
         return BComprar;
     }
-
+/**
+ * Metodo que devuelve el Button BVolver
+ * @return devuelve el boton BVolver
+ */
     public JButton getBVolver() {
         return BVolver;
     }
-    
+   /**
+ * Metodo que devuelve el Spinner spinnerCantidadProductos
+ * @return devuelve el Spinner spinnerCantidadProducto
+ */
     public JSpinner getspinnerCantidadProductos(){
         return spinnerCantidadProductos;
     }
-     
+     /**
+ * Metodo que devuelve el Button botonVerCArrito
+ * @return devuelve el boton botonVerCarrito
+ */
     public JButton getbotonVerCarrito(){
         return botonVerCarrito;
     }
-    
+    /**
+ * Metodo que devuelve el Panel PanelProducto
+ * @return devuelve el Panel PanelProducto
+ */
     public JPanel getPanelProducto(){
         return panelProducto;
     }
-    
+ /**
+ * Metodo que devuelve el TextField TextInfo
+ * @return devuelve el TextField TextInfo
+ */
     public JTextPane getTextInfo(){
         return textPaneInfo;
     }
-    
+ /**
+ * Metodo que devuelve el Label LabelNombre
+ * @return devuelve el Label LAbelNombre
+ */
     public JLabel getLabelNombre(){
         return labelNombre;
     }
+  /**
+ * Metodo que devuelve el Button BotonCalcularPrecio
+ * @return devuelve el boton BotonCalcularPrecio
+ */
     public JButton getBotonCalcularPrecio() {
         return botonCalcularPrecio;
     }
+  /**
+ * Metodo que devuelve el Button BotonIniciarSecion
+ * @return devuelve el boton BotonIniciarSesion
+ */
     public JButton getBotonIniciarSesion() {
         return botonIniciarSesion;
     }
-
+  /**
+ * Metodo que devuelve el Button BotonRegistrarse
+ * @return devuelve el boton BotonRegistrare
+ */
     public JButton getBotonRegistrarse() {
         return botonRegistrarse;
     }
+      /**
+ * Metodo que devuelve el Label LabelPrecio
+ * @return devuelve el Label LabelPrecio
+ */
     public JLabel getLabelPrecio() {
         return labelPrecio;
     }

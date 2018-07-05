@@ -144,47 +144,54 @@ public class VRegistrese extends javax.swing.JFrame {
     private void CampoRCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoRCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoRCorreoActionPerformed
-
+  /**
+ * Metodo que devuelve el Button BotonRegistrarse
+ * @return devuelve el boton BotonRegistrarse
+ */
     public JButton getBotonRegistrarse() {
         return BotonRegistrarse;
     }
 
-    public void setBotonRegistrarse(JButton BotonRegistrarse) {
-        this.BotonRegistrarse = BotonRegistrarse;
-    }
+      /**
+ * Metodo que devuelve el TextField CampoRApellido
+ * @return devuelve el TextField CampoRApellido
+ */
 
     public JTextField getCampoRApellido() {
         return CampoRApellido;
     }
 
-    public void setCampoRApellido(JTextField CampoRApellido) {
-        this.CampoRApellido = CampoRApellido;
-    }
-
+   
+  /**
+ * Metodo que devuelve el PasswordField CampoRcontrasena
+ * @return devuelve el PasswordField CamporContrasena
+ */
     public JPasswordField getCampoRContrasena() {
         return CampoRContrasena;
     }
 
-    public void setCampoRContrasena(JPasswordField CampoRContrasena) {
-        this.CampoRContrasena = CampoRContrasena;
-    }
+     /**
+ * Metodo que devuelve el TextField CampoRCorreo
+ * @return devuelve el TextField CampoRCorreo
+ */
 
     public JTextField getCampoRCorreo() {
         return CampoRCorreo;
     }
 
-    public void setCampoRCorreo(JTextField CampoRCorreo) {
-        this.CampoRCorreo = CampoRCorreo;
-    }
+    /**
+ * Metodo que devuelve el TextField CampoRNombre
+ * @return devuelve el TextField CampoRNombre
+ */
 
     public JTextField getCampoRNombre() {
         return CampoRNombre;
     }
 
-    public void setCampoRNombre(JTextField CampoRNombre) {
-        this.CampoRNombre = CampoRNombre;
-    }
-    
+    /**
+ * Metodo que devuelve el Button BotonVolver
+ * @return devuelve el boton BotonVolver
+ */
     public JButton getBotonVolver() {
         return botonVolver;
     }

@@ -16,6 +16,12 @@ import javax.swing.JLabel;
 public class VSoftware extends javax.swing.JFrame {
     private ArrayList <JButton> botonesProductos;
     private ArrayList <JLabel> labelsProductos;  
+    
+     /**
+     * Metodo constructor de la Ventana Accsorios, agrega a un Array List los botones y 
+     * Y los labels en un Array de labels
+     * 
+     */
     public VSoftware() {
         initComponents();
         botonesProductos = new ArrayList();
@@ -140,43 +146,83 @@ public class VSoftware extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+   
+    /**
+     * Metodo que devuelve un ArrayList de botones BotonesProductos 
+     * @return botonesProdcutos
+     */
+    
     public ArrayList<JButton> getBotonesProductos(){
         return botonesProductos;
     }
+    /**
+     * Metodo que devuelve un ArrayList de Labels labelsProductos
+     * @return devuelve Array List labelsProductos
+     */
+    
     public ArrayList<JLabel> getlabelsProductos(){
         return labelsProductos;
-    }     
+    } 
+     /**
+     * Metodo que devuelve el boton BRegresar
+     * @return devuelve el boton BRegresar
+     */
     public JButton getBRegresar() {
         return BRegresar;
     }
+     /**
+     * Metodo que devuelve el boton BotonP1
+     * @return devuelve el boton BotonP1
+     */
     public JButton getBotonP1() {
         return botonP1;
     }
-
+ /**
+     * Metodo que devuelve el boton BotonP2
+     * @return devuelve el boton BotonP2
+     */
     public JButton getBotonP2() {
         return botonP3;
     }
-
+    /**
+     * Metodo que devuelve el boton BotonP3
+     * @return devuelve el boton BotonP3
+     */
     public JButton getBotonP3() {
         return botonP4;
     }
-
+     /**
+     * Metodo que devuelve el boton BotonP4
+     * @return devuelve el boton BotonP4
+     */
     public JButton getBotonP4() {
         return botonP2;
     }
-    
+     /**
+     * Metodo que devuelve el Label Label11
+     * @return devuelve el Label Label11
+     */
     public JLabel getLabel1() {
         return label1;
     }
-
+     /**
+     * Metodo que devuelve el Label Label12
+     * @return devuelve el Label Label12
+     */
     public JLabel getLabel2() {
         return label2;
     }
-
+     /**
+     * Metodo que devuelve el Label Label13
+     * @return devuelve el Label Label13
+     */
     public JLabel getLabel3() {
         return label3;
     }
-
+     /**
+     * Metodo que devuelve el Label Label14
+     * @return devuelve el Label Label14
+     */
     public JLabel getLabel4() {
         return label4;
     }

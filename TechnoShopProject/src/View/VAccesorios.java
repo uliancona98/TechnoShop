@@ -21,7 +21,7 @@ public class VAccesorios extends javax.swing.JFrame {
     /**
      * Metodo constructor de la Ventana Accsorios, agrega a un Array List los botones y 
      * Y los labels en un Array de labels
-     * @return 
+     * 
      */
     public VAccesorios() {
         initComponents();
