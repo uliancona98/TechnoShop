@@ -135,9 +135,10 @@ public class ControlVPedido implements ActionListener {
         }
     }
     /**
-     * Metodo que permite agregar productos a la tabla
-     * @param tabla
-     * @param producto 
+     * LLena la tabla del pedido que el usuario va a realizar, mostrando los prodcutos que se van
+     * a comprar en el carrito o un producto que se compre individual
+     * @param tabla parametro que representa la tabla especifica de la base de datos
+     * @param producto parametro que recibe el producto
      */
     public void llenarTabla(JTable tabla, Producto producto){
         String []columnas = {"Producto","   Unidades"," Precio individual",
@@ -159,7 +160,12 @@ public class ControlVPedido implements ActionListener {
         tr=new TableRowSorter<>(dtm);
         tabla.setRowSorter(tr);     
     }
-    
+    /**
+     * LLena la tabla del pedido que el usuario va a realizar, mostrando productos de lo que se va
+     * a comprar en el carrito
+     * @param tabla parametro que representa la tabla especifica de la base de datos
+     * @param productos parametro que recibe el arreglo de productos
+     */
     public void llenarTabla(JTable tabla, ArrayList <Producto> productos){
         String []columnas = {"Producto","   Unidades","    Precio individual"
         ,"  Precio Total"};
@@ -179,7 +185,10 @@ public class ControlVPedido implements ActionListener {
         tr=new TableRowSorter<>(dtm);
         tabla.setRowSorter(tr);  
     }
-    
+    /**
+     * Ingresa a la base de datos en la tabla de productos y modifica con la informacion de las unidades de pedido
+     * se las resta a la informacion de la unidades existentes de los productos de la tienda
+     */
     public void modificarStock(){
         if(producto!=null){
             try{
@@ -223,6 +232,9 @@ public class ControlVPedido implements ActionListener {
             }            
         }
     }
+    /**
+     * Separa el pedido con los puntos de la membresa que el usuario elija
+     */
     public void pagarConMembresia(){
         double puntosNuevos;
         if(usuario.getMembresia().getPuntos()>0){
@@ -250,7 +262,9 @@ public class ControlVPedido implements ActionListener {
             JOptionPane.showMessageDialog(null, "No cuentas con suficientes puntos");
         }
     }
-    
+    /**
+     * Agregs una tarjeta para pagar y valida que los datos no esten vacios
+     */
     public void agregarTarjeta(){
         Tarjeta tarjeta= new Tarjeta();
         if(vPedido.getTTitularTarjeta().getText().length() !=0  && vPedido.getTNumeroTarjeta().getText().length()!=0 ){
@@ -262,7 +276,11 @@ public class ControlVPedido implements ActionListener {
             JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
         }        
     }
-    
+    /**
+     * Verifica que se haya agregado una tarjeta para pagar si es correcto se
+     * procedera creando un nuevo pedido con la informacion de los productos que el usuario este
+     * comprando y se encargara en la base de datos en las tablas de pedidos
+     */
     public void realizarPedido(){
         if(usuario.getTarjeta()==null && totalCompra>0){
             JOptionPane.showMessageDialog(null, "No has agregado una tarjeta para pagar");            
@@ -321,7 +339,13 @@ public class ControlVPedido implements ActionListener {
             }
         }
     }
-    
+    /**
+     * Inserta en la tabla de detalles_pedido la informacion del pedido que el usuario acaba de realizar especificando
+     * los productos y el correo del usuario, el precio y las unidades. Se insertara un elemento a la tabla por
+     * cada producto distinto del pedido
+     * @param id_pedido parametro que representa el id que genero la base de datos sobre el pedido que el
+     * usuario realizo
+     */
     public void insertarDetallesPedido(int id_pedido){
         //tabla valores y atribustos
         Object [] valores = new Object [4];
@@ -350,6 +374,10 @@ public class ControlVPedido implements ActionListener {
             }            
         }
     }
+    /**
+     * Actualiza la informacion del usuario insertando en la tabla de usuarios la informacion actualizada
+     * sobre su membresia despues de haber realizado un pedido
+     */
     public void actualizarInformacionUsuarios(){
         try{
             busquedaProductos = Conexion.buscar("usuarios", (Object)usuario.getCorreo(), "correo");
