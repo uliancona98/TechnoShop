@@ -22,7 +22,7 @@ public class ControlVRegistrese implements ActionListener{
 /**
  * Constructor con parametros de la vista Registrese
  * inicializa los eventos
- * @param registrese 
+ * @param registrese nombre del parametro que representa la vista registrese 
  */    
     public ControlVRegistrese(VRegistrese registrese) {
         this.registrese = registrese;
@@ -32,8 +32,8 @@ public class ControlVRegistrese implements ActionListener{
 /**
  * Constructor con parametros de la vista Registrese y el producto
  * inicializa los eventos
- * @param registrese
- * @param producto 
+ * @param registrese nombre del parametro que representa la vista registrese
+ * @param producto nombre del parametro que representa el producto
  */
     public ControlVRegistrese(VRegistrese registrese, Producto producto) {
         this.registrese = registrese;
@@ -44,7 +44,7 @@ public class ControlVRegistrese implements ActionListener{
     /**
      * En este metodo se define que es lo que sucedera en cada evento de acuerdo
      * a las peticiones del usuario en la vista Registrese
-     * @param evento 
+     * @param evento parametro que inicia el ActionEvent
      */
     @Override
     public void actionPerformed(ActionEvent evento) {

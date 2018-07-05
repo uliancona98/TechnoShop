@@ -92,7 +92,7 @@ public class ControlVPedido implements ActionListener {
     /**
      * Metodo que define cada uno de los eventos que sucederan dependiendo de las
      * peticiones del usuario
-     * @param evento 
+     * @param evento Metodo que permite llenar el arreglo de productos
      */
     @Override
     public void actionPerformed(ActionEvent evento) {

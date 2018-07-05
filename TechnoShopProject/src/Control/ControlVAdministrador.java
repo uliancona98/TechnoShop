@@ -27,8 +27,8 @@ public class ControlVAdministrador implements ActionListener {
     public TableRowSorter<TableModel> tr;
     /**
      * Constructor con parametros de la vista administrador y el administrador
-     * @param vAdmin
-     * @param a 
+     * @param vAdmin nombre del parametro que recibe la vista administrador
+     * @param a nombre del parametro que recibe el administrador
      */
     ControlVAdministrador(VAdministrador vAdmin, Administrador a){
         this.administradorV = vAdmin;
@@ -54,7 +54,7 @@ public class ControlVAdministrador implements ActionListener {
     }
     /**
      * Metodo para recibir peticiones del usuario con respecto a la vista administrador
-     * @param evento 
+     * @param evento parametro que inicia el ActionEvent
      */
     @Override
     public void actionPerformed(ActionEvent evento) {
@@ -186,7 +186,7 @@ public class ControlVAdministrador implements ActionListener {
     }
     /**
      * Metodo que llama a los elementos de llenar campos 
-     * @param producto 
+     * @param producto parametro que carga los productos de la tienda
      */
     public void llenarCampos(String[] producto){
         try{
@@ -211,7 +211,7 @@ public class ControlVAdministrador implements ActionListener {
         
     }
     /**
-     * Metodo que llama a
+     * Metodo que llama al comboBox de productos
      */
     public void cargarComboBoxProductos(){
         administradorV.getComboBoxModificar().removeAllItems();
@@ -346,6 +346,9 @@ public class ControlVAdministrador implements ActionListener {
             JOptionPane.showMessageDialog(null, "No hay elementos para agregar a la tabla");
         }                
     }
+    /**
+     *  Metodo que permite llenar el arreglo de productos
+     */
     public void llenarTablaProductosAumentar(){
         String []columnas = {"                     Id",
         "                    Nombre","                    Unidades"};

@@ -24,7 +24,7 @@ public class ControlVAccesorios implements ActionListener{
     private ArrayList<Accesorio> accesorios;
     /**
      * Constructor con parametro de la vista accesorios
-     * @param va 
+     * @param va parametro que recibe la vista accesorios 
      */
     public ControlVAccesorios(VAccesorios va) {
         ventanaAccesorios = va;
@@ -33,8 +33,8 @@ public class ControlVAccesorios implements ActionListener{
     /**
      * Constructor con parametros de la vista accesorios y el usuario en caso
      * de que ya haya iniciado sesion
-     * @param va
-     * @param user 
+     * @param va parametro que recibe la vista accesorios
+     * @param user parametro que recibe el usuario
      */
     public ControlVAccesorios(VAccesorios va, Usuario user) {
         usuario = user;
@@ -96,7 +96,7 @@ public class ControlVAccesorios implements ActionListener{
     }
     /**
      * Metodo para recibir peticiones del usuario con respecto a la vista Accesorios
-     * @param evento 
+     * @param evento parametro que inicia el ActionEvent
      */
     @Override
     public void actionPerformed(ActionEvent evento) {

@@ -29,8 +29,8 @@ public class ControlVCarrito implements ActionListener {
     /**
      * Constructor que inicializa la clase con parametros de la vista carrito y
      * el usuario ya ingresado
-     * @param vCarrito
-     * @param usuario 
+     * @param vCarrito nombre del parametro de la vista Carrito
+     * @param usuario nombre del parametro del usuario
      */
     public ControlVCarrito(VCarrito vCarrito, Usuario usuario) {
         this.usuario = usuario; 
@@ -54,7 +54,7 @@ public class ControlVCarrito implements ActionListener {
     }
     /**
      * Metodo que activa los eventos de las peticiones del usuario de la vista Carrito
-     * @param evento 
+     * @param evento Metodo que permite llenar el arreglo de productos
      */
     @Override
     public void actionPerformed(ActionEvent evento) {
@@ -89,8 +89,8 @@ public class ControlVCarrito implements ActionListener {
     }
     /**
      * Metodo que te permite llenar una arraylist de los productos del carrito
-     * @param tabla
-     * @param productos 
+     * @param tabla parametro que representa la tabla especifica de la base de datos
+     * @param productos parametro que recibe el arreglo de productos
      */
     public void llenarTabla(JTable tabla,ArrayList <Producto> productos ){
         String []columnas = {"Producto",
@@ -123,8 +123,8 @@ public class ControlVCarrito implements ActionListener {
     }
     /**
      * Metodo que permite eliminar elementos de la tabla
-     * @param tabla
-     * @param productos 
+     * @param tabla parametro que representa la tabla especifica de la base de datos
+     * @param productos parametro que recibe el arreglo de productos
      */
     public void eliminarElementoTabla(JTable tabla,ArrayList <Producto> productos){       
         try{

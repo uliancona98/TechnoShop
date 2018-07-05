@@ -20,8 +20,8 @@ public class ControlVIniciarSesion implements ActionListener{
     /**
      * Constructor con parametros de la vista IniciarSesion y bandera
      * inicializa tambien los eventos
-     * @param vIniciarSesion
-     * @param bandera 
+     * @param vIniciarSesion nombre del parametro que representa la vista inciar sesion
+     * @param bandera parametro que representa la bandera 
      */
     public ControlVIniciarSesion(VIniciarSesion vIniciarSesion, int bandera) {
         this.banderaCuenta = bandera;
@@ -32,8 +32,8 @@ public class ControlVIniciarSesion implements ActionListener{
     /**
      * Constructor con parametros de la vista IniciarSesion y el producto
      * inicializa tambien los eventos
-     * @param vIniciarSesion
-     * @param producto 
+     * @param vIniciarSesion nombre del paranetro que representa la vista iniciar sesion
+     * @param producto parametro que representa el producto
      */
     public ControlVIniciarSesion(VIniciarSesion vIniciarSesion, Producto producto) {
         this.producto = producto;
@@ -45,7 +45,7 @@ public class ControlVIniciarSesion implements ActionListener{
      * Dependientos de las peticiones del usuario o administrador sucederan tales eventos
      * Si bandera=0 se accede a los usuarios
      * Si bandera =1 se accede a los administradores
-     * @param evento 
+     * @param evento parametro que inicia el ActionEvent
      */
     @Override
     public void actionPerformed(ActionEvent evento) {

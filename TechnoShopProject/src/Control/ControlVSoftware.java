@@ -23,7 +23,7 @@ public class ControlVSoftware implements ActionListener{
     private ArrayList<Software> softwares;
     /**
      * Constructor con parametro de la vista Software
-     * @param Vs 
+     * @param Vs nombre del parametro que representa la vista software
      */ 
     public ControlVSoftware(VSoftware Vs) {
         ventanaSoftware = Vs;
@@ -33,8 +33,8 @@ public class ControlVSoftware implements ActionListener{
     /**
      * Constructor con parametros de la vista Software y el usuario en caso de 
      * que este haya iniciado sesion
-     * @param Vs
-     * @param user 
+     * @param Vs nombre del parametro que representa la vista software
+     * @param user nombre del parametro que representa el usuario ya ingresado
      */
     public ControlVSoftware(VSoftware Vs, Usuario user) {
         usuario = user;
@@ -97,7 +97,7 @@ public class ControlVSoftware implements ActionListener{
     }
     /**
     * Metodo para recibir peticiones del usuario con respecto a la vista Software
-    * @param evento 
+    * @param evento parametro que inicia el ActionEvent
     */
     @Override
     public void actionPerformed(ActionEvent evento) {

@@ -31,7 +31,7 @@ public class ControlVHome implements ActionListener{
     private ArrayList<Pedido> pedidos;
     /**
      * Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome
-     * @param h 
+     * @param h nombre del parametro que representa la vista Home
      */
     public ControlVHome(VHome h){
         home = h;
@@ -44,8 +44,8 @@ public class ControlVHome implements ActionListener{
     /**
      * Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome y
      * al usuario en caso de que este haya iniciado sesion
-     * @param h
-     * @param user 
+     * @param h nombre del parametro que representa la vista Home
+     * @param user nombre del parametro que representa el usuario
      */
     public ControlVHome(VHome h, Usuario user){
         this.usuario = user;
@@ -76,7 +76,7 @@ public class ControlVHome implements ActionListener{
     /**
      * Metodo que dependiendo de las peticiones del usuario, se realizen ciertos
      * eventos
-     * @param evento 
+     * @param evento parametro que inicia el ActionEvent
      */
     @Override
     public void actionPerformed(ActionEvent evento) {
@@ -174,6 +174,9 @@ public class ControlVHome implements ActionListener{
             home.setVisible(true);
         }
     }
+    /**
+     * Metodo que muestra los pedidos atravez del comboBox
+     */
     public void mostrarComboBoxPedidos(){
         home.getComboBoxPedidos().removeAllItems();
         try{
@@ -188,7 +191,9 @@ public class ControlVHome implements ActionListener{
             JOptionPane.showMessageDialog(null, "No hay pedidos para mostrar");
         }          
     }
-    
+    /**
+     * Metodo que te deja observar los pedidos
+     */
     public void verPedidos(){
         try{
             int i= home.getComboBoxPedidos().getSelectedIndex();
@@ -206,6 +211,9 @@ public class ControlVHome implements ActionListener{
             JOptionPane.showMessageDialog(null, "No hay pedidos para mostrar");
         }      
     }
+    /**
+     * Metodo que te deja buscar los pedidos
+     */
     public void buscarPedidos(){
         busquedaPedidos = Conexion.buscarTablasRelacionadas("pedidos", "pedidos_detalle", "id", "id_pedido",4,usuario.getCorreo());
         for(int i=0;i<busquedaPedidos.size();i++){
@@ -237,14 +245,13 @@ public class ControlVHome implements ActionListener{
                 }                 
             }              
         }
-        
-        /*for(int i=0;i<usuario.getPedidos().size();i++){
-            System.out.println("Pedido " + usuario.getPedidos().get(i).getNoPedido());  
-            for(int j=0;j<usuario.getPedidos().get(i).getProductos().size();j++){
-                System.out.println(usuario.getPedidos().get(i).getProductos().get(j).getId());  
-            }
-        }*/
     }
+    /**
+     * Metodo que te deja agregar Productos nuevos
+     * @param id representa el parametro del id del producto
+     * @param i parametro con valor entero
+     * @return 
+     */
     public Producto agregarNuevoProducto(String id,int i){
         Producto producto=null;
         try{
@@ -269,6 +276,10 @@ public class ControlVHome implements ActionListener{
         }
         return producto;
     }
+    /**
+     * Metodo que te deja agregar productos nuevos
+     * @param i parametro con valor entero
+     */
     public void agregarNuevoPedido(int i){
         Pedido pedido = new Pedido();
         pedido.setNoPedido(Integer.parseInt(busquedaPedidos.get(i)[0]));

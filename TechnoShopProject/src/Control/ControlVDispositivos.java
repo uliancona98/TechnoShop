@@ -23,7 +23,7 @@ public class ControlVDispositivos implements ActionListener{
     private ArrayList<Dispositivo> dispositivos;
     /**
      * Constructor con parametro de la vista dispositivos
-     * @param VD 
+     * @param VD nombre del parametro que representa la vista dispositivos
      */   
     public ControlVDispositivos(VDispositivos VD) {
         ventanaDispositivos = VD;
@@ -32,8 +32,8 @@ public class ControlVDispositivos implements ActionListener{
     /**
      * Constructor con parametros de la vista dispositivos y el usuario en caso
      * de este haya iniciado su sesion
-     * @param VD
-     * @param user 
+     * @param VD nombre del parametro que representa la vista dispositivos
+     * @param user nombre del parametro que representa el usuario
      */
     public ControlVDispositivos(VDispositivos VD, Usuario user) {
         usuario = user;
@@ -98,7 +98,7 @@ public class ControlVDispositivos implements ActionListener{
     }    
      /**
      * Metodo para recibir peticiones del usuario con respecto a la vista Dispositivos
-     * @param evento 
+     * @param evento parametro que inicia el ActionEvent
      */
     @Override
     public void actionPerformed(ActionEvent evento) {

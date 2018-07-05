@@ -27,9 +27,9 @@ public class ControlVProducto implements ActionListener{
     private int unidadesDisponibles;
     /**
      * Constructor con parametros de la vista Producto, la ID categoria y el producto
-     * @param vProducto
-     * @param idCategoria
-     * @param producto 
+     * @param vProducto nombre del parametro que representa la vista producto
+     * @param idCategoria nombre del parametro que representa la idCategoria del producto
+     * @param producto nombre del parametro que representa el producto
      */
     public ControlVProducto(VProducto vProducto, int idCategoria, Producto producto ) {
         
@@ -41,10 +41,10 @@ public class ControlVProducto implements ActionListener{
     /**
      * Constructor con parametros de la vista Producto, la ID categoria, el producto y 
      * el usuario si este ya haya iniciado su sesion
-     * @param vProducto
-     * @param usuario
-     * @param idCategoria
-     * @param producto 
+     * @param vProducto nombre del parametro que representa la vista producto
+     * @param usuario nombre del parametro que representa el usuario
+     * @param idCategoria nombre del parametro que representa la idCategoria del producto
+     * @param producto nombre del parametro que representa el producto
      */
     public ControlVProducto(VProducto vProducto, Usuario usuario,int idCategoria, Producto producto) {
         this.vProducto=vProducto;
@@ -92,7 +92,7 @@ public class ControlVProducto implements ActionListener{
     /**
      * De acuerdo a la peticion del usuario se definen los eventos que sucederan de acuerdo a los
      * elementos de la vista Producto
-     * @param evento 
+     * @param evento parametro que inicia el ActionEvent
      */
     @Override
     public void actionPerformed(ActionEvent evento) {
@@ -208,7 +208,7 @@ public class ControlVProducto implements ActionListener{
     }
     /**
      * Metodo que valida si un articulo tiene stock disponible
-     * @return boolean
+     * @return boolean devuelve un valor booleano de acuerdo si hay stock o no de productos
      */
     public boolean validarArticulosDisponibles(){
         Integer unidadesAComprar = (Integer)vProducto.getspinnerCantidadProductos().getValue(); 
