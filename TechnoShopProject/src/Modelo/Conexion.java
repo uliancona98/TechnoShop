@@ -76,7 +76,7 @@ public class Conexion {
                 elementoDuplicado = true;
                 //JOptionPane.showMessageDialog(null, "ID Duplicado, no puedes añadir el mismo producto");
             }else{
-                JOptionPane.showMessageDialog(null, "Error al insertar articulo");
+                JOptionPane.showMessageDialog(null, "Error al insertar");
             }
         }        
     }
@@ -125,7 +125,7 @@ public class Conexion {
                 elementoInsertado = true;
                 //JOptionPane.showMessageDialog(null, "Elemento registrado");
             }else{
-                JOptionPane.showMessageDialog(null, "Error al registrar elemento");
+                JOptionPane.showMessageDialog(null, "Error al registrar");
             }
             con.close();
         }catch(Exception e){
@@ -375,7 +375,7 @@ public class Conexion {
             }
             con.close();
         }catch(Exception e){
-            System.out.println("Error al eliminar elemento");
+            System.out.println("Error al eliminar");
         }            
     }     
 }
