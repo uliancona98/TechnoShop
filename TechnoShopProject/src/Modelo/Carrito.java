@@ -10,6 +10,8 @@ import java.util.ArrayList;
 /**
  *
  * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa el carrito donde almacena los productos que el usuario
+ * va ingresando
  */
 public class Carrito {
     private ArrayList<Producto> productos = new ArrayList();
