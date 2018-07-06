@@ -43,7 +43,10 @@ public class ControlVCarrito implements ActionListener {
     public void inicializar(){
         vCarrito.getbComprar().addActionListener(this);
         vCarrito.getbEliminar().addActionListener(this);
-        vCarrito.getbReturn().addActionListener(this);          
+        vCarrito.getbReturn().addActionListener(this); 
+        if(usuario.getCarrito()==null){
+        vCarrito.getbComprar().setVisible(false);  
+        }
         try{          
             tabla=vCarrito.getTablaCarrito();
             productos = usuario.getCarrito().getProductos();
