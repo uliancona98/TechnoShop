@@ -9,6 +9,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa el pedido el cual son las compras de los productos
  */
 public class Pedido {
 

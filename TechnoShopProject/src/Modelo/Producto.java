@@ -8,6 +8,8 @@ package Modelo;
 /**
  *
  * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representan los productos de la tienda estas se subdividen luego
+ * en accesorios, dispositivos, y software por lo tanto esta es una superclase
  */
 public abstract class Producto {
     protected String id;

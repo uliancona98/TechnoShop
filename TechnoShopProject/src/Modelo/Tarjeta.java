@@ -8,6 +8,7 @@ package Modelo;
 /**
  *
  * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa la tarjeta del usuario como tipo de pago
  */
 public class Tarjeta {
     private String titular;

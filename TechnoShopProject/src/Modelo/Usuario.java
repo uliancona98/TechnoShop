@@ -10,6 +10,8 @@ import java.util.ArrayList;
 /**
  *
  * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa un usuario ingresado en la tienda, es un tipo de cuenta
+ * por lo tanto esta es una subclase de la clase cuenta
  */
 public class Usuario extends Cuenta {
    private Membresia membresia;

@@ -9,6 +9,7 @@ package Modelo;
 /**
  *
  * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa la membresia cuando se compra un producto
  */
 public class Membresia{
     private String tipo;

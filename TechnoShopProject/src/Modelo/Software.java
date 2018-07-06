@@ -8,6 +8,7 @@ package Modelo;
 /**
  *
  * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa un objeto Software, esta es una subclase de la clase producto
  */
 public class Software extends Producto{
     /**

@@ -8,6 +8,8 @@ package Modelo;
 /**
  *
  * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa una cuenta de la tienda, esta puede ser un administrador
+ * o usuario por lo que esta es una superclase
  */
 public class Cuenta {
     protected String Nombre;

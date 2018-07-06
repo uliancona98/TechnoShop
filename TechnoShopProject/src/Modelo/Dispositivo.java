@@ -8,6 +8,7 @@ package Modelo;
 /**
  *
  * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa un objeto Dispositivo, esta es una subclase de la clase producto
  */
 public class Dispositivo extends Producto{
     /**

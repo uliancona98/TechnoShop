@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa el ingreso de sesion de una cuenta, sea de usuario o
+ * administrador
  */
 public class Login {
     public static Usuario usuario;
