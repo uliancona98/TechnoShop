@@ -99,6 +99,69 @@
         </Component>
       </SubComponents>
     </Container>
+    <Container class="javax.swing.JFrame" name="frameMembresia">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
+                          <Component id="botoVolverMembresia" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="313" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="48" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jLabel4" min="-2" pref="220" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="124" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="botoVolverMembresia" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="botoVolverMembresia">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Volver"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextPane" name="textPaneMembresiaInfo">
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Membresia TechnoShop"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -121,56 +184,61 @@
 
   <Layout>
     <DimensionLayout dim="0">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+      <Group type="103" groupAlignment="1" attributes="0">
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="labelBienvenida" min="-2" pref="221" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="labelBienvenida" min="-2" pref="221" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="BotonAdministrador" min="-2" pref="145" max="-2" attributes="0"/>
+                                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                                      <Component id="jLabel1" min="-2" pref="638" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="BotonRegistrese" min="-2" pref="119" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="BotonAdministrador" min="-2" pref="145" max="-2" attributes="0"/>
-                              <EmptySpace pref="17" max="32767" attributes="0"/>
-                              <Component id="jLabel1" min="-2" pref="638" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="BotonRegistrese" min="-2" pref="119" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="413" max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" pref="217" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="413" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" pref="217" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="botonPedidos" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
-                              <Component id="botonVerCarrito" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="botonPedidos" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
+                                      <Component id="botonVerCarrito" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="botonCerrarSesion" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="BotonSesion" min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="botonCerrarSesion" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="BotonSesion" min="-2" pref="120" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="469" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="BotonSoftware" min="-2" pref="302" max="-2" attributes="0"/>
+                          <Component id="BotonAccesory" min="-2" pref="302" max="-2" attributes="0"/>
+                          <Component id="BotonDevice" min="-2" pref="302" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="botonVerMembresia" min="-2" pref="145" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="469" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="BotonSoftware" min="-2" pref="302" max="-2" attributes="0"/>
-                  <Component id="BotonAccesory" min="-2" pref="302" max="-2" attributes="0"/>
-                  <Component id="BotonDevice" min="-2" pref="302" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -180,7 +248,24 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="labelBienvenida" min="-2" pref="26" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel1" min="-2" pref="141" max="-2" attributes="0"/>
+                              <EmptySpace pref="30" max="32767" attributes="0"/>
+                              <Component id="jLabel2" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="BotonAdministrador" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="BotonDevice" min="-2" pref="116" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="BotonAccesory" min="-2" pref="107" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="BotonSoftware" min="-2" pref="104" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -193,26 +278,11 @@
                       <Component id="botonVerCarrito" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="botonCerrarSesion" min="-2" pref="41" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel1" min="-2" pref="141" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabel2" min="-2" pref="30" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="BotonAdministrador" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="botonVerMembresia" min="-2" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <Component id="BotonDevice" min="-2" pref="116" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="BotonAccesory" min="-2" pref="107" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="BotonSoftware" min="-2" pref="104" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -302,6 +372,11 @@
     <Component class="javax.swing.JButton" name="botonCerrarSesion">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cerrar sesion"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="botonVerMembresia">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ver Membresia"/>
       </Properties>
     </Component>
   </SubComponents>
