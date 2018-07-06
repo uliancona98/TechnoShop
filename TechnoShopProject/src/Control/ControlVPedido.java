@@ -314,8 +314,6 @@ public class ControlVPedido implements ActionListener {
             pedido.setNoPedido(numeroCompra);
             this.pedido = pedido;            
             insertarDetallesPedido(numeroCompra);            
-            usuario.addPedido(pedido);
-            
             //Pagar con tarjeta
             if(usuario.getTarjeta()!=null && totalCompra>0){
                 vPedido.setVisible(false);

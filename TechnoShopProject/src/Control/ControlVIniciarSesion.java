@@ -53,7 +53,6 @@ public class ControlVIniciarSesion implements ActionListener{
     public void actionPerformed(ActionEvent evento) {
         if(iniciarSesion.getBotonAcceder() == evento.getSource()){
             if(iniciarSesion.getUsuarioCampo().getText().length()>0 && iniciarSesion.getContrasenaCampo().getPassword().length>0){
-                System.out.println("aasdffg");
                 if(banderaCuenta==1){
                     if (Login.validarCuenta(iniciarSesion.getUsuarioCampo().getText(), iniciarSesion.getContrasenaCampo().getPassword(), "Administradores")){
                         System.out.println("Iniciado sesion");
@@ -83,7 +82,6 @@ public class ControlVIniciarSesion implements ActionListener{
                     }
                 }                
             }else{
-                System.out.println("aaaAS");
                 JOptionPane.showMessageDialog(null, "Campos incorrectos");                
             }
         }

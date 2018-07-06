@@ -59,7 +59,9 @@ public class ControlVHome implements ActionListener{
         home.getBotonRegistrese().setVisible(false);
         home.getBotonSesion().setVisible(false);
         home.getBotonAdministrador().setVisible(false);
-        incializar();     
+        incializar();
+        user.getPedidos().clear();
+        buscarPedidos();
     }
     /**
      * Metodo que inicializa los eventos de las peticiones del usuario de la ventana Home
@@ -172,7 +174,7 @@ public class ControlVHome implements ActionListener{
             home.getVMisPedidos().setBounds(0, 0, 634, 470);
             home.getVMisPedidos().setLocationRelativeTo(null); 
             mostrarComboBoxPedidos();
-            buscarPedidos();                
+            //buscarPedidos();                
         }
         if(home.getBotonVerPedido()== evento.getSource()){
             verPedidos();
@@ -182,7 +184,6 @@ public class ControlVHome implements ActionListener{
             home.setVisible(true);
         }
         if(home.getBotonVerMembresia()==evento.getSource()){
-            home.setVisible(false);
             home.getFrameMembresia().setBounds(0, 0, 400, 300);            
             home.getFrameMembresia().setVisible(true);
             home.getFrameMembresia().setLocationRelativeTo(null);
@@ -193,13 +194,10 @@ public class ControlVHome implements ActionListener{
                 membresia.setTipo("Nivel 1");
                 membresia.setPuntos(0);
                 membresia.setValorCompras(0);            
-            home.getTextPaneMembresiaInfo().setText(membresiaInfo);
-            
-            
+            home.getTextPaneMembresiaInfo().setText(membresiaInfo);           
         }
         if(home.getBotonVolverMembresia()==evento.getSource()){
             home.getFrameMembresia().setVisible(false);
-            home.setVisible(true);
         }    
     }
     /**
@@ -214,7 +212,6 @@ public class ControlVHome implements ActionListener{
                 home.getComboBoxPedidos().addItem("No. de pedido: "+pedido.getNoPedido()+
                 "   Fecha: "+pedido.getFecha());
             }
-            
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "No hay pedidos para mostrar");
         }          
