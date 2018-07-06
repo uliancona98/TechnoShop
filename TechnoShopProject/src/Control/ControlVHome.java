@@ -59,7 +59,12 @@ public class ControlVHome implements ActionListener{
         home.getBotonRegistrese().setVisible(false);
         home.getBotonSesion().setVisible(false);
         home.getBotonAdministrador().setVisible(false);
+        if( usuario.getPedidos()!= null){
+            usuario.getPedidos().clear();      
+            System.out.println("JA");
+        }      
         incializar();
+        System.out.println("jjjjj");
         buscarPedidos();
         busquedaPedidos.clear();
     }
@@ -241,11 +246,14 @@ public class ControlVHome implements ActionListener{
      */
     public void buscarPedidos(){
         busquedaPedidos = Conexion.buscarTablasRelacionadas("pedidos", "pedidos_detalle", "id", "id_pedido",4,usuario.getCorreo());        
-        ArrayList<Pedido> pedidos = new ArrayList();
+        System.out.println(busquedaPedidos.size()+"size");
         for(int i=0;i<busquedaPedidos.size();i++){
             if(usuario.getPedidos()==null){
                 agregarNuevoPedido(i);
             }else{
+                if(usuario.getPedidos().size()==0){
+                    agregarNuevoPedido(i);
+                }
                 for(int k=0;k<usuario.getPedidos().size();k++){
                     if(usuario.getPedidos().get(k).getNoPedido()==Integer.parseInt(busquedaPedidos.get(i)[0])){
                         //Mismo pedido, guardar solo al producto
