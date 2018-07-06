@@ -7,7 +7,7 @@ package Modelo;
 
 /**
  *
- * @author Juan D.M
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
  */
 public abstract class Producto {
     protected String id;

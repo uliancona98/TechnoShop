@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Usuario
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
  */
 public class Login {
     public static Usuario usuario;

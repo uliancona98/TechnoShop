@@ -7,7 +7,7 @@ package Modelo;
 
 /**
  *
- * @author Asus
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
  */
 public class Dispositivo extends Producto{
     /**

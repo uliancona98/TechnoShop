@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package Modelo;
-
+/**
+ *
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ */
 public class Accesorio extends Producto {
     /**
     * Constructor que llama al constructor de la superclase Producto

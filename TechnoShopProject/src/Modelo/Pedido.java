@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author A13003988
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
  */
 public class Pedido {
 

@@ -8,7 +8,7 @@ package Modelo;
 
 /**
  *
- * @author A13003988
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
  */
 public class Membresia{
     private String tipo;

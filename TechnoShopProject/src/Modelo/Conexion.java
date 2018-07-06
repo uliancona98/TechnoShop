@@ -14,7 +14,9 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
  *
- * @author Asus
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que abarca todo lo relacionado con la conexion a la base de datos
+ * 
  */
 public class Conexion {
     private static String URL = "jdbc:mysql://localhost:3306/"+ "technoshop" + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";

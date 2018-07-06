@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Juan D.M
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
  */
 public class Carrito {
     private ArrayList<Producto> productos = new ArrayList();
