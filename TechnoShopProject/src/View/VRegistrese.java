@@ -12,10 +12,16 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 
-
+/**
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa la interfaz grafica y/o ventana del registro.
+ */
 public class VRegistrese extends javax.swing.JFrame {
 
     ArrayList <Usuario> usuarios=new ArrayList();  
+    /**
+     * Metodo constructor de la ventana Registrese
+     */
     public VRegistrese() {
         initComponents();
     }

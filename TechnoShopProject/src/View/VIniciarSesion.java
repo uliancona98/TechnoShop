@@ -10,8 +10,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
- *
- * @author Juan D.M
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa la interfaz grafica y/o ventana del inicio de sesion
  */
 public class VIniciarSesion extends javax.swing.JFrame {
 

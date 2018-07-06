@@ -10,8 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
- *
- * @author Juan D.M
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa la interfaz grafica y/o ventana de los dispositivos
  */
 public class VDispositivos extends javax.swing.JFrame {
     

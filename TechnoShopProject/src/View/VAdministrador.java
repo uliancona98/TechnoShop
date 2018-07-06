@@ -15,8 +15,9 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
- *
- * @author A13003988
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa la interfaz grafica y/o ventana cuando el administrador
+ * inicia sesion esta contiene mas subventanas
  */
 public class VAdministrador extends javax.swing.JFrame {
 

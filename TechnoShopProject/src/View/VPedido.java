@@ -8,7 +8,11 @@ import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-
+/**
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa la interfaz grafica y/o ventana del pedido, ahi se
+ * pueden ver las listas de los productos ya comprados entre otros
+ */
 public class VPedido extends javax.swing.JFrame {
 
    

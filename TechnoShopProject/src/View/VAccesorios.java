@@ -10,8 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
- *
- * @author Juan D.M
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa la interfaz grafica y/o ventana de los accesorios 
  */
 public class VAccesorios extends javax.swing.JFrame {
     

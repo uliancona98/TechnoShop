@@ -10,15 +10,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
- *
- * @author Juan D.M
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa la interfaz grafica y/o ventana de los productos software
  */
 public class VSoftware extends javax.swing.JFrame {
     private ArrayList <JButton> botonesProductos;
     private ArrayList <JLabel> labelsProductos;  
     
      /**
-     * Metodo constructor de la Ventana Accsorios, agrega a un Array List los botones y 
+     * Metodo constructor de la Ventana Accesorios, agrega a un Array List los botones y 
      * Y los labels en un Array de labels
      * 
      */

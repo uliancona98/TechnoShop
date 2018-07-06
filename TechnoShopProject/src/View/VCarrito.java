@@ -9,8 +9,9 @@ package View;
 import javax.swing.*;
 
 /**
- *
- * @author Juan D.M
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa la interfaz grafica y/o ventana del carrito donde
+ * se ve la lista de productos agregados a este
  */
 public class VCarrito extends javax.swing.JFrame {
 

@@ -12,8 +12,8 @@ import javax.swing.JSpinner;
 import javax.swing.JTextPane;
 
 /**
- *
- * @author Asus
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase que representa la interfaz grafica y/o ventana de un producto a escoger
  */
 public class VProducto extends javax.swing.JFrame {
 
