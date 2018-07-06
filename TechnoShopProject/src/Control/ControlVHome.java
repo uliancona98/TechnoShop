@@ -8,7 +8,6 @@ package Control;
 import Modelo.Accesorio;
 import Modelo.Conexion;
 import Modelo.Dispositivo;
-import Modelo.Membresia;
 import Modelo.Pedido;
 import Modelo.Producto;
 import Modelo.Software;
@@ -21,7 +20,9 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Emmanuel
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase controlador que responde los eventos a la ventana principal (home) y 
+ * e invoca varios datos como el usuario entre otros
  */
 public class ControlVHome implements ActionListener{
     private VHome home;
@@ -30,7 +31,6 @@ public class ControlVHome implements ActionListener{
     private ArrayList<String[]> busquedaPedidos = new ArrayList();
     private ArrayList<String[]> busquedaProductos= new ArrayList();
     private ArrayList<Pedido> pedidos;
-    
     /**
      * Aqui se llaman los parametros, atributos y las acciones de los elementos del jframe VHome
      * @param h nombre del parametro que representa la vista Home
@@ -41,7 +41,6 @@ public class ControlVHome implements ActionListener{
         home.getBotonCerrarSesion().setVisible(false);
         home.getBotonVerCarrito().setVisible(false);
         home.getLabelBienvenida().setText("B I E N V E N I D @ ");
-        home.getBotonVerMembresia().setVisible(false);
         incializar();
     }
     /**
@@ -75,9 +74,6 @@ public class ControlVHome implements ActionListener{
         home.getBotonVerPedido().addActionListener(this);
         home.getComboBoxPedidos().addActionListener(this);
         home.getBotonVolverPedidos().addActionListener(this);
-        home.getBotonVerMembresia().addActionListener(this);
-        home.getBotonVolverMembresia().addActionListener(this);
-        home.getTextPaneMembresiaInfo().setEditable(false);
     }
     /**
      * Metodo que dependiendo de las peticiones del usuario, se realizen ciertos
@@ -179,26 +175,6 @@ public class ControlVHome implements ActionListener{
             home.getVMisPedidos().setVisible(false);
             home.setVisible(true);
         }
-        if(home.getBotonVerMembresia()==evento.getSource()){
-            home.setVisible(false);
-            home.getFrameMembresia().setBounds(0, 0, 400, 300);            
-            home.getFrameMembresia().setVisible(true);
-            home.getFrameMembresia().setLocationRelativeTo(null);
-            String membresiaInfo = "";
-            Membresia membresia = usuario.getMembresia();
-            membresiaInfo = "Tipo:  " + membresia.getTipo() 
-            + "\nPuntos: "+membresia.getPuntos() + "\n Total de compras: "+membresia.getValorCompras();
-                membresia.setTipo("Nivel 1");
-                membresia.setPuntos(0);
-                membresia.setValorCompras(0);            
-            home.getTextPaneMembresiaInfo().setText(membresiaInfo);
-            
-            
-        }
-        if(home.getBotonVolverMembresia()==evento.getSource()){
-            home.getFrameMembresia().setVisible(false);
-            home.setVisible(true);
-        }    
     }
     /**
      * Metodo que muestra los pedidos atravez del comboBox

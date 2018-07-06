@@ -17,7 +17,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JSpinner.DefaultEditor;
 /**
  *
- * @author Juan D.M
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Controlador que responde a los eventos de la vista del producto a elegir, asi
+ * como invoca a otros datos del modelo
  */
 public class ControlVProducto implements ActionListener{
     private VProducto vProducto;

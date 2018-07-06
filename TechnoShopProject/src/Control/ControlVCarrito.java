@@ -18,7 +18,9 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Usuario
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase controlador que responde a los eventos de la vista Carrito al igual
+ * que recibe ciertos datos del modelo como el carrito, productos entre otros.
  */
 public class ControlVCarrito implements ActionListener {
     private VCarrito vCarrito;

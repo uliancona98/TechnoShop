@@ -14,7 +14,12 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-
+/**
+ *
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Controlador que manipula la ventana de los pedidos, este invoca datos
+ * como el pedido, los productos entre otros.
+ */
 public class ControlVPedido implements ActionListener {
     public static TableRowSorter<TableModel> tr;
     private VPedido vPedido;

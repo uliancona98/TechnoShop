@@ -17,7 +17,9 @@ import javax.swing.table.TableModel;
 
 /**
  *
- * @author Usuario
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase controlador que responde a los eventos de la vista Administrador al igual
+ * que recibe ciertos datos del modelo como el administrador entre otros.
  */
 public class ControlVAdministrador implements ActionListener {
     private VAdministrador administradorV;

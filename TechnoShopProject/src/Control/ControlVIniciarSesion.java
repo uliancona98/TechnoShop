@@ -11,7 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
  *
- * @author Juan D.M
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase controlador que manipula la vista de inicio de sesion, este invoca
+ * la cuenta ya sea de usuario o administrador
  */
 public class ControlVIniciarSesion implements ActionListener{
     private VIniciarSesion iniciarSesion;

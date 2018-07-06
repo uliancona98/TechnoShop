@@ -15,7 +15,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 /**
  *
- * @author Juan D.M
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase controlador que responde a los eventos de la vista Accesorios al igual
+ * que recibe ciertos datos del modelo como los accesorios entre otros.
  */
 public class ControlVAccesorios implements ActionListener{
     private VAccesorios ventanaAccesorios;
