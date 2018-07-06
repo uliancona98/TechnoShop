@@ -14,7 +14,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 /**
  *
- * @author Juan D.M
+ * @author Ulises, Shaid, Juan, Emmanuel, Martin
+ * Clase controlador que responde a los eventos de la vista Software al igual
+ * que recibe ciertos datos del modelo como el software entre otros.
  */
 public class ControlVSoftware implements ActionListener{
     private VSoftware ventanaSoftware;
