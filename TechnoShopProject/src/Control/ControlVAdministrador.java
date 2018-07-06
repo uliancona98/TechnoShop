@@ -102,7 +102,7 @@ public class ControlVAdministrador implements ActionListener {
             //Se selecciona la opcion de agregar existente, se abre       
             administradorV.getVAnadirProducto2().setVisible(false);
             administradorV.getVAumentarProducto().setVisible(true);
-            administradorV.getVAumentarProducto().setBounds(0, 0, 900, 800);
+            administradorV.getVAumentarProducto().setBounds(0, 0, 900, 500);
             administradorV.getVAumentarProducto().setLocationRelativeTo(null);
             //Se lee la base de datos y agrega a la tabla
             llenarTablaProductosAumentar();
