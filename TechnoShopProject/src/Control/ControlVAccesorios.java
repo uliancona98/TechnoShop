@@ -84,6 +84,7 @@ public class ControlVAccesorios implements ActionListener{
     public void mostrarProductos(){
         for(int i=0;i<ventanaAccesorios.getBotonesProductos().size();i++){
             if(i<accesorios.size()){
+                ventanaAccesorios.getBotonesProductos().get(i).setEnabled(true);                
                 ventanaAccesorios.getlabelsProductos().get(i).setText(accesorios.get(i).getNombre());
                 String id = accesorios.get(i).getId();
                 ImageIcon imagen = new ImageIcon("IconsP\\"+id+".jpg");

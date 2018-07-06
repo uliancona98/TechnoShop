@@ -84,6 +84,7 @@ public class ControlVSoftware implements ActionListener{
     public void mostrarProductos(){
         for(int i=0;i<ventanaSoftware.getBotonesProductos().size();i++){
             if(i<softwares.size()){
+                ventanaSoftware.getBotonesProductos().get(i).setEnabled(true);
                 ventanaSoftware.getlabelsProductos().get(i).setText(softwares.get(i).getNombre());
                 String id = softwares.get(i).getId();
                 ImageIcon imagen = new ImageIcon("IconsP\\"+id+".jpg");

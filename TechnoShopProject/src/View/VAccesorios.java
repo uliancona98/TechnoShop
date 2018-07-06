@@ -35,6 +35,10 @@ public class VAccesorios extends javax.swing.JFrame {
         labelsProductos.add(label2);
         labelsProductos.add(label3);
         labelsProductos.add(label4);        
+        for(int i=0;i<botonesProductos.size();i++){
+            botonesProductos.get(i).setEnabled(false);
+        }    
+    
     }
 
     /**

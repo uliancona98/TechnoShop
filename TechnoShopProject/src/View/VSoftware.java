@@ -34,6 +34,9 @@ public class VSoftware extends javax.swing.JFrame {
         labelsProductos.add(label2);
         labelsProductos.add(label3);
         labelsProductos.add(label4);
+        for(int i=0;i<botonesProductos.size();i++){
+            botonesProductos.get(i).setEnabled(false);
+        }
     }
 
     /**
@@ -182,21 +185,21 @@ public class VSoftware extends javax.swing.JFrame {
      * @return devuelve el boton BotonP2
      */
     public JButton getBotonP2() {
-        return botonP3;
+        return botonP2;
     }
     /**
      * Metodo que devuelve el boton BotonP3
      * @return devuelve el boton BotonP3
      */
     public JButton getBotonP3() {
-        return botonP4;
+        return botonP3;
     }
      /**
      * Metodo que devuelve el boton BotonP4
      * @return devuelve el boton BotonP4
      */
     public JButton getBotonP4() {
-        return botonP2;
+        return botonP4;
     }
      /**
      * Metodo que devuelve el Label Label11
