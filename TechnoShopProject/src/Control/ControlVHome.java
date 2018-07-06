@@ -195,10 +195,7 @@ public class ControlVHome implements ActionListener{
             String membresiaInfo = "";
             Membresia membresia = usuario.getMembresia();
             membresiaInfo = "Tipo:  " + membresia.getTipo() 
-            + "\nPuntos: "+membresia.getPuntos() + "\n Total de compras: "+membresia.getValorCompras();
-                membresia.setTipo("Nivel 1");
-                membresia.setPuntos(0);
-                membresia.setValorCompras(0);            
+            + "\nPuntos: "+membresia.getPuntos() + "\n Total de compras: "+membresia.getValorCompras();         
             home.getTextPaneMembresiaInfo().setText(membresiaInfo);           
         }
         if(home.getBotonVolverMembresia()==evento.getSource()){

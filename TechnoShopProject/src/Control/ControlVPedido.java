@@ -107,7 +107,6 @@ public class ControlVPedido implements ActionListener {
             if(numeroPuntosUtilizar>0){
                 usuario.getMembresia().setPuntos(numeroPuntosUtilizar+usuario.getMembresia().getPuntos());             
             }
-            System.out.println(usuario.getMembresia().getPuntos()+" puntitos");
             if(producto!=null){
                 VProducto vProducto = new VProducto();
                 vProducto.setVisible(true);
