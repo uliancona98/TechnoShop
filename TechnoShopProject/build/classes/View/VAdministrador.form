@@ -304,34 +304,31 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="319" max="-2" attributes="0"/>
-                          <Component id="botonAumentar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
-                          <Component id="botonVolverAumentarProducto" min="-2" pref="95" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
+                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-                              <Component id="jLabel14" min="-2" pref="267" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
-                              <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane4" min="-2" pref="645" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="300" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="textAumentar" min="-2" pref="119" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="textAumentar" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel15" alignment="0" pref="134" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                  <Component id="botonAumentar" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="botonVolverAumentarProducto" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
+                          <Component id="jLabel14" min="-2" pref="315" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="65" max="32767" attributes="0"/>
@@ -341,22 +338,21 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPane4" min="-2" pref="229" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="textAumentar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="botonAumentar" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="botonVolverAumentarProducto" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="textAumentar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonAumentar" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="botonVolverAumentarProducto" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="39" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -450,69 +446,63 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="93" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="comboBoxModificar" min="-2" pref="393" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="botonMostrarModifProducto" min="-2" pref="81" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboBoxModifCategoria" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                                  <Component id="textModifMarca" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textModifPrecioVenta" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textModifPrecioCompra" alignment="0" min="-2" pref="219" max="-2" attributes="0"/>
+                                  <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jScrollPane2" alignment="0" min="-2" pref="486" max="-2" attributes="0"/>
+                              <Component id="textModifNombre" alignment="0" min="-2" pref="258" max="-2" attributes="0"/>
+                              <Component id="textModifId" alignment="0" min="-2" pref="378" max="-2" attributes="0"/>
+                              <Component id="jLabel24" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
+                                  <Component id="botonAceptarModif" min="-2" pref="122" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                  <Component id="botonRegresarModificar" min="-2" pref="115" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="267" max="-2" attributes="0"/>
                           <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
-                          <Component id="jLabel27" min="-2" pref="188" max="-2" attributes="0"/>
+                          <Component id="jLabel27" min="-2" pref="250" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
-                          <Component id="comboBoxModificar" min="-2" pref="393" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
-                          <Component id="botonMostrarModifProducto" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="comboBoxModifCategoria" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
-                                          <Component id="textModifMarca" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="textModifPrecioVenta" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="textModifPrecioCompra" alignment="0" min="-2" pref="219" max="-2" attributes="0"/>
-                                          <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jScrollPane2" alignment="0" min="-2" pref="486" max="-2" attributes="0"/>
-                                      <Component id="textModifNombre" alignment="0" min="-2" pref="258" max="-2" attributes="0"/>
-                                      <Component id="textModifId" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
-                                  <Component id="botonAceptarModif" min="-2" pref="90" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="botonRegresarModificar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
@@ -521,9 +511,9 @@
                       <Component id="comboBoxModificar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="botonMostrarModifProducto" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="textModifId" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                   <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
@@ -548,13 +538,13 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="70" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="botonRegresarModificar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botonAceptarModif" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="botonAceptarModif" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="51" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -640,7 +630,7 @@
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel24">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ingrese el id del producto"/>
+            <Property name="text" type="java.lang.String" value="ID:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textModifNombre">
@@ -705,11 +695,12 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jScrollPane3" min="-2" pref="570" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
-                          <Component id="botonRetirar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="172" max="32767" attributes="0"/>
-                          <Component id="botonRetirarVolver" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
+                          <Component id="botonRetirar" min="-2" pref="150" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="botonRetirarVolver" min="-2" pref="150" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
@@ -726,7 +717,7 @@
                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="botonRetirar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="botonRetirarVolver" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonRetirarVolver" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="51" max="32767" attributes="0"/>
               </Group>
@@ -827,64 +818,61 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="36" max="32767" attributes="0"/>
-                      <Component id="BotonSalir" min="-2" pref="75" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="BotonNewProducto" min="-2" pref="148" max="-2" attributes="0"/>
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="BotonRemoveProducto" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="BotonReporte" min="-2" pref="138" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="BotonNewProducto" min="-2" pref="148" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Component id="BotonRemoveProducto" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="botonModificar" min="-2" pref="138" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
+                              <Component id="labelBienvenida" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="0" pref="64" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="BotonSalir" min="-2" pref="84" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
-              <Component id="labelBienvenida" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="BotonSalir" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="labelBienvenida" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -896,9 +884,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="BotonNewProducto" min="-2" pref="136" max="-2" attributes="0"/>
                   <Component id="BotonRemoveProducto" min="-2" pref="136" max="-2" attributes="0"/>
-                  <Component id="BotonReporte" min="-2" pref="136" max="-2" attributes="0"/>
+                  <Component id="botonModificar" min="-2" pref="136" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="37" max="32767" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
+              <Component id="BotonSalir" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -937,14 +927,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonRemoveProductoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="BotonReporte">
+    <Component class="javax.swing.JButton" name="botonModificar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Icons/reporticon.jpeg"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonReporteActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">

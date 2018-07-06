@@ -47,12 +47,21 @@
           <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="BComprar" min="-2" pref="130" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="BAnadirCarro" min="-2" pref="130" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="BVolver" min="-2" pref="130" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="botonCalcularPrecio" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
-                              <Component id="botonVerCarrito" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                              <Component id="botonVerCarrito" min="-2" pref="94" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="labelNombre" min="-2" pref="502" max="-2" attributes="0"/>
@@ -62,14 +71,6 @@
                               <Component id="botonRegistrarse" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
-                      <Component id="BComprar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="BAnadirCarro" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
-                      <Component id="BVolver" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
@@ -94,10 +95,10 @@
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="botonCalcularPrecio" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="botonVerCarrito" alignment="1" min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="botonCalcularPrecio" max="32767" attributes="0"/>
+                          <Component id="botonVerCarrito" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -108,20 +109,21 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="274" max="-2" attributes="0"/>
-                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="BVolver" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="panelProducto" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="BComprar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="BAnadirCarro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="BAnadirCarro" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BComprar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BVolver" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

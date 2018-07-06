@@ -43,6 +43,11 @@ public class VHome extends javax.swing.JFrame {
         textPedido = new javax.swing.JTextPane();
         botonVerPedido = new javax.swing.JButton();
         botonVolverPedidos = new javax.swing.JButton();
+        frameMembresia = new javax.swing.JFrame();
+        botoVolverMembresia = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textPaneMembresiaInfo = new javax.swing.JTextPane();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         BotonSesion = new javax.swing.JButton();
         BotonRegistrese = new javax.swing.JButton();
@@ -105,6 +110,42 @@ public class VHome extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(botonVolverPedidos)
                 .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        botoVolverMembresia.setText("Volver");
+
+        jScrollPane2.setViewportView(textPaneMembresiaInfo);
+
+        jLabel4.setText("Membresia TechnoShop");
+
+        javax.swing.GroupLayout frameMembresiaLayout = new javax.swing.GroupLayout(frameMembresia.getContentPane());
+        frameMembresia.getContentPane().setLayout(frameMembresiaLayout);
+        frameMembresiaLayout.setHorizontalGroup(
+            frameMembresiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frameMembresiaLayout.createSequentialGroup()
+                .addGroup(frameMembresiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(frameMembresiaLayout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(botoVolverMembresia))
+                    .addGroup(frameMembresiaLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(48, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, frameMembresiaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
+        );
+        frameMembresiaLayout.setVerticalGroup(
+            frameMembresiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, frameMembresiaLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(botoVolverMembresia)
+                .addGap(27, 27, 27))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -383,13 +424,30 @@ public class VHome extends javax.swing.JFrame {
         return botonVerCarrito;
     }
       /**
-     * Metodo con el que se obtiene el boton BotonVerMembresia
+     * Metodo con el que se obtiene el boton botonVerMembresia
      * @return Devuelve el boton botonVerMembresia
      */
     public JButton getBotonVerMembresia() {
         return botonVerMembresia;
     }
     
+      /**
+     * Metodo con el que se obtiene el boton botonVolverMembresia
+     * @return Devuelve el boton botoVolverMembresia
+     */
+    public JButton getBotonVolverMembresia() {
+        return botoVolverMembresia;
+    }
+      /**
+     * Metodo con el que se obtiene el textPane que mostrara la informacion de la membresia
+     * @return Devuelve el textPanel textPaneMembresiaInfo
+     */
+    public JTextPane getTextPaneMembresiaInfo() {
+        return textPaneMembresiaInfo;
+    }  
+    public JFrame getFrameMembresia() {
+        return frameMembresia;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAccesory;
     private javax.swing.JButton BotonAdministrador;
@@ -398,6 +456,7 @@ public class VHome extends javax.swing.JFrame {
     private javax.swing.JButton BotonSesion;
     private javax.swing.JButton BotonSoftware;
     private javax.swing.JFrame VMisPedidos;
+    private javax.swing.JButton botoVolverMembresia;
     private javax.swing.JButton botonCerrarSesion;
     private javax.swing.JButton botonPedidos;
     private javax.swing.JButton botonVerCarrito;
@@ -405,12 +464,18 @@ public class VHome extends javax.swing.JFrame {
     private javax.swing.JButton botonVerPedido;
     private javax.swing.JButton botonVolverPedidos;
     private javax.swing.JComboBox<String> comboBoxPedidos;
+    private javax.swing.JFrame frameMembresia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelBienvenida;
+    private javax.swing.JTextPane textPaneMembresiaInfo;
     private javax.swing.JTextPane textPedido;
     // End of variables declaration//GEN-END:variables
+
+
 
 }
