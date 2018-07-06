@@ -9,11 +9,11 @@ import Modelo.*;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Ulises, Shaid, Juan, Emmanuel, Martin
- * Clase controlador que manipula la vista de inicio de sesion, este invoca
- * la cuenta ya sea de usuario o administrador
+ * Clase controlador que responde a los eventos de la vista IniciarSecion al igual
  */
 public class ControlVIniciarSesion implements ActionListener{
     private VIniciarSesion iniciarSesion;
@@ -52,33 +52,39 @@ public class ControlVIniciarSesion implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent evento) {
         if(iniciarSesion.getBotonAcceder() == evento.getSource()){
-            if(banderaCuenta==1){
-                if (Login.validarCuenta(iniciarSesion.getUsuarioCampo().getText(), iniciarSesion.getContrasenaCampo().getPassword(), "Administradores")){
-                    System.out.println("Iniciado sesion");
-                    iniciarSesion.setVisible(false);
-                    VAdministrador vAdmin = new VAdministrador();
-                    vAdmin.setLocationRelativeTo(null);
-                    vAdmin.setVisible(true);
-                    ControlVAdministrador cAdmin = new ControlVAdministrador(vAdmin, Login.admin);                         
-                }
-            }else if(banderaCuenta==0){
-                if (Login.validarCuenta(iniciarSesion.getUsuarioCampo().getText(), iniciarSesion.getContrasenaCampo().getPassword(), "Usuarios")){
-                    System.out.println("Iniciado sesion");
-                    iniciarSesion.setVisible(false);
-                    if(producto==null){
-                        //Ir al menu
-                        VHome home = new VHome();
-                        home.setLocationRelativeTo(null);
-                        home.setVisible(true);
-                        ControlVHome cHome = new ControlVHome(home, Login.usuario);                        
-                    }else{
-                        //Ir al producto
-                        VProducto vProducto = new VProducto();
-                        vProducto.setVisible(true);
-                        vProducto.setLocationRelativeTo(null);
-                        ControlVProducto cvProducto = new ControlVProducto(vProducto,Login.usuario, producto.getCategoria(), producto);                  
+            if(iniciarSesion.getUsuarioCampo().getText().length()>0 && iniciarSesion.getContrasenaCampo().getPassword().length>0){
+                System.out.println("aasdffg");
+                if(banderaCuenta==1){
+                    if (Login.validarCuenta(iniciarSesion.getUsuarioCampo().getText(), iniciarSesion.getContrasenaCampo().getPassword(), "Administradores")){
+                        System.out.println("Iniciado sesion");
+                        iniciarSesion.setVisible(false);
+                        VAdministrador vAdmin = new VAdministrador();
+                        vAdmin.setLocationRelativeTo(null);
+                        vAdmin.setVisible(true);
+                        ControlVAdministrador cAdmin = new ControlVAdministrador(vAdmin, Login.admin);                         
                     }
-                }
+                }else if(banderaCuenta==0){
+                    if (Login.validarCuenta(iniciarSesion.getUsuarioCampo().getText(), iniciarSesion.getContrasenaCampo().getPassword(), "Usuarios")){
+                        System.out.println("Iniciado sesion");
+                        iniciarSesion.setVisible(false);
+                        if(producto==null){
+                            //Ir al menu
+                            VHome home = new VHome();
+                            home.setLocationRelativeTo(null);
+                            home.setVisible(true);
+                            ControlVHome cHome = new ControlVHome(home, Login.usuario);                        
+                        }else{
+                            //Ir al producto
+                            VProducto vProducto = new VProducto();
+                            vProducto.setVisible(true);
+                            vProducto.setLocationRelativeTo(null);
+                            ControlVProducto cvProducto = new ControlVProducto(vProducto,Login.usuario, producto.getCategoria(), producto);                  
+                        }
+                    }
+                }                
+            }else{
+                System.out.println("aaaAS");
+                JOptionPane.showMessageDialog(null, "Campos incorrectos");                
             }
         }
         if(iniciarSesion.getBotonCancelar() == evento.getSource()){
