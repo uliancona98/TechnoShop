@@ -60,8 +60,8 @@ public class ControlVHome implements ActionListener{
         home.getBotonSesion().setVisible(false);
         home.getBotonAdministrador().setVisible(false);
         incializar();
-        user.getPedidos().clear();
         buscarPedidos();
+        busquedaPedidos.clear();
     }
     /**
      * Metodo que inicializa los eventos de las peticiones del usuario de la ventana Home
@@ -207,7 +207,6 @@ public class ControlVHome implements ActionListener{
         home.getComboBoxPedidos().removeAllItems();
         try{
             for(int i=0;i<usuario.getPedidos().size();i++){
-                System.out.println("jeeeeeeeee");
                 Pedido pedido = usuario.getPedidos().get(i);
                 home.getComboBoxPedidos().addItem("No. de pedido: "+pedido.getNoPedido()+
                 "   Fecha: "+pedido.getFecha());
@@ -223,13 +222,14 @@ public class ControlVHome implements ActionListener{
         try{
             int i= home.getComboBoxPedidos().getSelectedIndex();
             Pedido pedido = usuario.getPedidos().get(i);
-            String pedidoInfo="No. de pedido"+pedido.getNoPedido()+
+            String pedidoInfo="No. de pedido: "+pedido.getNoPedido()+
             "\nFecha: "+pedido.getFecha()+"   Total: "+pedido.getTotal()+"\n Productos:";
             String detallesPedido="";
             for(int j=0;j<pedido.getProductos().size();j++){
+                System.out.println(pedido.getProductos().size()+"---");
                 Producto producto = pedido.getProductos().get(j);
                 detallesPedido = detallesPedido + "\nProducto: "+producto.getNombre()
-                +"  Precio: $"+ (producto.getPrecioVenta()*producto.getNoArticulos());
+                +"  Precio: $"+ (producto.getPrecioVenta()*producto.getNoArticulos()+ "\tUnidades: "+ producto.getNoArticulos());
             }
             home.getTextPedido().setText(pedidoInfo+ detallesPedido);              
         }catch(Exception e){
@@ -237,19 +237,12 @@ public class ControlVHome implements ActionListener{
         }      
     }
     /**
-     * Metodo que te deja buscar los pedidos
+     * Metodo que te deja buscar los pedidos de un cliente guardados en la base de datos
      */
     public void buscarPedidos(){
-        busquedaPedidos = Conexion.buscarTablasRelacionadas("pedidos", "pedidos_detalle", "id", "id_pedido",4,usuario.getCorreo());
-        for(int i=0;i<busquedaPedidos.size();i++){
-            for(int j=0;j<busquedaPedidos.get(i).length;j++){
-                System.out.print(busquedaPedidos.get(i)[j]);
-            }
-            System.out.println(" ");
-        }        
+        busquedaPedidos = Conexion.buscarTablasRelacionadas("pedidos", "pedidos_detalle", "id", "id_pedido",4,usuario.getCorreo());        
         ArrayList<Pedido> pedidos = new ArrayList();
         for(int i=0;i<busquedaPedidos.size();i++){
-            
             if(usuario.getPedidos()==null){
                 agregarNuevoPedido(i);
             }else{
