@@ -125,7 +125,7 @@ public class ControlVAdministrador implements ActionListener {
         }
         if(administradorV.getBotonVolverAumentarProductos()== evento.getSource()){
             administradorV.getVAumentarProducto().setVisible(false);
-            administradorV.getVAnadirProducto2().setVisible(true);
+            administradorV.setVisible(true);
         }
         if(administradorV.getBotonAceptar() == evento.getSource()){
             //Se agrega el nuevo producto a la base
@@ -255,6 +255,9 @@ public class ControlVAdministrador implements ActionListener {
                     limpiarCampos();       
                     JOptionPane.showMessageDialog(null,"Producto insertado correctamente");                    
                 }
+                if(Conexion.elementoDuplicado){
+                    JOptionPane.showMessageDialog(null,"ID duplicado, ingrese un id diferente \npara el producto");         
+                }
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Datos erroneos");
@@ -275,7 +278,7 @@ public class ControlVAdministrador implements ActionListener {
             administradorV.getTextAumentar().setText(null);
         }catch(Exception e){
             administradorV.getTextAumentar().setText(null);
-            JOptionPane.showMessageDialog(null, "No has seleccionado un elemento de la tabla");
+            JOptionPane.showMessageDialog(null, "Error, datos invalidos");
         }        
     }
     /**
