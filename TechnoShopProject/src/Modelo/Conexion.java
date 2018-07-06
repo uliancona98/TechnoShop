@@ -28,6 +28,7 @@ public class Conexion {
     public static boolean elementoInsertado = false;
     public static boolean elementoModificado = false;
     public static boolean elementoBuscado = false;
+    public static boolean elementoDuplicado = false;
     private static ArrayList<String[]> busquedaRes = new ArrayList<String[]>();
     private static ArrayList<String[]> busquedaTablasRelacionadas = new ArrayList<String[]>();
     private static ArrayList<String[]> busquedaTablas = new ArrayList<String[]>();
@@ -40,6 +41,7 @@ public class Conexion {
     public static void insert(String tabla, Object[] valores){
         Connection con = null;
         try{
+            elementoDuplicado = false;
             elementoInsertado = false;
             con = getConection();
             String values = "";
@@ -71,7 +73,8 @@ public class Conexion {
         }catch(Exception e){
             String [] cadenaPartes = e.getMessage().split(" ");
             if(cadenaPartes[0].equals("Duplicate")){
-                JOptionPane.showMessageDialog(null, "ID Duplicado, no puedes añadir el mismo producto");
+                elementoDuplicado = true;
+                //JOptionPane.showMessageDialog(null, "ID Duplicado, no puedes añadir el mismo producto");
             }else{
                 JOptionPane.showMessageDialog(null, "Error al insertar articulo");
             }
@@ -86,7 +89,8 @@ public class Conexion {
      */
     public static void insert(String tabla, Object[] valores, String[]atributos){
         Connection con = null;
-        elementoInsertado = false;
+        elementoInsertado = true;
+        elementoDuplicado = false;
         try{
             con = getConection();
             String values = "";
@@ -118,7 +122,7 @@ public class Conexion {
             }
             int res = ps.executeUpdate();
             if(res>0){
-                elementoInsertado = false;
+                elementoInsertado = true;
                 //JOptionPane.showMessageDialog(null, "Elemento registrado");
             }else{
                 JOptionPane.showMessageDialog(null, "Error al registrar elemento");
@@ -127,9 +131,10 @@ public class Conexion {
         }catch(Exception e){
             String [] cadenaPartes = e.getMessage().split(" ");
             if(cadenaPartes[0].equals("Duplicate")){
-                JOptionPane.showMessageDialog(null, "ID Duplicado, no puedes añadir el mismo registro");
+                elementoDuplicado = true;
+                //JOptionPane.showMessageDialog(null, "ID Duplicado, no puedes añadir el mismo registro");
             }else{
-                JOptionPane.showMessageDialog(null, e.getMessage());
+                JOptionPane.showMessageDialog(null,"Error al registrar");
             }
         }        
     }    

@@ -94,17 +94,21 @@ public class ControlVRegistrese implements ActionListener{
                 valores[6] = "0";
                 //Insertar a la base de datos
                 Conexion.insert("Usuarios", valores);
-                registrese.setVisible(false);                
-                if(producto==null){
-                    VHome vHome = new VHome();
-                    vHome.setLocationRelativeTo(null);
-                    vHome.setVisible(true);
-                    ControlVHome Chome = new ControlVHome(vHome,usuario);                    
+                if(Conexion.elementoDuplicado){
+                    JOptionPane.showMessageDialog(null, "Ya existe una cuenta asociada a tu correo");
                 }else{
-                    VProducto vProducto = new VProducto();
-                    vProducto.setVisible(true);
-                    vProducto.setLocationRelativeTo(null);
-                    ControlVProducto cvProducto = new ControlVProducto(vProducto,usuario, producto.getCategoria(), producto);                          
+                    registrese.setVisible(false);                
+                    if(producto==null){
+                        VHome vHome = new VHome();
+                        vHome.setLocationRelativeTo(null);
+                        vHome.setVisible(true);
+                        ControlVHome Chome = new ControlVHome(vHome,usuario);                    
+                    }else{
+                        VProducto vProducto = new VProducto();
+                        vProducto.setVisible(true);
+                        vProducto.setLocationRelativeTo(null);
+                        ControlVProducto cvProducto = new ControlVProducto(vProducto,usuario, producto.getCategoria(), producto);                          
+                    }                    
                 }
             }else{
                 if(!bandera1){
